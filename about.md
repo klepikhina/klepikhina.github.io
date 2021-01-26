@@ -9,4 +9,4 @@ ry casually knitting.
 
 ### Contact me
 
-[kklepi@gmail.com](mailto:kklepi@gmail.com)
+[Email me!](mailto:kklepi@gmail.com)
