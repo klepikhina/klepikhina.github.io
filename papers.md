@@ -6,4 +6,4 @@ permalink: /papers/
 
 Testing paper page
 
-[Bayes Paper](https://docs.google.com/viewer?url=${https://raw.githubusercontent.com/klepikhina/klepikhina.github.io/blob/master/images/Bayesian___Project.pdf})
+[<img src="{{ site.baseurl }}/images/Bayesian___Project.pdf" alt="Bayes Paper https://github.com/klepikhina" style="width: 400px;"/>]({{ site.baseurl }}/images/Bayesian___Project.pdf)
