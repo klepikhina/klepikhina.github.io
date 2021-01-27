@@ -6,4 +6,4 @@ permalink: /papers/
 
 Testing paper page
 
-[<img src="{{ site.baseurl }}/images/Bayesian___Project.pdf" alt="Bayesian Project https://github.com/klepikhina" style="width: 400px;"/>]({{ site.baseurl }}/)
+![Bayes Paper]({{ site.baseurl }}/images/Bayesian___Project.pdf "Bayes Paper")
