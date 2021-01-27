@@ -9,5 +9,3 @@ Testing paper page
 <a href="{{ site.baseurl }}/images/Bayesian___Project.pdf" target="_blank">Bayesian Project Paper.</a>
 
 <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://klepikhina.github.io/images/Bayesian___Project.pdf" width="500" height="375">
-
-<embed src="https://klepikhina.github.io/images/Bayesian___Project.pdf" type="application/pdf" />
