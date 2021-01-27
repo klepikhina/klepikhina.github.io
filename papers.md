@@ -6,4 +6,4 @@ permalink: /papers/
 
 Testing paper page
 
-[Bayes Paper](http://klepikhina.github.io/klepikhina/images/Bayesian___Project.pdf)
+[Bayes Paper](https://docs.google.com/viewer?url=${https://github.com/klepikhina/klepikhina.github.io/blob/master/images/Bayesian___Project.pdf})
