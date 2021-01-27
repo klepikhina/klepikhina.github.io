@@ -4,33 +4,70 @@ title: Papers
 permalink: /papers/
 ---
 
-Testing paper page
+<a href="{{ site.baseurl }}/images/Effectiveness_Preventative_Meas_Spread_Malaria_Africa.pdf" target="_blank">The Effectiveness of Preventative Measure on the Spread of Malaria in sub-Saharan Africa.</a> (Jan 2020 - May 2020)
 
-<a href="{{ site.baseurl }}/images/Effectiveness_Preventative_Meas_Spread_Malaria_Africa.pdf" target="_blank">The Effectiveness of Preventative Measure on the Spread of Malaria in sub-Saharan Africa.</a>
+The main focus of this paper was to recreate the temporal analysis that was done in the paper by Sherrard-Smith et al. (2019). In particular, we explored the temporal aspects of mosquito bites indoors and in bed (within insecticide treated bed nets) and aimed to verify if the paper took into account that time is a frequent confounder that may cause spurious relationships. As a starting point, we investigated if the paper’s results violated any regression assumptions. In this investigation, we found some potential violations and conducted our own analysis to account for these.
+In addition to exploring Sherrard-Smith’s research, we looked into other malaria studies and factors that could cause outdoor biting to increase. Some of these involved looking into a specific country’s population, GDP, average humidity, etc. to see if these factors were also contributing to the proportion of bites measured. These new data points lead us to discover a new model that we believe may tell the story of the data more accurately. The data was collected from many different sources and was purely observational which prohibited us from deriving a causal effect. However, we were able to identify a relationship between the proportion of bites and some attributes of a country.
 
 <a href="{{ site.baseurl }}/images/Network_Influenza_Air_Travel.pdf" target="_blank">Network effects of air travel on influenza and pneumonia
-</a>
+</a> (Aug 2019 - Dec 2019)
 
-<a href="{{ site.baseurl }}/images/Param_Est_Data_Assim.pdf" target="_blank">Parameter Estimation Using Data Assimilation For Time-Varying Parameters in Epidemiology</a>
+Influenza and pneumonia are closely related diseases that are global in scale. Influenza (the flu) is a common cause of pneumonia. Most cases of influenza do not lead to pneumonia, however, when they do, they are severe, and often terminal. Here, we investigate the spread of influenza via air travel in the United States from 2009 – 2019. In particular, we build an agent-based network SIRS model that incorporates air travel at the state level to estimate the number of deaths due to influenza and pneumonia. Our model also accounts for seasonality in the probability of spreading influenza by incorporating a forcing sinusoidal function. Finally, using our model, we identify states that we believe play an important role in spreading influenza through air travel. We conclude that air travel does not explain a significant proportion of influenza spread.
+While the number of deaths (from simulations with air travel) is correlated with the true data, air travel itself is not a great predictor. After including seasonality, the estimates including air travel appear to estimate the data better than the estimate without air travel. Using our devised spreading centrality measure and the intuitive out-degree measure, we conclude that California, Illinois, Georgia and Texas are important states in spreading influenza via air travel.
 
-<a href="{{ site.baseurl }}/images/P-Val_Shortcomings_Bayes.pdf" target="_blank">The shortcomings of p-values and confidence intervals and how Bayesian alternatives save the day</a>
+<a href="{{ site.baseurl }}/images/Param_Est_Data_Assim.pdf" target="_blank">Parameter Estimation Using Data Assimilation For Time-Varying Parameters in Epidemiology</a> (Aug 2019 - Dec 2019)
 
-<a href="{{ site.baseurl }}/images/Strength_Weak_Subjective_Prob.pdf" target="_blank">The Strengths and Weaknesses of the Subjective Interpretation of Probability</a>
+The goal of this paper is to learn how data assimilation methodologies can be applied to parameter estimation problems in particular for an SIRS dynamic model. This paper primarily studied the methods suggested in Cazelles et al. (2018) and chose to focus on the MCMC/data assimilation portion. Cazelles implements the Extended Kalman Filter in
+order to estimate the likelihood of the SIRS model parameters and this paper aims to estimate parameters for the SIRS model using the MCMC to converge to the most likely parameters using the likelihood. The likelihood in this paper will be found using the ETKF (Ensemble Transform Kalman Filter). The purpose of this study is to learn about parameter estimation with Markov chain Monte Carlo and how data assimilation can be used to estimate a likelihood for the algorithm. This paper will implement a "toy" model by simulating an SIRS model with known parameters and try to estimate the true parameters using the aforementioned MCMC/ETKF. It will then implement the same algorithm on a selection of the CDC influenza dataset. A successful implementation would allow for accurate predictions of peaks in the flu season as well as provide reasonable estimates for how many people would be affected by an epidemic. This would inform public health policy and individual behavior.
 
-<a href="{{ site.baseurl }}/images/Study_Ethics_Data_Science_Stats.pdf" target="_blank">A study of ethical issues in statistics and data science</a>
+<a href="{{ site.baseurl }}/images/P-Val_Shortcomings_Bayes.pdf" target="_blank">The shortcomings of p-values and confidence intervals and how Bayesian alternatives save the day</a> (Aug 2019 - Dec 2019)
 
-<a href="{{ site.baseurl }}/images/Bayesian___Project.pdf" target="_blank">Bayesian Project Paper</a>
+The goal of this paper is to take a stance against the proposal that confidence intervals should be used instead of p-values and argue that the Bayesian counterparts should be used instead. Numerous issues pertaining to p-values have been raised that do not seem redeemable. Many discuss the shortcomings of p-values and suggest confidence intervals as alternatives but fail to elaborate on the issues with confidence intervals with respect to comparable statistics in Bayesian inference. This paper will start by defining p-values and confidence intervals and then describe why statistics has historically frequently used both. It will then counter by describing the issues with the two frequentist concepts. Finally, it will propose why the Bayesian alternatives should be preferred.
 
-<a href="{{ site.baseurl }}/images/Statistical_Modeling.pdf" target="_blank">Statistical Modeling Project Paper.</a>
+<a href="{{ site.baseurl }}/images/Strength_Weak_Subjective_Prob.pdf" target="_blank">The Strengths and Weaknesses of the Subjective Interpretation of Probability</a> (Aug 2019 - Dec 2019)
 
-<a href="{{ site.baseurl }}/images/Predicting_Air_Quality.pdf" target="_blank">Predicting Air Quality in Sacramento, California</a>
+A number of interpretations arose from the cyclical pattern of developing axioms to formalize a pre-formal understanding of probability. Philosophers of probability raise the
+question of what probabilities are and how can they be found; depending on the interpretation used, different answers emerge. A simple interpretation is the starting point for
+finding an answer to these questions. The interpretation should be precise, unambiguous, non circular, and well understood. For probability, additional criteria include admissibility, ascertainability and applicability (AAA) which will be defined later on. This paper will briefly mention the classical, logical, and frequency interpretations, then it will dive into the subjective interpretation of probability, and finally, it will argue the subjective interpretation’s strengths and defend its weaknesses with respect to the criteria (AAA) outlined above in order to claim why it is the best interpretation.
 
-<a href="{{ site.baseurl }}/images/MCM_Report_2019.pdf" target="_blank">Khaleesi, Modeler of Dragons</a>
+<a href="{{ site.baseurl }}/images/Study_Ethics_Data_Science_Stats.pdf" target="_blank">A study of ethical issues in statistics and data science</a> (Aug 2019 - Dec 2019)
 
-<a href="{{ site.baseurl }}/images/FFT_Fourier.pdf" target="_blank">FFT Fourier Project</a>
+Statistics and data are simultaneously powerful and dangerous tools. Data science can provide valuable inference for all areas of science, however, the misuse of data can have
+ethical consequences. This paper will go through two specific case studies of how handling data can raise ethical questions. The primary issues elaborated on in this paper will be the ethics behind data privacy and the ethics behind consent to data usage. In particular, this paper will discuss issues in data science using examples from the regulation of published science and medical research. For each area, intentions and consequences will be discussed in addition to ethical frameworks that attempt to find solutions to the quandaries.
 
-<a href="{{ site.baseurl }}/images/Infinite_Products_and_Mittag_Leffler_Expansion.pdf" target="_blank">Infinite Products and Mittag Leffler Expansion</a>
+<a href="{{ site.baseurl }}/images/Bayesian___Project.pdf" target="_blank">Bayesian Project Paper</a> (Jan 2019 - May 2019)
 
-<a href="{{ site.baseurl }}/images/Earth_Lab.pdf" target="_blank">Exploring the Relationship Between Permafrost Degradation and Remotely Sensed Snow Seasonality in the North Slope of Alaska</a>
+There are numerous ways to analyze a dataset. While true, there is almost always a method that works best. In this project, we were given very little information about a dataset except that we may be interested in looking into mixture models. Typically, given a certain number of features, the goal is to predict the target value, y. For this project, we were given three features, var1, var2, and var3 and our goal was to model y. In this paper I will perform exploratory data analysis (EDA), dive into modeling, and compare the models (normal mixture model, t-distribution mixture model) to determine why the best model is indeed best.
 
-<a href="{{ site.baseurl }}/images/PageRank_Lord_of_the_Rings.pdf" target="_blank">PageRank - Lord of the Rings</a>
+<a href="{{ site.baseurl }}/images/Statistical_Modeling.pdf" target="_blank">Statistical Modeling Project Paper.</a> (Jan 2019 - May 2019)
+
+To give some context to the problem we are exploring, I would like to begin by describing the datasets. The first file contains two non-consecutive years of average monthly temperatures (in Celsius) for 51 US cities; one slightly colder year and one slightly warmer. The data is structured as such: each row is one of the 51 US cities and each column is one month for those two years. The second file contains electricity usage (in hundreds of gigawatt hours, Gwh) for the cities (rows) during those two years in months (columns). The final file contains the average monthly temperatures (in Celsius) for Denver in a 3rd random year. Our goal is to predict the energy usage for that third year.
+
+<a href="{{ site.baseurl }}/images/Predicting_Air_Quality.pdf" target="_blank">Predicting Air Quality in Sacramento, California</a> (Jan 2019 - May 2019)
+
+Given the current state of the Earth, with climate change and human activities that are increasingly disruptive, air quality is more important now than ever. The World Health
+Organization estimates that 4.2 million people die each year from causes directly related to air pollution. Currently, there are a number of cities with large populations in developing countries that have declining air quality. In the near future, poor air quality will begin to effect developed countries as well. While air quality is a global issue, this paper plans to study the air quality in Sacramento, California. The overall goal of this project is to develop models (SVM, KNN, RF, GBR) capable of predicting air quality based off of various environmental and economic factors. Knowing which metrics influence air quality could help communities be aware of what causes unsafe pollution levels.
+
+<a href="{{ site.baseurl }}/images/MCM_Report_2019.pdf" target="_blank">Khaleesi, Modeler of Dragons</a> (Jan 2019 - Jan 2019) (MCM - The Mathematical Contest in Modeling Submission)
+
+In this paper, we set out to analyze dragon behavior, habits, diet and additional interactions with Daenerys Targaryen’s kingdom. After deriving a standard for dragon caloric
+and area needs, as well as general behavior of dragons, we develop models to explore how dragons affect the ecology and economy of Westeros. We find the interaction between sheep and dragon population by accounting for the growth rate of sheep herds in various climates, as well as the caloric need for various sizes of dragons. From that, we discover the
+average lifespan of a dragon and the sustainability of our dragon population. Beyond the ecological impact, we explore the economics that are involved with sustaining dragons. We calculate the cost of feeding the dragons and what can reduce the cost of owning a dragon. Additionally, we analyze the cost effectiveness of dragons in comparison to an army.
+Finally, we discuss some real world applications of this analysis. These include modeling the reintroduction animals into the wild and the cost effectiveness of weapons.
+
+<a href="{{ site.baseurl }}/images/FFT_Fourier.pdf" target="_blank">FFT Fourier Project</a> (Aug 2018 - Dec 2018)
+
+The Fast Fourier Transform (FFT) was created as an optimized way to calculate the Discrete Fourier Transform (DFT) of a finite sequence of numbers. For years the FFT was considered the most important algorithm in engineering and applied sciences. The FFT is especially effective and important in one and multidimensional systems theory and signal processing. In this paper we outline the history of the Fast Fourier Transform, its mathematical background, various applications of the FFT, comparable algorithms to the FFT,
+and its setbacks. The mathematics of the DFT and the FFT will be stated and explained, and then an experiment will be conducted to demonstrate an application in detail.
+
+<a href="{{ site.baseurl }}/images/Infinite_Products_and_Mittag_Leffler_Expansion.pdf" target="_blank">Infinite Products and Mittag Leffler Expansion</a> (Jan 2018 - May 2018)
+
+In complex analysis, various infinite series representations such as Taylor Series and Laurent Series are studied. In application, it is often beneficial to represent functions that are analytic in certain domains using infinite products. In this paper, we introduce the basics of infinite products and then focus on three primary theorems: Weierstrass M-test, Mittag-Leffler Expansion and Weierstrass Factorization theorem. These three theorems demonstrate some key properties of infinite products. This paper, then, elaborates on the history, significance and applications of infinite products and, in particular, Mittag-Leffler Expansion.
+
+<a href="{{ site.baseurl }}/images/Earth_Lab.pdf" target="_blank">Exploring the Relationship Between Permafrost Degradation and Remotely Sensed Snow Seasonality in the North Slope of Alaska</a> (Jan 2017 - Aug 2017)
+
+Permafrost, a significant part of the northern region, is a notable indicator of climate change. While the discontinuous permafrost zone (the area in which the subsurface layer is not entirely frozen) marches north, the continuous zone, becomes less dominant. As speculated by others, the variation in the duration of the snow free period is likely one of the causes of such change.
+
+<a href="{{ site.baseurl }}/images/PageRank_Lord_of_the_Rings.pdf" target="_blank">PageRank - Lord of the Rings</a> (Jan 2017 - May 2017)
+
+The topic investigated in this paper is the analysis of the relationships between characters in The Lord of the Rings by J.R.R. Tolkien using PageRank. We have adapted our idea from a project done by Andrew Beveridge and Jie Shan called the "Network of Thrones". PageRank was used by Google in order to determine which pages to show first. It ranks each page by how many "votes" it has (links directing to it). Using this, we can rank characters in a book by how many characters mention, or are in close proximity (x number of words) to, a certain character. The character that has the most relationships with other important characters will be ranked as the most important character in the book.
