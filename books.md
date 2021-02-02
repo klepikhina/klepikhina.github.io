@@ -4,12 +4,12 @@ title: Books
 permalink: /books/
 ---
 
-# 2021
----
-## Physical Books
+## 2021
+
+### Physical Books
 - "One Life", Megan Rapinoe
 - "Circe", Madeline Miller
 
-## Audio Books
+### Audio Books
 - "The Spies of Warsaw", Alan Furst
 - "A Conjuring of Light", V. E. Schwab
