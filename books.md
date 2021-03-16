@@ -16,3 +16,4 @@ permalink: /books/
 - <a href="https://www.amazon.com/Conjuring-Light-Novel-Shades-Magic/dp/0765387476" target="_blank">"A Conjuring of Light"</a>, V. E. Schwab
 - <a href="https://www.amazon.com/Dead-Djinn-Cairo-Tor-Com-Original-ebook/dp/B01DJ0NALI" target="_blank">"A Dead Djinn in Cairo"</a>, P. Djèlí Clark
 - <a href="https://www.amazon.com/Midnight-Library-Novel-Matt-Haig/dp/0525559477" target="_blank">"The Midnight Library"</a>, Matt Haig
+- <a href="https://www.amazon.com/Armies-Those-I-Love/dp/B08S75Z8CR" target="_blank">"The Armies of Those I Love"</a>, Ken Liu
