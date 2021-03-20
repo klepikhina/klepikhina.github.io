@@ -5,6 +5,13 @@ permalink: /books/
 ---
 
 ## 2021
+```mermaid
+pie
+    title Pie Chart
+    "Dogs" : 386
+    "Cats" : 85
+    "Rats" : 150 
+```
 
 ### Physical Books
 - <a href="https://www.amazon.com/One-Life-Megan-Rapinoe/dp/1984881167" target="_blank">"One Life"</a>, Megan Rapinoe
