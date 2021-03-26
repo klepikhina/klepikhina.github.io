@@ -6,4 +6,4 @@ permalink: /create/
 
 Sammy Image             |  Sammy
 ------------------------|-------------------------
-![]({{ site.baseurl }}/images/sammy_img.png)  |  ![]({{ site.baseurl }}/images/sammy.png)
+![]({{ site.baseurl }}/images/sammy_img.jpg =250x)  |  ![]({{ site.baseurl }}/images/sammy.png =250x)
