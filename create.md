@@ -9,6 +9,6 @@ permalink: /create/
     <td>Sammy</td>
   </tr>
   <tr>
-    <td><img src="{{ site.baseurl }}/images/sammy.png" width="1000"></td>
+    <td><img src="{{ site.baseurl }}/images/sammy.png"></td>
   </tr>
 </table>
