@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hi, I’m Ksenia Lepikhina. Russia born, Colorado raised. Trained in math and statistics, academically interested in health, social justice, climate science and journalism, extracurricularly excited about running, mountain biking, climbing, downhill skiing and nordic skiing, and inclined to enjoy reading, painting and very casual knitting.
+Hi, I’m Ksenia Lepikhina (she/her). Russia born, Colorado raised. Trained in math and statistics, academically interested in health, social justice, climate science and journalism, extracurricularly excited about running, mountain biking, climbing, downhill skiing and nordic skiing, and inclined to enjoy reading, painting and very casual knitting.
 
 I acknowledge that my <a href="https://www.youtube.com/watch?v=CjxFvm3E73M&feature=youtu.be" target="_blank">identity</a> impacts every aspect of my life from what I write, to what I photograph, to what I read, to what and how I teach, to my service, to my gaze and my status in America.
 
