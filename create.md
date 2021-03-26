@@ -6,7 +6,7 @@ permalink: /create/
 
 <table>
   <tr>
-    <td>Sammy</td>
+    <p align="center"><td>Sammy</td></p>
   </tr>
   <tr>
     <td><img src="{{ site.baseurl }}/images/sammy.png"></td>
