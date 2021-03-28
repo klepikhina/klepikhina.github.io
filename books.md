@@ -19,5 +19,4 @@ permalink: /books/
 - <a href="https://www.amazon.com/Midnight-Library-Novel-Matt-Haig/dp/0525559477" target="_blank">"The Midnight Library"</a>, Matt Haig
 - <a href="https://www.amazon.com/Armies-Those-I-Love/dp/B08S75Z8CR" target="_blank">"The Armies of Those I Love"</a>, Ken Liu
 - <a href="https://www.amazon.com/Braving-Wilderness-Quest-Belonging-Courage/dp/0812995848" target="_blank">"Braving the Wilderness"</a>, Brené Brown
-- <a href="https://www.amazon.com/Fire-Mountain-Story-South-Canyon/dp/0061829617" target="_blank">"Fire on the Mountain: The True Story of the South Canyon Fire"</a>, 	
-John N Maclean
+- <a href="https://www.amazon.com/Fire-Mountain-Story-South-Canyon/dp/0061829617" target="_blank">"Fire on the Mountain"</a>, John N Maclean
