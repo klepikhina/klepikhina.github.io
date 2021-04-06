@@ -11,6 +11,7 @@ permalink: /books/
 - <a href="https://www.amazon.com/One-Life-Megan-Rapinoe/dp/1984881167" target="_blank">"One Life"</a>, Megan Rapinoe
 - <a href="https://www.amazon.com/Circe-Madeline-Miller/dp/0316556327" target="_blank">"Circe"</a>, Madeline Miller
 - <a href="https://www.amazon.com/Homegoing-Yaa-Gyasi/dp/1101971061" target="_blank">"Homegoing"</a>, Yaa Gyasi
+- <a href="https://www.amazon.com/House-Cerulean-Sea-TJ-Klune/dp/1250217288" target="_blank">"The House in the Cerulean Sea"</a>, TJ Klune
 
 ### Audio Books
 - <a href="https://www.amazon.com/Spies-Warsaw-Novel-Alan-Furst/dp/0812977378" target="_blank">"The Spies of Warsaw"</a>, Alan Furst
@@ -20,3 +21,4 @@ permalink: /books/
 - <a href="https://www.amazon.com/Armies-Those-I-Love/dp/B08S75Z8CR" target="_blank">"The Armies of Those I Love"</a>, Ken Liu
 - <a href="https://www.amazon.com/Braving-Wilderness-Quest-Belonging-Courage/dp/0812995848" target="_blank">"Braving the Wilderness"</a>, Brené Brown
 - <a href="https://www.amazon.com/Fire-Mountain-Story-South-Canyon/dp/0061829617" target="_blank">"Fire on the Mountain"</a>, John N Maclean
+- <a href="https://www.amazon.com/Akata-Witch-Nnedi-Okorafor/dp/0142420913" target="_blank">"Akata Witch"</a>, Nnedi Okorafor
