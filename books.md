@@ -22,3 +22,4 @@ permalink: /books/
 - <a href="https://www.amazon.com/Braving-Wilderness-Quest-Belonging-Courage/dp/0812995848" target="_blank">"Braving the Wilderness"</a>, Brené Brown
 - <a href="https://www.amazon.com/Fire-Mountain-Story-South-Canyon/dp/0061829617" target="_blank">"Fire on the Mountain"</a>, John N Maclean
 - <a href="https://www.amazon.com/Akata-Witch-Nnedi-Okorafor/dp/0142420913" target="_blank">"Akata Witch"</a>, Nnedi Okorafor
+- <a href="https://www.amazon.com/Color-Law-Forgotten-Government-Segregated/dp/1631494538" target="_blank">"The Color of Law"</a>, Richard Rothstein
