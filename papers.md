@@ -4,7 +4,12 @@ title: Papers
 permalink: /papers/
 ---
 
-<a href="{{ site.baseurl }}/images/lepikhina_ksenia_ce.pdf" target="_blank">Estimating the County Health Rankings Using Bayesian Hierarchical Modeling</a> (Spring 2021) (Ksenia Lepikhina, Debashis Ghosh)
+<a href="{{ site.baseurl }}/images/lepikhina_ksenia_ce.pdf" target="_blank">Estimating the County Health Rankings Using Bayesian Hierarchical Modeling</a> (Aug 2020 - May 2021) (Ksenia Lepikhina, Debashis Ghosh)
+
+Public health officials can greatly benefit their communities by taking into account the results from the County Health Rankings. The County Health Rankings rank counties within each state based on a number of health outcomes and health factors. Though these rankings are valuable, they remain limited by their uncertainty quantification. This paper aims to use Bayesian hierarchical models to rank each county and measure differences between the County Health Rankings and the estimated ranks. Estimated rankings are produced for each of the health outcomes using two models. One of the model uses state and county level random effects. The other model uses state and county level random effects and includes demographic fixed effects (race, ethnicity, sex) and urbanization classification fixed effects. A successful implementation can provide a framework for estimating uncertainty in the rankings.
+
+<a href="{{ site.baseurl }}/images/big_data.pdf" target="_blank">Using Twitter Data to Analyze COVID-19
+Cases and Attitudes in Real Time</a> (Spring 2021) (Ksenia Lepikhina, Lucas Laughlin, Julie Matthias, Angela Folz)
 
 Public health officials can greatly benefit their communities by taking into account the results from the County Health Rankings. The County Health Rankings rank counties within each state based on a number of health outcomes and health factors. Though these rankings are valuable, they remain limited by their uncertainty quantification. This paper aims to use Bayesian hierarchical models to rank each county and measure differences between the County Health Rankings and the estimated ranks. Estimated rankings are produced for each of the health outcomes using two models. One of the model uses state and county level random effects. The other model uses state and county level random effects and includes demographic fixed effects (race, ethnicity, sex) and urbanization classification fixed effects. A successful implementation can provide a framework for estimating uncertainty in the rankings.
 
