@@ -12,6 +12,7 @@ permalink: /books/
 - <a href="https://www.amazon.com/Circe-Madeline-Miller/dp/0316556327" target="_blank">"Circe"</a>, Madeline Miller
 - <a href="https://www.amazon.com/Homegoing-Yaa-Gyasi/dp/1101971061" target="_blank">"Homegoing"</a>, Yaa Gyasi
 - <a href="https://www.amazon.com/House-Cerulean-Sea-TJ-Klune/dp/1250217288" target="_blank">"The House in the Cerulean Sea"</a>, TJ Klune
+- <a href="https://www.amazon.com/Whitewalling-Art-Race-Protest-Acts/dp/1943263140" target="_blank">"Whitewalling: Art, Race & Protest in 3 Acts"</a>, Aruna D'Souza
 
 ### Audio Books
 - <a href="https://www.amazon.com/Spies-Warsaw-Novel-Alan-Furst/dp/0812977378" target="_blank">"The Spies of Warsaw"</a>, Alan Furst
