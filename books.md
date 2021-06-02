@@ -13,7 +13,7 @@ permalink: /books/
 - <a href="https://www.amazon.com/Homegoing-Yaa-Gyasi/dp/1101971061" target="_blank">"Homegoing"</a>, Yaa Gyasi
 - <a href="https://www.amazon.com/House-Cerulean-Sea-TJ-Klune/dp/1250217288" target="_blank">"The House in the Cerulean Sea"</a>, TJ Klune
 - <a href="https://www.amazon.com/Whitewalling-Art-Race-Protest-Acts/dp/1943263140" target="_blank">"Whitewalling: Art, Race & Protest in 3 Acts"</a>, Aruna D'Souza
-- <a href="https://www.amazon.com/Women-Have-Better-Under-Socialism/dp/1645036367" target="_blank">"Why Women Have Better Sex Under Socialism: And Other Arguments for Economic Independence"</a>, Kristen R. Ghodsee
+- <a href="https://www.amazon.com/Women-Have-Better-Under-Socialism/dp/1645036367" target="_blank">"Why Women Have Better Sex Under Socialism"</a>, Kristen R. Ghodsee
 
 ### Audio Books
 - <a href="https://www.amazon.com/Spies-Warsaw-Novel-Alan-Furst/dp/0812977378" target="_blank">"The Spies of Warsaw"</a>, Alan Furst
