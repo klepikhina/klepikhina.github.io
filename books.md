@@ -14,6 +14,7 @@ permalink: /books/
 - <a href="https://www.amazon.com/House-Cerulean-Sea-TJ-Klune/dp/1250217288" target="_blank">"The House in the Cerulean Sea"</a>, TJ Klune
 - <a href="https://www.amazon.com/Whitewalling-Art-Race-Protest-Acts/dp/1943263140" target="_blank">"Whitewalling: Art, Race & Protest in 3 Acts"</a>, Aruna D'Souza
 - <a href="https://www.amazon.com/Women-Have-Better-Under-Socialism/dp/1645036367" target="_blank">"Why Women Have Better Sex Under Socialism"</a>, Kristen R. Ghodsee
+- <a href="https://www.amazon.com/Invisible-Life-Addie-LaRue/dp/0765387565" target="_blank">"The Invisible Life of Addie LaRue"</a>, V. E. Schwab
 
 ### Audio Books
 - <a href="https://www.amazon.com/Spies-Warsaw-Novel-Alan-Furst/dp/0812977378" target="_blank">"The Spies of Warsaw"</a>, Alan Furst
@@ -25,3 +26,4 @@ permalink: /books/
 - <a href="https://www.amazon.com/Fire-Mountain-Story-South-Canyon/dp/0061829617" target="_blank">"Fire on the Mountain"</a>, John N Maclean
 - <a href="https://www.amazon.com/Akata-Witch-Nnedi-Okorafor/dp/0142420913" target="_blank">"Akata Witch"</a>, Nnedi Okorafor
 - <a href="https://www.amazon.com/Color-Law-Forgotten-Government-Segregated/dp/1631494538" target="_blank">"The Color of Law"</a>, Richard Rothstein
+- <a href="https://www.amazon.com/Project-Hail-Mary-Novel-Random/dp/0593395565" target="_blank">"Project Hail Mary"</a>, Andy Weir
