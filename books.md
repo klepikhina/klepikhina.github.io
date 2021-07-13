@@ -16,6 +16,7 @@ permalink: /books/
 - <a href="https://www.amazon.com/Women-Have-Better-Under-Socialism/dp/1645036367" target="_blank">"Why Women Have Better Sex Under Socialism"</a>, Kristen R. Ghodsee
 - <a href="https://www.amazon.com/Invisible-Life-Addie-LaRue/dp/0765387565" target="_blank">"The Invisible Life of Addie LaRue"</a>, V. E. Schwab
 - <a href="https://www.amazon.com/Crying-Mart-Memoir-Michelle-Zauner/dp/0525657746" target="_blank">"Crying in H Mart"</a>, Michelle Zauner
+- <a href="https://www.amazon.com/Partners-Crime-Tuppence-Agatha-Christie/dp/0062074369" target="_blank">"Partners in Crime"</a>, Agatha Christie
 
 ### Audio Books
 - <a href="https://www.amazon.com/Spies-Warsaw-Novel-Alan-Furst/dp/0812977378" target="_blank">"The Spies of Warsaw"</a>, Alan Furst
