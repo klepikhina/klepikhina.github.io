@@ -4,6 +4,10 @@ title: Papers
 permalink: /papers/
 ---
 
+<a href="{{ site.baseurl }}/images/COVID_White_Paper_GLOBE_FINAL.pdf" target="_blank">A Descriptive Analysis of GLOBE Data Collection Prior to and During the COVID-19 Pandemic.</a> (Aug 2020 - May 2021) (Ksenia Lepikhina, Denise Yost)
+
+This paper provides a descriptive analysis of GLOBE data over time with a focus on the potential impacts of COVID-19. The goal of this paper was to provide broad insight into GLOBE data collection trends, the potential impact of COVID-19 restrictions on data collection worldwide and on the continuation of GLOBE protocol training, in-person and online.
+
 <a href="{{ site.baseurl }}/images/lepikhina_ksenia_ce.pdf" target="_blank">Estimating the County Health Rankings Using Bayesian Hierarchical Modeling</a> (Aug 2020 - May 2021) (Ksenia Lepikhina, Debashis Ghosh)
 
 Public health officials can greatly benefit their communities by taking into account the results from the County Health Rankings. The County Health Rankings rank counties within each state based on a number of health outcomes and health factors. Though these rankings are valuable, they remain limited by their uncertainty quantification. This paper aims to use Bayesian hierarchical models to rank each county and measure differences between the County Health Rankings and the estimated ranks. Estimated rankings are produced for each of the health outcomes using two models. One of the model uses state and county level random effects. The other model uses state and county level random effects and includes demographic fixed effects (race, ethnicity, sex) and urbanization classification fixed effects. A successful implementation can provide a framework for estimating uncertainty in the rankings.
