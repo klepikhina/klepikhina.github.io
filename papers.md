@@ -4,7 +4,7 @@ title: Papers
 permalink: /papers/
 ---
 
-<a href="{{ site.baseurl }}/images/COVID_White_Paper_GLOBE_FINAL.pdf" target="_blank">A Descriptive Analysis of GLOBE Data Collection Prior to and During the COVID-19 Pandemic.</a> (Aug 2020 - May 2021) (Ksenia Lepikhina, Denise Yost)
+<a href="{{ site.baseurl }}/images/COVID_White_Paper_GLOBE_FINAL.pdf" target="_blank">A Descriptive Analysis of GLOBE Data Collection Prior to and During the COVID-19 Pandemic.</a> (Aug 2020 - July 2021) (Ksenia Lepikhina, Denise Yost)
 
 This paper provides a descriptive analysis of GLOBE data over time with a focus on the potential impacts of COVID-19. The goal of this paper was to provide broad insight into GLOBE data collection trends, the potential impact of COVID-19 restrictions on data collection worldwide and on the continuation of GLOBE protocol training, in-person and online.
 
