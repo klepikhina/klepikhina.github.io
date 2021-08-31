@@ -11,4 +11,4 @@ permalink: /create/
 <p align="center"><img src="{{ site.baseurl }}/images/man_and_dog.JPG"></p>
 
 <p align="center"><td>Leo</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/leo.png"></p>
+<p align="center"><img src="{{ site.baseurl }}/images/Leo.png"></p>
