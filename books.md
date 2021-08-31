@@ -29,3 +29,4 @@ permalink: /books/
 - <a href="https://www.amazon.com/Akata-Witch-Nnedi-Okorafor/dp/0142420913" target="_blank">"Akata Witch"</a>, Nnedi Okorafor
 - <a href="https://www.amazon.com/Color-Law-Forgotten-Government-Segregated/dp/1631494538" target="_blank">"The Color of Law"</a>, Richard Rothstein
 - <a href="https://www.amazon.com/Project-Hail-Mary-Novel-Random/dp/0593395565" target="_blank">"Project Hail Mary"</a>, Andy Weir
+- <a href="https://www.amazon.com/Neuroscience-of-Everyday-Life-audiobook/dp/B07PLKYG53" target="_blank">"Neuroscience of Everyday Life"</a>, The Great Courses - Professor Sam Wang
