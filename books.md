@@ -19,6 +19,7 @@ permalink: /books/
 - <a href="https://www.amazon.com/Crying-Mart-Memoir-Michelle-Zauner/dp/0525657746" target="_blank">"Crying in H Mart"</a>, Michelle Zauner
 - <a href="https://www.amazon.com/Eleanor-Oliphant-Completely-Fine-Novel/dp/0735220697" target="_blank">"Eleanor Oliphant is Completely Fine"</a>, Gail Honeyman
 - <a href="https://www.amazon.com/Mothers-Novel-Brit-Bennett/dp/039918452X" target="_blank">"The Mothers"</a>, Brit Bennett
+- <a href="https://www.amazon.com/John-Vaillant-Golden-Madness-Paperback/dp/B01FOD91R0" target="_blank">"The Golden Spruce"</a>, John Vaillant
 
 ### Audio Books
 - <a href="https://www.amazon.com/Spies-Warsaw-Novel-Alan-Furst/dp/0812977378" target="_blank">"The Spies of Warsaw"</a>, Alan Furst
