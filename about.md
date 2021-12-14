@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hi, I’m Ksenia Lepikhina (she/her). Russia born, Colorado raised. Trained in math and statistics, academically interested in population epidemiology, public health, social justice, climate science and journalism, extracurricularly excited about running, mountain biking, climbing, downhill skiing and nordic skiing, and inclined to enjoy reading, painting and photography.
+Hi, I’m Ksenia Lepikhina (she/her). Born in Russia, raised in Colorado, located in British Columbia. Trained in math and statistics, academically interested in population epidemiology, public health, social justice, climate science and journalism, extracurricularly excited about running, mountain biking, climbing, downhill skiing and nordic skiing, and inclined to enjoy reading, painting and photography.
 
 My career background is quite diverse. A brief work resume:
 - patched bike frames through _carbon repair_;
