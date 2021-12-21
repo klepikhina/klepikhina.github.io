@@ -4,6 +4,12 @@ title: Books
 permalink: /books/
 ---
 
+## 2022
+
+
+### Physical Books
+- <a href="https://www.amazon.com/Her-Body-Other-Parties-Stories/dp/155597788X" target="_blank">"Her Body and Other Parties"</a>, Carmen Maria Machado
+
 ## 2021
 
 
