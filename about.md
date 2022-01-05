@@ -14,7 +14,7 @@ My career background is quite diverse. A brief work resume:
 - studied _elliptic curve cryptography_;
 - researched clustering of _malicious IPs_;
 - assisted _teaching_ two levels of undergraduate/ graduate statistical methodology;
-- independentally led an intro to _data science webinar_ for a grade school audience;
+- independently led an intro to _data science webinar_ for a grade school audience;
 - used _NLP_ to automate email responses to reduce customer support team load;
 - performed _time series analysis_ to forecast customer support ticket count;
 - primary _authored_ a paper discussing initial impacts of COVID-19 on the citizen science and education sectors; 
