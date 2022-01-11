@@ -9,6 +9,7 @@ permalink: /books/
 
 ### Physical Books
 - <a href="https://www.amazon.com/Her-Body-Other-Parties-Stories/dp/155597788X" target="_blank">"Her Body and Other Parties"</a>, Carmen Maria Machado
+- <a href="https://www.amazon.com/Song-Achilles-Novel-Madeline-Miller/dp/0062060627" target="_blank">"The Song of Achilles"</a>, Madeline Miller
 
 ## 2021
 
