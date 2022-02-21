@@ -10,6 +10,10 @@ permalink: /books/
 ### Physical Books
 - <a href="https://www.amazon.com/Her-Body-Other-Parties-Stories/dp/155597788X" target="_blank">"Her Body and Other Parties"</a>, Carmen Maria Machado
 - <a href="https://www.amazon.com/Song-Achilles-Novel-Madeline-Miller/dp/0062060627" target="_blank">"The Song of Achilles"</a>, Madeline Miller
+- <a href="https://www.amazon.com/Mans-4th-Best-Hospital-audiobook/dp/B07ZS414F2" target="_blank">"Man's 4th Best Hospital"</a>, Samuel Shem
+
+### Audio Books
+- <a href="https://www.amazon.com/This-Your-Mind-Plants/dp/B08RF1K2LD" target="_blank">"This Is Your Mind on Plants"</a>, Michael Pollan
 
 ## 2021
 
