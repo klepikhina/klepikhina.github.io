@@ -5,7 +5,7 @@ permalink: /create/
 ---
 
 <p align="center"><td>Rossland</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/Rossland.PNG" style="height:70%;"></p>
+<p align="center"><img src="{{ site.baseurl }}/images/Rossland.PNG" width="400"></p>
 
 <p align="center"><td>Leo</td></p>
 <p align="center"><img src="{{ site.baseurl }}/images/leo.png"></p>
