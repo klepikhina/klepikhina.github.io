@@ -25,14 +25,21 @@ Happy International Womens Day
   <img src="{{ site.baseurl }}/images/grad_friends.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/haley.jpg" width="350">&nbsp;
 </p>
-<a href="https://www.youtube.com/watch?v=MzYYUGnmqLA" target="_blank">One Day We Won't Need This Day</a>
+<a href="https://www.youtube.com/watch?v=MzYYUGnmqLA" target="_blank">**One Day We Won't Need This Day**</a>
+
 
 <p align="center">
   One day, we won't need this day.
+  
   We won't need a day to celebrate how far we've come.
+  
   We won't need a day to prove we're just as fast or strong or skilled.
+  
   We won't need a day to relive the comebacks, the firsts, or the titles we've won.
+  
   We won't need a day to rally behind the ones fighting to change the rules.
+  
   One day, we won't need this day at all.
+  
   Because one day, this day will be our every day.
 </p>
