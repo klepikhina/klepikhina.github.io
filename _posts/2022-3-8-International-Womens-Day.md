@@ -9,11 +9,11 @@ Happy International Womens Day
   <img src="{{ site.baseurl }}/images/mom.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/lauren.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/polina.jpg" width="700">&nbsp;
-  <img src="{{ site.baseurl }}/images/sonia.jpg" width="700">&nbsp;
+  <img src="{{ site.baseurl }}/images/sonia.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/tanya.JPG" width="700">&nbsp;
   <img src="{{ site.baseurl }}/images/grandma.jpg" width="350">&nbsp;
-  <img src="{{ site.baseurl }}/images/erin.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/emilylauren.jpg" width="350">&nbsp;
+  <img src="{{ site.baseurl }}/images/erin.jpg" width="700">&nbsp;
   <img src="{{ site.baseurl }}/images/kelsea.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/hannah.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/maya.jpg" width="350">&nbsp;
