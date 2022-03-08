@@ -8,7 +8,7 @@ Happy International Womens Day
 <p align="center">
   <img src="{{ site.baseurl }}/images/mom.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/lauren.jpg" width="350">&nbsp;
-  <img src="{{ site.baseurl }}/images/polina.jpg" width="700">&nbsp;
+  <img src="{{ site.baseurl }}/images/polina.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/sonia.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/images/tanya.JPG" width="700">&nbsp;
   <img src="{{ site.baseurl }}/images/grandma.jpg" width="350">&nbsp;
