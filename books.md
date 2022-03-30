@@ -9,8 +9,12 @@ permalink: /books/
 
 ### Physical Books
 - <a href="https://www.amazon.com/Her-Body-Other-Parties-Stories/dp/155597788X" target="_blank">"Her Body and Other Parties"</a>, Carmen Maria Machado
+
+  "Will I ever be done, transformed in the past tense, or will I always be transforming, better and better until I die?"
 - <a href="https://www.amazon.com/Song-Achilles-Novel-Madeline-Miller/dp/0062060627" target="_blank">"The Song of Achilles"</a>, Madeline Miller
 - <a href="https://www.amazon.com/Mans-4th-Best-Hospital-audiobook/dp/B07ZS414F2" target="_blank">"Man's 4th Best Hospital"</a>, Samuel Shem
+  
+  "Y'gotta be with. Y'gotta turn toward, in this world that as a rule turns away."
 
 ### Audio Books
 - <a href="https://www.amazon.com/This-Your-Mind-Plants/dp/B08RF1K2LD" target="_blank">"This Is Your Mind on Plants"</a>, Michael Pollan
@@ -37,12 +41,18 @@ permalink: /books/
 - <a href="https://www.amazon.com/Spies-Warsaw-Novel-Alan-Furst/dp/0812977378" target="_blank">"The Spies of Warsaw"</a>, Alan Furst
 - <a href="https://www.amazon.com/Conjuring-Light-Novel-Shades-Magic/dp/0765387476" target="_blank">"A Conjuring of Light"</a>, V. E. Schwab
 - <a href="https://www.amazon.com/Dead-Djinn-Cairo-Tor-Com-Original-ebook/dp/B01DJ0NALI" target="_blank">"A Dead Djinn in Cairo"</a>, P. Djèlí Clark
+
+  "And her father always said if people were going to stare, you should give them a show."
 - <a href="https://www.amazon.com/Midnight-Library-Novel-Matt-Haig/dp/0525559477" target="_blank">"The Midnight Library"</a>, Matt Haig
 - <a href="https://www.amazon.com/Armies-Those-I-Love/dp/B08S75Z8CR" target="_blank">"The Armies of Those I Love"</a>, Ken Liu
 - <a href="https://www.amazon.com/Braving-Wilderness-Quest-Belonging-Courage/dp/0812995848" target="_blank">"Braving the Wilderness"</a>, Brené Brown
+  
+  "If you can see your path laid out in front of you step by step you know it's not your path. Your own path you make up with every step you take. That's why it's your path."
 - <a href="https://www.amazon.com/Fire-Mountain-Story-South-Canyon/dp/0061829617" target="_blank">"Fire on the Mountain"</a>, John N Maclean
 - <a href="https://www.amazon.com/Akata-Witch-Nnedi-Okorafor/dp/0142420913" target="_blank">"Akata Witch"</a>, Nnedi Okorafor
 - <a href="https://www.amazon.com/Color-Law-Forgotten-Government-Segregated/dp/1631494538" target="_blank">"The Color of Law"</a>, Richard Rothstein
 - <a href="https://www.amazon.com/Project-Hail-Mary-Novel-Random/dp/0593395565" target="_blank">"Project Hail Mary"</a>, Andy Weir
 - <a href="https://www.amazon.com/Neuroscience-of-Everyday-Life-audiobook/dp/B07PLKYG53" target="_blank">"Neuroscience of Everyday Life"</a>, The Great Courses - Professor Sam Wang
 - <a href="https://www.amazon.com/MEM-Bethany-C-Morrow/dp/1944700552" target="_blank">"MEM"</a>, Bethany C. Morrow
+  
+  "I'm more than a memory, I'm an epiphany."
