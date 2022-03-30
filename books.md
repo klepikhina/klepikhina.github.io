@@ -14,6 +14,7 @@ permalink: /books/
 
 ### Audio Books
 - <a href="https://www.amazon.com/This-Your-Mind-Plants/dp/B08RF1K2LD" target="_blank">"This Is Your Mind on Plants"</a>, Michael Pollan
+- <a href="https://www.amazon.com/Noise-Human-Judgment-Daniel-Kahneman/dp/0316451401" target="_blank">"Noise: A Flaw in Human Judgment"</a>, Daniel Kahneman
 
 ## 2021
 
