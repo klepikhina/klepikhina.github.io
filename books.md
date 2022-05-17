@@ -12,9 +12,10 @@ permalink: /books/
 
   "Will I ever be done, transformed in the past tense, or will I always be transforming, better and better until I die?"
 - <a href="https://www.amazon.com/Song-Achilles-Novel-Madeline-Miller/dp/0062060627" target="_blank">"The Song of Achilles"</a>, Madeline Miller
-- <a href="https://www.amazon.com/Mans-4th-Best-Hospital-audiobook/dp/B07ZS414F2" target="_blank">"Man's 4th Best Hospital"</a>, Samuel Shem
+- <a href="https://www.amazon.com/Mans-4th-Best-Hospital-audiobook/dp/B07ZS414F2" target="_blank">"Man's 4th Best Hospital"</a>, Samuel Shem ⏸️
   
   "Y'gotta be with. Y'gotta turn toward, in this world that as a rule turns away."
+ - <a href="https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/052551032X" target="_blank">"Entangled Life"</a>, Merlin Sheldrake
 
 ### Audio Books
 - <a href="https://www.amazon.com/This-Your-Mind-Plants/dp/B08RF1K2LD" target="_blank">"This Is Your Mind on Plants"</a>, Michael Pollan
