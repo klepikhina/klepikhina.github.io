@@ -17,6 +17,8 @@ permalink: /books/
   "Y'gotta be with. Y'gotta turn toward, in this world that as a rule turns away."
  - <a href="https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/052551032X" target="_blank">"Entangled Life"</a>, Merlin Sheldrake
  - <a href="https://www.amazon.com/Happiness-Equation-Nothing-Anything-Everything/dp/0425277984" target="_blank">"The Happiness Equation"</a>, Neil Pasricha
+    
+   "My candle burns at both ends; It will not last the night; But ah, my foes, and oh, my friends-- It gives a lovely light!"
 
 ### Audio Books
 - <a href="https://www.amazon.com/This-Your-Mind-Plants/dp/B08RF1K2LD" target="_blank">"This Is Your Mind on Plants"</a>, Michael Pollan
