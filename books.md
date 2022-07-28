@@ -16,10 +16,12 @@ permalink: /books/
   
   "Y'gotta be with. Y'gotta turn toward, in this world that as a rule turns away."
  - <a href="https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/052551032X" target="_blank">"Entangled Life"</a>, Merlin Sheldrake
+ - <a href="https://www.amazon.com/Happiness-Equation-Nothing-Anything-Everything/dp/0425277984" target="_blank">"The Happiness Equation"</a>, Neil Pasricha
 
 ### Audio Books
 - <a href="https://www.amazon.com/This-Your-Mind-Plants/dp/B08RF1K2LD" target="_blank">"This Is Your Mind on Plants"</a>, Michael Pollan
 - <a href="https://www.amazon.com/Noise-Human-Judgment-Daniel-Kahneman/dp/0316451401" target="_blank">"Noise: A Flaw in Human Judgment"</a>, Daniel Kahneman
+- <a href="https://www.amazon.com/Emperor-Mollusk-Versus-Sinister-Brain/dp/B007H3JHGG" target="_blank">"Emperor Mollusk Versus the Sinister Brain"</a>, A. Lee Martinez
 
 ## 2021
 
