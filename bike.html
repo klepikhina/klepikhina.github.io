@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<div class="bikes">
+  {% for bike in site.bikes %}
+    <article class="bike">
+
+      <h1><a href="{{ site.baseurl }}{{ bike.url }}">{{ bike.title }}</a></h1>
+
+      <div class="entry">
+        {{ bike.excerpt }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ bike.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</div>
