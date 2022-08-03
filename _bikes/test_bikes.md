@@ -1,6 +1,6 @@
 ---
 layout: bike
-title: Welcome
+title: Test bikes
 ---
 
 shweeeeeeeeep
