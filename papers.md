@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Papers
-permalink: /papers/
+permalink: /archive/papers/
 ---
 
 <a href="{{ site.baseurl }}/images/COVID_White_Paper_GLOBE_FINAL.pdf" target="_blank">A Descriptive Analysis of GLOBE Data Collection Prior to and During the COVID-19 Pandemic.</a> (Aug 2020 - July 2021) (Ksenia Lepikhina, Denise Yost)
