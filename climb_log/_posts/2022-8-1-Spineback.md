@@ -20,18 +20,15 @@ About 200m down the Goldilocks trail, we saw a small climbers trail to the left 
 You'll see that you have arrived at the start of the climb when you see bolts + a beautiful runnel running down pitch 2.
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Aug22/FernieSpineback/SpinebackStartOfClimb.jpg" width="500">&nbsp;  
-  
-  Scenic photo
+  <em>Scenic photo</em>
 </p>
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Aug22/FernieSpineback/SpinebackRappel.jpg" width="500">&nbsp;  
-  
-  Base of climb
+  <em>Base of climb</em>
 </p>
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Aug22/FernieSpineback/SpinebackTopOfPitch2.jpg" width="500">&nbsp;  
-  
-  Looking down from the top of Pitch 2 down runnel
+  <em>Looking down from the top of Pitch 2 down runnel</em>
 </p>
 The pitches are broken down as follows:
 - Pitch 1: 5.7, follow very well bolted line up to two ring anchors. Note rapp rings to the right.
@@ -41,8 +38,7 @@ The pitches are broken down as follows:
 
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Aug22/FernieSpineback/SpinebackSummit.jpg" width="500">&nbsp;  
-  
-  Spineback summit horn + Justin
+  <em>Spineback summit horn + Justin</em>
 </p>
 
 Enjoy some lovely Fernie alpine views!
