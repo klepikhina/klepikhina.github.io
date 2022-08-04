@@ -92,8 +92,10 @@ After two months of little to no training, Justin, Erin, and I decided we were r
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/paintpots_finish.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Suspension bridge after the longest 8km to ever exist (45km); Paint Pots (55km)
+  Suspension bridge after the longest 8km to ever exist (45km); Paint Pots (feat. the back of my head so you don't see the tears) (55km)
 </p>
+
+Great success!
 
 
 
