@@ -1,5 +1,5 @@
 ---
 layout: bike_log
-title: bike_log
+title: Bike Log
 category: bike_log
 ---
