@@ -6,7 +6,7 @@ title: Rockwall, Kootenay National Park | 56km, 2650m
 After two months of little to no training, Justin, Erin, and I decided we were ready to run Rockwall - a 56km (~35mi) trail with 2650m (~8700ft) of elevation game. What could possibly go wrong? Nothing! (is what we proved)
 
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/trail_profile.png" width="350">&nbsp;
+  <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/trail_profile.png" width="700">&nbsp;
 </p>
 <p align="center">
   Trail profile - we ran from Floe Lake to Paint Pots
@@ -31,7 +31,7 @@ After two months of little to no training, Justin, Erin, and I decided we were r
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/8km_ish.jpg" width="350">&nbsp; 
 </p>
 <p align="center">
-  Approaching Floe Lake (8km)
+  Approaching Floe Lake (~8km)
 </p>
 
 <p align="center">
@@ -39,14 +39,14 @@ After two months of little to no training, Justin, Erin, and I decided we were r
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/floelake.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Practicing water filtration; Floe Lake (10km)
+  Practicing water filtration; Floe Lake (~10km)
 </p>
 
 <p align="center">
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/numapass2.jpg" width="700">&nbsp;
 </p>
 <p align="center">
-  Numa Pass (17km)
+  Numa Pass (~17km)
 </p>
 
 <p align="center">
@@ -54,7 +54,7 @@ After two months of little to no training, Justin, Erin, and I decided we were r
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/23km_ish.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Cresting Numa Pass + After Numa Pass (20km)
+  Cresting Numa Pass + After Numa Pass (~20km)
 </p>
   
 <p align="center">
@@ -62,21 +62,21 @@ After two months of little to no training, Justin, Erin, and I decided we were r
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/tumblingglacier.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  That sweet sweet mountain water after horrific bushwacking; Tumbling Glacier (26km)
+  That sweet sweet mountain water after horrific bushwacking; Tumbling Glacier (~26km)
 </p>
 
 <p align="center">
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/rockwallpass.jpg" width="700">&nbsp;
 </p>
 <p align="center">
-  Rockwall Pass (30km)
+  Rockwall Pass (~30km)
 </p>
 
 <p align="center">
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/lookingback.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Looking back from Rockwall Pass to the previous two passes (30km)
+  Looking back from Rockwall Pass to the previous two passes (~30km)
 </p>
 
 
@@ -84,7 +84,7 @@ After two months of little to no training, Justin, Erin, and I decided we were r
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/helmetfalls.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Helmet Falls (37km)
+  Helmet Falls (~37km)
 </p>
 
 <p align="center">
@@ -92,7 +92,7 @@ After two months of little to no training, Justin, Erin, and I decided we were r
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/paintpots_finish.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Suspension bridge after the longest 8km to ever exist (45km); Paint Pots (feat. the back of my head so you don't see the tears) (55km)
+  Suspension bridge after the longest 8km to ever exist (~45km); Paint Pots (feat. the back of my head so you don't see the tears) (~55km)
 </p>
 
 Great success!
