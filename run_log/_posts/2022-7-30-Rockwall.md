@@ -79,12 +79,12 @@ After two months of little to no training, Justin, Erin, and I decided we were r
   Looking back from Rockwall Pass to the previous two passes (30km)
 </p>
 
+
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/rockwallpass.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/helmetfalls.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Looking back from Rockwall Pass to the previous two passes (30km); Helmet Falls (37km)
+  Helmet Falls (37km)
 </p>
 
 <p align="center">
