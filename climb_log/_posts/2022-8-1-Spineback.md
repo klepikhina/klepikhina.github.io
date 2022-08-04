@@ -45,3 +45,7 @@ Enjoy some lovely Fernie alpine views!
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Aug22/FernieSpineback/SpinebackFernieAlpine.png" width="1000">&nbsp;
 </p>
+
+Descent:
+- Scramble down or down lead climb from the horn to the last bolted belay
+- Rapp 3 times to the bottom 
