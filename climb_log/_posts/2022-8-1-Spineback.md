@@ -1,6 +1,6 @@
 ---
 layout: climb_log
-title: Spineback Ridge Fernie | 5.9 - 3 pitch + scramble
+title: Spineback Ridge, Fernie, BC | 5.9 - 3 pitch + scramble
 ---
 
 On August 1, Justin, some friends, and I set out to climb Spineback per Vic's suggestion. Like she said, it was very nice. What's not to like about an enjoyable, non crumbly, short, limestone multipitch in Fernie, BC?
