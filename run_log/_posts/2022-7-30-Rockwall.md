@@ -88,7 +88,7 @@ After two months of little to no training, Justin, Erin, and I decided we were r
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/suspensionbridge_45km.jpg" width="350">&nbsp;
+  <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/suspensionbridge_45km_ish.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/run_log/images/Aug22/Rockwall/paintpots_finish.jpg" width="350">&nbsp;
 </p>
 <p align="center">
