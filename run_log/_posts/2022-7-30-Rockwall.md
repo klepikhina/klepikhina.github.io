@@ -1,6 +1,6 @@
 ---
 layout: run_log
-title: Rockwall, Kootenay National Park | 56km, 2650m
+title: Rockwall, Kootenay National Park, BC | 56km, 2650m
 ---
 
 After two months of little to no training, Justin, Erin, and I decided we were ready to run Rockwall - a 56km (~35mi) trail with 2650m (~8700ft) of elevation game. What could possibly go wrong? Nothing! (is what we proved)
