@@ -37,7 +37,7 @@ The pitches are broken down as follows:
 - Pitch 4(ish): 5.2, scramble up two bolt final "pitch" and use the horn at the top as an anchor.
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Aug22/FernieSpineback/SpinebackSummit.jpg" width="350">&nbsp;  
+  <img src="{{ site.baseurl }}/climb_log/images/Aug22/FernieSpineback/SpinebackSummit.jpg" width="700">&nbsp;  
   Spineback summit horn + Justin
 </p>
 
