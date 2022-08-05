@@ -115,7 +115,7 @@ root.descendants().forEach((d, i) => {
 tree(root);
 
 const svg = d3
-  .create("svg")
+  .create("books")
   .attr("viewBox", [-margin.left, -margin.top, width, dx])
   .style("font", "10px sans-serif")
   .style("user-select", "none");
