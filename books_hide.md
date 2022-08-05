@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: page
 title: Books
 permalink: /books/
@@ -61,3 +61,4 @@ permalink: /books/
 - <a href="https://www.amazon.com/MEM-Bethany-C-Morrow/dp/1944700552" target="_blank">"MEM"</a>, Bethany C. Morrow
   
   "I'm more than a memory, I'm an epiphany."
+ -->
