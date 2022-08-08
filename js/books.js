@@ -147,7 +147,8 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
   // Compute the layout.
   tree().size([2 * Math.PI, radius]).separation(separation)(root);
 
-  const svg = d3.create("svg")
+  const svg = d3.select("#books")
+      .append("svg") //create("svg")
       .attr("viewBox", [-marginLeft - radius, -marginTop - radius, width, height])
       .attr("width", width)
       .attr("height", height)
