@@ -27,11 +27,11 @@ const data = {
         {
           name: "physical",
           children: [
-            { name: '"Her Body and Other Parties", Carmen Maria Machado' },
-            { name: '"The Song of Achilles", Madeline Miller', value: 5731 },
-            { name: '"Man\'s 4th Best Hospital", Samuel Shem', value: 7840 },
-            { name: '"Entangled Life", Merlin Sheldrake', value: 5914 },
-            { name: '"The Happiness Equation", Neil Pasricha', value: 3416 }
+            { name: '"Her Body and Other Parties", Carmen Maria Machado', value: "https://www.amazon.com/Her-Body-Other-Parties-Stories/dp/155597788X" },
+            { name: '"The Song of Achilles", Madeline Miller', value: "https://www.amazon.com/Song-Achilles-Novel-Madeline-Miller/dp/0062060627" },
+            { name: '"Man\'s 4th Best Hospital", Samuel Shem', value: "https://www.amazon.com/Mans-4th-Best-Hospital-audiobook/dp/B07ZS414F2" },
+            { name: '"Entangled Life", Merlin Sheldrake', value: "https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/052551032X" },
+            { name: '"The Happiness Equation", Neil Pasricha', value: "https://www.amazon.com/Happiness-Equation-Nothing-Anything-Everything/dp/0425277984" }
           ]
         }
       ]
