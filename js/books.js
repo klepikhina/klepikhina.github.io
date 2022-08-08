@@ -173,7 +173,7 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
   const node = svg.append("g")
     .selectAll("a")
     .data(root.descendants())
-    .join("a")
+    .enter().append("a")
       .attr("xlink:href", link == null ? null : d => link(d.data, d))
       .attr("target", link == null ? null : linkTarget)
       .attr("transform", d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y},0)`);
