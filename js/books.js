@@ -48,7 +48,7 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
     var viewerWidth = $(document).width();
     var viewerHeight = $(document).height();
 
-    var tree = d3.layout.tree()
+    var tree = d3.tree()
         .size([viewerHeight, viewerWidth]);
 
     // define a d3 diagonal projection for use by the node paths later on.
