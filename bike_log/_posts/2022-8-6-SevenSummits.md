@@ -10,14 +10,14 @@ After two beers at RBC the previous night, I was shockingly hungover for a brigh
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/justin_midclimb.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Lauren kicking the ride off, and Justin part of the way up first climb.
+  Lauren kicking the ride off, and Justin part of the way up the first climb.
 </p>
 
 <p align="center">
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/summit.jpg" width="700">&nbsp;
 </p>
 <p align="center">
-  Justin and I at the summit with Pluman and Old Glory in the background.
+  Justin and I at the summit with Plewman and Old Glory in the background.
 </p>
 
 <p align="center">
@@ -32,7 +32,7 @@ After two beers at RBC the previous night, I was shockingly hungover for a brigh
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/chair4.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Old Glory from the first summit descent; Historic Chair 4.
+  Old Glory from the first summit descent; historic Chair 4.
 </p>
 
 <p align="center">
@@ -40,7 +40,7 @@ After two beers at RBC the previous night, I was shockingly hungover for a brigh
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/mums_microwaves.jpg" width="350">&nbsp;
 </p>
 <p align="center">
-  Mountain valley looking down from Grey Mountain; Sneaking a peek at mom's microwave towers.
+  Mountain valley looking down from Grey Mountain; sneaking a peek at Granite mountain's microwave towers.
 </p>
 
 <p align="center">
