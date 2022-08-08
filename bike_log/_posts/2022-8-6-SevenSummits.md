@@ -3,7 +3,7 @@ layout: bike_log
 title: Seven Summits, Rossland, BC | 36km, 1190m
 ---
 
-After two beers at RBC the previous night, I was shockingly hung over for a bright and early pick up (7am) for a shuttle for Seven Summits. Never the less I persisted.
+After two beers at RBC the previous night, I was shockingly hungover for a bright and early pick up (7am) for a shuttle for Seven Summits. Never the less I persisted.
 
 <p align="center">
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/lauren_start.jpg" width="350">&nbsp;
