@@ -123,11 +123,18 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
   tree().size([2 * Math.PI, radius]).separation(separation)(root);
 
   const svg = d3.select("#books")
-      .append("svg") //create("svg")
-      .attr("viewBox", [-marginLeft - radius, -marginTop - radius, width, height])
-      .attr("width", width)
-      .attr("height", height)
-      .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
+      // Container class to make it responsive.
+      .classed("svg-container", true) 
+      .append("svg")
+      // Responsive SVG needs these 2 attributes and no width and height attr.
+      .attr("preserveAspectRatio", "xMinYMin meet")
+      .attr("viewBox", "0 0 600 400")
+     // Class to make it responsive.
+      .classed("svg-content-responsive", true)
+//       .attr("viewBox", [-marginLeft - radius, -marginTop - radius, width, height])
+//       .attr("width", width)
+//       .attr("height", height)
+//       .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
       .attr("font-family", "sans-serif")
       .attr("font-size", 12);
 
