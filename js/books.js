@@ -201,7 +201,7 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
 chart = Tree(data, {
   label: d => d.name,
   title: (d, n) => `${n.ancestors().reverse().map(d => d.data.name).join(".")}`, // hover text
-//   link: (d, n) => `https://github.com/prefuse/Flare/${n.children ? "tree" : "blob"}/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}${n.children ? "" : ".as"}`,
+  link: (d, n) => `https://github.com/prefuse/Flare/${n.children ? "tree" : "blob"}/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}${n.children ? "" : ".as"}`,
   width: 1152,
   height: 1152,
   margin: 100
