@@ -9,19 +9,9 @@ const data = {
         {
           name: "audio",
           children: [
-            {
-              name: '"This Is Your Mind on Plants", Michael Pollan',
-              value: 3938
-            },
-            {
-              name: '"Noise: A Flaw in Human Judgment", Daniel Kahneman',
-              value: 3812
-            },
-            {
-              name:
-                '"Emperor Mollusk Versus the Sinister Brain", A. Lee Martinez',
-              value: 6714
-            }
+            { name: '"This Is Your Mind on Plants", Michael Pollan', value: "https://www.amazon.com/This-Your-Mind-Plants/dp/B08RF1K2LD" },
+            { name: '"Noise: A Flaw in Human Judgment", Daniel Kahneman', value: "https://www.amazon.com/Noise-Human-Judgment-Daniel-Kahneman/dp/0316451401" },
+            { name: '"Emperor Mollusk Versus the Sinister Brain", A. Lee Martinez', value: "https://www.amazon.com/Emperor-Mollusk-Versus-Sinister-Brain/dp/B007H3JHGG" }
           ]
         },
         {
@@ -42,50 +32,35 @@ const data = {
         {
           name: "audio",
           children: [
-            { name: "", value: 1983 },
-            { name: '"The Spies of Warsaw", Alan Furst', value: 2047 },
-            { name: '"A Conjuring of Light", V. E. Schwab', value: 1375 },
-            { name: '"A Dead Djinn in Cairo", P. Djèlí Clark', value: 8746 },
-            { name: '"The Midnight Library", Matt Haig', value: 2202 },
-            { name: '"The Armies of Those I Love", Ken Liu', value: 1382 },
-            { name: '"Braving the Wilderness", Brené Brown', value: 1629 },
-            { name: '"Fire on the Mountain", John N Maclean', value: 1675 },
-            { name: '"Akata Witch", Nnedi Okorafor', value: 2042 },
-            { name: '"The Color of Law", Richard Rothstein', value: 2042 },
-            { name: '"Project Hail Mary", Andy Weir', value: 2042 },
-            { name: '"Neuroscience of Everyday Life", The Great Courses - Professor Sam Wang', value: 2042 },
-            { name: '"MEM", Bethany C. Morrow', value: 2042 },
+            { name: '"The Spies of Warsaw", Alan Furst', value: "https://www.amazon.com/Spies-Warsaw-Novel-Alan-Furst/dp/0812977378" },
+            { name: '"A Conjuring of Light", V. E. Schwab', value: "https://www.amazon.com/Conjuring-Light-Novel-Shades-Magic/dp/0765387476" },
+            { name: '"A Dead Djinn in Cairo", P. Djèlí Clark', value: "https://www.amazon.com/Dead-Djinn-Cairo-Tor-Com-Original-ebook/dp/B01DJ0NALI" },
+            { name: '"The Midnight Library", Matt Haig', value: "https://www.amazon.com/Midnight-Library-Novel-Matt-Haig/dp/0525559477" },
+            { name: '"The Armies of Those I Love", Ken Liu', value: "https://www.amazon.com/Armies-Those-I-Love/dp/B08S75Z8CR" },
+            { name: '"Braving the Wilderness", Brené Brown', value: "https://www.amazon.com/Braving-Wilderness-Quest-Belonging-Courage/dp/0812995848" },
+            { name: '"Fire on the Mountain", John N Maclean', value: "https://www.amazon.com/Fire-Mountain-Story-South-Canyon/dp/0061829617" },
+            { name: '"Akata Witch", Nnedi Okorafor', value: "https://www.amazon.com/Akata-Witch-Nnedi-Okorafor/dp/0142420913" },
+            { name: '"The Color of Law", Richard Rothstein', value: "https://www.amazon.com/Color-Law-Forgotten-Government-Segregated/dp/1631494538 },
+            { name: '"Project Hail Mary", Andy Weir', value: "https://www.amazon.com/Project-Hail-Mary-Novel-Random/dp/0593395565" },
+            { name: '"Neuroscience of Everyday Life", Sam Wang', value: "https://www.amazon.com/Neuroscience-of-Everyday-Life-audiobook/dp/B07PLKYG53" },
+            { name: '"MEM", Bethany C. Morrow', value: "https://www.amazon.com/MEM-Bethany-C-Morrow/dp/1944700552" },
           ]
         },
         {
           name: "physical",
           children: [
-            { name: '"One Life", Megan Rapinoe', value: 1983 },
-            { name: '"Circe", Madeline Miller', value: 2047 },
-            { name: '"Homegoing", Yaa Gyasi', value: 1375 },
-            { name: '"The House in the Cerulean Sea", TJ Klune', value: 8746 },
-            {
-              name:
-                '"Whitewalling: Art, Race & Protest in 3 Acts", Aruna D\'Souza',
-              value: 2202
-            },
-            {
-              name:
-                '"Why Women Have Better Sex Under Socialism", Kristen R. Ghodsee',
-              value: 1382
-            },
-            {
-              name: '"The Invisible Life of Addie LaRue", V. E. Schwab',
-              value: 1629
-            },
-            { name: '"Partners in Crime", Agatha Christie', value: 1675 },
-            { name: '"Crying in H Mart", Michelle Zauner', value: 2042 },
-            {
-              name: '"Eleanor Oliphant is Completely Fine", Gail Honeyman',
-              value: 2042
-            },
-            { name: '"The Mothers", Brit Bennett', value: 2042 },
-            { name: '"The Golden Spruce", John Vaillant', value: 2042 }
+            { name: '"One Life", Megan Rapinoe', value: "https://www.amazon.com/One-Life-Megan-Rapinoe/dp/1984881167" },
+            { name: '"Circe", Madeline Miller', value: "https://www.amazon.com/Circe-Madeline-Miller/dp/0316556327" },
+            { name: '"Homegoing", Yaa Gyasi', value: "https://www.amazon.com/Homegoing-Yaa-Gyasi/dp/1101971061" },
+            { name: '"The House in the Cerulean Sea", TJ Klune', value: "https://www.amazon.com/House-Cerulean-Sea-TJ-Klune/dp/1250217288" },
+            { name: '"Whitewalling: Art, Race & Protest in 3 Acts", Aruna D\'Souza', value: "https://www.amazon.com/Whitewalling-Art-Race-Protest-Acts/dp/1943263140" },
+            { name: '"Why Women Have Better Sex Under Socialism", Kristen R. Ghodsee', value: "https://www.amazon.com/Women-Have-Better-Under-Socialism/dp/1645036367" },
+            { name: '"The Invisible Life of Addie LaRue", V. E. Schwab', value: "https://www.amazon.com/Invisible-Life-Addie-LaRue/dp/0765387565" },
+            { name: '"Partners in Crime", Agatha Christie', value: "https://www.amazon.com/Partners-Crime-Tuppence-Agatha-Christie/dp/0062074369" },
+            { name: '"Crying in H Mart", Michelle Zauner', value: "https://www.amazon.com/Crying-Mart-Memoir-Michelle-Zauner/dp/0525657746" },
+            { name: '"Eleanor Oliphant is Completely Fine", Gail Honeyman', value: "https://www.amazon.com/Eleanor-Oliphant-Completely-Fine-Novel/dp/0735220697" },
+            { name: '"The Mothers", Brit Bennett', value: "https://www.amazon.com/Mothers-Novel-Brit-Bennett/dp/039918452X" },
+            { name: '"The Golden Spruce", John Vaillant', value: "https://www.amazon.com/John-Vaillant-Golden-Madness-Paperback/dp/B01FOD91R0" }
           ]
         }
       ]
