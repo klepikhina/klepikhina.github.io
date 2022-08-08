@@ -40,7 +40,7 @@ const data = {
             { name: '"Braving the Wilderness", Brené Brown', value: "https://www.amazon.com/Braving-Wilderness-Quest-Belonging-Courage/dp/0812995848" },
             { name: '"Fire on the Mountain", John N Maclean', value: "https://www.amazon.com/Fire-Mountain-Story-South-Canyon/dp/0061829617" },
             { name: '"Akata Witch", Nnedi Okorafor', value: "https://www.amazon.com/Akata-Witch-Nnedi-Okorafor/dp/0142420913" },
-            { name: '"The Color of Law", Richard Rothstein', value: "https://www.amazon.com/Color-Law-Forgotten-Government-Segregated/dp/1631494538 },
+            { name: '"The Color of Law", Richard Rothstein', value: "https://www.amazon.com/Color-Law-Forgotten-Government-Segregated/dp/1631494538" },
             { name: '"Project Hail Mary", Andy Weir', value: "https://www.amazon.com/Project-Hail-Mary-Novel-Random/dp/0593395565" },
             { name: '"Neuroscience of Everyday Life", Sam Wang', value: "https://www.amazon.com/Neuroscience-of-Everyday-Life-audiobook/dp/B07PLKYG53" },
             { name: '"MEM", Bethany C. Morrow', value: "https://www.amazon.com/MEM-Bethany-C-Morrow/dp/1944700552" },
