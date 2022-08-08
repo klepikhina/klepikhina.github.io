@@ -230,7 +230,7 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
             var node = d3.select(this);
             node.attr("transform", "translate(" + d.y0 + "," + d.x0 + ")");
             updateTempConnector();
-        }).on("dragend", function(d) {
+        }).on("end", function(d) {
             if (d == root) {
                 return;
             }
