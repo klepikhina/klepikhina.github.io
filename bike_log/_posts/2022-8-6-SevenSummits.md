@@ -5,9 +5,6 @@ title: Seven Summits, Rossland, BC | 36km, 1190m
 
 <p align="center">
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/lauren_start.jpg" width="350">&nbsp;
-</p>
-
-<p align="center">
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/justin_midclimb.jpg" width="350">&nbsp;
 </p>
 
@@ -21,13 +18,11 @@ title: Seven Summits, Rossland, BC | 36km, 1190m
 
 <p align="center">
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/glory.jpg" width="350">&nbsp;
-</p>
-
-<p align="center">
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/chair4.jpg" width="350">&nbsp;
 </p>
 
 <p align="center">
+  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/mountain_valley.jpg" width="350">&nbsp;
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/mums_microwaves.jpg" width="350">&nbsp;
 </p>
 
@@ -37,8 +32,6 @@ title: Seven Summits, Rossland, BC | 36km, 1190m
 
 <p align="center">
   <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/lauren_justin_doneclimbing.jpg" width="350">&nbsp;
-</p>
 
-<p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/justin_finaldescent.png" width="350">&nbsp;
+  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/justin_finaldescent.jpg" width="350">&nbsp;
 </p>
