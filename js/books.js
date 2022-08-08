@@ -52,7 +52,7 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
         .size([viewerHeight, viewerWidth]);
 
     // define a d3 diagonal projection for use by the node paths later on.
-    var diagonal = d3.svg.diagonal()
+    var diagonal = d3.linkRadial()
         .projection(function(d) {
             return [d.y, d.x];
         });
@@ -319,10 +319,10 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
 
         link.enter().append("path")
             .attr("class", "templink")
-            .attr("d", d3.svg.diagonal())
+            .attr("d", d3.linkRadial())
             .attr('pointer-events', 'none');
 
-        link.attr("d", d3.svg.diagonal());
+        link.attr("d", d3.linkRadial());
 
         link.exit().remove();
     };
