@@ -183,7 +183,7 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
 
 
     // Define the drag listeners for drag/drop behaviour of nodes.
-    dragListener = d3.behavior.drag()
+    dragListener = d3.drag()
         .on("dragstart", function(d) {
             if (d == root) {
                 return;
