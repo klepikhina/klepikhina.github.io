@@ -52,10 +52,12 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
         .size([viewerHeight, viewerWidth]);
 
     // define a d3 diagonal projection for use by the node paths later on.
-    var diagonal = d3.linkRadial()
-        .projection(function(d) {
-            return [d.y, d.x];
-        });
+    var diagonal = function link(d) {
+      return "M" + d.source.y + "," + d.source.x
+          + "C" + (d.source.y + d.target.y) / 2 + "," + d.source.x
+          + " " + (d.source.y + d.target.y) / 2 + "," + d.target.x
+          + " " + d.target.y + "," + d.target.x;
+    };
 
     // A recursive helper function for performing some setup by walking through all nodes
 
