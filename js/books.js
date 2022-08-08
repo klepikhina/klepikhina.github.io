@@ -108,9 +108,9 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
   title, // given a node d, returns its hover text
   link, // given a node d, its link (if any)
   linkTarget = "_blank", // the target attribute for links (if any)
-  width = 100%, //640 outer width, in pixels
-  height = 100%, //400 outer height, in pixels
-  margin = 60, // shorthand for margins
+  width = 1000, //640 outer width, in pixels
+  height = 1000, //400 outer height, in pixels
+  margin = 10, // shorthand for margins
   marginTop = margin, // top margin, in pixels
   marginRight = margin, // right margin, in pixels
   marginBottom = margin, // bottom margin, in pixels
