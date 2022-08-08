@@ -130,7 +130,7 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
 
 
     // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
-    var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
+    var zoomListener = d3.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
 
     function initiateDrag(d, domNode) {
         draggingNode = d;
