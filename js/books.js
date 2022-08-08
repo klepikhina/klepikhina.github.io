@@ -154,7 +154,7 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
       .attr("height", height)
       .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
       .attr("font-family", "sans-serif")
-      .attr("font-size", 10);
+      .attr("font-size", 15);
 
   svg.append("g")
       .attr("fill", "none")
