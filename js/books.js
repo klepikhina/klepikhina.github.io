@@ -83,14 +83,14 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
   title, // given a node d, returns its hover text
   link, // given a node d, its link (if any)
   linkTarget = "_blank", // the target attribute for links (if any)
-  width = 1000, //640 outer width, in pixels
-  height = 1000, //400 outer height, in pixels
-  margin = 10, // shorthand for margins
-  marginTop = margin, // top margin, in pixels
-  marginRight = margin, // right margin, in pixels
-  marginBottom = margin, // bottom margin, in pixels
-  marginLeft = margin, // left margin, in pixels
-  radius = Math.min(width - marginLeft - marginRight, height - marginTop - marginBottom) / 2, // outer radius
+//   width = 1000, //640 outer width, in pixels
+//   height = 1000, //400 outer height, in pixels
+//   margin = 10, // shorthand for margins
+//   marginTop = margin, // top margin, in pixels
+//   marginRight = margin, // right margin, in pixels
+//   marginBottom = margin, // bottom margin, in pixels
+//   marginLeft = margin, // left margin, in pixels
+//   radius = Math.min(width - marginLeft - marginRight, height - marginTop - marginBottom) / 2, // outer radius
   r = 3, // radius of nodes
   padding = 1, // horizontal padding for first and last column
   fill = "#999", // fill for nodes
@@ -184,7 +184,7 @@ chart = Tree(data, {
   label: d => d.name,
   title: (d, n) => `${n.ancestors().reverse().map(d => d.data.name).join(".")}`, // hover text
   link: (d, n) => `https://github.com/prefuse/Flare/${n.children ? "tree" : "blob"}/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}${n.children ? "" : ".as"}`,
-  width: 1152,
-  height: 1152,
-  margin: 300
+//   width: 1152,
+//   height: 1152,
+//   margin: 300
 })
