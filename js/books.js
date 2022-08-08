@@ -204,5 +204,5 @@ chart = Tree(data, {
   link: (d, n) => `https://github.com/prefuse/Flare/${n.children ? "tree" : "blob"}/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}${n.children ? "" : ".as"}`,
   width: 1152,
   height: 1152,
-  margin: 200
+  margin: 500
 })
