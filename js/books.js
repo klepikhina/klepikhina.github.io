@@ -154,7 +154,7 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
       .attr("height", height)
       .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
       .attr("font-family", "sans-serif")
-      .attr("font-size", 15);
+      .attr("font-size", 12);
 
   svg.append("g")
       .attr("fill", "none")
@@ -204,5 +204,5 @@ chart = Tree(data, {
   link: (d, n) => `https://github.com/prefuse/Flare/${n.children ? "tree" : "blob"}/master/flare/src/${n.ancestors().reverse().map(d => d.data.name).join("/")}${n.children ? "" : ".as"}`,
   width: 1152,
   height: 1152,
-  margin: 500
+  margin: 300
 })
