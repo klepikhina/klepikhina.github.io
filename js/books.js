@@ -165,7 +165,7 @@ function Tree(data, { // data is either tabular (array of objects) or hierarchy 
       .attr("stroke-width", strokeWidth)
     .selectAll("path")
     .data(root.links())
-    .join("path")
+    .enter().append("path")
       .attr("d", d3.linkRadial()
           .angle(d => d.x)
           .radius(d => d.y));
