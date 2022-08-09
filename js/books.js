@@ -545,6 +545,8 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
     // Define the root
     root = treeData;
     console.log(root);
+    console.log(treeData);
+    console.log(treeJSON);
     console.log(viewerHeight);
     root.x0 = viewerHeight / 2;
     root.y0 = 0;
