@@ -343,6 +343,7 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
 //         zoomListener.scale(scale);
 //         zoomListener.translate([x, y]);
 //     }
+    var g = baseSvg.append("g");
     function centerNode(source){
       t = d3.zoomTransform(baseSvg.node());
       console.log(t);
