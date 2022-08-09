@@ -859,7 +859,7 @@ data = d3.json("../js/books.json", function(data) {
 }); //FileAttachment("books.json").json()
 
 chart = new NetworkChart()
-  .container(chartContainer)
+  .container(#chartContainer)
   .svgWidth(975)
   .svgHeight(975)
   .data(data)
