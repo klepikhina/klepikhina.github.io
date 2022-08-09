@@ -387,8 +387,8 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
         tree = tree.size([newHeight, viewerWidth]);
 
         // Compute the new tree layout.
-        var nodes = hierarchy(root).descendants()//tree.nodes(root).reverse(),
-            links = hierarchy(root).links();
+        var nodes = d3.hierarchy(root).descendants()//tree.nodes(root).reverse(),
+            links = d3.hierarchy(root).links();//tree.links(nodes);
 
         // Set widths between levels based on maxLabelLength.
         nodes.forEach(function(d) {
