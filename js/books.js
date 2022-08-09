@@ -854,7 +854,7 @@ class NetworkChart {
   }
 }
 
-data = await FileAttachment("books.json").json()
+data = FileAttachment("books.json").json()
 
 chart = new NetworkChart()
   .container(chartContainer)
