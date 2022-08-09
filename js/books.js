@@ -350,9 +350,6 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
       x =  t.x;
       y = source.x0;
       y = -y *t.k + viewerHeight / 2;
-      console.log(baseSvg);
-      console.log(zoomListener.transform);
-      console.log(d3.zoomIdentity.translate(x,y).scale(t.k));
       g.transition()
        .duration(duration)
        .attr("transform", "translate(" + x + "," + y + ")scale(" + t.k + ")")
