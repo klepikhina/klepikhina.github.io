@@ -854,7 +854,9 @@ class NetworkChart {
   }
 }
 
-data = require('books.json'); //FileAttachment("books.json").json()
+data = d3.json("books.json", function(data) {
+    console.log(data);
+}); //FileAttachment("books.json").json()
 
 chart = new NetworkChart()
   .container(chartContainer)
