@@ -854,7 +854,7 @@ class NetworkChart {
   }
 }
 
-data = FileAttachment("books.json").json()
+data = require('books.json'); //FileAttachment("books.json").json()
 
 chart = new NetworkChart()
   .container(chartContainer)
