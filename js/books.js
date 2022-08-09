@@ -1,6 +1,6 @@
   // Set the dimensions and margins of the diagram
   var margin = {top: 10, right: 10, bottom: 10, left: 10},
-      width = 960 - margin.left - margin.right,
+      width = 1500 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
   // ----------------------------------------
