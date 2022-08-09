@@ -4,11 +4,11 @@ title: Books
 permalink: /books/
 ---
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <script type="module">
-import * as d3 from "https://cdn.skypack.dev/d3@7";
+import * as d3 from "https://cdn.skypack.dev/d3@6";
 const div = d3.selectAll("div");
 </script>
 
@@ -17,8 +17,8 @@ const div = d3.selectAll("div");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Books</title>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <link rel="stylesheet" href="../js/styles.css" type="text/css" />
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+<!--     <link rel="stylesheet" href="../js/styles.css" type="text/css" /> -->
 </head>
 <body>
 	
@@ -37,59 +37,7 @@ const div = d3.selectAll("div");
 		</div>
 	</section>
     
-    <script src="../js/d3.v4.min.js"></script>
+    <script src="../js/d3.v6.min.js"></script>
     <script src="../js/books.js"></script>
-</body>
-</html> -->
-
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style type="text/css">
-  
-	.node {
-    cursor: pointer;
-  }
-
-  .overlay{
-      background-color:#EEE;
-  }
-   
-  .node circle {
-    fill: #fff;
-    stroke: steelblue;
-    stroke-width: 1.5px;
-  }
-   
-  .node text {
-    font-size:10px; 
-    font-family:sans-serif;
-  }
-   
-  .link {
-    fill: none;
-    stroke: #ccc;
-    stroke-width: 1.5px;
-  }
-
-  .templink {
-    fill: none;
-    stroke: red;
-    stroke-width: 3px;
-  }
-
-  .ghostCircle.show{
-      display:block;
-  }
-
-  .ghostCircle, .activeDrag .ghostCircle{
-       display: none;
-  }
-
-</style>
-<script src="../js/jquery-1.10.2.min.js"></script>
-<script src="../js/d3.v3.min.js"></script>
-<script src="../js/books.js"></script>
-<body>
-    <div id="tree-container"></div>
 </body>
 </html>
