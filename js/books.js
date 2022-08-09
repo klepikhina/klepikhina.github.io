@@ -351,12 +351,12 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
       y = source.x0;
       y = -y *t.k + viewerHeight / 2;
       console.log(baseSvg);
-      console.log(zoom.transform);
+      console.log(zoomListener.transform);
       console.log(d3.zoomIdentity.translate(x,y).scale(t.k));
       g.transition()
        .duration(duration)
        .attr("transform", "translate(" + x + "," + y + ")scale(" + t.k + ")")
-       .on("end", function(){ baseSvg.call(zoom.transform, d3.zoomIdentity.translate(x,y).scale(t.k))});
+       .on("end", function(){ baseSvg.call(zoomListener.transform, d3.zoomIdentity.translate(x,y).scale(t.k))});
     }
 
     // Toggle children function
