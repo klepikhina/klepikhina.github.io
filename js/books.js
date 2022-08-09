@@ -331,17 +331,28 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
 
     // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
 
-    function centerNode(source) {
-        scale = zoomListener.scale();
-        x = -source.y0;
-        y = -source.x0;
-        x = x * scale + viewerWidth / 2;
-        y = y * scale + viewerHeight / 2;
-        d3.select('g').transition()
-            .duration(duration)
-            .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
-        zoomListener.scale(scale);
-        zoomListener.translate([x, y]);
+//     function centerNode(source) {
+//         scale = zoomListener.scale();
+//         x = -source.y0;
+//         y = -source.x0;
+//         x = x * scale + viewerWidth / 2;
+//         y = y * scale + viewerHeight / 2;
+//         d3.select('g').transition()
+//             .duration(duration)
+//             .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
+//         zoomListener.scale(scale);
+//         zoomListener.translate([x, y]);
+//     }
+    function centerNode(source){
+      t = d3.zoomTransform(baseSvg.node());
+      console.log(t);
+      x =  t.x;
+      y = source.x0;
+      y = -y *t.k + viewerHeight / 2;
+      g.transition()
+       .duration(duration)
+       .attr("transform", "translate(" + x + "," + y + ")scale(" + t.k + ")")
+       .on("end", function(){ baseSvg.call(zoom.transform, d3.zoomIdentity.translate(x,y).scale(t.k))});
     }
 
     // Toggle children function
