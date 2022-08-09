@@ -543,7 +543,7 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
     var svgGroup = baseSvg.append("g");
 
     // Define the root
-    root = treeData;
+    root = treeData || {};
     console.log(root);
     console.log(treeData);
     console.log(treeJSON);
