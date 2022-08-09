@@ -125,7 +125,7 @@ treeJSON = d3.json("../js/books.json", function(error, treeData) {
     // Define the zoom function for the zoomable tree
 
     function zoom() {
-        svgGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        svgGroup.attr("transform", d3.event.transform); //("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
     }
 
 
