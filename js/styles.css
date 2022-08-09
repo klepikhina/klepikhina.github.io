@@ -19,11 +19,11 @@
     }
 
     #d3_object {
-      width: 75%;
-      margin: 0.5rem 0.5rem 1rem 0.25rem;
+      width: 100%;
+      margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
 
     #includedContent {
       position: static !important;
-      display: inline-block;
+      display: block;
     }
