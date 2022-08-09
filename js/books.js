@@ -854,7 +854,7 @@ class NetworkChart {
   }
 }
 
-data = d3.json("books.json", function(data) {
+data = d3.json("../js/books.json", function(data) {
     console.log(data);
 }); //FileAttachment("books.json").json()
 
