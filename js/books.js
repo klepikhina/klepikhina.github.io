@@ -858,8 +858,12 @@ data = d3.json("../js/books.json", function(data) {
     console.log(data);
 }); //FileAttachment("books.json").json()
 
+chartContainer = html`
+<div  style="width:400px;height:200px">
+</div>
+`
 chart = new NetworkChart()
-  .container(#chartContainer)
+  .container(chartContainer)
   .svgWidth(975)
   .svgHeight(975)
   .data(data)
