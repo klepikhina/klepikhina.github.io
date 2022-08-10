@@ -85,7 +85,7 @@
         .attr('class', 'node')
         .attr('r', 1e-6)
         .style("fill", function(d) {
-            return d._children ? "lightsteelblue" : "#fff";
+            return d._children ? "#82ad8b" : "#63856a";
         });
 
     // Add labels for the nodes
@@ -113,7 +113,7 @@
     nodeUpdate.select('circle.node')
       .attr('r', 10)
       .style("fill", function(d) {
-          return d._children ? "lightsteelblue" : "#fff";
+          return d._children ? "#82ad8b" : "#63856a";
       })
       .attr('cursor', 'pointer');
 
@@ -200,7 +200,7 @@
         console.log('d.data.name:', d.data.name)
         console.log('urlMap[d.data.name]:', urlMap[d.data.name])
         window.location = d.data.url;
-        // window.open("https://www.example.com", "_self");
+        window.open("https://www.amazon.com/", d.value);// "_self");
       }
       update(d);
     }
