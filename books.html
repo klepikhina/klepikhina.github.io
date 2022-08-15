@@ -36,7 +36,7 @@ var width = window.innerWidth || document.documentElement.clientWidth || documen
     root;
 
 var force = d3.layout.force()
-    .linkDistance(100) //80
+    .linkDistance(80) 
     .charge(function(d, i) { return i==0 ? -10000 : -500; })//.charge(-120)
     .gravity(.05)
     .size([width, height])
@@ -101,7 +101,9 @@ function tick() {
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; });
 
-  node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })//;
+      .attr("cx", function(d) { return (d.x = Math.max(radius, Math.min(width - radius, d.x))); })
+      .attr("cy", function(d) { return (d.y = Math.max(radius, Math.min(height - radius, d.y))); });
 }
 
 function color(d) {
