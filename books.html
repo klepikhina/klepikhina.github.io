@@ -15,7 +15,7 @@ permalink: /books/
 }
 
 .node text {
-  font: 10px sans-serif;
+  font: 12px sans-serif;
   pointer-events: none;
   text-anchor: middle;
 }
@@ -37,9 +37,9 @@ var width = window.innerWidth || document.documentElement.clientWidth || documen
     root;
 
 var force = d3.layout.force()
-    .linkDistance(80) 
+    .linkDistance(100) 
     .charge(function(d, i) { return i==0 ? -5000 : -100; })//.charge(-120)
-    .gravity(.05)
+    .gravity(.5) //.05
     .size([width, height])
     .on("tick", tick);
 
