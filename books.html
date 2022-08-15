@@ -31,8 +31,8 @@ line.link {
 <script src="../js/d3.v3.min.js"></script>
 <script>
 
-var width = 960,
-    height = 500,
+var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,//960,
+    height = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight,//500,
     root;
 
 var force = d3.layout.force()
