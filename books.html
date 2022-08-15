@@ -38,8 +38,8 @@ var width = window.innerWidth || document.documentElement.clientWidth || documen
 
 var force = d3.layout.force()
     .linkDistance(100) 
-    .charge(function(d, i) { return i==0 ? -5000 : -100; })//.charge(-120)
-    .gravity(.005) //.05
+    .charge(function(d, i) { return i==0 ? -2500 : -75; })//.charge(-120)
+    .gravity(.0005) //.05
     .size([width, height])
     .on("tick", tick);
 
