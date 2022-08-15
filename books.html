@@ -38,7 +38,7 @@ var width = window.innerWidth || document.documentElement.clientWidth || documen
 
 var force = d3.layout.force()
     .linkDistance(80) 
-    .charge(function(d, i) { return i==0 ? -10000 : -500; })//.charge(-120)
+    .charge(function(d, i) { return i==0 ? -1000 : -50; })//.charge(-120)
     .gravity(.05)
     .size([width, height])
     .on("tick", tick);
