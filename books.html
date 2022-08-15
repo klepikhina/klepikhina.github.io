@@ -28,7 +28,7 @@ line.link {
 
 </style>
 <body>
-<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="../js/d3.v3.min.js"></script>
 <script>
 
 var width = 960,
@@ -49,7 +49,7 @@ var svg = d3.select("body").append("svg")
 var link = svg.selectAll(".link"),
     node = svg.selectAll(".node");
 
-d3.json("graph.json", function(error, json) {
+d3.json("../js/books.json", function(error, json) {
   if (error) throw error;
 
   root = json;
