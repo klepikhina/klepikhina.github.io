@@ -41,7 +41,10 @@ var force = d3.layout.force()
     .charge(function(d, i) { return i==0 ? -2500 : -75; })//.charge(-120)
     .gravity(.0005) //.05
     .size([width, height])
-    .on("tick", tick);
+    .on("tick", function() {
+      nodes[0].x = w / 2;
+      nodes[0].y = h / 2; });
+//     .on("tick", tick);
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -103,8 +106,10 @@ function tick() {
       .attr("y2", function(d) { return d.target.y; });
 
   node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })//;
-      .attr("cx", function(d) { return (d.x = Math.max(radius, Math.min(width - radius, d.x))); })
-      .attr("cy", function(d) { return (d.y = Math.max(radius, Math.min(height - radius, d.y))); });
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+//       .attr("cx", function(d) { return (d.x = Math.max(radius, Math.min(width - radius, d.x))); })
+//       .attr("cy", function(d) { return (d.y = Math.max(radius, Math.min(height - radius, d.y))); });
 }
 
 function color(d) {
