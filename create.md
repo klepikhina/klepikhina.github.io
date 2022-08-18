@@ -4,14 +4,30 @@ title: Create
 permalink: /create/
 ---
 
-<p align="center"><td>Rossland</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/Rossland.PNG" width="400"></p>
+### Mushroom Series
+<p align="center"><td>Parrot Toadstool (07/21/22)</td></p>
+<p align="center">
+  <img src="{{ site.baseurl }}/images/mushrooms/parrot_toadstool.PNG" width="500">&nbsp;
+</p>
+<p align="center"><td>Indigo Milk Cap (08/15/22)</td></p>
+<p align="center">
+  <img src="{{ site.baseurl }}/images/mushrooms/indigo_milk_cap.PNG" width="1000">&nbsp;
+</p>
+<p align="center"><td>Veiled Lady (08/19/22)</td></p>
+<p align="center">
+  <img src="{{ site.baseurl }}/images/mushrooms/veiled_lady.PNG" width="500">
+</p>
 
-<p align="center"><td>Leo</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/leo.png"></p>
+### Topo
+<p align="center"><td>Rossland (02/24/22)</td></p>
+<p align="center"><img src="{{ site.baseurl }}/images/Rossland.PNG" width="500"></p>
 
-<p align="center"><td>Man and Dog</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/man_and_dog.JPG"></p>
+### Dogs
+<p align="center"><td>Leo (06/14/21)</td></p>
+<p align="center"><img src="{{ site.baseurl }}/images/leo.png" width="1000"></p>
 
-<p align="center"><td>Sammy</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/sammy.png"></p>
+<p align="center"><td>Sammy (05/18/21)</td></p>
+<p align="center"><img src="{{ site.baseurl }}/images/sammy.png" width="1000"></p>
+
+<p align="center"><td>Man and Dog (03/27/21)</td></p>
+<p align="center"><img src="{{ site.baseurl }}/images/man_and_dog.JPG" width="1000"></p>
