@@ -5,17 +5,21 @@ permalink: /create/
 ---
 
 ### Mushroom Series
-<p align="center"><td>Parrot Toadstool (07/21/22)</td></p>
+<p align="center"><td>Scarlet Waxcap (09/01/22)</td></p>
 <p align="center">
-  <img src="{{ site.baseurl }}/images/mushrooms/parrot_toadstool.PNG" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/images/mushrooms/scarlet_wax_cap.PNG" width="500">
+</p>
+<p align="center"><td>Veiled Lady (08/19/22)</td></p>
+<p align="center">
+  <img src="{{ site.baseurl }}/images/mushrooms/veiled_lady.PNG" width="500">
 </p>
 <p align="center"><td>Indigo Milk Cap (08/15/22)</td></p>
 <p align="center">
   <img src="{{ site.baseurl }}/images/mushrooms/indigo_milk_cap.PNG" width="1000">&nbsp;
 </p>
-<p align="center"><td>Veiled Lady (08/19/22)</td></p>
+<p align="center"><td>Parrot Toadstool (07/21/22)</td></p>
 <p align="center">
-  <img src="{{ site.baseurl }}/images/mushrooms/veiled_lady.PNG" width="500">
+  <img src="{{ site.baseurl }}/images/mushrooms/parrot_toadstool.PNG" width="500">&nbsp;
 </p>
 
 ### Topo
