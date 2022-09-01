@@ -7,7 +7,7 @@ permalink: /create/
 ### Mushroom Series
 <p align="center"><td>Scarlet Waxcap (09/01/22)</td></p>
 <p align="center">
-  <img src="{{ site.baseurl }}/images/mushrooms/scarlet_wax_cap.PNG" width="500">
+  <img src="{{ site.baseurl }}/images/mushrooms/scarlet_wax_cap.PNG" width="1000">
 </p>
 <p align="center"><td>Veiled Lady (08/19/22)</td></p>
 <p align="center">
