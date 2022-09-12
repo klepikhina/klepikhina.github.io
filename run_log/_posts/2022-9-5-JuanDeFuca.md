@@ -30,7 +30,6 @@ On Monday, we planned to start the trail before the sun was up so that we wouldn
   ~1km
 </p>
 
-
 The trail went as follows:
 <p align="center">
   <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/jdf_map.jpg" width="1000">&nbsp;
@@ -45,7 +44,7 @@ Mystic Beach: we mistakenly thought the beaches would be the easiest parts. Runn
   ~2km
 </p>
 
-The trail was full of a mix of beautifully well built bridges, and precarious bridges that were just toppled trees.
+The trail was a mix of beautifully well built bridges, precarious toppled tree walks, wet roots, and steep muddy hills.
 <p align="center">
   <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/bridge1.jpg" width="500">&nbsp;
   <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/bridge2.jpg" width="500">&nbsp;
@@ -87,7 +86,6 @@ Chin Beach
   ~20km
 </p>
 
-There were big trees and beautiful views.
 <p align="center">
   <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/view1.jpg" width="500">&nbsp;
   <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/big_tree.jpg" width="500">&nbsp;
