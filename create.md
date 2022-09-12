@@ -4,6 +4,14 @@ title: Create
 permalink: /create/
 ---
 
+### Poorly Drawn Jareths
+<p align="center"><td>Cat (09/01/22)</td></p>
+<p align="center">
+  <img src="{{ site.baseurl }}/images/poorly_drawn_jareths/pdj1.PNG" width="333">
+  <img src="{{ site.baseurl }}/images/poorly_drawn_jareths/pdj2.PNG" width="333">
+  <img src="{{ site.baseurl }}/images/poorly_drawn_jareths/pdj3.PNG" width="333">
+</p>
+
 ### Mushroom Series
 <p align="center"><td>Scarlet Waxcap (09/01/22)</td></p>
 <p align="center">
