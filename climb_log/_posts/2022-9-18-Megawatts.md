@@ -17,7 +17,7 @@ We started climbing Megawatts around 12:15 on Sunday afternoon and finished up a
   <img src="{{ site.baseurl }}/climb_log/images/Sep22/Megawatts/mw_p2.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  Pitch 1 (7 bolts, one piton); Pitch 2 (7 bolts)
+  Pitch 1 (5.8 - 8 bolts, 40m); Pitch 2 (5.7 - 7 bolts, 40m)
 </p>
 Reminder - don't get tangled in your own ropes! 
 
@@ -25,7 +25,7 @@ Reminder - don't get tangled in your own ropes!
   <img src="{{ site.baseurl }}/climb_log/images/Sep22/Megawatts/mw_top_p3_p4.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  Top of pitch 3/4
+  Top of pitch 3/4 (5.4 - 4 bolts, 30m/ 5.6 - 4 bolts, 30m)
 </p>
 When we climbed Megawatts earlier in the summer, Justin brought a 70m rope so we linked a few pitches. This time, we climbed with 60m half ropes and learned that they are not quite long enough for linking pitch 3/4. Justin, Wesley and I did a party of 3 simul-climb for about 5 meters until Justin reached the anchors and put us on belay.
 
@@ -34,7 +34,7 @@ When we climbed Megawatts earlier in the summer, Justin brought a 70m rope so we
   <img src="{{ site.baseurl }}/climb_log/images/Sep22/Megawatts/mw_p5_2.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  Pitch 5
+  Pitch 5 (5.8 - 11 bolts, 52m.)
 </p>
 Pitch 5 has one tricky step from the ramp with no bolts to the face.
 
@@ -43,7 +43,7 @@ Pitch 5 has one tricky step from the ramp with no bolts to the face.
   <img src="{{ site.baseurl }}/climb_log/images/Sep22/Megawatts/mw_p6_2.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  Pitch 6
+  Pitch 6 (5.8 - 8 bolts, 40m)
 </p>
 
 
@@ -52,7 +52,7 @@ Pitch 5 has one tricky step from the ramp with no bolts to the face.
   <img src="{{ site.baseurl }}/climb_log/images/Sep22/Megawatts/mw_scramble.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  Pitch 7/8 combo; Scramble from top of climb to top
+  Pitch 7/8 (5.8 - 6 bolts, 30m/ 5.5 - 5 bolts, 25m); Scramble from top of climb to top
 </p>
 
 <p align="center">
@@ -66,5 +66,5 @@ Pitch 5 has one tricky step from the ramp with no bolts to the face.
   <img src="{{ site.baseurl }}/climb_log/images/Sep22/Megawatts/mw_bo_fall.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  Fall colors!
+  Fall colors on the descent trail - Brilliant Overlook
 </p>
