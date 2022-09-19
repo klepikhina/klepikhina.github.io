@@ -19,7 +19,7 @@ We started climbing Megawatts around 12:15 on Sunday afternoon and finished up a
 <p align="center">
   Pitch 1 (7 bolts, one piton); Pitch 2 (7 bolts)
 </p>
-Reminder - don't get tangled in your own ropes! :grin: 
+Reminder - don't get tangled in your own ropes! 
 
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Sep22/Megawatts/mw_top_p3_p4.jpg" width="500">&nbsp;
