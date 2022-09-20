@@ -27,23 +27,25 @@ permalink: /books/
   stroke-width: 1.5px;
 }
 
-#chart { width:100%; margin:20; padding:20; }
-  
+#chart { width:100%;height:100%;margin:0; padding:0; }
+
+
 </style>
 <div id="chart"></div>
+</div>
 <body>
-<script src="../js/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script>
+  // Code goes here
 
-// var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,//960,
-//     height = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight,//500,
-// //     radius = 20,
-//     root;
-
-// Code goes here
-var margin = {top: 20, right: 120, bottom: 20, left: 120},
-  width = d3.select('#chart').node().getBoundingClientRect().width,
-  height = width;
+var margin = {
+    top: 50,
+    right: 120,
+    bottom: 20,
+    left: 120
+},
+width = 960 - margin.right - margin.left,
+    height = 800 - margin.top - margin.bottom;
 
 var i = 0,
     duration = 750,
@@ -53,21 +55,21 @@ var tree = d3.layout.tree()
     .size([height, width]);
 
 var diagonal = d3.svg.diagonal()
-    .projection(function(d) { return [d.x, d.y]; });
+    .projection(function (d) {
+    return [d.x, d.y];
+});
 
-var svg = d3.select("div#chart").append("svg")
-    // .attr("width", width + margin.right + margin.left)
-    // .attr("height", height + margin.top + margin.bottom)
-    .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 -100 700 1000")
-//   .classed("svg-content", true);
-  .append("g")
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.right + margin.left)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
 
 d3.json("../js/books.json", function(data) {
 
 root = data;
-root.x0 = height / 2;
+root.x0 = width / 2;
 root.y0 = 0;
 
 function collapse(d) {
@@ -82,9 +84,8 @@ root.children.forEach(collapse);
 update(root);
 
 function update(source) {
-  
   var tree = d3.layout.tree()
-    .size([height, width]);
+    .size([width, height]);
 
   // Compute the new tree layout.
   var nodes = tree.nodes(root).reverse(),
@@ -100,7 +101,7 @@ function update(source) {
   // Enter any new nodes at the parent's previous position.
   var nodeEnter = node.enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .attr("transform", function(d) { return "translate(" + source.x0 + "," + source.y0 + ")"; })
       .on("click", click);
 
   // add picture
@@ -137,12 +138,6 @@ function update(source) {
       .text(function(d) { return d.name; })
       .style("fill-opacity", 1e-6);
       
-//     g.append("text")
-//       .attr("x", function(d) { return d.children || d._children ? -35 : 35; })
-//       .attr("dy", "2.5em")
-//       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-//       .text(function(d) { return d.title; })
-//       .style("fill-opacity", 1e-6);
 
   // Transition nodes to their new position.
   var nodeUpdate = node.transition()
@@ -161,7 +156,7 @@ function update(source) {
   // Transition exiting nodes to the parent's new position.
   var nodeExit = node.exit().transition()
       .duration(duration)
-      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .attr("transform", function(d) { return "translate(" + source.x + "," + source.y + ")"; })
       .remove();
 
   nodeExit.select("circle")
@@ -178,7 +173,7 @@ function update(source) {
   link.enter().insert("path", "g")
       .attr("class", "link")
       .attr("d", function(d) {
-        var o = {x: source.x0, y: source.y0};
+        var o = {y: source.y0, x: source.x0};
         return diagonal({source: o, target: o});
       });
 
@@ -191,7 +186,7 @@ function update(source) {
   link.exit().transition()
       .duration(duration)
       .attr("d", function(d) {
-        var o = {x: source.x, y: source.y};
+        var o = {y: source.y, x: source.x};
         return diagonal({source: o, target: o});
       })
       .remove();
@@ -207,21 +202,21 @@ function update(source) {
 function click(d) {
     if (d.open) {
         if (d.children) {
-            height = height - d.children.length * 20;
+            width = width - d.children.length * 20;
             d._children = d.children;
             d.children = null;
         } else {
-            height = height - d._children.length * 20;
+            width = width - d._children.length * 20;
             d.children = d._children;
             d._children = null;
         }
     } else {
         if (d.children) {
-            height = height + d.children.length * 20;
+            width = width + d.children.length * 20;
             d._children = d.children;
             d.children = null;
         } else {
-            height = height + d._children.length * 20;
+            width = width + d._children.length * 20;
             d.children = d._children;
             d._children = null;
         }
@@ -230,5 +225,4 @@ function click(d) {
     update(d);
 }
 });
-
 </script>
