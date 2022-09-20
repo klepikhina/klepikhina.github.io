@@ -1,79 +1,79 @@
 {
 	"name": "books",
-	"image": "{{ site.baseurl }}/images/book_covers/white.jpg",
+	"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
 	"value": "",
 	"children": [{
 			"name": "2022",
-			"image": "{{ site.baseurl }}/images/book_covers/white.jpg",
+			"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
 			"value": "",
 			"children": [{
 					"name": "audio",
-					"image": "{{ site.baseurl }}/images/book_covers/white.jpg",
+					"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
 					"value": "",
 					"children": [{
 							"name": "\"This Is Your Mind on Plants\", Michael Pollan",
-							"image": "{{ site.baseurl }}/images/book_covers/MindOnPlants.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/MindOnPlants.jpg",
 							"value": "This-Your-Mind-Plants/dp/B08RF1K2LD"
 						},
 						{
 							"name": "\"Noise: A Flaw in Human Judgment\", Daniel Kahneman",
-							"image": "{{ site.baseurl }}/images/book_covers/Noise.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/Noise.jpg",
 							"value": "Noise-Human-Judgment-Daniel-Kahneman/dp/0316451401"
 						},
 						{
 							"name": "\"Emperor Mollusk Versus the Sinister Brain\", A. Lee Martinez",
-							"image": "{{ site.baseurl }}/images/book_covers/EmperorMollusk.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/EmperorMollusk.jpg",
 							"value": "Emperor-Mollusk-Versus-Sinister-Brain/dp/B007H3JHGG"
 						},
 						{
 							"name": "\"The Seven Husbands of Evelyn Hugo\",Taylor Jenkins Reid",
-							"image": "{{ site.baseurl }}/images/book_covers/SevenHusbands.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/SevenHusbands.jpg",
 							"value": "Seven-Husbands-Evelyn-Hugo-Novel-ebook/dp/B01M5IJM2U"
 						}
 					]
 				},
 				{
 					"name": "physical",
-					"image": "{{ site.baseurl }}/images/book_covers/white.jpg",
+					"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
 					"value": "",
 					"children": [{
 							"name": "\"Her Body and Other Parties\", Carmen Maria Machado",
-							"image": "{{ site.baseurl }}/images/book_covers/HerBody.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/HerBody.jpg",
 							"value": "Her-Body-Other-Parties-Stories/dp/155597788X"
 						},
 						{
 							"name": "\"The Song of Achilles\", Madeline Miller",
-							"image": "{{ site.baseurl }}/images/book_covers/SongOfAchilles.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/SongOfAchilles.jpg",
 							"value": "Song-Achilles-Novel-Madeline-Miller/dp/0062060627"
 						},
 						{
 							"name": "\"Man\\'s 4th Best Hospital\", Samuel Shem",
-							"image": "{{ site.baseurl }}/images/book_covers/MansFourthBestHospital.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/MansFourthBestHospital.jpg",
 							"value": "Mans-4th-Best-Hospital-audiobook/dp/B07ZS414F2"
 						},
 						{
 							"name": "\"Entangled Life\", Merlin Sheldrake",
-							"image": "{{ site.baseurl }}/images/book_covers/EntangledLife.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/EntangledLife.jpg",
 							"value": "Entangled-Life-Worlds-Change-Futures/dp/052551032X"
 						},
 						{
 							"name": "\"The Happiness Equation\", Neil Pasricha",
-							"image": "{{ site.baseurl }}/images/book_covers/HappinessEquation.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/HappinessEquation.jpg",
 							"value": "Happiness-Equation-Nothing-Anything-Everything/dp/0425277984"
 						},
 						{
 							"name": "\"The Library at Mount Char\", Scott Hawkins",
-							"image": "{{ site.baseurl }}/images/book_covers/LibraryMountChar.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/LibraryMountChar.jpg",
 							"value": "Library-at-Mount-Char/dp/0553418629"
 						},
 						{
 							"name": "\"When Breath Becomes Air\", Paul Kalanithi",
-							"image": "{{ site.baseurl }}/images/book_covers/WhenBreathBecomesAir.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/WhenBreathBecomesAir.jpg",
 							"value": "When-Breath-Becomes-Paul-Kalanithi/dp/081298840X"
 						},
 						{
 							"name": "\"My Year of Rest and Relaxation\", Ottessa Moshfegh",
-							"image": "{{ site.baseurl }}/images/book_covers/YearOfRest.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/YearOfRest.jpg",
 							"value": "My-Year-Rest-Relaxation-Novel/dp/0525522131"
 						}
 					]
@@ -82,131 +82,131 @@
 		},
 		{
 			"name": "2021",
-			"image": "{{ site.baseurl }}/images/book_covers/white.jpg",
+			"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
 			"value": "",
 			"children": [{
 					"name": "audio",
-					"image": "{{ site.baseurl }}/images/book_covers/white.jpg",
+					"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
 					"value": "",
 					"children": [{
 							"name": "\"The Spies of Warsaw\", Alan Furst",
-							"image": "{{ site.baseurl }}/images/book_covers/SpiesOfWarsaw.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/SpiesOfWarsaw.jpg",
 							"value": "Spies-Warsaw-Novel-Alan-Furst/dp/0812977378"
 						},
 						{
 							"name": "\"A Conjuring of Light\", V. E. Schwab",
-							"image": "{{ site.baseurl }}/images/book_covers/ConjuringOfLight.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/ConjuringOfLight.jpg",
 							"value": "Conjuring-Light-Novel-Shades-Magic/dp/0765387476"
 						},
 						{
 							"name": "\"A Dead Djinn in Cairo\", P. Djèlí Clark",
-							"image": "{{ site.baseurl }}/images/book_covers/DeadDjinn.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/DeadDjinn.jpg",
 							"value": "Dead-Djinn-Cairo-Tor-Com-Original-ebook/dp/B01DJ0NALI"
 						},
 						{
 							"name": "\"The Midnight Library\", Matt Haig",
-							"image": "{{ site.baseurl }}/images/book_covers/MidnightLibrary.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/MidnightLibrary.jpg",
 							"value": "Midnight-Library-Novel-Matt-Haig/dp/0525559477"
 						},
 						{
 							"name": "\"The Armies of Those I Love\", Ken Liu",
-							"image": "{{ site.baseurl }}/images/book_covers/ArmiesOfThoseILove.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/ArmiesOfThoseILove.jpg",
 							"value": "Armies-Those-I-Love/dp/B08S75Z8CR"
 						},
 						{
 							"name": "\"Braving the Wilderness\", Brené Brown",
-							"image": "{{ site.baseurl }}/images/book_covers/BravingTheWilderness.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/BravingTheWilderness.jpg",
 							"value": "Braving-Wilderness-Quest-Belonging-Courage/dp/0812995848"
 						},
 						{
 							"name": "\"Fire on the Mountain\", John N Maclean",
-							"image": "{{ site.baseurl }}/images/book_covers/FireOnTheMountain.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/FireOnTheMountain.jpg",
 							"value": "Fire-Mountain-Story-South-Canyon/dp/0061829617"
 						},
 						{
 							"name": "\"Akata Witch\", Nnedi Okorafor",
-							"image": "{{ site.baseurl }}/images/book_covers/AkataWitch.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/AkataWitch.jpg",
 							"value": "Akata-Witch-Nnedi-Okorafor/dp/0142420913"
 						},
 						{
 							"name": "\"The Color of Law\", Richard Rothstein",
-							"image": "{{ site.baseurl }}/images/book_covers/ColorOfLaw.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/ColorOfLaw.jpg",
 							"value": "Color-Law-Forgotten-Government-Segregated/dp/1631494538"
 						},
 						{
 							"name": "\"Project Hail Mary\", Andy Weir",
-							"image": "{{ site.baseurl }}/images/book_covers/HailMary.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/HailMary.jpg",
 							"value": "Project-Hail-Mary-Novel-Random/dp/0593395565"
 						},
 						{
 							"name": "\"MEM\", Bethany C. Morrow",
-							"image": "{{ site.baseurl }}/images/book_covers/MEM.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/MEM.jpg",
 							"value": "MEM-Bethany-C-Morrow/dp/1944700552"
 						}
 					]
 				},
 				{
 					"name": "physical",
-					"image": "{{ site.baseurl }}/images/book_covers/white.jpg",
+					"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
 					"value": "",
 					"children": [{
 							"name": "\"One Life\", Megan Rapinoe",
-							"image": "{{ site.baseurl }}/images/book_covers/OneLife.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/OneLife.jpg",
 							"value": "One-Life-Megan-Rapinoe/dp/1984881167"
 						},
 						{
 							"name": "\"Circe\", Madeline Miller",
-							"image": "{{ site.baseurl }}/images/book_covers/Circe.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/Circe.jpg",
 							"value": "Circe-Madeline-Miller/dp/0316556327"
 						},
 						{
 							"name": "\"Homegoing\", Yaa Gyasi",
-							"image": "{{ site.baseurl }}/images/book_covers/Homegoing.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/Homegoing.jpg",
 							"value": "Homegoing-Yaa-Gyasi/dp/1101971061"
 						},
 						{
 							"name": "\"The House in the Cerulean Sea\", TJ Klune",
-							"image": "{{ site.baseurl }}/images/book_covers/CeruleanSea.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/CeruleanSea.jpg",
 							"value": "House-Cerulean-Sea-TJ-Klune/dp/1250217288"
 						},
 						{
 							"name": "\"Whitewalling: Art, Race & Protest in 3 Acts\", Aruna D\\'Souza",
-							"image": "{{ site.baseurl }}/images/book_covers/Whitewalling.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/Whitewalling.jpg",
 							"value": "Whitewalling-Art-Race-Protest-Acts/dp/1943263140"
 						},
 						{
 							"name": "\"Why Women Have Better Sex Under Socialism\", Kristen R. Ghodsee",
-							"image": "{{ site.baseurl }}/images/book_covers/BetterSex.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/BetterSex.jpg",
 							"value": "Women-Have-Better-Under-Socialism/dp/1645036367"
 						},
 						{
 							"name": "\"The Invisible Life of Addie LaRue\", V. E. Schwab",
-							"image": "{{ site.baseurl }}/images/book_covers/InvisibleLife.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/InvisibleLife.jpg",
 							"value": "Invisible-Life-Addie-LaRue/dp/0765387565"
 						},
 						{
 							"name": "\"Partners in Crime\", Agatha Christie",
-							"image": "{{ site.baseurl }}/images/book_covers/PartnersInCrime.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/PartnersInCrime.jpg",
 							"value": "Partners-Crime-Tuppence-Agatha-Christie/dp/0062074369"
 						},
 						{
 							"name": "\"Crying in H Mart\", Michelle Zauner",
-							"image": "{{ site.baseurl }}/images/book_covers/Hmart.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/Hmart.jpg",
 							"value": "Crying-Mart-Memoir-Michelle-Zauner/dp/0525657746"
 						},
 						{
 							"name": "\"Eleanor Oliphant is Completely Fine\", Gail Honeyman",
-							"image": "{{ site.baseurl }}/images/book_covers/CompletelyFine.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/CompletelyFine.jpg",
 							"value": "Eleanor-Oliphant-Completely-Fine-Novel/dp/0735220697"
 						},
 						{
 							"name": "\"The Mothers\", Brit Bennett",
-							"image": "{{ site.baseurl }}/images/book_covers/TheMothers.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/TheMothers.jpg",
 							"value": "Mothers-Novel-Brit-Bennett/dp/039918452X"
 						},
 						{
 							"name": "\"The Golden Spruce\", John Vaillant",
-							"image": "{{ site.baseurl }}/images/book_covers/GoldenSpruce.jpg",
+							"image": "https://klepikhina.github.io/images/book_covers/GoldenSpruce.jpg",
 							"value": "John-Vaillant-Golden-Madness-Paperback/dp/B01FOD91R0"
 						}
 					]
