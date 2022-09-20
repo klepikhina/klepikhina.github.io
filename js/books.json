@@ -1,11 +1,17 @@
 {
    "name":"books",
+   "image":"{{ site.baseurl }}/images/book_covers/white.jpg",
+   "value":""
    "children":[
       {
          "name":"2022",
+         "image":"{{ site.baseurl }}/images/book_covers/white.jpg",
+         "value":""
          "children":[
             {
                "name":"audio",
+               "image":"{{ site.baseurl }}/images/book_covers/white.jpg",
+               "value":""
                "children":[
                   {
                      "name":"\"This Is Your Mind on Plants\", Michael Pollan",
@@ -31,6 +37,8 @@
             },
             {
                "name":"physical",
+               "image":"{{ site.baseurl }}/images/book_covers/white.jpg",
+               "value":""
                "children":[
                   {
                      "name":"\"Her Body and Other Parties\", Carmen Maria Machado",
@@ -78,9 +86,13 @@
       },
       {
          "name":"2021",
+         "image":"{{ site.baseurl }}/images/book_covers/white.jpg",
+         "value":""
          "children":[
             {
                "name":"audio",
+               "image":"{{ site.baseurl }}/images/book_covers/white.jpg",
+               "value":""
                "children":[
                   {
                      "name":"\"The Spies of Warsaw\", Alan Furst",
@@ -141,6 +153,8 @@
             },
             {
                "name":"physical",
+               "image":"{{ site.baseurl }}/images/book_covers/white.jpg",
+               "value":""
                "children":[
                   {
                      "name":"\"One Life\", Megan Rapinoe",
