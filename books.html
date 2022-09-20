@@ -59,10 +59,10 @@ var svg = d3.select("div#chart").append("svg")
     // .attr("width", width + margin.right + margin.left)
     // .attr("height", height + margin.top + margin.bottom)
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 -100 700 1000");
+    .attr("viewBox", "0 -100 700 1000")
 //   .classed("svg-content", true);
-//   .append("g")
-//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.json("../js/books.json", function(data) {
 
