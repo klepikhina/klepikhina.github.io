@@ -71,7 +71,7 @@ var svg = d3.select("div#container").append("svg")
 //                     .attr("width", width + margin.right + margin.left)
 //                     .attr("height", height + margin.top + margin.bottom)
                   .attr("preserveAspectRatio", "xMinYMin meet")
-                   .attr("viewBox", "0 0 700 1000");
+                   .attr("viewBox", "0 -100 700 1000");
 //                   .append("g")
 //                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
                 // root = treeData; 
@@ -94,6 +94,9 @@ root.children.forEach(collapse);
 update(root);
 
 function update(source) {
+  
+  var tree = d3.layout.tree()
+    .size([height, width]);
 
   // Compute the new tree layout.
   var nodes = tree.nodes(root).reverse(),
@@ -213,14 +216,29 @@ function update(source) {
 
 // Toggle children on click.
 function click(d) {
-  if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
-  update(d);
+    if (d.open) {
+        if (d.children) {
+            height = height - d.children.length * 20;
+            d._children = d.children;
+            d.children = null;
+        } else {
+            height = height - d._children.length * 20;
+            d.children = d._children;
+            d._children = null;
+        }
+    } else {
+        if (d.children) {
+            height = height + d.children.length * 20;
+            d._children = d.children;
+            d.children = null;
+        } else {
+            height = height + d._children.length * 20;
+            d.children = d._children;
+            d._children = null;
+        }
+    }
+    d.open = !d.open;
+    update(d);
 }
 });
 
