@@ -3,8 +3,7 @@ layout: page
 title: Books
 permalink: /books/
 ---
-
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
 .node {
@@ -44,8 +43,8 @@ var margin = {
     bottom: 20,
     left: 120
 },
-width = 960 - margin.right - margin.left,
-    height = 800 - margin.top - margin.bottom;
+width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+    height = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
 
 var i = 0,
     duration = 750,
@@ -101,37 +100,44 @@ function update(source) {
   // Enter any new nodes at the parent's previous position.
   var nodeEnter = node.enter().append("g")
       .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + source.x0 + "," + source.y0 + ")"; })
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
       .on("click", click);
 
   // add picture
-  nodeEnter
-    .append('defs')
-    .append('pattern')
-    .attr('id', function(d,i){
-      return 'pic_' + d.name;
-    })
-    .attr('height',60)
-    .attr('width',60)
-    .attr('x',0)
-    .attr('y',0)
-    .append('image')
-    .attr('xlink:href',function(d,i){
-      return d.image;
-    })
-    .attr('height',60)
-    .attr('width',60)
-    .attr('x',0)
-    .attr('y',0);
+  // nodeEnter
+  //   .append('defs')
+  //   .append('pattern')
+  //   .attr('id', function(d,i){
+  //     return 'pic_' + d.name;
+  //   })
+  //   .attr('height',60)
+  //   .attr('width',60)
+  //   .attr('x',0)
+  //   .attr('y',0)
+  //   .append('image')
+  //   .attr('xlink:href',function(d,i){
+  //     return d.image;
+  //   })
+  //   .attr('height',60)
+  //   .attr('width',60)
+  //   .attr('x',0)
+  //   .attr('y',0);
 
-  nodeEnter.append("circle")
-      .attr("r", 1e-6)
-      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+  nodeEnter.append("image")
+      .attr("xlink:href", function(d) { return d.image; })
+      .attr("x", -50)
+      .attr("y", 0)
+      .attr("width", "100px")
+      .attr("height", "100px");
 
-  var g = nodeEnter.append("g");
+  // nodeEnter.append("circle")
+  //     .attr("r", 1e-6)
+  //     .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  // var g = nodeEnter.append("g");
   
-  g.append("text")
-      .attr("x", function(d) { return d.children || d._children ? -35 : 35; })
+  nodeEnter.append("text")
+      .attr("x", function(d) { return d.children || d._children ? -35 : 130; })
       .attr("dy", "1.35em")
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .attr("transform", function(d) { return d.children || d._children ?"translate(0,0) rotate(0)" : "translate(10,0) rotate(90)"; })
@@ -172,8 +178,8 @@ function update(source) {
   // Enter any new links at the parent's previous position.
   link.enter().insert("path", "g")
       .attr("class", "link")
-      .attr("d", function(d) {
-        var o = {y: source.y0, x: source.x0};
+      .attr("d",function(d) {
+        var o = {x: source.x0, y: source.y0};
         return diagonal({source: o, target: o});
       });
 
