@@ -1,14 +1,14 @@
 {
 	"name": "books",
-	"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
+	"image": "",
 	"value": "",
 	"children": [{
 			"name": "2022",
-			"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
+			"image": "",
 			"value": "",
 			"children": [{
 					"name": "audio",
-					"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
+					"image": "",
 					"value": "",
 					"children": [{
 							"name": "\"This Is Your Mind on Plants\", Michael Pollan",
@@ -34,7 +34,7 @@
 				},
 				{
 					"name": "physical",
-					"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
+					"image": "",
 					"value": "",
 					"children": [{
 							"name": "\"Her Body and Other Parties\", Carmen Maria Machado",
@@ -82,11 +82,11 @@
 		},
 		{
 			"name": "2021",
-			"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
+			"image": "",
 			"value": "",
 			"children": [{
 					"name": "audio",
-					"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
+					"image": "",
 					"value": "",
 					"children": [{
 							"name": "\"The Spies of Warsaw\", Alan Furst",
@@ -147,7 +147,7 @@
 				},
 				{
 					"name": "physical",
-					"image": "https://klepikhina.github.io/images/book_covers/white.jpg",
+					"image": "",
 					"value": "",
 					"children": [{
 							"name": "\"One Life\", Megan Rapinoe",
