@@ -3,27 +3,43 @@ layout: page
 title: Books
 permalink: /books/
 ---
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <meta charset="utf-8">
 <style>
 .node {
   cursor: pointer;
 }
 
-.node circle {
+/* .node circle {
   fill: #fff;
   stroke: steelblue;
   stroke-width: 1.5px;
-}
+} */
 
 .node text {
-  font: 10px sans-serif;
+  font: 16px sans-serif;
 }
 
 .link {
   fill: none;
   stroke: #ccc;
   stroke-width: 1.5px;
+}
+
+.svg-container { 
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%; 
+	vertical-align: middle; 
+	overflow: hidden; 
+}
+
+.svg-content { 
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 #chart { width:100%;height:100%;margin:0; padding:0; }
@@ -59,10 +75,11 @@ var diagonal = d3.svg.diagonal()
 });
 
 var svg = d3.select("body").append("svg")
+    // .attr("viewBox", '0 0 2000 1500')
     .attr("width", width + margin.right + margin.left)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
 
 d3.json("../js/books.json", function(data) {
@@ -125,10 +142,10 @@ function update(source) {
 
   nodeEnter.append("image")
       .attr("xlink:href", function(d) { return d.image; })
-      .attr("x", -50)
+      .attr("x", -75)
       .attr("y", 0)
-      .attr("width", "100px")
-      .attr("height", "100px");
+      .attr("width", "150px")
+      .attr("height", "150px");
 
   // nodeEnter.append("circle")
   //     .attr("r", 1e-6)
@@ -140,7 +157,7 @@ function update(source) {
       .attr("x", function(d) { return d.children || d._children ? -35 : 130; })
       .attr("dy", "1.35em")
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-      .attr("transform", function(d) { return d.children || d._children ?"translate(0,0) rotate(0)" : "translate(10,0) rotate(90)"; })
+      .attr("transform", function(d) { return d.children || d._children ?"translate(50,50) rotate(90)" : "translate(10,30) rotate(90)"; })
       .text(function(d) { return d.name; })
       .style("fill-opacity", 1e-6);
       
