@@ -18,7 +18,7 @@ We hiked by Sheep Lake and used ice axes to scootch up to the top of the ridge b
 
 Quickly stopped for a summit selfie!
 <p align="center">
-  <img src="{{ site.baseurl }}/hike_log/images/June21/ChinookPeak/peak_selfie.HEIC" width="1000">&nbsp;
+  <img src="{{ site.baseurl }}/hike_log/images/June21/ChinookPeak/peak_selfie.jpg" width="1000">&nbsp;
 </p>
 
 Looked around and down at Crystal Lake.
