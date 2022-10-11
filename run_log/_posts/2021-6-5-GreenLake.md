@@ -4,6 +4,7 @@ title: Green Lake and Baxter Gulch, Crested Butte, CO | 16mi, 2850ft
 ---
 
 Glowing morning run with my mom and Sammy. This was the trip to Crested Butte that would convince my parents to move here. Crested Butte has always felt like home away from home. <a href="https://www.strava.com/activities/5419816750" target="_blank">Link to Strava.</a>
+
 <p align="center">
   <img src="{{ site.baseurl }}/run_log/images/June21/GreenLake/greenlake_startfromtown.jpg" width="500">&nbsp;
   <img src="{{ site.baseurl }}/run_log/images/June21/GreenLake/greenlake_momaspens.jpg" width="500">&nbsp;
