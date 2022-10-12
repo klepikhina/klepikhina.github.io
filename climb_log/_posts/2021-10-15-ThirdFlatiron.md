@@ -44,6 +44,9 @@ Kelsea's in town! We decided to do a quick climb up the third flatiron on the st
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Oct21/ThirdFlatiron/noanchorbelay.JPG" width="1000">&nbsp;
 </p>
+<p align="center">
+  No anchor belay
+</p>
 
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Oct21/ThirdFlatiron/justin3.JPG" width="1000">&nbsp;
