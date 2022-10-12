@@ -72,7 +72,7 @@ Kelsea's in town! We decided to do a quick climb up the third flatiron on the st
 
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Oct21/ThirdFlatiron/belayspot.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Oct21/ThirdFlatiron/flatironview.JPG" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/climb_log/images/Oct21/ThirdFlatiron/flatironviews.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   Justin's belay spot views, and flatiron summit view
