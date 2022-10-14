@@ -1,6 +1,6 @@
 ---
 layout: climb_log
-title: Casual Route, Longs Peak, CO | 5.10a - 10 pitch
+title: Casual Route, Longs Peak, CO | 5.10a - 10 pitches
 ---
 
 The approach to the casual route is about 6.2 miles and took us about 2.5 hours. We followed the trail up to Chasm Lake and circumnavigated the lake through a large boulder field to reach the base of the climb. We overestimated how long the approach would take and arrived at the climb at 4:30am. We sat under a large rock and huddled until 7am watching the sunrise. 
