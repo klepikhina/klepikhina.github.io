@@ -1,6 +1,6 @@
 ---
 layout: climb_log
-title: Angel's Way, Boulder, BC | 5.2 - 8 pitch scramble
+title: Angel's Way, Boulder, CO | 5.2 - 8 pitch scramble
 ---
 
 Cliff and I reconnected for the first time since high school after realizing we're both in Boulder. I told him that I was excited that I had scrambled the Second and that I was interested in other scrambling -- but nothing too hard. Cliff suggested Angel's Way. The approach trail starts from the NCAR trail head.
