@@ -6,7 +6,7 @@ title: Spirit of Squamish, Squamish, BC | 5.8 - 8 pitches
 Squamish is getting busy!! Justin and I took a week off of work to spend some time on the coast. We showed up to Spirit of Squamish at 1pm and waited for two parties to finish before we finally hopped on the climb at 2pm. It was well worth the wait.
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Sep22/SpiritOfSquamish/waitingtostart.jpg" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/climb_log/images/Sep22/SpiritOfSquamish/waitingtoclimb.jpg" width="500">&nbsp;
   <img src="{{ site.baseurl }}/climb_log/images/Sep22/SpiritOfSquamish/klahaniecrack.jpg" width="500">&nbsp;
 </p>
 <p align="center">
