@@ -4,6 +4,7 @@ title: Skaha Cave, Skaha - Penticton, BC | Cave Scramble
 ---
 
 For July long, we took a quick weekend trip down to Penticton. In addition to walking around to different breweries and farmers markets, floating the channel and climbing, we got to go through the cave at Skaha!
+
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Jul22/SkahaCave/approach.jpg" width="333">&nbsp;
   <img src="{{ site.baseurl }}/climb_log/images/Jul22/SkahaCave/entrance.jpeg" width="333">&nbsp;
