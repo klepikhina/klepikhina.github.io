@@ -7,7 +7,7 @@ We intended to do Jumbo Pass and Monica Meadows two weekends prior but were turn
 
 <p align="center">
   <img src="{{ site.baseurl }}/hike_log/images/Oct22/Jumbo/fire1.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/hike_log/images/Oct22/Jumbo/roadmaintenance.jpg" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/hike_log/images/Oct22/Jumbo/road_maintenance.jpg" width="500">&nbsp;
 </p>
 
 Justin brough his chainsaw and did some road maintenance to clear some fallen trees on the way up as the fire burned directly on the forest servive road.
