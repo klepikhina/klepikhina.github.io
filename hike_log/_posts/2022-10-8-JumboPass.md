@@ -1,6 +1,6 @@
 ---
-layout: run_log
-title: Jumbo Pass, Purcells, BC | 12.22km, 1358m
+layout: hike_log
+title: Jumbo Pass, Purcells, BC | 12.5km, 1217m
 ---
 
 We intended to do Jumbo Pass and Monica Meadows two weekends prior but were turned around due to an active wildfire. This weekend, the fire was "being held" and though we were warned about rolling debris and fallen trees, we decided it was worth trying to drive up anyway. 
