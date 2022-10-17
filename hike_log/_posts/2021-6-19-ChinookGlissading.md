@@ -1,5 +1,5 @@
 ---
-layout: run_log
+layout: hike_log
 title: Chinook Peak Glissading, Okanogan-Wenatchee National Forest, WA | 6.3mi, 1595ft
 ---
 
