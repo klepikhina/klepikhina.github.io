@@ -43,10 +43,6 @@ The parking lot was fairly packed and I was surprised at how desensitized people
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/hike_log/images/Oct22/Jumbo/outofthetrees.jpg" width="1000">&nbsp;
-</p>
-
-<p align="center">
   <img src="{{ site.baseurl }}/hike_log/images/Oct22/Jumbo/howtoposewithpoles.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
