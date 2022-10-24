@@ -58,7 +58,8 @@ Kick off the data with a bright and early Boulder Skyline job with David! The Bo
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/May21/BoulderSkyline/skyline_greenmountain.jpg" width="1000">&nbsp;
+  <img src="{{ site.baseurl }}/run_log/images/May21/BoulderSkyline/skyline_greenmountain.jpg" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/run_log/images/May21/BoulderSkyline/skyline_flagstaff.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   Green Mountain ~8.7mi; Flagstaff Mountain descent trail ~11mi
