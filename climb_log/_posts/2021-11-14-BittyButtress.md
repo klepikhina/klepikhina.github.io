@@ -7,7 +7,7 @@ Climbing season was going late in Boulder! I asked Joe if he'd be willing to tak
 
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Nov21/BittyButtress/bb_joe_climbing.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Nov21/BittyButtress/bb_joe_rope.jpg" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/climb_log/images/Nov21/BittyButtress/bb_rope.jpg" width="500">&nbsp;
 </p>
 
 <p align="center">
