@@ -16,7 +16,7 @@ The highest summit in the Rocky Mountains and the second highest in the contiguo
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/hike_log/images/Aug18/MountElbert/elbert_pano.jpg" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/hike_log/images/Aug18/MountElbert/elbert_pano.jpg" width="1000">&nbsp;
 </p>
 
 <p align="center">
