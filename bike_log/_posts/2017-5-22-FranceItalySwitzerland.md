@@ -87,14 +87,12 @@ Two week Euro loop: FR -> IT -> CH -> FR
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/May17/FrItSw/domaine_imperial.JPG" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/bike_log/images/May17/FrItSw/domaine_imperia2.JPG" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/bike_log/images/May17/FrItSw/domaine_imperial.JPG" width="333">&nbsp;
+  <img src="{{ site.baseurl }}/bike_log/images/May17/FrItSw/domaine_imperial2.JPG" width="333">&nbsp;
+  <img src="{{ site.baseurl }}/bike_log/images/May17/FrItSw/lac_leman.JPG" width="333">&nbsp;
 </p>
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/May17/FrItSw/lac_leman.JPG" width="1000">&nbsp;
-</p>
-<p align="center">
-  Domaine Impérial, CH
+  Domaine Impérial, CH; Lac Leman
 </p>
 
 <p align="center">
@@ -114,10 +112,10 @@ Two week Euro loop: FR -> IT -> CH -> FR
 
 <p align="center">
   <img src="{{ site.baseurl }}/bike_log/images/May17/FrItSw/nyon.JPG" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/bike_log/images/May17/FrItSw/nice_film_fest.JPG" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/bike_log/images/May17/FrItSw/nice_film_fest.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  Nyon, CH; Nice, IT
+  Nyon, CH; Nice, FR
 </p>
 
 
