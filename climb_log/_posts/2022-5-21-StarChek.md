@@ -13,8 +13,8 @@ First, we saw baby ducks before driving over. Super exciting.
 
 This climb probably has the best approach. The approach is down to the river, then you climb back up to your car.
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/May22/StarChek/river1.jpg" width="500">&nbsp;
   <img src="{{ site.baseurl }}/climb_log/images/May22/StarChek/river2.jpg" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/climb_log/images/May22/StarChek/river1.jpg" width="500">&nbsp;
 </p>
 
 <p align="center">
