@@ -173,6 +173,11 @@
 							"name": "\"Where the Crawdads Sing\",Delia Owens",
 							"image": "https://klepikhina.github.io/images/book_covers/WhereTheCrawdadsSing.jpg",
 							"value": "Where-Crawdads-Sing-Delia-Owens/dp/0735219109"
+						},
+						{
+							"name": "\"Before the Coffee Gets Cold\",Toshikazu Kawaguchi",
+							"image": "https://klepikhina.github.io/images/book_covers/BeforeTheCoffee.jpg",
+							"value": "Before-Coffee-Gets-Cold-Novel/dp/B087RSSPHD"
 						}
 					]
 				},
@@ -229,6 +234,11 @@
 							"name": "\"The Ocean at the End of the Lane\", Neil Gaiman | reread",
 							"image": "https://klepikhina.github.io/images/book_covers/OceanLane.jpg",
 							"value": "Ocean-at-End-Lane/dp/1472200349"
+						},
+						{
+							"name": "\"The Book of Eels\", Patrik Svensson",
+							"image": "https://klepikhina.github.io/images/book_covers/BookOfEels.jpg",
+							"value": "Book-Eels-Patrik-Svensson/dp/0062968823"
 						}
 					]
 				}
