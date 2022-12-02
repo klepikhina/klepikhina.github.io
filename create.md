@@ -5,6 +5,10 @@ permalink: /create/
 ---
 
 ### Patterns
+<p align="center"><td> Sun; Stairs (12/02/22)</td></p>
+<p align="center">
+  <img src="{{ site.baseurl }}/images/patterns/shine.png" width="1000">
+</p>
 <p align="center"><td> Sun; Stairs (12/01/22)</td></p>
 <p align="center">
   <img src="{{ site.baseurl }}/images/patterns/sun.PNG" width="500">
