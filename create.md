@@ -4,6 +4,13 @@ title: Create
 permalink: /create/
 ---
 
+### Patterns
+<p align="center"><td> Sun; Stairs (12/01/22)</td></p>
+<p align="center">
+  <img src="{{ site.baseurl }}/images/patterns/sun.PNG" width="500">
+  <img src="{{ site.baseurl }}/images/patterns/stairs.PNG" width="500">
+</p>
+
 ### Into the Sky
 <p align="center"><td>Unfinished (10/07/22)</td></p>
 <p align="center">
