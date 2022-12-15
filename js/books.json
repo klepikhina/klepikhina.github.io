@@ -239,6 +239,11 @@
 							"name": "\"The Book of Eels\", Patrik Svensson",
 							"image": "https://klepikhina.github.io/images/book_covers/BookOfEels.jpg",
 							"value": "Book-Eels-Patrik-Svensson/dp/0062968823"
+						},
+						{
+							"name": "\"The Prophet\", Kahil Gibran",
+							"image": "https://klepikhina.github.io/images/book_covers/TheProphet.jpg",
+							"value": "Prophet-Penguin-Classics-Hardcover/dp/0143133586"
 						}
 					]
 				}
