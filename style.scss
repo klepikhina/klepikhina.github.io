@@ -22,7 +22,8 @@ body {
   font: 18px/1.4 $helvetica;
   color: $darkGray;
 }
-// NEW
+
+/* NEW */
 .container {
   margin: 0 auto;
   max-width: 1300px;
@@ -57,7 +58,7 @@ body {
 .container:hover .content{
     transform: perspective(500px) rotateY(90deg);
 }
-// NEW ^^
+/* NEW */
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
