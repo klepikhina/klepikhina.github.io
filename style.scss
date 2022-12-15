@@ -23,44 +23,6 @@ body {
   color: $darkGray;
 }
 
-/* NEW */
-.container {
-  margin: 0 auto;
-  max-width: 1300px;
-  padding: 0 10px;
-  width: 100%;
-}
-.container img{
-    width: inherit;
-    height: inherit;
-    border-radius: 20px;
-    box-shadow: 0 0 7px skyblue;
-    transition: all 0.8s;
-}
-.container:hover img{
-    transform: scale(1.2,1.2);   
-}
-// .container .content{
-//     width: 50%;
-//     height: 100%;
-//     padding: 5%;
-//     color: white;
-//     font-size: 18px;
-//     text-align: justify;
-//     background-color: rgba(0, 0, 0, 0.5);
-//     border-radius: 20px;
-//     box-sizing: border-box;
-//     position: absolute;
-//     top: 0;
-//     transform: perspective(500px) rotateY(0deg);
-//     transform-origin: left;
-//     transition: all 0.8s;
-// }
-// .container:hover .content{
-//     transform: perspective(500px) rotateY(90deg);
-// }
-/* NEW */
-
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
   color: $darkerGray;
