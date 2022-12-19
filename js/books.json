@@ -178,6 +178,11 @@
 							"name": "\"Before the Coffee Gets Cold\",Toshikazu Kawaguchi",
 							"image": "https://klepikhina.github.io/images/book_covers/BeforeTheCoffee.jpg",
 							"value": "Before-Coffee-Gets-Cold-Novel/dp/B087RSSPHD"
+						},
+						{
+							"name": "\"A Gentleman in Moscow\", Amor Towles",
+							"image": "https://klepikhina.github.io/images/book_covers/GentlemanMoscow.jpg",
+							"value": "A-Gentleman-in-Moscow-audiobook/dp/B01E0CCSXA"
 						}
 					]
 				},
@@ -244,6 +249,11 @@
 							"name": "\"The Prophet\", Kahil Gibran",
 							"image": "https://klepikhina.github.io/images/book_covers/TheProphet.jpg",
 							"value": "Prophet-Penguin-Classics-Hardcover/dp/0143133586"
+						},
+						{
+							"name": "\"Piranesi\", Susanna Clarke",
+							"image": "https://klepikhina.github.io/images/book_covers/Piranesi.jpg",
+							"value": "Piranesi-Susanna-Clarke/dp/1635577802"
 						}
 					]
 				}
