@@ -258,6 +258,34 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "2023",
+			"image": "",
+			"value": "",
+			"children": [{
+					"name": "audio",
+					"image": "",
+					"value": "",
+					"children": [{
+							"name": "\"Come as You Are\", Emily Nagoski PhD",
+							"image": "https://klepikhina.github.io/images/book_covers/ComeAsYouAre.jpg",
+							"value": "Come-You-Are-Surprising-Transform/dp/B08CPVQT5M"
+						}
+					]
+				},
+				{
+					"name": "physical",
+					"image": "",
+					"value": "",
+					"children": [{
+							"name": "\"Klara and the Sun\", Kazuo Ishiguro",
+							"image": "https://klepikhina.github.io/images/book_covers/KlaraSun.png",
+							"value": "Klara-Sun-novel-Kazuo-Ishiguro/dp/059331817X"
+						}
+					]
+				}
+			]
 		}
 	]
 }
