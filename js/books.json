@@ -281,6 +281,11 @@
 							"name": "\"The Ice at the End of the World\", Jon Gertner",
 							"image": "https://klepikhina.github.io/images/book_covers/IceAtEnd.jpg",
 							"value": "Ice-End-World-Greenlands-Perilous/dp/0812996623"
+						},
+						 {
+							"name": "\"Under the Whispering Door\", TJ Klune",
+							"image": "https://klepikhina.github.io/images/book_covers/UnderTheWhisperingDoor.jpg",
+							"value": "Under-Whispering-Door-TJ-Klune/dp/1250217393"
 						}
 					]
 				},
@@ -302,6 +307,11 @@
 							"name": "\"Lucky Breaks\", Yevgenia Belorusets",
 							"image": "https://klepikhina.github.io/images/book_covers/LuckyBreaks.jpg",
 							"value": "Lucky-Breaks-Yevgenia-Belorusets/dp/081122984X"
+						},
+						{
+							"name": "\"White Walls, Collected Stories\", Tatyana Tolstaya",
+							"image": "https://klepikhina.github.io/images/book_covers/WhiteWallsCollectedStories.jpg",
+							"value": "White-Walls-Collected-Tatyana-Tolstaya/dp/1590171977"
 						}
 					]
 				}
