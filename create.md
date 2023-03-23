@@ -4,59 +4,55 @@ title: Create
 permalink: /create/
 ---
 
-### Patterns
-<p align="center"><td> Shine (12/02/22)</td></p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/patterns/shine.png" width="1000">
-</p>
-<p align="center"><td> Sun; Stairs (12/01/22)</td></p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/patterns/sun.PNG" width="500">
-  <img src="{{ site.baseurl }}/images/patterns/stairs.PNG" width="500">
-</p>
+**Digital Art**
+<img src="{{ site.baseurl }}/images/art/bandit.png" width="1000">
+<img src="{{ site.baseurl }}/images/art/boulderroads.png" width="500">
+<img src="{{ site.baseurl }}/images/art/bouldertrails.png" width="500">
+<img src="{{ site.baseurl }}/images/art/indigomilkcap.png" width="1000">
+<img src="{{ site.baseurl }}/images/art/intotheskyunfinished.png" width="1000">
+<img src="{{ site.baseurl }}/images/art/leo.png" width="500">
+<img src="{{ site.baseurl }}/images/art/moabroads.png" width="500">
+<img src="{{ site.baseurl }}/images/art/moabtrails.png" width="500">
+<img src="{{ site.baseurl }}/images/art/parrottoadstool.png" width="500">
+<img src="{{ site.baseurl }}/images/art/rosslandroads.png" width="500">
+<img src="{{ site.baseurl }}/images/art/rosslandtopo.png" width="500">
+<img src="{{ site.baseurl }}/images/art/sammy.png" width="500">
+<img src="{{ site.baseurl }}/images/art/scarlet_wax_cap.png" width="1000">
+<img src="{{ site.baseurl }}/images/art/timberly.png" width="500">
+<img src="{{ site.baseurl }}/images/art/veiledlady.png" width="500">
 
-### Into the Sky
-<p align="center"><td>Unfinished (10/07/22)</td></p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/intothesky_unfinished.PNG" width="1000">
-</p>
 
-### Poorly Drawn Jareths
-<p align="center"><td>Cat (09/01/22)</td></p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/poorly_drawn_jareths/pdj1.PNG" width="333">
-  <img src="{{ site.baseurl }}/images/poorly_drawn_jareths/pdj2.PNG" width="333">
-  <img src="{{ site.baseurl }}/images/poorly_drawn_jareths/pdj3.PNG" width="333">
-</p>
-
-### Mushroom Series
-<p align="center"><td>Scarlet Waxcap (09/01/22)</td></p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/mushrooms/scarlet_wax_cap.PNG" width="1000">
-</p>
-<p align="center"><td>Veiled Lady (08/19/22)</td></p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/mushrooms/veiled_lady.PNG" width="500">
-</p>
-<p align="center"><td>Indigo Milk Cap (08/15/22)</td></p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/mushrooms/indigo_milk_cap.PNG" width="1000">&nbsp;
-</p>
-<p align="center"><td>Parrot Toadstool (07/21/22)</td></p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/mushrooms/parrot_toadstool.PNG" width="500">&nbsp;
-</p>
-
-### Topo
-<p align="center"><td>Rossland (02/24/22)</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/Rossland.PNG" width="500"></p>
-
-### Dogs
-<p align="center"><td>Leo (06/14/21)</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/leo.png" width="1000"></p>
-
-<p align="center"><td>Sammy (05/18/21)</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/sammy.png" width="1000"></p>
-
-<p align="center"><td>Man and Dog (03/27/21)</td></p>
-<p align="center"><img src="{{ site.baseurl }}/images/man_and_dog.JPG" width="1000"></p>
+**Photos**
+<img src="{{ site.baseurl }}/images/photos/arrowslitsportugal.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/aspens.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/banff.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/bloom.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/buchanan.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/chief.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/enchantedtowercave.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/classicredbarn.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/crescentspire.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/fairytree.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/glowinghill.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/gimliridge.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/goldenmeadow.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/gumwall.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/houndstooth.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/kootenaysea.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/jumbopass.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/lovetime.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/mariposalily.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/lockfence.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/mananddog.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/moss.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/rockwall.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/scorched.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/summerresort.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/prayerflags.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/stumpmushrooms.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/thepalisade.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/treemoss.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/tulipfalls.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/valmont.jpg" width="500">
+<img src="{{ site.baseurl }}/images/photos/vancouverisland.jpg" width="1000">
+<img src="{{ site.baseurl }}/images/photos/winterparkcrag.jpg" width="1000">
