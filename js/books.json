@@ -296,6 +296,11 @@
 							"name": "\"Fairy Tale\", Stephen King",
 							"image": "https://klepikhina.github.io/images/book_covers/FairyTale.jpg",
 							"value": "Fairy-Tale-Stephen-King/dp/1668002175"
+						},
+						 {
+							"name": "\"Agatha Christie: An Elusive Woman\", Lucy Worsley",
+							"image": "https://klepikhina.github.io/images/book_covers/AgathaChristieElusive.jpg",
+							"value": "Agatha-Christie-Elusive-Lucy-Worsley/dp/1639362525"
 						}
 					]
 				},
