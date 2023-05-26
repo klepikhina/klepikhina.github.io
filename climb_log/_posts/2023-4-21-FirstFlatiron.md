@@ -7,10 +7,12 @@ Boyyy after a heck of a time driving to Colorado down from BC and a chaotic week
 
 (quick synopsis):
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Apr23/FirstFlatiron/car1.jpg" width="300">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Apr23/FirstFlatiron/car2.jpg" width="300">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Apr23/FirstFlatiron/car3.jpg" width="300">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Apr23/FirstFlatiron/car4.jpg" width="300">&nbsp;
+  <div style="display: inline-block;">
+    <img src="{{ site.baseurl }}/climb_log/images/Apr23/FirstFlatiron/car1.jpg" width="300">&nbsp;
+    <img src="{{ site.baseurl }}/climb_log/images/Apr23/FirstFlatiron/car2.jpg"  width="300" style="display: block; margin-top: 10px;">
+    <img src="{{ site.baseurl }}/climb_log/images/Apr23/FirstFlatiron/car3.jpg"  width="300" style="display: block; margin-top: 10px;">&nbsp;
+    <img src="{{ site.baseurl }}/climb_log/images/Apr23/FirstFlatiron/car4.jpg" width="300">&nbsp;
+  </div>
 </p>
 
 The conditions were "alpine simulator" conditions. The wind was swirling and the temps were dropping but we refused to have a bad time.
