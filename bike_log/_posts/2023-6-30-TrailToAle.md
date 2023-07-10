@@ -75,7 +75,7 @@ We filled up water at Gearhub. After one more cruise through town, we climbed up
 Then we finally finished at Fernie Brewing with our well earned free beer and raffle prize entry.
 
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/June23/TrailToAle/fbc.jpg" width="1000">&nbsp;
+  <img src="{{ site.baseurl }}/bike_log/images/June23/TrailToAle/fbc.jpeg" width="1000">&nbsp;
 </p>
 
 <a href="https://www.strava.com/activities/9364867070" target="_blank">Stats</a>:
