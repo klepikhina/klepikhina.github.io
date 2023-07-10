@@ -41,10 +41,6 @@ And we walked up the slab!
   <img src="{{ site.baseurl }}/climb_log/images/Jun23/BeehiveFive/ksenia_up_1.jpg" width="1000">
 </p>
 
-<p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Jun23/BeehiveFive/top_1_ksenia.jpg" width="1000">
-</p>
-
 From the top of peak 1, you could see the top of peak 2 and the surrounding granite mecca.
 
 <p align="center">
@@ -52,6 +48,10 @@ From the top of peak 1, you could see the top of peak 2 and the surrounding gran
 </p>
 
 To get to the top of peak 2, you could take a class 4/5 scramble or walk around on class 3 terrain. We took some class 3 and some class 4.
+
+<p align="center">
+  <img src="{{ site.baseurl }}/climb_log/images/Jun23/BeehiveFive/top_1_ksenia.jpg" width="1000">
+</p>
 
 <p align="center">
   <img src="{{ site.baseurl }}/climb_log/images/Jun23/BeehiveFive/peak_2.jpg" width="1000">
