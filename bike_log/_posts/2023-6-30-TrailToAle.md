@@ -25,7 +25,7 @@ We pedaled from town up Phat Bastard to Mushroom Head...
 
 <p align="center">
   <img src="{{ site.baseurl }}/bike_log/images/June23/TrailToAle/slunt.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/bike_log/images/June23/TrailToAle/power_lines.jpg" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/bike_log/images/June23/TrailToAle/power_lines.JPG" width="500">&nbsp;
 </p>
 
 Then we cruised down Slunt to Brokeback Ridge and across the Powerlines to the P9 Access Trail (trail 2). Climb 2 really had us start to feel it! I personally couldn't wait to get back to town to stop for a bagel break.
