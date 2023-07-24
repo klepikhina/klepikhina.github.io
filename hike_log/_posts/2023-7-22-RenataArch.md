@@ -1,6 +1,6 @@
 ---
 layout: hike_log
-title: Renata Arch, Central Kootenays, BC | 7.75km, 1380m
+title: Renata Arch, Central Kootenays, BC | 9.1km, 305m
 ---
 
 For some reason when we first moved to the Kootenay's, Renata Arch was one of the first places I desperately wanted to check out. The arch is also known as the Brooklyn Bridge - named after the ghost town of Brooklyn.
