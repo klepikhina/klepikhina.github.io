@@ -8,6 +8,7 @@ For some reason when we first moved to the Kootenay's, Renata Arch was one of th
 In 1898, Brooklyn became the headquarters for the Columbia and Western Railway's westward extension. Steamboats would travel between Brooklyn and Robson (near Castlegar) 4 times a day. Hotels, a hospital, a police station, and shops were all constructed that same year. Less than a year into the foundation of the town, a fire burned down a hotel and the rest of the town followed later that year. In 1909, the former town was included in a subdivision for orchards but was flooded and submerged when the Castlegar/ Robson Keenleyside Dam flooded in 1968.
 
 To get over to the arch, we paddled 2.7km from Deer Park across arrow lake to the beach on the other side. 
+
 <p align="center">
   <img src="{{ site.baseurl }}/hike_log/images/Jul23/RenataArch/sup.jpg" width="1000">&nbsp;
 </p>
