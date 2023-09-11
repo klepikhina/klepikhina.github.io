@@ -83,6 +83,13 @@ plugins:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-seo-tag # Create favicon
 
+ name: free disk space
+    run: |
+      sudo swapoff -a
+      sudo rm -f /swapfile
+      sudo apt clean
+      df -h
+
 # Exclude these files from your production _site
 exclude:
   - Gemfile
