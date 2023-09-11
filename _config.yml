@@ -83,10 +83,6 @@ plugins:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-seo-tag # Create favicon
 
- name: free disk space
-    run: |
-      bundle exec jekyll clean 
-
 # Exclude these files from your production _site
 exclude:
   - Gemfile
