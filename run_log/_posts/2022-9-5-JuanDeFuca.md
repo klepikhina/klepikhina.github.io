@@ -13,18 +13,18 @@ We drove out and took the ferry to Vancouver Island on Saturday. The chances of 
 
 We managed to find a sneaky spot to camp which we bolted out of at 6am. Positives: beautiful sunrises.
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/sunrise.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/sunrise.jpg" width="1000">&nbsp;
 </p>
 
 Sunday was the day we intended to run the Juan de Fuca but the forecast turned so we decided to kill a day near Victoria and explored some lovely waterfalls and played some disc golf.
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/waterfall2.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/waterfall1.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/waterfall2.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/waterfall1.jpg" width="500">&nbsp;
 </p>
 
 On Monday, we planned to start the trail before the sun was up so that we wouldn't miss our ferry back to Vancouver, but in typical Lepikhina-Krawetz fashion, we decided we could surely still make it if we started at sunrise.
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/start_jdf2.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/start_jdf2.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   ~1km
@@ -32,13 +32,13 @@ On Monday, we planned to start the trail before the sun was up so that we wouldn
 
 The trail went as follows:
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/jdf_map.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/jdf_map.jpg" width="1000">&nbsp;
 </p>
 
 Mystic Beach: we mistakenly thought the beaches would be the easiest parts. Running on loose rocks and sand is not necessarily easier than taking big steps over slippery rocks and roots.
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/beach1_mystic_beach.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/stairs.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/beach1_mystic_beach.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/stairs.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   ~2km
@@ -46,8 +46,8 @@ Mystic Beach: we mistakenly thought the beaches would be the easiest parts. Runn
 
 The trail was a mix of beautifully well built bridges, precarious toppled tree walks, wet roots, and steep muddy hills.
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/bridge1.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/bridge2.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/bridge1.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/bridge2.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   ~5km; ~8km
@@ -55,50 +55,50 @@ The trail was a mix of beautifully well built bridges, precarious toppled tree w
 
 Bear Beach: no bears to be seen at this one! Perhaps later...?
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/beach2_bear_beach.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/trail_trees.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/beach2_bear_beach.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/trail_trees.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   ~10km
 </p>
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/trail_ocean.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/trail_ocean.jpg" width="1000">&nbsp;
 </p>
 
 Slugs and mushrooms
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/slug1.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/slug2.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/slug1.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/slug2.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/mushroom2.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/mushroom2.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/mushroom1.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/mushroom3.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/mushroom1.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/mushroom3.jpg" width="500">&nbsp;
 </p>
 
 Chin Beach
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/beach3_chin_beach.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/beach3_chin_beach.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   ~20km
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/view1.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/big_tree.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/view1.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/big_tree.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/suspension_bridge.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/suspension_bridge.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   ~25km
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/secret_waterfall.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/secret_waterfall.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   ~30km
@@ -106,7 +106,7 @@ Chin Beach
 
 Things started to get mistier as we were on the fourth and longest beach - Sombrio Beach. This beach is also incredibly popular for day camping and surfing. While we were lucky to not see any bears, we missed a mama and her cub a few minutes down Sombrio Beach. We spent much of the trail clicking our poles together and singing "bears bears bears, are our friends, either way, stay away".
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/beach4_sombrio_beach.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/beach4_sombrio_beach.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   ~32km
@@ -114,8 +114,8 @@ Things started to get mistier as we were on the fourth and longest beach - Sombr
 
 Botanical Beach
 <p align="center">
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/beach5_botanical_beach.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/run_log/images/Sep22/JuanDeFuca/gaitors.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/beach5_botanical_beach.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/gaitors.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   ~35km
