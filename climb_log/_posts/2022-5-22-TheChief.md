@@ -11,32 +11,32 @@ We climbed:
 - The Squamish Butt Face aka Butt Light: 5.9, ~6 pitches
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/May22/TheChief/bananapeel.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/May22/TheChief/flake.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/bananapeel.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/flake.jpg" width="500">&nbsp;
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/May22/TheChief/bananapeel_finish.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/bananapeel_finish.jpg" width="1000">&nbsp;
 </p>
 
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/May22/TheChief/selfie.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/selfie.jpg" width="1000">&nbsp;
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/May22/TheChief/justin_lastpitch.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/May22/TheChief/views.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/justin_lastpitch.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/views.jpg" width="500">&nbsp;
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/May22/TheChief/grandwall.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/grandwall.jpg" width="1000">&nbsp;
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/May22/TheChief/toppingout.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/toppingout.jpg" width="1000">&nbsp;
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/May22/TheChief/hikingout.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/hikingout.jpg" width="1000">&nbsp;
 </p>
