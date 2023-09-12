@@ -12,51 +12,51 @@ Route climbed:
 - Stiff, Little Fingers - 5.12a Sport
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Aug21/TurkeyRocks/justin_belaying.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/justin_belaying.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   Justin at the belay
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Aug21/TurkeyRocks/eric_justin.JPG" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/eric_justin.JPG" width="1000">&nbsp;
 </p>
 <p align="center">
   Eric in orange pants, Justin in red pants
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Aug21/TurkeyRocks/eric1.JPG" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Aug21/TurkeyRocks/eric2.JPG" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/eric1.JPG" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/eric2.JPG" width="500">&nbsp;
 </p>
 <p align="center">
   Eric
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Aug21/TurkeyRocks/droneshot1.JPG" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/droneshot1.JPG" width="1000">&nbsp;
 </p>
 <p align="center">
   We met up with Thomas and he brought his drone! Worth it for the photos.
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Aug21/TurkeyRocks/justin_soloing.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/justin_soloing.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   Justin "soloing" up to grab a piece of gear that was left behind
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Aug21/TurkeyRocks/me1.JPG" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Aug21/TurkeyRocks/me2.JPG" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/me1.JPG" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/me2.JPG" width="500">&nbsp;
 </p>
 <p align="center">
   Me
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Aug21/TurkeyRocks/droneshot2.JPG" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/droneshot2.JPG" width="1000">&nbsp;
 </p>
 <p align="center">
   Another drone shot of the area and of Justin climbing.
