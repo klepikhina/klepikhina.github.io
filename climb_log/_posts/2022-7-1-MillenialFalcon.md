@@ -7,35 +7,35 @@ Grand Forks is a bit of an underexplored climbing gem. About 29km up North Fork 
 
 This was Erin's first multipitch! And my first time doing a multipitch in a party of 3 with one rope. Erin was tied into the middle and I belayed and followed Justin and Erin.
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Jul22/MillenialFalcon/erin1.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Jul22/MillenialFalcon/erin2.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/erin1.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/erin2.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   Multipitch joy :)
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Jul22/MillenialFalcon/wall.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Jul22/MillenialFalcon/erin3.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/wall.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/erin3.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   Pitch 3
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Jul22/MillenialFalcon/erin4.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/erin4.jpg" width="1000">&nbsp;
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Jul22/MillenialFalcon/views.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/climb_log/images/Jul22/MillenialFalcon/belay.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/views.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/belay.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   Views and Pitch 4 belay
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/climb_log/images/Jul22/MillenialFalcon/selfies.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/selfies.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   Selfie!
