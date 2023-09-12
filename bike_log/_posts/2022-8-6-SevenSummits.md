@@ -6,53 +6,53 @@ title: Seven Summits, Rossland, BC | 36km, 1190m
 After two beers at RBC the previous night, I was shockingly hungover for a bright and early pick up (7am) for a shuttle for Seven Summits. Never the less I persisted.
 
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/lauren_start.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/justin_midclimb.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/lauren_start.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/justin_midclimb.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   Lauren kicking the ride off, and Justin part of the way up the first climb.
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/summit.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/summit.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   Justin and I at the summit with Plewman and Old Glory in the background.
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/summit_selfie.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/summit_selfie.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   Lauren, Justin and I - summit selfie!
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/glory.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/chair4.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/glory.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/chair4.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   Old Glory from the first summit descent; historic Chair 4.
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/mountain_valley.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/mums_microwaves.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/mountain_valley.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/mums_microwaves.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   Mountain valley looking down from Grey Mountain; sneaking a peek at Granite mountain's microwave towers.
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/lauren_justin_flow.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/lauren_justin_flow.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   Lauren and Justin on Record Ridge.
 </p>
 
 <p align="center">
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/lauren_justin_doneclimbing.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/bike_log/images/Aug22/SevenSummits/justin_finaldescent.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/lauren_justin_doneclimbing.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/justin_finaldescent.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   Lauren and Justin at the top of the final climb; Justin on the final descent.
