@@ -37,7 +37,7 @@ The arch you can see in the distance is called "Hole in the Wall" arch. Justin h
   <img src="https://klepikhina.s3.amazonaws.com/Hike/2023/October/MonicaMeadows/arch.jpg" width="500">&nbsp; 
 </p>
 
-We were even lucky to catch up with our friend, Ash (check out her <a href="https://ashleyvoykin.com/">photos</a>! 
+We were even lucky to catch up with our friend, Ash (check out her <a href="https://ashleyvoykin.com/">photos</a>)! 
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Hike/2023/October/MonicaMeadows/friends.jpg" width="500">&nbsp;
