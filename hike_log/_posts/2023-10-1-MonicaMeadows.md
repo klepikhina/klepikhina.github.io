@@ -16,7 +16,7 @@ One more hike in BC before heading down south. Very lucky to spend a weekend wit
   <img src="https://klepikhina.s3.amazonaws.com/Hike/2023/October/MonicaMeadows/coffee.jpg" width="1000">&nbsp;
 </p>
 
-Our goal was to do a little fall hike and do some larch spotting. Boyyy did views deliver. Not only did we fins larches, but we also found the first snow of the year!
+Our goal was to do a little fall hike and do some larch spotting. Boyyy did views deliver. Not only did we find larches, but we also found the first snow of the year!
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Hike/2023/October/MonicaMeadows/firstpeaksighting.jpg" width="500">&nbsp;
