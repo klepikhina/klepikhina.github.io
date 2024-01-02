@@ -349,19 +349,55 @@
 							"value": "Humans-Matt-Haig/dp/1443423653"
 						},
 						{
-							"name": "\"Random Acts of Medicine\",  Anupam B. Jena and Christopher Worsham",
+							"name": "\"Random Acts of Medicine\", Anupam B. Jena and Christopher Worsham",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/RandomActsOfMed.jpg",
 							"value": "Random-Acts-Medicine-Doctors-Patients/dp/0385548818"
 						},
 						{
-							"name": "\"Behave: The Biology of Humans at Our Best and Worst\",   Robert Sapolsky",
+							"name": "\"Behave: The Biology of Humans at Our Best and Worst\", Robert Sapolsky",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/Behave.jpg",
 							"value": "Behave-Robert-M-Sapolsky-audiobook/dp/B06XVYHXDV"
 						},
 						{
-							"name": "\"Maybe in Another Life\",   Taylor Jenkins Reid",
+							"name": "\"Maybe in Another Life\", Taylor Jenkins Reid",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/MaybeInAnotherLife.jpg",
 							"value": "Maybe-Another-Life-Taylor-Jenkins/dp/1476776881/"
+						},
+						{
+							"name": "\"Dept. of Speculation\", Jenny Offill",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/DeptOfSpeculation.jpg",
+							"value": "Dept-Speculation-Vintage-Contemporaries-Offill/dp/0345806875/"
+						},
+						{
+							"name": "\"The Cat Who Saved Books\",  Sosuke Natsukawa",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/CatWhoSavedBooks.jpg",
+							"value": "Cat-Who-Saved-Books-Novel/dp/0063095734/"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "2024",
+			"image": "",
+			"value": "",
+			"children": [{
+					"name": "audio",
+					"image": "",
+					"value": "",
+					"children": [{
+							
+						}
+					]
+				},
+				{
+					"name": "physical",
+					"image": "",
+					"value": "",
+					"children": [{
+							"name": "\"How to be Eaten\", Maria Adelmann",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/HowToBeEaten.jpg",
+							"value": "How-Be-Eaten-Maria-Adelmann/dp/0316450855"
 						}
 					]
 				}
