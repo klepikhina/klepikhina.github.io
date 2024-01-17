@@ -390,6 +390,18 @@
 							"image": "https://klepikhina.s3.amazonaws.com/Books/SmallGreatThings.jpg",
 							"value": "Small-Great-Things-Jodi-Picoult/dp/0345544951"
 							
+						},
+						{
+							"name": "\"It Starts With Us\", Colleen Hoover",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/ItStartsWithUs.jpg",
+							"value": "Starts-Us-Novel-Ends/dp/1668001225"
+							
+						},
+						{
+							"name": "\"Sea Change\", Gina Chung",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/SeaChange.jpg",
+							"value": "Sea-Change-Novel-Gina-Chung/dp/0593469348"
+							
 						}
 					]
 				},
