@@ -402,6 +402,12 @@
 							"image": "https://klepikhina.s3.amazonaws.com/Books/SeaChange.jpg",
 							"value": "Sea-Change-Novel-Gina-Chung/dp/0593469348"
 							
+						},
+						{
+							"name": "\"The Lost Apothecary\", Sarah Penner",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/LostApothecary.jpg",
+							"value": "The-Lost-Apothecary-A-Novel/dp/B08BXB3JVY"
+							
 						}
 					]
 				},
@@ -418,6 +424,11 @@
 							"name": "\"The Nocturnal Brain\", Guy Leschziner",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/NocturnalBrain.jpg",
 							"value": "Nocturnal-Brain-Tales-Nightmares-Neuroscience/dp/1471176355"
+						},
+						{
+							"name": "\"Fourth Wing\", Rebecca Yarros",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/FourthWing.jpg",
+							"value": "Fourth-Wing/dp/0349437009"
 						}
 					]
 				}
