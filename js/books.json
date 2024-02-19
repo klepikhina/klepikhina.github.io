@@ -414,6 +414,12 @@
 							"image": "https://klepikhina.s3.amazonaws.com/Books/Kaikeyi.jpg",
 							"value": "Kaikeyi-Novel-Vaishnavi-Patel/dp/0759557330"
 							
+						},
+						{
+							"name": "\"The Last Russian Doll\",  Kristen Loesch",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/LastRussianDoll.jpg",
+							"value": "Last-Russian-Doll-Kristen-Loesch/dp/0593547985"
+							
 						}
 					]
 				},
@@ -440,6 +446,11 @@
 							"name": "\"Iron Flame\", Rebecca Yarros",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/IronFlame.jpg",
 							"value": "Iron-Flame-Empyrean-Rebecca-Yarros/dp/1649374178"
+						},
+						{
+							"name": "\"Tomorrow, and Tomorrow, and Tomorrow\", Gabrielle Zevin",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/Tomorrow.jpg",
+							"value": "Tomorrow-novel-Gabrielle-Zevin/dp/0593321200"
 						}
 					]
 				}
