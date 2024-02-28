@@ -420,6 +420,12 @@
 							"image": "https://klepikhina.s3.amazonaws.com/Books/LastRussianDoll.jpg",
 							"value": "Last-Russian-Doll-Kristen-Loesch/dp/0593547985"
 							
+						},
+						{
+							"name": "\"Remarkably Bright Creatures\", Shelby Van Pelt",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/RemarkablyBrightCreatures.jpg",
+							"value": "Remarkably-Bright-Creatures-A-Novel/dp/B09DTGQHKJ"
+							
 						}
 					]
 				},
@@ -451,6 +457,11 @@
 							"name": "\"Tomorrow, and Tomorrow, and Tomorrow\", Gabrielle Zevin",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/Tomorrow.jpg",
 							"value": "Tomorrow-novel-Gabrielle-Zevin/dp/0593321200"
+						},
+						{
+							"name": "\"Tress of the Emerald Sea\", Brandon Sanderson",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/TressEmeraldSea.jpg",
+							"value": "Tress-Emerald-Sea-Brandon-Sanderson/dp/1250899656"
 						}
 					]
 				}
