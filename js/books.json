@@ -426,6 +426,12 @@
 							"image": "https://klepikhina.s3.amazonaws.com/Books/RemarkablyBrightCreatures.jpg",
 							"value": "Remarkably-Bright-Creatures-A-Novel/dp/B09DTGQHKJ"
 							
+						},
+						{
+							"name": "\"American Dirt\", Jeanine Cummins",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/AmericanDirt.jpg",
+							"value": "American-Dirt-Novel-Jeanine-Cummins/dp/1250209765"
+							
 						}
 					]
 				},
@@ -462,6 +468,11 @@
 							"name": "\"Tress of the Emerald Sea\", Brandon Sanderson",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/TressEmeraldSea.jpg",
 							"value": "Tress-Emerald-Sea-Brandon-Sanderson/dp/1250899656"
+						},
+						{
+							"name": "\"Babel\", R. F. Kuang",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/Babel.jpg",
+							"value": "Babel-Necessity-Violence-Translators-Revolution/dp/0063021420"
 						}
 					]
 				}
