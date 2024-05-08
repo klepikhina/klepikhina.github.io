@@ -450,6 +450,12 @@
 							"image": "https://klepikhina.s3.amazonaws.com/Books/Metamorphosis.jpg",
 							"value": "Metamorphosis-Franz-Kafka/dp/B0BNV21F6X"
 							
+						},
+						{
+							"name": "\"The Nineties\", Chuck Klosterman",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/TheNineties.jpg",
+							"value": "Nineties-Book-Chuck-Klosterman/dp/0735217955"
+							
 						}
 					]
 				},
@@ -496,6 +502,11 @@
 							"name": "\"The Three Body Problem\", Cixin Liu",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/ThreeBodyProblem.jpg",
 							"value": "Three-Body-Problem-Cixin-Liu/dp/0765382032"
+						},
+						{
+							"name": "\"The Dark Forest\", Cixin Liu",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/DarkForest.jpg",
+							"value": "Dark-Forest-Remembrance-Earths-Past/dp/0765386690"
 						}
 					]
 				}
