@@ -7,9 +7,6 @@ permalink: /create/
 **Digital Art**
 
 <p align="center">
-  <img src="{{ site.baseurl }}/images/art/bandit.png" width="1000">&nbsp;
-</p>
-<p align="center">
   <img src="{{ site.baseurl }}/images/art/boulderroads.png" width="500">&nbsp;
   <img src="{{ site.baseurl }}/images/art/bouldertrails.png" width="500">&nbsp;
 </p>
@@ -37,9 +34,6 @@ permalink: /create/
 </p>
 <p align="center">
   <img src="{{ site.baseurl }}/images/art/scarlet_wax_cap.png" width="1000">&nbsp;
-</p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/art/timberly.png" width="500">&nbsp;
 </p>
 
 **Photos**
@@ -85,7 +79,7 @@ permalink: /create/
 </p>
 <p align="center">
   <img src="{{ site.baseurl }}/images/photos/lovetime.jpg" width="500">&nbsp;&nbsp;
-  <img src="{{ site.baseurl }}/images/photos/mariposalily.jpg" width="500">&nbsp;
+  <img src="{{ site.baseurl }}/images/photos/scorched.jpg" width="500">&nbsp;
 </p>
 <p align="center">
   <img src="{{ site.baseurl }}/images/photos/lockfence.jpg" width="1000">&nbsp;
@@ -98,14 +92,7 @@ permalink: /create/
   <img src="{{ site.baseurl }}/images/photos/rockwall.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  <img src="{{ site.baseurl }}/images/photos/scorched.jpg" width="500">&nbsp;
-  <img src="{{ site.baseurl }}/images/photos/summerresort.jpg" width="500">&nbsp;
-</p>
-<p align="center">
   <img src="{{ site.baseurl }}/images/photos/prayerflags.jpg" width="1000">&nbsp;
-</p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/photos/stumpmushrooms.jpg" width="1000">&nbsp;
 </p>
 <p align="center">
   <img src="{{ site.baseurl }}/images/photos/thepalisade.jpg" width="500">&nbsp;
@@ -117,7 +104,4 @@ permalink: /create/
 </p>
 <p align="center">
   <img src="{{ site.baseurl }}/images/photos/vancouverisland.jpg" width="1000">&nbsp;
-</p>
-<p align="center">
-  <img src="{{ site.baseurl }}/images/photos/winterparkcrag.jpg" width="1000">&nbsp;
 </p>
