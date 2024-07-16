@@ -20,7 +20,7 @@ Pitch 2 follows a couple of vertical 5.6 cracks.
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Climb/2024/May/SchoolRockJuniorHigh/P2.jpg" width="500">&nbsp;
-  <img src="https://klepikhina.s3.amazonaws.com/Climb/2024/May/SchoolRockJuniorHigh/P2_top.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2024/May/SchoolRockJuniorHigh/P2top.jpg" width="500">&nbsp;
 </p>
 
 Pitch 3 starts as a slab stroll then wanders up a short crack system to the summit.
