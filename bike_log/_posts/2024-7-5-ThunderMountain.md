@@ -28,7 +28,7 @@ The climb up to the top of the Sentinels was a bit of a hike a bike.
 All down hill from here!
 
 <p align="center">
-  <img src="https://klepikhina.s3.amazonaws.com/Bike/2024/July/ThunderMountain/sentinelsl.jpg" width="1000">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Bike/2024/July/ThunderMountain/sentinels.jpg" width="1000">&nbsp;
 </p>
 
 <a href="https://www.strava.com/activities/11817964412" target="_blank">Stats</a>:
