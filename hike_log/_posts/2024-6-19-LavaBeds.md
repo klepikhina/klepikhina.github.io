@@ -14,7 +14,7 @@ The first stop was at the Devil's Homestead. This flow erupted from the Fleener 
 Next stop was checking out the Fleener Chimneys themselves! Most of the vents were built up as gases shot lava high into the air which quickly formed these hollow spatter cones. Most of these chimneys have been closed off for safety reasons and because humans had unfortunately been using them to dump trash. ☹️
 
 <p align="center">
-  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/June/LavaBeds/fleener_chimneys.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/June/LavaBeds/fleener_chimneys.JPG" width="500">&nbsp;
   <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/June/LavaBeds/fleener_chimneys2.jpg" width="500">&nbsp; 
 </p>
 
