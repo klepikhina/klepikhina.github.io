@@ -3,7 +3,7 @@ layout: bike_log
 title: Thunder Mountain Loop, Kirkwood, CA | 11.7mi, 2480ft
 ---
 
-Starting at 2pm during a heat wave, even in the mountain, is not the best idea. We did it anyway! Overall, a gorgeous loop.
+Starting at 2pm during a heat wave, even in the mountains, is not the best idea. We did it anyway! Overall, a gorgeous loop.
 
 Castle Rock Trail was tricky to find in places at the start due to a large burn area. Pedaling in soft ash in very hot dry air was not the best, but the views at the top of this section were lovely.
 
