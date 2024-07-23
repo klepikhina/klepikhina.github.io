@@ -1,6 +1,6 @@
 ---
 layout: ski_log
-title: Incline Peak, Mt. Rose Highway, CA
+title: Incline Peak, Mt. Rose Highway, NV
 ---
 
 I finally got a chance to go for a little tour with a new friend in Reno! We picked the perfect sleepy, sneaky powder day. We started around 11am, there were plenty of parking spaces, and we had the best window. Some people were finishing up their tours, no one else was heading up at the same time as us, and we skied fresh pow with no one else around!
