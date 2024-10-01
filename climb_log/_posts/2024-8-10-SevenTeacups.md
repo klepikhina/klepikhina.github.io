@@ -33,7 +33,7 @@ We pulled our wetsuits on and started the stroll down the creek and into the fir
 
 Justin rapped into the second teacup and swam over the edge to check out the "Corkscrew". This is the first high consequence area of the canyon. We decided flow was too high and we decided we didn't have the whitewater rescue experience necessary to venture down the rest of the way. Justin ascended back to the first teacup and we made our way back to the car by foot.
 
-Not every day is a success!
+We met a great group of canyoneers at the bottom that sent it all the way down. They told tales of getting stuck and nearly drowning, but also tales of how they've done it in much higher flow. We made the right choice for ourselves today. Not every day is a success!
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Climb/2024/August/SevenTeacups/teacup2.jpg" width="500">
