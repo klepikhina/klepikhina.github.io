@@ -36,7 +36,7 @@ Mosaic Canyon was a beautiful stroll through a canyon created by regular flash f
 The Mesquite Flat Sand Dunes were next. Smaller than the Colorado Sand Dunes, but still lots of fun to play in. We saw the slithery patterns of sidewinder rattlesnake tracks and the hops of kangaroo rats.
 
 <p align="center">
-  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/mesquite_flat_dunes1.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/mesquite_flat_dunes1.JPG" width="500">&nbsp;
   <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/mesquite_flat_dunes2.jpg" width="500">&nbsp; 
 </p>
 
@@ -64,7 +64,7 @@ On the drive out, we had to pull over to take some _sick_ pictures of the truck 
 We camped for free in the national park the following evening (camping is free 1 mile off the main roads in the park)! In the morning, we drove to Dante's View for sunrise - would highly recommend.
 
 <p align="center">
-  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/dantes_view1.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/dantes_view1.JPG" width="500">&nbsp;
   <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/dantes_view2.jpg" width="500">&nbsp; 
 </p>
 
@@ -72,7 +72,7 @@ The first activity of the day was a hike up Golden Canyon. It was cool to see wh
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/golden_canyon1.jpg" width="500">&nbsp;
-  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/golden_canyon2.jpg" width="500">&nbsp; 
+  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/golden_canyon2.JPG" width="500">&nbsp; 
 </p>
 
 <p align="center">
@@ -134,7 +134,7 @@ On our final day, we picked up a very expensive coffee from Furnace Creek (hope 
 We then drove far north to Little Hebe and Ubehebe Craters. Super cool to see all of the varied terrain and views in the area. The NP has a lot more going on than just a desert.
 
 <p align="center">
-  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/furnace_creek.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/furnace_creek.JPG" width="500">&nbsp;
   <img src="https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/little_hebe.jpg" width="500">&nbsp; 
 </p>
 
