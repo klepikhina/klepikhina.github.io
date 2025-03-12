@@ -548,6 +548,51 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "2025",
+			"image": "",
+			"value": "",
+			"children": [{
+					"name": "audio",
+					"image": "",
+					"value": "",
+					"children": [{
+							"name": "\"Vanishing Treasures: A Bestiary of Extraordinary Endangered Creatures\", Katherine Rundell",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/VanishingTreasures.jpg",
+							"value": "Vanishing-Treasures-Extraordinary-Endangered-Creatures/dp/0385550820"
+							
+						}
+					]
+				},
+				{
+					"name": "physical",
+					"image": "",
+					"value": "",
+					"children": [
+						{
+							"name": "\"A Court of Mist and Fury\", Sarah J. Maas",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/ACOMAF.jpg",
+							"value": "Court-Mist-Fury-Thorns-Roses/dp/1635575583"
+						},
+						{
+							"name": "\"A Court of Wings and Ruin\", Sarah J. Maas",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/ACOWAR.jpg",
+							"value": "Court-Wings-Ruin-Sarah-Maas/dp/1526641178"
+						},
+						{
+							"name": "\"A Court of Frost and Starlight\", Sarah J. Maas",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/ACOFAS.jpg",
+							"value": "Court-Frost-Starlight-Thorns-Roses-ebook/dp/B075818VDG"
+						},
+						{
+							"name": "\"Demon Copperhead\", Barbara Kingsolver",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/DemonCopperhead.jpg",
+							"value": "Demon-Copperhead-Novel-Barbara-Kingsolver/dp/0063251922"
+						}
+					]
+				}
+			]
 		}
 	]
 }
