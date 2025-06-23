@@ -619,6 +619,26 @@
 							"name": "\"The Miracles of the Namiya General Store\", Keigo Higashino",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/MiraclesNamiyaGeneralStore.jpg",
 							"value": "Miracles-Namiya-General-Store/dp/1975382579"
+						},
+						{
+							"name": "\"The Unbearable Lightness of Being\", Milan Kundera",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/UnbearableLightnessOrBeing.jpg",
+							"value": "Unbearable-Lightness-Being-Novel-ebook/dp/B0B6YL9638"
+						},
+						{
+							"name": "\"Catastrophe: And Other Stories\", Dino Buzzati",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/Catastrophe.jpg",
+							"value": "Catastrophe-Other-Stories-Dino-Buzzati/dp/1847497365"
+						},
+						{
+							"name": "\"The Teller of Small Fortunes\", Julie Leong",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/TellerOfSmallFortunes.jpg",
+							"value": "Teller-Small-Fortunes-Julie-Leong-ebook/dp/B0CV3V6FLN"
+						},
+						{
+							"name": "\"Nordic Visions\", Margrét Helgadóttir",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/NordicVisions.jpg",
+							"value": "Nordic-Visions-Best-Speculative-Fiction/dp/1837860297"
 						}
 					]
 				}
