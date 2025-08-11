@@ -644,6 +644,16 @@
 							"name": "\"The Indifferent Stars Above\", Daniel James Brown",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/IndifferentStarsAbove.jpg",
 							"value": "Indifferent-Stars-Above-Harrowing-Donner/dp/0061348112"
+						},
+						{
+							"name": "\"Slaughterhouse-Five\", Kurt Vonnegut",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/SlaughterhouseFive.jpg",
+							"value": "Slaughterhouse-Five-Novel-Modern-Library-Novels/dp/0385333846"
+						},
+						{
+							"name": "\"Deep: Freediving, Renegade Science, and What the Ocean Tells Us about Ourselves\", James Nestor",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/Deep.jpg",
+							"value": "Deep-Freediving-Renegade-Science-Ourselves/dp/0547985525"
 						}
 					]
 				}
