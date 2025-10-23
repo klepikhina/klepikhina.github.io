@@ -68,5 +68,5 @@ On the drive out, we stopped by Ayres Natural Bridge Park. Was concerned about t
   <img src="https://klepikhina.s3.amazonaws.com/Climb/2025/July/TenSleep/birds.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  <img src="https://klepikhina.s3.amazonaws.com/Climb/2025/July/TenSleep/arch.jpg" width="1000">
+  <img src="https://klepikhina.s3.amazonaws.com/Climb/2025/July/TenSleep/arch.JPG" width="1000">
 </p>
