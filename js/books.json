@@ -691,6 +691,41 @@
 							"image": "https://klepikhina.s3.amazonaws.com/Books/stoneblind.jpg",
 							"value": "Stone-Blind-Novel-Natalie-Haynes/dp/0063258390"
 						}
+						{
+							"name": "\"How Not to Study a Disease: The Story of Alzheimer's\", Karl Herrup",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/HowNotToStudyAlz.jpg",
+							"value": ""
+						}
+						{
+							"name": "\"How to Stop Time\", Matt Haig",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/HowToStopTime.jpg",
+							"value": ""
+						}
+						{
+							"name": "\"Clytemnestra\", Costanza Casati",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/Clytemnestra.jpg",
+							"value": ""
+						}
+						{
+							"name": "\"When the Moon Hits Your Eye\", John Scalzi",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/WhenTheMoonHitsYourEye.jpg",
+							"value": ""
+						}
+						{
+							"name": "\"Martyr!\", Kaveh Akbar",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/Martyr.jpg",
+							"value": ""
+						}
+						{
+							"name": "\"The Just City\", Jo Walton",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/TheJustCity.jpg",
+							"value": ""
+						}
+						{
+							"name": "\"How To Solve Your Own Murder\", Kristen Perrin",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/HowToSolveYourOwnMurder.jpg",
+							"value": ""
+						}
 					]
 				}
 			]
