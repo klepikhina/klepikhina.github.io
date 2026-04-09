@@ -6,7 +6,7 @@ region: British Columbia
 country: Canada
 latitude: 49.5037
 longitude: -115.05715
-featured_image: https://klepikhina.s3.amazonaws.com/Bike/2023/June/TrailToAle/hypertension_1.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2023/June/TrailToAle/hypertension_2.jpg
 activity: bike
 ---
 
