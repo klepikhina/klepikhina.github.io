@@ -1,6 +1,13 @@
 ---
 layout: bike_log
 title: Trail to Ale + Slunt, Fernie, BC | 44km, 1773m
+location: Fernie
+region: British Columbia
+country: Canada
+latitude: 49.5037
+longitude: -115.05715
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2023/June/TrailToAle/hypertension_1.jpg
+activity: bike
 ---
 
 Wow! We had a heck of a crew for Trail to Ale - 9 people! A leisurely full day of mountain biking. For Fernie Brewing Co's 20 year anniversary, they tacked on a 4th trail to be entered into a raffle to win some sort of prize. Though winning the prize was unlikely, we figured we'd do the 4th trail anyway and that we would start with it. 
