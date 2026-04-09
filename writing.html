@@ -9,7 +9,6 @@ permalink: /writing/
   <p class="page-description">Essays, stories, and reflections</p>
 </div>
 
-{% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blog' or post.categories == empty" %}
 {% assign has_posts = false %}
 {% for post in site.posts %}
   {% unless post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log' %}
