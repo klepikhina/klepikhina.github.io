@@ -54,27 +54,29 @@ title: All Adventures
   <button class="filter-pill filter-pill--ski" data-filter="ski_log">Ski ({{ ski_count }})</button>
 </div>
 
-<div class="card-grid" id="adventures-grid">
-  {% assign all_adventures = site.posts | where_exp: "post", "post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log'" %}
-  {% for post in all_adventures %}
-    {% if post.categories contains 'climb_log' %}
-      {% assign activity_class = "climb_log" %}
-    {% elsif post.categories contains 'bike_log' %}
-      {% assign activity_class = "bike_log" %}
-    {% elsif post.categories contains 'hike_log' %}
-      {% assign activity_class = "hike_log" %}
-    {% elsif post.categories contains 'run_log' %}
-      {% assign activity_class = "run_log" %}
-    {% elsif post.categories contains 'ski_log' %}
-      {% assign activity_class = "ski_log" %}
-    {% else %}
-      {% assign activity_class = "" %}
-    {% endif %}
-    <div class="adventure-item" data-activity="{{ activity_class }}">
-      {% include adventure-card.html post=post %}
-    </div>
-  {% endfor %}
-</div>
+<<div class="card-grid" id="adventures-grid">
+    {% for post in site.posts %}
+      {% if post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories
+  contains 'run_log' or post.categories contains 'ski_log' %}
+        {% if post.categories contains 'climb_log' %}
+          {% assign activity_class = "climb_log" %}
+        {% elsif post.categories contains 'bike_log' %}
+          {% assign activity_class = "bike_log" %}
+        {% elsif post.categories contains 'hike_log' %}
+          {% assign activity_class = "hike_log" %}
+        {% elsif post.categories contains 'run_log' %}
+          {% assign activity_class = "run_log" %}
+        {% elsif post.categories contains 'ski_log' %}
+          {% assign activity_class = "ski_log" %}
+        {% else %}
+          {% assign activity_class = "" %}
+        {% endif %}
+        <div class="adventure-item" data-activity="{{ activity_class }}">
+          {% include adventure-card.html post=post %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
