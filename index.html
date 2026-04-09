@@ -31,11 +31,17 @@ layout: default
 </div>
 
 <div class="card-grid card-grid--featured">
-  {% assign adventure_posts = site.posts | where_exp: "post", "post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log'" %}
-  {% for post in adventure_posts limit:6 %}
-    {% include adventure-card.html post=post %}
-  {% endfor %}
-</div>
+    {% assign count = 0 %}
+    {% for post in site.posts %}
+      {% if count < 6 %}
+        {% if post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories
+  contains 'run_log' or post.categories contains 'ski_log' %}
+          {% include adventure-card.html post=post %}
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
 
 <!-- Currently Reading -->
 <div class="section-header">
@@ -91,25 +97,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fallback: create dummy data from recent posts for demonstration
     // This will be replaced once posts have coordinates
     var fallbackData = [
-      {% assign adventure_posts = site.posts | where_exp: "post", "post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log'" %}
-      {% for post in adventure_posts limit:20 %}
-        {% if post.categories contains 'climb_log' %}{% assign activity = "climb" %}
-        {% elsif post.categories contains 'bike_log' %}{% assign activity = "bike" %}
-        {% elsif post.categories contains 'hike_log' %}{% assign activity = "hike" %}
-        {% elsif post.categories contains 'run_log' %}{% assign activity = "run" %}
-        {% elsif post.categories contains 'ski_log' %}{% assign activity = "ski" %}
-        {% else %}{% assign activity = "" %}{% endif %}
-      {
-        title: {{ post.title | split: ' | ' | first | jsonify }},
-        url: "{{ site.baseurl }}{{ post.url }}",
-        location: {{ post.location | default: post.title | split: ',' | first | jsonify }},
-        region: {{ post.region | default: "" | jsonify }},
-        latitude: {{ post.latitude | default: 40 | plus: forloop.index | divided_by: 10.0 }},
-        longitude: {{ post.longitude | default: -110 | plus: forloop.index | times: 2 }},
-        activity: "{{ activity }}"
-      }{% unless forloop.last %},{% endunless %}
-      {% endfor %}
-    ];
+      {% assign fallback_count = 0 %}
+      {% for post in site.posts %}
+        {% if fallback_count < 20 %}
+          {% if post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories
+  contains 'run_log' or post.categories contains 'ski_log' %}
+            {% if post.categories contains 'climb_log' %}{% assign activity = "climb" %}
+            {% elsif post.categories contains 'bike_log' %}{% assign activity = "bike" %}
+            {% elsif post.categories contains 'hike_log' %}{% assign activity = "hike" %}
+            {% elsif post.categories contains 'run_log' %}{% assign activity = "run" %}
+            {% elsif post.categories contains 'ski_log' %}{% assign activity = "ski" %}
+            {% else %}{% assign activity = "" %}{% endif %}
+          {
+            title: {{ post.title | split: ' | ' | first | jsonify }},
+            url: "{{ site.baseurl }}{{ post.url }}",
+            location: {{ post.location | default: post.title | split: ',' | first | jsonify }},
+            region: {{ post.region | default: "" | jsonify }},
+            latitude: {{ post.latitude | default: 40 | plus: fallback_count | divided_by: 10.0 }},
+            longitude: {{ post.longitude | default: -110 | plus: fallback_count | times: 2 }},
+            activity: "{{ activity }}"
+          },
+          {% assign fallback_count = fallback_count | plus: 1 %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+   ];
     // Only init if we have no real data yet
     if (adventureData.length === 0) {
       document.getElementById('adventure-map').innerHTML = '<p class="text-center" style="padding: 2rem; color: #666;">Adventure map will appear once posts have coordinates added.</p>';
