@@ -1,6 +1,13 @@
 ---
 layout: bike_log
 title: Thunder Mountain Loop, Kirkwood, CA | 11.7mi, 2480ft
+location: Kirkwood
+region: California
+country: USA
+latitude: 38.6847
+longitude: -120.0658
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2024/July/ThunderMountain/castle_rock_trail.jpg
+activity: bike
 ---
 
 Starting at 2pm during a heat wave, even in the mountains, is not the best idea. We did it anyway! Overall, a gorgeous loop.

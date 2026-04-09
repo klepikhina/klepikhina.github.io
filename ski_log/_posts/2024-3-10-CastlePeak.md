@@ -1,6 +1,13 @@
 ---
 layout: ski_log
 title: Castle Peak, Donner Pass, CA
+location: Donner Pass
+region: California
+country: USA
+latitude: 39.3181
+longitude: -120.3241
+featured_image: https://klepikhina.s3.amazonaws.com/Ski/2024/March/CastlePeak/start.jpg
+activity: ski
 ---
 
 It's about time we checked out some touring in the area! One weekend after the storm and approaching spring skiing!

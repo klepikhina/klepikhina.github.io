@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Labyrinth, Black Wall, Donner Summit, CA | 5.6 - 2 pitches
+location: Donner Summit
+region: California
+country: USA
+latitude: 39.3181
+longitude: -120.3241
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/July/Labyrinth/approach1.jpg
+activity: climb
 ---
 
 You want a squeeze chimney? This is the best bang for your buck. Was it a 5.6? Maybe - people solo it. Did it feel like one? Boyyyy!

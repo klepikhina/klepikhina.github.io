@@ -1,6 +1,13 @@
 ---
 layout: bike_log
 title: Armstrong Pass, South Lake Tahoe, CA | 23.6mi, 3944ft
+location: South Lake Tahoe
+region: California
+country: USA
+latitude: 38.9332
+longitude: -119.9843
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2024/July/ArmstrongPass/StarLake.jpg
+activity: bike
 ---
 
 Big loop on a trail bike but hugely rewarding! We parked at the Fountain Place Road x Saxon Tie Road intersection and pedaled the Powerline Road to High Meadows Road to Star Lake Road. If there was a way to shuttle this road by getting around the gate, that would make this lap even better. The road is a steep grind and covers about half of the elevation gain.

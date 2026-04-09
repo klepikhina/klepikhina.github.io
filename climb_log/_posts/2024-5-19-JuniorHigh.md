@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Junior High, School Rock, Donner Summit, CA | 5.6 - 3 pitches
+location: Donner Summit
+region: California
+country: USA
+latitude: 39.3181
+longitude: -120.3241
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/May/SchoolRockJuniorHigh/climb.jpg
+activity: climb
 ---
 
 On a warm spring day, we took a trip up to cannibal-mountain.. I mean... Donner Summit! This is one of the most popular climbing areas in the Lake Tahoe area. We were lucky to be the only ones going up Junior High on School Rock. Junior High is one of the few multi-pitches on the I-80 corridor.

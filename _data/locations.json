@@ -1,0 +1,389 @@
+{
+  "locations": [
+    {
+      "name": "Ten Sleep",
+      "region": "Wyoming",
+      "country": "USA",
+      "latitude": 44.0489,
+      "longitude": -107.4417
+    },
+    {
+      "name": "Crested Butte",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 38.8697,
+      "longitude": -106.9878
+    },
+    {
+      "name": "Boulder",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 40.0150,
+      "longitude": -105.2705
+    },
+    {
+      "name": "Estes Park",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 40.3772,
+      "longitude": -105.5217
+    },
+    {
+      "name": "South Platte",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 39.4097,
+      "longitude": -105.1681
+    },
+    {
+      "name": "Colorado National Monument",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 39.0377,
+      "longitude": -108.6879
+    },
+    {
+      "name": "Eldora",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 39.9375,
+      "longitude": -105.5827
+    },
+    {
+      "name": "Winter Park",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 39.8917,
+      "longitude": -105.7631
+    },
+    {
+      "name": "Longs Peak",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 40.2549,
+      "longitude": -105.6156
+    },
+    {
+      "name": "Mount Elbert",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 39.1178,
+      "longitude": -106.4454
+    },
+    {
+      "name": "Great Sand Dunes National Park",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 37.7329,
+      "longitude": -105.5115
+    },
+    {
+      "name": "Roosevelt National Forest",
+      "region": "Colorado",
+      "country": "USA",
+      "latitude": 40.4968,
+      "longitude": -105.6464
+    },
+    {
+      "name": "Squamish",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.7016,
+      "longitude": -123.1558
+    },
+    {
+      "name": "Rossland",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.0783,
+      "longitude": -117.8022
+    },
+    {
+      "name": "Fernie",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.5040,
+      "longitude": -115.0632
+    },
+    {
+      "name": "Castlegar",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.3256,
+      "longitude": -117.6660
+    },
+    {
+      "name": "Grand Forks",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.0333,
+      "longitude": -118.4500
+    },
+    {
+      "name": "Valhallas",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.9000,
+      "longitude": -117.5500
+    },
+    {
+      "name": "Bugaboo Provincial Park",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 50.7500,
+      "longitude": -116.7833
+    },
+    {
+      "name": "Purcells",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 50.3000,
+      "longitude": -116.5000
+    },
+    {
+      "name": "Selkirk Range",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 50.0000,
+      "longitude": -117.5000
+    },
+    {
+      "name": "Central Kootenays",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.4000,
+      "longitude": -117.2000
+    },
+    {
+      "name": "Canadian Rockies",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.6500,
+      "longitude": -115.0500
+    },
+    {
+      "name": "Penticton",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.4991,
+      "longitude": -119.5937
+    },
+    {
+      "name": "Vancouver Island",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 49.6500,
+      "longitude": -125.4500
+    },
+    {
+      "name": "Kootenay National Park",
+      "region": "British Columbia",
+      "country": "Canada",
+      "latitude": 50.8833,
+      "longitude": -116.0500
+    },
+    {
+      "name": "Jasper National Park",
+      "region": "Alberta",
+      "country": "Canada",
+      "latitude": 52.8734,
+      "longitude": -117.9543
+    },
+    {
+      "name": "Crowsnest Pass",
+      "region": "Alberta",
+      "country": "Canada",
+      "latitude": 49.6333,
+      "longitude": -114.4167
+    },
+    {
+      "name": "Yosemite National Park",
+      "region": "California",
+      "country": "USA",
+      "latitude": 37.8651,
+      "longitude": -119.5383
+    },
+    {
+      "name": "Donner Summit",
+      "region": "California",
+      "country": "USA",
+      "latitude": 39.3181,
+      "longitude": -120.3241
+    },
+    {
+      "name": "Donner Pass",
+      "region": "California",
+      "country": "USA",
+      "latitude": 39.3181,
+      "longitude": -120.3241
+    },
+    {
+      "name": "South Lake Tahoe",
+      "region": "California",
+      "country": "USA",
+      "latitude": 38.9332,
+      "longitude": -119.9843
+    },
+    {
+      "name": "Kirkwood",
+      "region": "California",
+      "country": "USA",
+      "latitude": 38.6847,
+      "longitude": -120.0658
+    },
+    {
+      "name": "Downieville",
+      "region": "California",
+      "country": "USA",
+      "latitude": 39.5596,
+      "longitude": -120.8268
+    },
+    {
+      "name": "Springville",
+      "region": "California",
+      "country": "USA",
+      "latitude": 36.1349,
+      "longitude": -118.8120
+    },
+    {
+      "name": "Desolation Wilderness",
+      "region": "California",
+      "country": "USA",
+      "latitude": 38.9000,
+      "longitude": -120.1500
+    },
+    {
+      "name": "Sequoia National Park",
+      "region": "California",
+      "country": "USA",
+      "latitude": 36.4864,
+      "longitude": -118.5658
+    },
+    {
+      "name": "Lassen National Park",
+      "region": "California",
+      "country": "USA",
+      "latitude": 40.4977,
+      "longitude": -121.5056
+    },
+    {
+      "name": "Lava Beds National Monument",
+      "region": "California",
+      "country": "USA",
+      "latitude": 41.7143,
+      "longitude": -121.5078
+    },
+    {
+      "name": "Redwood National and State Parks",
+      "region": "California",
+      "country": "USA",
+      "latitude": 41.2132,
+      "longitude": -124.0046
+    },
+    {
+      "name": "Death Valley National Park",
+      "region": "California",
+      "country": "USA",
+      "latitude": 36.5054,
+      "longitude": -117.0794
+    },
+    {
+      "name": "Eastern Sierra",
+      "region": "California",
+      "country": "USA",
+      "latitude": 37.6000,
+      "longitude": -118.8000
+    },
+    {
+      "name": "Oakridge",
+      "region": "Oregon",
+      "country": "USA",
+      "latitude": 43.7468,
+      "longitude": -122.4609
+    },
+    {
+      "name": "Highway of Waterfalls",
+      "region": "Oregon",
+      "country": "USA",
+      "latitude": 45.5761,
+      "longitude": -122.1173
+    },
+    {
+      "name": "Moab",
+      "region": "Utah",
+      "country": "USA",
+      "latitude": 38.5733,
+      "longitude": -109.5498
+    },
+    {
+      "name": "Selkirk Crest",
+      "region": "Idaho",
+      "country": "USA",
+      "latitude": 48.7833,
+      "longitude": -116.6333
+    },
+    {
+      "name": "Humboldt-Toiyabe National Forest",
+      "region": "Nevada",
+      "country": "USA",
+      "latitude": 39.5000,
+      "longitude": -117.5000
+    },
+    {
+      "name": "Mt. Rose Highway",
+      "region": "Nevada",
+      "country": "USA",
+      "latitude": 39.3468,
+      "longitude": -119.9214
+    },
+    {
+      "name": "Pyramid Lake",
+      "region": "Nevada",
+      "country": "USA",
+      "latitude": 40.0500,
+      "longitude": -119.5000
+    },
+    {
+      "name": "Enchanted Tower",
+      "region": "New Mexico",
+      "country": "USA",
+      "latitude": 34.0667,
+      "longitude": -107.6333
+    },
+    {
+      "name": "Chinook Peak",
+      "region": "Washington",
+      "country": "USA",
+      "latitude": 46.8750,
+      "longitude": -121.5167
+    },
+    {
+      "name": "Iceland",
+      "region": "Iceland",
+      "country": "Iceland",
+      "latitude": 64.9631,
+      "longitude": -19.0208
+    },
+    {
+      "name": "France",
+      "region": "France",
+      "country": "France",
+      "latitude": 46.2276,
+      "longitude": 2.2137
+    },
+    {
+      "name": "Italy",
+      "region": "Italy",
+      "country": "Italy",
+      "latitude": 41.8719,
+      "longitude": 12.5674
+    },
+    {
+      "name": "Switzerland",
+      "region": "Switzerland",
+      "country": "Switzerland",
+      "latitude": 46.8182,
+      "longitude": 8.2275
+    }
+  ]
+}

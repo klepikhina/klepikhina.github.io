@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: A Bit of Iceland
+location: Iceland
+region: Iceland
+country: Iceland
+latitude: 64.9631
+longitude: -19.0208
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/Iceland/Djupagilsfoss.jpg
+activity: hike
 ---
 
 Too much to say! Will have to come back to this post and fill in stories. Perhaps draw a map?

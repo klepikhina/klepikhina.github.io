@@ -1,6 +1,13 @@
 ---
 layout: bike_log
-title: Teocalli, Crested Butte, CO | 11 mi, 2329 ft
+title: Teocalli
+location: Crested Butte
+region: Colorado
+country: USA
+latitude: 38.8697
+longitude: -106.9878
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2025/June/Teocalli/group.jpg
+activity: bike
 ---
 
 Family ride in CB! Nothing to complain about (but I find a way to complain about the climb anyways). The Teocalli climb is no joke! This time of year, there's a river flowing down parts of the trail. If it looks like you should bushwack around the river - don't. Go through!

@@ -1,14 +1,119 @@
 ---
 layout: default
 ---
-    
-<script async src="https://cse.google.com/cse.js?cx=1306748dd16a94060"></script>
-<div class="gcse-search"></div>
 
-<img src="{{ site.baseurl }}/images/map_area.PNG" alt="World" width="1000" usemap="#world">
+<div class="hero-section">
+  <h1 class="hero-title">Adventures & Stories</h1>
+  <p class="hero-subtitle">Climbing, biking, hiking, running, skiing - and everything in between</p>
+</div>
 
-<map name="world">
-  <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
-  <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
-  <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm">
-</map>
+<!-- Adventure Map -->
+<div class="section-header">
+  <h2>Where I've Been</h2>
+  <p class="section-subtitle">Click a marker to explore</p>
+</div>
+
+<div class="map-filters">
+  <button class="filter-pill map-filter active" data-filter="all" onclick="AdventureMap.filter('all')">All</button>
+  <button class="filter-pill filter-pill--bike map-filter" data-filter="bike" onclick="AdventureMap.filter('bike')">Bike</button>
+  <button class="filter-pill filter-pill--climb map-filter" data-filter="climb" onclick="AdventureMap.filter('climb')">Climb</button>
+  <button class="filter-pill filter-pill--hike map-filter" data-filter="hike" onclick="AdventureMap.filter('hike')">Hike</button>
+  <button class="filter-pill filter-pill--run map-filter" data-filter="run" onclick="AdventureMap.filter('run')">Run</button>
+  <button class="filter-pill filter-pill--ski map-filter" data-filter="ski" onclick="AdventureMap.filter('ski')">Ski</button>
+</div>
+
+<div id="adventure-map" class="adventure-map"></div>
+
+<!-- Recent Adventures -->
+<div class="section-header">
+  <h2>Recent Adventures</h2>
+  <p class="section-subtitle"><a href="{{ site.baseurl }}/adventures/">View all adventures &rarr;</a></p>
+</div>
+
+<div class="card-grid card-grid--featured">
+  {% assign adventure_posts = site.posts | where_exp: "post", "post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log'" %}
+  {% for post in adventure_posts limit:6 %}
+    {% include adventure-card.html post=post %}
+  {% endfor %}
+</div>
+
+<!-- Currently Reading -->
+<div class="section-header">
+  <h2>Currently Reading</h2>
+  <p class="section-subtitle"><a href="{{ site.baseurl }}/books">See all books &rarr;</a></p>
+</div>
+
+<div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+  <div class="book-card">
+    <div class="book-card__cover">
+      <img src="https://klepikhina.s3.amazonaws.com/Books/stoneblind.jpg" alt="Stone Blind">
+    </div>
+    <div class="book-card__info">
+      <h3 class="book-card__title">"Stone Blind"</h3>
+      <p class="book-card__author">Natalie Haynes</p>
+    </div>
+  </div>
+
+  <div class="book-card">
+    <div class="book-card__cover">
+      <img src="https://klepikhina.s3.amazonaws.com/Books/SomewhereBeyondTheSea.jpg" alt="Somewhere Beyond the Sea">
+    </div>
+    <div class="book-card__info">
+      <h3 class="book-card__title">"Somewhere Beyond the Sea"</h3>
+      <p class="book-card__author">TJ Klune</p>
+    </div>
+  </div>
+
+  <div class="book-card">
+    <div class="book-card__cover">
+      <img src="https://klepikhina.s3.amazonaws.com/Books/ARiverRunsThroughIt.jpg" alt="A River Runs Through It">
+    </div>
+    <div class="book-card__info">
+      <h3 class="book-card__title">"A River Runs Through It"</h3>
+      <p class="book-card__author">Norman Maclean</p>
+    </div>
+  </div>
+</div>
+
+<!-- D3.js and TopoJSON for the map -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script src="{{ site.baseurl }}/js/adventure-map.js"></script>
+
+{% include map-data.html %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize the map with adventure data
+  if (typeof adventureData !== 'undefined' && adventureData.length > 0) {
+    AdventureMap.init('adventure-map', adventureData);
+  } else {
+    // Fallback: create dummy data from recent posts for demonstration
+    // This will be replaced once posts have coordinates
+    var fallbackData = [
+      {% assign adventure_posts = site.posts | where_exp: "post", "post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log'" %}
+      {% for post in adventure_posts limit:20 %}
+        {% if post.categories contains 'climb_log' %}{% assign activity = "climb" %}
+        {% elsif post.categories contains 'bike_log' %}{% assign activity = "bike" %}
+        {% elsif post.categories contains 'hike_log' %}{% assign activity = "hike" %}
+        {% elsif post.categories contains 'run_log' %}{% assign activity = "run" %}
+        {% elsif post.categories contains 'ski_log' %}{% assign activity = "ski" %}
+        {% else %}{% assign activity = "" %}{% endif %}
+      {
+        title: {{ post.title | split: ' | ' | first | jsonify }},
+        url: "{{ site.baseurl }}{{ post.url }}",
+        location: {{ post.location | default: post.title | split: ',' | first | jsonify }},
+        region: {{ post.region | default: "" | jsonify }},
+        latitude: {{ post.latitude | default: 40 | plus: forloop.index | divided_by: 10.0 }},
+        longitude: {{ post.longitude | default: -110 | plus: forloop.index | times: 2 }},
+        activity: "{{ activity }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
+    // Only init if we have no real data yet
+    if (adventureData.length === 0) {
+      document.getElementById('adventure-map').innerHTML = '<p class="text-center" style="padding: 2rem; color: #666;">Adventure map will appear once posts have coordinates added.</p>';
+    }
+  }
+});
+</script>

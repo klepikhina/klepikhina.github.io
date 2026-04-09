@@ -3,25 +3,73 @@
 // VARIABLES
 //
 
-// Colors
-$blue: #4183C4;
+// ==========================================
+// Nature-Inspired Color Palette
+// ==========================================
 
-// Grays
+// Forest Greens (primary)
+$forest-dark: #2D5A3D;
+$forest-medium: #4A7C59;
+$forest-light: #8FBC8F;
+
+// Sky/Water Blues
+$sky-dark: #2E6171;
+$sky-medium: #4A90A4;
+$sky-light: #87CEEB;
+
+// Earth Tones
+$earth-brown: #8B7355;
+$earth-tan: #C4A77D;
+$earth-warm: #D4A574;
+
+// Neutrals
+$stone-dark: #3D3D3D;
+$stone-medium: #666666;
+$stone-light: #E8E4DF;
+$cream: #FAFAF8;
+
+// Activity colors for badges
+$color-climb: #D4A574;
+$color-bike: #6B8E23;
+$color-hike: #4A7C59;
+$color-run: #4A90A4;
+$color-ski: #B0C4DE;
+
+// ==========================================
+// Legacy Colors (for compatibility)
+// ==========================================
+$blue: $sky-medium;
 $black: #000;
 $darkerGray: #222;
-$darkGray: #333;
-$gray: #666;
+$darkGray: $stone-dark;
+$gray: $stone-medium;
 $lightGray: #eee;
-$white: #fff;
+$white: $cream;
 
+// ==========================================
 // Font stacks
+// ==========================================
 $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
 
-// Mobile breakpoints
+// ==========================================
+// Breakpoints
+// ==========================================
 @mixin mobile {
   @media screen and (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media screen and (min-width: 1200px) {
     @content;
   }
 }

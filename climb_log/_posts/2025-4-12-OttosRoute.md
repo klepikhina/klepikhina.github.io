@@ -1,6 +1,13 @@
 ---
 layout: climb_log
-title: Otto's Route, Colorado National Monument, CO | 5.8+ - 4 pitches
+title: Otto's Route
+location: Colorado National Monument
+region: Colorado
+country: USA
+latitude: 39.0377
+longitude: -108.6879
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2025/April/OttosRoute/monument.jpg
+activity: climb
 ---
 
 First multi-pitch of 2025! Took a weekend trip out to Fruita with my family and seized the opportunity to climb Independence Monument in Colorado National Monument. I learned about the difference between national monuments and national parks. Colorado National Monument was established by President William Howard Taft in 1911 to preserve its "extraordinary examples of weathering and erosion". John Otto was the monument's first superintendent and encouraged the establishment of the monument. He lived in the monument, solely built trails to encourage visitors, and even got married at the base of Independence Monument.

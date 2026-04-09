@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Pyramid Peak, Desolation Wilderness, CA | 7.58mi, 4091ft
+location: Desolation Wilderness
+region: California
+country: USA
+latitude: 38.9000
+longitude: -120.1500
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/PyramidPeak/lovers_leap.jpg
+activity: hike
 ---
 
 With Kelsea in town we need to check out some new hikes! I've been wanting to check out Lake Aloha, and what better way to do it than to see it from above off of Pyramid Peak. This hike is a steep slog through the forest until you reach the semi-scramble-y summit.

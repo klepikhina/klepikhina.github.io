@@ -1,251 +1,494 @@
 ---
-layout: page
+layout: default
 title: Books
 permalink: /books/
 ---
-<!DOCTYPE html>
-<meta charset="utf-8">
+
+<div class="page-header">
+  <h1>Books</h1>
+  <p class="page-description">What I've been reading - click a year to expand</p>
+</div>
+
+<!-- Reading Statistics Section -->
+<div class="section-header">
+  <h2>Reading Statistics</h2>
+  <p class="section-subtitle">Books read by year and format</p>
+</div>
+
+<div class="stats-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
+  <div id="books-by-year" style="flex: 1; min-width: 300px;"></div>
+  <div id="books-by-format" style="flex: 1; min-width: 250px;"></div>
+</div>
+
+<div class="section-header">
+  <h2>Book Collection</h2>
+  <p class="section-subtitle">Click on a year to explore</p>
+</div>
+
 <style>
-.node {
+.book-tree-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+#book-tree {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 700px;
+}
+
+#book-tree svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.book-node {
   cursor: pointer;
 }
 
-/* .node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-} */
-
-.node text {
-  font: 16px sans-serif;
+.book-node circle {
+  fill: #8FBC8F;
+  stroke: #4A7C59;
+  stroke-width: 2px;
+  transition: all 0.3s ease;
 }
 
-.link {
+.book-node:hover circle {
+  fill: #4A7C59;
+  transform: scale(1.1);
+}
+
+.book-node.node--year circle {
+  fill: #2D5A3D;
+  stroke: #1a3a25;
+  r: 12;
+}
+
+.book-node.node--format circle {
+  fill: #4A90A4;
+  stroke: #2E6171;
+}
+
+.book-node.node--root circle {
+  fill: #D4A574;
+  stroke: #8B7355;
+  r: 15;
+}
+
+.book-node text {
+  font-size: 11px;
+  fill: #3D3D3D;
+  pointer-events: none;
+}
+
+.book-node.node--internal text {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.book-link {
   fill: none;
   stroke: #ccc;
   stroke-width: 1.5px;
+  stroke-opacity: 0.6;
 }
 
-.svg-container { 
-	display: inline-block;
-	position: relative;
-	width: 100%;
-	padding-bottom: 100%; 
-	vertical-align: middle; 
-	overflow: hidden; 
+.book-cover {
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.svg-content { 
-	display: inline-block;
-	position: absolute;
-	top: 0;
-	left: 0;
+.book-cover:hover {
+  transform: scale(1.1);
 }
 
-#chart { width:100%;height:100%;margin:0; padding:0; }
+.book-tooltip {
+  position: absolute;
+  background: #FAFAF8;
+  border: 1px solid #E8E4DF;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  pointer-events: none;
+  z-index: 1000;
+  max-width: 200px;
+  font-size: 13px;
+}
 
+.book-tooltip .title {
+  font-weight: 600;
+  color: #2D5A3D;
+  margin-bottom: 4px;
+}
 
+.book-tooltip .author {
+  color: #666;
+  font-size: 12px;
+}
 </style>
-<div id="chart"></div>
+
+<div class="book-tree-container">
+  <div id="book-tree"></div>
 </div>
-<body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <script>
-  // Code goes here
+(function() {
+  const width = Math.min(1200, window.innerWidth - 40);
+  const height = 700;
+  const radius = Math.min(width, height) / 2 - 80;
 
-var margin = {
-    top: 50,
-    right: 900,
-    bottom: 500,
-    left: 0
-},
-width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
-    height = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
-
-var i = 0,
-    duration = 750,
-    root;
-
-var tree = d3.layout.tree()
-    .size([height, width]);
-
-var diagonal = d3.svg.diagonal()
-    .projection(function (d) {
-    return [d.x, d.y];
-});
-
-var svg = d3.select("body").append("svg")
-    // .attr("viewBox", '0 0 2000 1500')
-    .attr("width", width + margin.right + margin.left)
-    .attr("height", height + margin.top + margin.bottom)
+  // Create SVG
+  const svg = d3.select("#book-tree")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
     .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
+    .attr("transform", `translate(${width/2},${height/2})`);
 
-d3.json("../js/books.json", function(data) {
+  // Create tooltip
+  const tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "book-tooltip")
+    .style("opacity", 0);
 
-root = data;
-root.x0 = width / 2;
-root.y0 = 0;
+  // Load book data
+  d3.json("{{ site.baseurl }}/js/books.json").then(function(data) {
+    // Create tree layout - radial
+    const tree = d3.tree()
+      .size([2 * Math.PI, radius])
+      .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
 
-function collapse(d) {
-  if (d.children) {
-    d._children = d.children;
-    d._children.forEach(collapse);
-    d.children = null;
-  }
-}
+    const root = d3.hierarchy(data);
 
-root.children.forEach(collapse);
-update(root);
+    // Initially collapse all children
+    root.descendants().forEach((d, i) => {
+      d.id = i;
+      d._children = d.children;
+      if (d.depth > 0) d.children = null;
+    });
 
-function update(source) {
-  var tree = d3.layout.tree()
-    .size([width, height]);
+    // Link generator for radial layout - curved links
+    const linkGenerator = d3.linkRadial()
+      .angle(d => d.x)
+      .radius(d => d.y);
 
-  // Compute the new tree layout.
-  var nodes = tree.nodes(root).reverse(),
-      links = tree.links(nodes);
+    // Groups for links and nodes
+    const gLink = svg.append("g")
+      .attr("class", "links")
+      .attr("fill", "none")
+      .attr("stroke", "#ccc")
+      .attr("stroke-opacity", 0.6)
+      .attr("stroke-width", 1.5);
 
-  // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 180; });
+    const gNode = svg.append("g")
+      .attr("class", "nodes");
 
-  // Update the nodes…
-  var node = svg.selectAll("g.node")
-      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+    function update(source) {
+      const duration = 500;
+      const nodes = root.descendants().reverse();
+      const links = root.links();
 
-  // Enter any new nodes at the parent's previous position.
-  var nodeEnter = node.enter().append("g")
-      .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .on("click", click);
+      // Compute new tree layout
+      tree(root);
 
-  // add picture
-  // nodeEnter
-  //   .append('defs')
-  //   .append('pattern')
-  //   .attr('id', function(d,i){
-  //     return 'pic_' + d.name;
-  //   })
-  //   .attr('height',60)
-  //   .attr('width',60)
-  //   .attr('x',0)
-  //   .attr('y',0)
-  //   .append('image')
-  //   .attr('xlink:href',function(d,i){
-  //     return d.image;
-  //   })
-  //   .attr('height',60)
-  //   .attr('width',60)
-  //   .attr('x',0)
-  //   .attr('y',0);
+      // Transition for nodes
+      const node = gNode.selectAll("g.book-node")
+        .data(nodes, d => d.id);
 
-  nodeEnter.append("image")
-      .attr("xlink:href", function(d) { return d.image; })
-      .attr("x", -75)
-      .attr("y", 0)
-      .attr("width", "150px")
-      .attr("height", "150px");
-
-  // nodeEnter.append("circle")
-  //     .attr("r", 1e-6)
-  //     .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-  // var g = nodeEnter.append("g");
-  
-  nodeEnter.append("text")
-      .attr("x", function(d) { return d.children || d._children ? -35 : 130; })
-      .attr("dy", "1.35em")
-      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-      .attr("transform", function(d) { return d.children || d._children ?"translate(50,50) rotate(90)" : "translate(10,30) rotate(90)"; })
-      .text(function(d) { return d.name; })
-      .style("fill-opacity", 1e-6);
-      
-
-  // Transition nodes to their new position.
-  var nodeUpdate = node.transition()
-      .duration(duration)
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-
-  nodeUpdate.select("circle")
-      .attr("r", 30)
-      .style("fill", function(d,i){
-        return 'url(#pic_' + d.name+')';
-      });
-
-  nodeUpdate.selectAll("text")
-      .style("fill-opacity", 1);
-
-  // Transition exiting nodes to the parent's new position.
-  var nodeExit = node.exit().transition()
-      .duration(duration)
-      .attr("transform", function(d) { return "translate(" + source.x + "," + source.y + ")"; })
-      .remove();
-
-  nodeExit.select("circle")
-      .attr("r", 1e-6);
-
-  nodeExit.select("text")
-      .style("fill-opacity", 1e-6);
-
-  // Update the links…
-  var link = svg.selectAll("path.link")
-      .data(links, function(d) { return d.target.id; });
-
-  // Enter any new links at the parent's previous position.
-  link.enter().insert("path", "g")
-      .attr("class", "link")
-      .attr("d",function(d) {
-        var o = {x: source.x0, y: source.y0};
-        return diagonal({source: o, target: o});
-      });
-
-  // Transition links to their new position.
-  link.transition()
-      .duration(duration)
-      .attr("d", diagonal);
-
-  // Transition exiting nodes to the parent's new position.
-  link.exit().transition()
-      .duration(duration)
-      .attr("d", function(d) {
-        var o = {y: source.y, x: source.x};
-        return diagonal({source: o, target: o});
-      })
-      .remove();
-
-  // Stash the old positions for transition.
-  nodes.forEach(function(d) {
-    d.x0 = d.x;
-    d.y0 = d.y;
-  });
-}
-
-// Toggle children on click.
-function click(d) {
-    if (d.open) {
-        if (d.children) {
-            width = width - d.children.length * 20;
-            d._children = d.children;
-            d.children = null;
-        } else {
-            width = width - d._children.length * 20;
+      // Enter new nodes
+      const nodeEnter = node.enter().append("g")
+        .attr("class", d => {
+          let classes = "book-node";
+          if (d.depth === 0) classes += " node--root";
+          else if (d.depth === 1) classes += " node--year node--internal";
+          else if (d.depth === 2) classes += " node--format node--internal";
+          return classes;
+        })
+        .attr("transform", d => `rotate(${source.x0 * 180 / Math.PI - 90}) translate(${source.y0},0)`)
+        .on("click", (event, d) => {
+          // If it's a book (has value/link), open Amazon
+          if (d.data.value && d.data.value.length > 0) {
+            window.open("https://www.amazon.com/dp/" + d.data.value.split("/dp/")[1]?.split("/")[0], "_blank");
+            return;
+          }
+          // Otherwise toggle children
+          if (d._children) {
             d.children = d._children;
             d._children = null;
-        }
-    } else {
-        if (d.children) {
-            width = width + d.children.length * 20;
+          } else if (d.children) {
             d._children = d.children;
             d.children = null;
-        } else {
-            width = width + d._children.length * 20;
-            d.children = d._children;
-            d._children = null;
-        }
+          }
+          update(d);
+        });
+
+      // Add circles to new nodes
+      nodeEnter.append("circle")
+        .attr("r", d => {
+          if (d.depth === 0) return 15;
+          if (d.depth === 1) return 12;
+          if (d.depth === 2) return 8;
+          return 5;
+        })
+        .attr("fill", d => d._children ? "#4A7C59" : "#8FBC8F");
+
+      // Add images for books
+      nodeEnter.filter(d => d.data.image && d.data.image.length > 0)
+        .append("image")
+        .attr("class", "book-cover")
+        .attr("xlink:href", d => d.data.image)
+        .attr("x", -20)
+        .attr("y", -30)
+        .attr("width", 40)
+        .attr("height", 60)
+        .on("mouseover", (event, d) => {
+          const bookName = d.data.name.replace(/"/g, '');
+          const parts = bookName.split(', ');
+          const title = parts[0];
+          const author = parts.slice(1).join(', ');
+
+          tooltip.transition().duration(200).style("opacity", 1);
+          tooltip.html(`<div class="title">${title}</div><div class="author">${author}</div>`)
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", () => {
+          tooltip.transition().duration(500).style("opacity", 0);
+        });
+
+      // Add labels
+      nodeEnter.append("text")
+        .attr("dy", "0.31em")
+        .attr("x", d => d.data.image ? 0 : (d.x < Math.PI === !d.children ? 6 : -6))
+        .attr("text-anchor", d => d.data.image ? "middle" : (d.x < Math.PI === !d.children ? "start" : "end"))
+        .attr("transform", d => {
+          if (d.data.image) return "translate(0, 40)";
+          return d.x >= Math.PI ? "rotate(180)" : null;
+        })
+        .text(d => {
+          if (d.data.image) return ""; // Books show image, not text
+          return d.data.name;
+        })
+        .clone(true).lower()
+        .attr("stroke", "white")
+        .attr("stroke-width", 3);
+
+      // Transition nodes to new position
+      const nodeUpdate = node.merge(nodeEnter).transition().duration(duration)
+        .attr("transform", d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y},0)`)
+        .attr("fill-opacity", 1)
+        .attr("stroke-opacity", 1);
+
+      nodeUpdate.select("circle")
+        .attr("fill", d => d._children ? "#4A7C59" : "#8FBC8F");
+
+      // Transition exiting nodes
+      const nodeExit = node.exit().transition().duration(duration).remove()
+        .attr("transform", d => `rotate(${source.x * 180 / Math.PI - 90}) translate(${source.y},0)`)
+        .attr("fill-opacity", 0)
+        .attr("stroke-opacity", 0);
+
+      // Update links
+      const link = gLink.selectAll("path")
+        .data(links, d => d.target.id);
+
+      // Enter new links
+      const linkEnter = link.enter().append("path")
+        .attr("class", "book-link")
+        .attr("d", d => {
+          const o = {x: source.x0, y: source.y0};
+          return linkGenerator({source: o, target: o});
+        });
+
+      // Transition links
+      link.merge(linkEnter).transition().duration(duration)
+        .attr("d", linkGenerator);
+
+      // Remove exiting links
+      link.exit().transition().duration(duration).remove()
+        .attr("d", d => {
+          const o = {x: source.x, y: source.y};
+          return linkGenerator({source: o, target: o});
+        });
+
+      // Save old positions for transition
+      root.eachBefore(d => {
+        d.x0 = d.x;
+        d.y0 = d.y;
+      });
     }
-    d.open = !d.open;
-    update(d);
-}
-});
+
+    // Initial positions
+    root.x0 = 0;
+    root.y0 = 0;
+
+    update(root);
+
+  }).catch(function(error) {
+    console.error("Error loading books data:", error);
+    document.getElementById("book-tree").innerHTML = '<p class="text-center">Could not load book data. Please try refreshing.</p>';
+  });
+})();
+
+// Book Statistics Charts
+(function() {
+  d3.json("{{ site.baseurl }}/js/books.json").then(function(data) {
+    // Calculate stats from data
+    const yearStats = [];
+    const formatStats = { audio: 0, physical: 0 };
+
+    data.children.forEach(yearNode => {
+      let yearTotal = 0;
+      yearNode.children.forEach(formatNode => {
+        const count = formatNode.children ? formatNode.children.length : 0;
+        yearTotal += count;
+        if (formatNode.name === 'audio') formatStats.audio += count;
+        else if (formatNode.name === 'physical') formatStats.physical += count;
+      });
+      yearStats.push({ year: yearNode.name, count: yearTotal });
+    });
+
+    // Books by Year - Bar Chart
+    const yearContainer = document.getElementById('books-by-year');
+    const yearWidth = Math.min(400, yearContainer.clientWidth);
+    const yearHeight = 200;
+    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+
+    const yearSvg = d3.select('#books-by-year')
+      .append('svg')
+      .attr('width', yearWidth)
+      .attr('height', yearHeight);
+
+    const xScale = d3.scaleBand()
+      .domain(yearStats.map(d => d.year))
+      .range([margin.left, yearWidth - margin.right])
+      .padding(0.2);
+
+    const yScale = d3.scaleLinear()
+      .domain([0, d3.max(yearStats, d => d.count) + 2])
+      .range([yearHeight - margin.bottom, margin.top]);
+
+    // Bars
+    yearSvg.selectAll('rect')
+      .data(yearStats)
+      .enter()
+      .append('rect')
+      .attr('x', d => xScale(d.year))
+      .attr('y', d => yScale(d.count))
+      .attr('width', xScale.bandwidth())
+      .attr('height', d => yearHeight - margin.bottom - yScale(d.count))
+      .attr('fill', '#4A7C59')
+      .attr('rx', 4);
+
+    // Labels on bars
+    yearSvg.selectAll('.bar-label')
+      .data(yearStats)
+      .enter()
+      .append('text')
+      .attr('class', 'bar-label')
+      .attr('x', d => xScale(d.year) + xScale.bandwidth() / 2)
+      .attr('y', d => yScale(d.count) - 5)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', '12px')
+      .attr('fill', '#3D3D3D')
+      .text(d => d.count);
+
+    // X axis
+    yearSvg.append('g')
+      .attr('transform', `translate(0,${yearHeight - margin.bottom})`)
+      .call(d3.axisBottom(xScale))
+      .selectAll('text')
+      .attr('font-size', '11px');
+
+    // Title
+    yearSvg.append('text')
+      .attr('x', yearWidth / 2)
+      .attr('y', 12)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', '14px')
+      .attr('font-weight', '600')
+      .attr('fill', '#2D5A3D')
+      .text('Books by Year');
+
+    // Format Donut Chart
+    const formatContainer = document.getElementById('books-by-format');
+    const formatWidth = Math.min(250, formatContainer.clientWidth);
+    const formatHeight = 200;
+    const formatRadius = Math.min(formatWidth, formatHeight) / 2 - 20;
+
+    const formatSvg = d3.select('#books-by-format')
+      .append('svg')
+      .attr('width', formatWidth)
+      .attr('height', formatHeight)
+      .append('g')
+      .attr('transform', `translate(${formatWidth/2},${formatHeight/2 + 10})`);
+
+    const formatData = [
+      { name: 'Physical', value: formatStats.physical, color: '#4A7C59' },
+      { name: 'Audio', value: formatStats.audio, color: '#4A90A4' }
+    ];
+
+    const pie = d3.pie().value(d => d.value).sort(null);
+    const arc = d3.arc().innerRadius(formatRadius * 0.5).outerRadius(formatRadius);
+
+    const arcs = formatSvg.selectAll('.arc')
+      .data(pie(formatData))
+      .enter()
+      .append('g')
+      .attr('class', 'arc');
+
+    arcs.append('path')
+      .attr('d', arc)
+      .attr('fill', d => d.data.color)
+      .attr('stroke', 'white')
+      .attr('stroke-width', 2);
+
+    // Legend
+    const legend = formatSvg.selectAll('.legend')
+      .data(formatData)
+      .enter()
+      .append('g')
+      .attr('class', 'legend')
+      .attr('transform', (d, i) => `translate(${formatRadius + 10},${-20 + i * 22})`);
+
+    legend.append('rect')
+      .attr('width', 14)
+      .attr('height', 14)
+      .attr('fill', d => d.color)
+      .attr('rx', 2);
+
+    legend.append('text')
+      .attr('x', 20)
+      .attr('y', 11)
+      .attr('font-size', '12px')
+      .attr('fill', '#3D3D3D')
+      .text(d => `${d.name}: ${d.value}`);
+
+    // Center text
+    formatSvg.append('text')
+      .attr('text-anchor', 'middle')
+      .attr('dy', '0.35em')
+      .attr('font-size', '20px')
+      .attr('font-weight', '600')
+      .attr('fill', '#2D5A3D')
+      .text(formatStats.audio + formatStats.physical);
+
+    // Title
+    d3.select('#books-by-format svg')
+      .append('text')
+      .attr('x', formatWidth / 2)
+      .attr('y', 12)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', '14px')
+      .attr('font-weight', '600')
+      .attr('fill', '#2D5A3D')
+      .text('Books by Format');
+
+  }).catch(function(error) {
+    console.error("Error loading books data for stats:", error);
+  });
+})();
 </script>

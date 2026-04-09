@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Highway of Waterfalls, OR
+location: Highway of Waterfalls
+region: Oregon
+country: USA
+latitude: 45.5761
+longitude: -122.1173
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/June/HighwayOfWaterfalls/ClearwaterFalls.jpg
+activity: hike
 ---
 
 Per a friend's recommendation, we took a drive down the highway of waterfalls in Oregon (N. Umpqua Hwy). Sure enough, there are numerous waterfalls to check out! We had a long day of driving after biking in Bend, OR, so we only stopped at the quick hikes.

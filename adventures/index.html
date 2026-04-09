@@ -1,0 +1,242 @@
+---
+layout: default
+title: All Adventures
+---
+
+<div class="page-header">
+  <h1>All Adventures</h1>
+  <p class="page-description">Every trip, climb, ride, and run in one place</p>
+</div>
+
+<!-- Adventure Statistics Section -->
+{% assign climb_count = 0 %}
+{% assign bike_count = 0 %}
+{% assign hike_count = 0 %}
+{% assign run_count = 0 %}
+{% assign ski_count = 0 %}
+
+{% for post in site.posts %}
+  {% if post.categories contains 'climb_log' %}
+    {% assign climb_count = climb_count | plus: 1 %}
+  {% elsif post.categories contains 'bike_log' %}
+    {% assign bike_count = bike_count | plus: 1 %}
+  {% elsif post.categories contains 'hike_log' %}
+    {% assign hike_count = hike_count | plus: 1 %}
+  {% elsif post.categories contains 'run_log' %}
+    {% assign run_count = run_count | plus: 1 %}
+  {% elsif post.categories contains 'ski_log' %}
+    {% assign ski_count = ski_count | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+{% assign total_adventures = climb_count | plus: bike_count | plus: hike_count | plus: run_count | plus: ski_count %}
+
+<div class="section-header">
+  <h2>Adventure Statistics</h2>
+  <p class="section-subtitle">{{ total_adventures }} logged adventures and counting</p>
+</div>
+
+<div class="stats-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; align-items: flex-start;">
+  <div id="adventure-donut" style="flex: 0 0 280px;"></div>
+  <div id="adventure-bars" style="flex: 1; min-width: 300px;"></div>
+</div>
+
+<div class="section-header">
+  <h2>All Adventures</h2>
+</div>
+
+<div class="filter-pills">
+  <button class="filter-pill active" data-filter="all">All ({{ total_adventures }})</button>
+  <button class="filter-pill filter-pill--bike" data-filter="bike_log">Bike ({{ bike_count }})</button>
+  <button class="filter-pill filter-pill--climb" data-filter="climb_log">Climb ({{ climb_count }})</button>
+  <button class="filter-pill filter-pill--hike" data-filter="hike_log">Hike ({{ hike_count }})</button>
+  <button class="filter-pill filter-pill--run" data-filter="run_log">Run ({{ run_count }})</button>
+  <button class="filter-pill filter-pill--ski" data-filter="ski_log">Ski ({{ ski_count }})</button>
+</div>
+
+<div class="card-grid" id="adventures-grid">
+  {% assign all_adventures = site.posts | where_exp: "post", "post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log'" %}
+  {% for post in all_adventures %}
+    {% if post.categories contains 'climb_log' %}
+      {% assign activity_class = "climb_log" %}
+    {% elsif post.categories contains 'bike_log' %}
+      {% assign activity_class = "bike_log" %}
+    {% elsif post.categories contains 'hike_log' %}
+      {% assign activity_class = "hike_log" %}
+    {% elsif post.categories contains 'run_log' %}
+      {% assign activity_class = "run_log" %}
+    {% elsif post.categories contains 'ski_log' %}
+      {% assign activity_class = "ski_log" %}
+    {% else %}
+      {% assign activity_class = "" %}
+    {% endif %}
+    <div class="adventure-item" data-activity="{{ activity_class }}">
+      {% include adventure-card.html post=post %}
+    </div>
+  {% endfor %}
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('.filter-pill');
+  const adventureItems = document.querySelectorAll('.adventure-item');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      adventureItems.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-activity') === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Adventure Statistics Charts
+  const adventureData = [
+    { name: 'Climb', value: {{ climb_count }}, color: '#D4A574' },
+    { name: 'Bike', value: {{ bike_count }}, color: '#6B8E23' },
+    { name: 'Hike', value: {{ hike_count }}, color: '#4A7C59' },
+    { name: 'Run', value: {{ run_count }}, color: '#4A90A4' },
+    { name: 'Ski', value: {{ ski_count }}, color: '#B0C4DE' }
+  ];
+
+  const total = adventureData.reduce((sum, d) => sum + d.value, 0);
+
+  // Donut Chart
+  const donutContainer = document.getElementById('adventure-donut');
+  const donutWidth = 280;
+  const donutHeight = 220;
+  const radius = Math.min(donutWidth, donutHeight) / 2 - 30;
+
+  const donutSvg = d3.select('#adventure-donut')
+    .append('svg')
+    .attr('width', donutWidth)
+    .attr('height', donutHeight)
+    .append('g')
+    .attr('transform', `translate(${donutWidth/2},${donutHeight/2 + 10})`);
+
+  const pie = d3.pie().value(d => d.value).sort(null);
+  const arc = d3.arc().innerRadius(radius * 0.55).outerRadius(radius);
+
+  const arcs = donutSvg.selectAll('.arc')
+    .data(pie(adventureData))
+    .enter()
+    .append('g')
+    .attr('class', 'arc');
+
+  arcs.append('path')
+    .attr('d', arc)
+    .attr('fill', d => d.data.color)
+    .attr('stroke', 'white')
+    .attr('stroke-width', 2)
+    .style('cursor', 'pointer')
+    .on('mouseover', function(event, d) {
+      d3.select(this).transition().duration(200)
+        .attr('transform', function(d) {
+          const [x, y] = arc.centroid(d);
+          return `translate(${x * 0.05},${y * 0.05})`;
+        });
+    })
+    .on('mouseout', function() {
+      d3.select(this).transition().duration(200)
+        .attr('transform', 'translate(0,0)');
+    });
+
+  // Center text
+  donutSvg.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '-0.1em')
+    .attr('font-size', '28px')
+    .attr('font-weight', '600')
+    .attr('fill', '#2D5A3D')
+    .text(total);
+
+  donutSvg.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '1.2em')
+    .attr('font-size', '12px')
+    .attr('fill', '#666')
+    .text('adventures');
+
+  // Title
+  d3.select('#adventure-donut svg')
+    .append('text')
+    .attr('x', donutWidth / 2)
+    .attr('y', 16)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', '14px')
+    .attr('font-weight', '600')
+    .attr('fill', '#2D5A3D')
+    .text('Adventures by Type');
+
+  // Bar Chart
+  const barContainer = document.getElementById('adventure-bars');
+  const barWidth = Math.min(400, barContainer.clientWidth);
+  const barHeight = 220;
+  const margin = { top: 30, right: 20, bottom: 40, left: 50 };
+
+  const barSvg = d3.select('#adventure-bars')
+    .append('svg')
+    .attr('width', barWidth)
+    .attr('height', barHeight);
+
+  const xScale = d3.scaleBand()
+    .domain(adventureData.map(d => d.name))
+    .range([margin.left, barWidth - margin.right])
+    .padding(0.3);
+
+  const yScale = d3.scaleLinear()
+    .domain([0, d3.max(adventureData, d => d.value) + 3])
+    .range([barHeight - margin.bottom, margin.top]);
+
+  // Bars
+  barSvg.selectAll('rect')
+    .data(adventureData)
+    .enter()
+    .append('rect')
+    .attr('x', d => xScale(d.name))
+    .attr('y', d => yScale(d.value))
+    .attr('width', xScale.bandwidth())
+    .attr('height', d => barHeight - margin.bottom - yScale(d.value))
+    .attr('fill', d => d.color)
+    .attr('rx', 4);
+
+  // Labels on bars
+  barSvg.selectAll('.bar-label')
+    .data(adventureData)
+    .enter()
+    .append('text')
+    .attr('class', 'bar-label')
+    .attr('x', d => xScale(d.name) + xScale.bandwidth() / 2)
+    .attr('y', d => yScale(d.value) - 5)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', '13px')
+    .attr('font-weight', '600')
+    .attr('fill', '#3D3D3D')
+    .text(d => d.value);
+
+  // X axis
+  barSvg.append('g')
+    .attr('transform', `translate(0,${barHeight - margin.bottom})`)
+    .call(d3.axisBottom(xScale))
+    .selectAll('text')
+    .attr('font-size', '12px');
+
+  // Title
+  barSvg.append('text')
+    .attr('x', barWidth / 2)
+    .attr('y', 16)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', '14px')
+    .attr('font-weight', '600')
+    .attr('fill', '#2D5A3D')
+    .text('Activity Breakdown');
+});
+</script>

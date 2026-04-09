@@ -5,6 +5,7 @@
 //
 @import "reset";
 @import "variables";
+@import "cards";
 // Syntax highlighting @import is at the bottom of this file
 /**************/
 /* BASE RULES */
@@ -55,11 +56,11 @@ p {
   margin: 15px 0;
 }
 a {
-  color: $blue;
+  color: $forest-medium;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $blue;
+    color: $forest-dark;
   }
 }
 ul, ol {
@@ -169,26 +170,190 @@ img {
     margin: 3px 0;
   }
 }
+// ==========================================
+// Navigation with Dropdowns
+// ==========================================
 nav {
   float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
+  margin-top: 23px;
   font-family: $helveticaNeue;
-  font-size: 18px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+
   @include mobile {
     float: none;
     margin-top: 9px;
-    display: block;
-    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 14px;
   }
-  a {
+
+  > a, .nav-dropdown {
     margin-left: 20px;
-    color: $darkGray;
-    text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
     @include mobile {
-      margin: 0 10px;
-      color: $blue;
+      margin: 5px 10px;
+    }
+  }
+
+  > a {
+    color: $stone-dark;
+    text-align: right;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $forest-medium;
+    }
+
+    @include mobile {
+      color: $forest-medium;
+    }
+  }
+}
+
+// Dropdown Container
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+
+  .nav-dropdown__toggle {
+    color: $stone-dark;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $forest-medium;
+    }
+
+    &::after {
+      content: "▾";
+      font-size: 10px;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &:hover .nav-dropdown__toggle::after {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background: $cream;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+
+    // Show on hover
+    .nav-dropdown:hover & {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  .nav-dropdown__item {
+    display: block;
+    padding: 10px 16px;
+    color: $stone-dark;
+    font-size: 14px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: $stone-light;
+      color: $forest-dark;
+    }
+
+    &--header {
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: $stone-medium;
+      padding: 8px 16px 4px;
+      cursor: default;
+
+      &:hover {
+        background: transparent;
+      }
+    }
+  }
+
+  .nav-dropdown__divider {
+    height: 1px;
+    background: $stone-light;
+    margin: 8px 0;
+  }
+}
+
+// Activity Badge Colors in Nav
+.nav-badge {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+
+  &--climb { background: $color-climb; }
+  &--bike { background: $color-bike; }
+  &--hike { background: $color-hike; }
+  &--run { background: $color-run; }
+  &--ski { background: $color-ski; }
+}
+
+// Mobile Navigation Toggle
+.nav-mobile-toggle {
+  display: none;
+
+  @include mobile {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+}
+
+// Mobile: Dropdown opens on click (handled with checkbox hack or JS)
+@include mobile {
+  .nav-dropdown {
+    width: 100%;
+    text-align: center;
+
+    .nav-dropdown__menu {
+      position: static;
+      box-shadow: none;
+      background: $stone-light;
+      border-radius: 0;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    &.active .nav-dropdown__menu {
+      max-height: 500px;
+      padding: 8px 0;
     }
   }
 }
@@ -230,6 +395,267 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
+// ==========================================
+// Adventure Map
+// ==========================================
+.adventure-map {
+  width: 100%;
+  height: 500px;
+  background: $stone-light;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+
+  @include mobile {
+    height: 350px;
+  }
+}
+
+.map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.map-tooltip {
+  position: absolute;
+  background: $cream;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 100;
+  max-width: 250px;
+
+  .tooltip-title {
+    font-weight: 600;
+    color: $stone-dark;
+    margin-bottom: 4px;
+  }
+
+  .tooltip-location {
+    font-size: 0.9rem;
+    color: $stone-medium;
+  }
+}
+
+// ==========================================
+// Homepage Hero Section
+// ==========================================
+.hero-section {
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-size: 2rem;
+  color: $forest-dark;
+  margin-bottom: 0.5rem;
+
+  @include mobile {
+    font-size: 1.5rem;
+  }
+}
+
+.hero-subtitle {
+  color: $stone-medium;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+// ==========================================
+// Page Headers
+// ==========================================
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid $forest-light;
+
+  h1 {
+    color: $forest-dark;
+    margin: 0;
+  }
+
+  .page-description {
+    color: $stone-medium;
+    margin: 0.5rem 0 0;
+  }
+}
+
+// ==========================================
+// Writing / Blog Styles
+// ==========================================
+.writing-list {
+  .post-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $stone-light;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .post-title {
+    font-size: 1.3rem;
+    color: $forest-dark;
+    margin: 0 0 0.5rem;
+
+    a {
+      color: inherit;
+      &:hover {
+        color: $forest-medium;
+      }
+    }
+  }
+
+  .post-meta {
+    font-size: 0.9rem;
+    color: $stone-medium;
+  }
+
+  .post-excerpt {
+    margin-top: 0.5rem;
+    color: $stone-dark;
+    line-height: 1.6;
+  }
+}
+
+// Enhanced Post Layout
+.post-single {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .post-header {
+    margin-bottom: 2rem;
+  }
+
+  .post-featured-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-title {
+    font-size: 2rem;
+    color: $forest-dark;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+
+    @include mobile {
+      font-size: 1.5rem;
+    }
+  }
+
+  .post-meta {
+    color: $stone-medium;
+    font-size: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .post-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: $stone-dark;
+
+    p {
+      margin: 1.5rem 0;
+    }
+
+    img {
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    h2 {
+      color: $forest-dark;
+      margin-top: 2rem;
+    }
+
+    h3 {
+      color: $forest-medium;
+    }
+
+    blockquote {
+      border-left: 3px solid $forest-medium;
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      color: $stone-medium;
+      font-style: italic;
+    }
+  }
+}
+
+// ==========================================
+// Books Page Radial Tree Styles
+// ==========================================
+.books-container {
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-tree {
+  width: 100%;
+  height: 800px;
+
+  @include mobile {
+    height: 500px;
+  }
+}
+
+.book-node {
+  cursor: pointer;
+
+  text {
+    font-size: 12px;
+    fill: $stone-dark;
+  }
+
+  circle {
+    fill: $forest-light;
+    stroke: $forest-medium;
+    stroke-width: 2px;
+    transition: all 0.2s ease;
+  }
+
+  &:hover circle {
+    fill: $forest-medium;
+  }
+}
+
+.book-link {
+  fill: none;
+  stroke: $stone-light;
+  stroke-width: 1.5px;
+}
+
+// ==========================================
+// Utilities
+// ==========================================
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";

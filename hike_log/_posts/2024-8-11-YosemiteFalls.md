@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Yosemite Falls, Humboldt-Toiyabe National Forest, NV | 7.4mi, 3225ft
+location: Yosemite
+region: Nevada
+country: USA
+latitude: 39.5000
+longitude: -117.5000
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/August/YosemiteFalls/HalfDome.jpg
+activity: hike
 ---
 
 Reservation systems to hike! How silly, but it is what it is. We drove into Yosemite before 5am to skip the reservation. We were recommended an excellent, private and free secret camp spot just outside the gate 🤐 which made the early wake up much easier! We drove in in the dark and parked near Camp 4 to take a nap until sunrise.

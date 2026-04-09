@@ -4,19 +4,15 @@ title: Run Log
 category: run_log
 ---
 
-<div class="posts">
+<div class="page-header">
+  <h1>Run Log</h1>
+  <p class="page-description">Trail running, ultras, and fastpacking adventures</p>
+</div>
+
+<div class="card-grid">
   {% for post in site.posts %}
     {% if post.categories contains 'run_log' %}
-      <article class="post">
-
-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-        <div class="entry">
-          {{ post.excerpt }}
-        </div>
-
-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-      </article>
+      {% include adventure-card.html post=post %}
     {% endif %}
   {% endfor %}
 </div>

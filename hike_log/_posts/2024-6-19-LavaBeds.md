@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Lava Beds National Monument, CA
+location: Lava Beds National Monument
+region: California
+country: USA
+latitude: 41.7143
+longitude: -121.5078
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/June/LavaBeds/lavabeds.jpg
+activity: hike
 ---
 
 Any one else not know this existed? What a cool random stop! Close to the border of Oregon, Lava Beds National Monument is a worthwhile detour. Bring a headlamp and a jacket!

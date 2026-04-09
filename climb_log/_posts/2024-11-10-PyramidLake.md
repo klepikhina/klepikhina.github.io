@@ -1,6 +1,13 @@
 ---
 layout: climb_log
-title: Pig Rock + Contra Canyon, Pyramid Lake, NV | crag - 3 climbs
+title: Pig Rock + Contra Canyon
+location: Pyramid Lake
+region: Nevada
+country: USA
+latitude: 40.0500
+longitude: -119.5000
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/November/PyramidLakeArea/album.jpg
+activity: climb
 ---
 
 Winter climbing crag near Reno! Everyone knows about Tahoe but do people know about Pyramid Lake? It is only slightly smaller in surface area and is the termination point of the Truckee River (the only outlet from Lake Tahoe).

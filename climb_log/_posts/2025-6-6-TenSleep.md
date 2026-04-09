@@ -1,6 +1,13 @@
 ---
 layout: climb_log
-title: Ten Sleep, WY | cragging
+title: Ten Sleep Cragging
+location: Ten Sleep
+region: Wyoming
+country: USA
+latitude: 44.0489
+longitude: -107.4417
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2025/July/TenSleep/views2.jpg
+activity: climb
 ---
 
 Climbing trip, best friends, fireworks in Wyoming. Not a bad way to spend the Fourth! Started off weak with both Justin and I having food poisoning and only got better with time. It can really only go uphill from there.

@@ -1,0 +1,4014 @@
+From c6538a4787cb165d7158033415c3dffd62bc5cbe Mon Sep 17 00:00:00 2001
+From: Ksenia Lepikhina <klepikhina@ghx.com>
+Date: Thu, 9 Apr 2026 15:04:38 -0600
+Subject: [PATCH] Redesign website with nature-inspired theme and storytelling
+ focus
+
+- Add nature color palette (forest greens, sky blues, earth tones)
+- Create card-based layouts for adventure listings
+- Add dropdown navigation for Adventures and Regions
+- Build interactive D3 adventure map on homepage
+- Convert books page to radial tree visualization with stats
+- Add adventure statistics with donut/bar charts
+- Create region pages for filtering by location
+- Add writing section and update creative hub
+- Migrate 22 posts with enhanced front matter (coordinates, featured images)
+---
+ _data/locations.json                          | 389 ++++++++++
+ _data/regions.yml                             |  55 ++
+ _includes/adventure-card.html                 |  61 ++
+ _includes/map-data.html                       |  34 +
+ _layouts/default.html                         |  55 +-
+ _layouts/region.html                          |  86 +++
+ _sass/_cards.scss                             | 308 ++++++++
+ _sass/_variables.scss                         |  62 +-
+ adventures/index.html                         | 242 +++++++
+ bike.html                                     |  18 +-
+ bike_log/_posts/2024-6-17-Oakridge.md         |   7 +
+ bike_log/_posts/2024-7-27-ArmstrongPass.md    |   7 +
+ bike_log/_posts/2024-7-5-ThunderMountain.md   |   7 +
+ bike_log/_posts/2025-6-21-Teocalli.md         |   9 +-
+ books.html                                    | 679 ++++++++++++------
+ climb.html                                    |  18 +-
+ .../_posts/2024-10-14-DAFFDomeGuideCracks.md  |   7 +
+ .../2024-10-15-JohnMuirRouteCathedralPeak.md  |   7 +
+ .../_posts/2024-10-20-ElectricLundyLand.md    |   9 +-
+ climb_log/_posts/2024-11-10-PyramidLake.md    |   9 +-
+ climb_log/_posts/2024-5-19-JuniorHigh.md      |   7 +
+ climb_log/_posts/2024-7-4-Labyrinth.md        |   7 +
+ climb_log/_posts/2024-8-10-SevenTeacups.md    |   7 +
+ climb_log/_posts/2025-4-12-OttosRoute.md      |   9 +-
+ climb_log/_posts/2025-6-6-TenSleep.md         |   9 +-
+ create.md                                     | 243 ++++---
+ hike.html                                     |  18 +-
+ hike_log/_posts/2024-04-13-Sequoia.md         |   7 +
+ hike_log/_posts/2024-11-17-DeathValley.md     |   9 +-
+ .../_posts/2024-6-18-HighwayOfWaterfalls.md   |   7 +
+ hike_log/_posts/2024-6-19-LavaBeds.md         |   7 +
+ hike_log/_posts/2024-8-11-YosemiteFalls.md    |   7 +
+ hike_log/_posts/2024-9-1-Iceland.md           |   7 +
+ hike_log/_posts/2024-9-14-PyramidPeak.md      |   7 +
+ hike_log/_posts/2024-9-29-LassenPeak.md       |   7 +
+ index.html                                    | 123 +++-
+ js/adventure-map.js                           | 172 +++++
+ region/alberta.html                           |   7 +
+ region/british-columbia.html                  |   7 +
+ region/california.html                        |   7 +
+ region/colorado.html                          |   7 +
+ region/international.html                     |  11 +
+ region/nevada.html                            |   7 +
+ region/oregon.html                            |   7 +
+ region/utah.html                              |   7 +
+ region/wyoming.html                           |   7 +
+ run.html                                      |  18 +-
+ ski.html                                      |  18 +-
+ ski_log/_posts/2024-2-13-Brohm.md             |   7 +
+ ski_log/_posts/2024-3-10-CastlePeak.md        |   7 +
+ ski_log/_posts/2024-3-24-InclinePeak.md       |   7 +
+ style.scss                                    | 450 +++++++++++-
+ writing.html                                  |  52 ++
+ 53 files changed, 2935 insertions(+), 413 deletions(-)
+ create mode 100644 _data/locations.json
+ create mode 100644 _data/regions.yml
+ create mode 100644 _includes/adventure-card.html
+ create mode 100644 _includes/map-data.html
+ create mode 100644 _layouts/region.html
+ create mode 100644 _sass/_cards.scss
+ create mode 100644 adventures/index.html
+ create mode 100644 js/adventure-map.js
+ create mode 100644 region/alberta.html
+ create mode 100644 region/british-columbia.html
+ create mode 100644 region/california.html
+ create mode 100644 region/colorado.html
+ create mode 100644 region/international.html
+ create mode 100644 region/nevada.html
+ create mode 100644 region/oregon.html
+ create mode 100644 region/utah.html
+ create mode 100644 region/wyoming.html
+ create mode 100644 writing.html
+
+diff --git a/_data/locations.json b/_data/locations.json
+new file mode 100644
+index 0000000..0a841b8
+--- /dev/null
++++ b/_data/locations.json
+@@ -0,0 +1,389 @@
++{
++  "locations": [
++    {
++      "name": "Ten Sleep",
++      "region": "Wyoming",
++      "country": "USA",
++      "latitude": 44.0489,
++      "longitude": -107.4417
++    },
++    {
++      "name": "Crested Butte",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 38.8697,
++      "longitude": -106.9878
++    },
++    {
++      "name": "Boulder",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 40.0150,
++      "longitude": -105.2705
++    },
++    {
++      "name": "Estes Park",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 40.3772,
++      "longitude": -105.5217
++    },
++    {
++      "name": "South Platte",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 39.4097,
++      "longitude": -105.1681
++    },
++    {
++      "name": "Colorado National Monument",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 39.0377,
++      "longitude": -108.6879
++    },
++    {
++      "name": "Eldora",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 39.9375,
++      "longitude": -105.5827
++    },
++    {
++      "name": "Winter Park",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 39.8917,
++      "longitude": -105.7631
++    },
++    {
++      "name": "Longs Peak",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 40.2549,
++      "longitude": -105.6156
++    },
++    {
++      "name": "Mount Elbert",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 39.1178,
++      "longitude": -106.4454
++    },
++    {
++      "name": "Great Sand Dunes National Park",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 37.7329,
++      "longitude": -105.5115
++    },
++    {
++      "name": "Roosevelt National Forest",
++      "region": "Colorado",
++      "country": "USA",
++      "latitude": 40.4968,
++      "longitude": -105.6464
++    },
++    {
++      "name": "Squamish",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.7016,
++      "longitude": -123.1558
++    },
++    {
++      "name": "Rossland",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.0783,
++      "longitude": -117.8022
++    },
++    {
++      "name": "Fernie",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.5040,
++      "longitude": -115.0632
++    },
++    {
++      "name": "Castlegar",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.3256,
++      "longitude": -117.6660
++    },
++    {
++      "name": "Grand Forks",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.0333,
++      "longitude": -118.4500
++    },
++    {
++      "name": "Valhallas",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.9000,
++      "longitude": -117.5500
++    },
++    {
++      "name": "Bugaboo Provincial Park",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 50.7500,
++      "longitude": -116.7833
++    },
++    {
++      "name": "Purcells",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 50.3000,
++      "longitude": -116.5000
++    },
++    {
++      "name": "Selkirk Range",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 50.0000,
++      "longitude": -117.5000
++    },
++    {
++      "name": "Central Kootenays",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.4000,
++      "longitude": -117.2000
++    },
++    {
++      "name": "Canadian Rockies",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.6500,
++      "longitude": -115.0500
++    },
++    {
++      "name": "Penticton",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.4991,
++      "longitude": -119.5937
++    },
++    {
++      "name": "Vancouver Island",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 49.6500,
++      "longitude": -125.4500
++    },
++    {
++      "name": "Kootenay National Park",
++      "region": "British Columbia",
++      "country": "Canada",
++      "latitude": 50.8833,
++      "longitude": -116.0500
++    },
++    {
++      "name": "Jasper National Park",
++      "region": "Alberta",
++      "country": "Canada",
++      "latitude": 52.8734,
++      "longitude": -117.9543
++    },
++    {
++      "name": "Crowsnest Pass",
++      "region": "Alberta",
++      "country": "Canada",
++      "latitude": 49.6333,
++      "longitude": -114.4167
++    },
++    {
++      "name": "Yosemite National Park",
++      "region": "California",
++      "country": "USA",
++      "latitude": 37.8651,
++      "longitude": -119.5383
++    },
++    {
++      "name": "Donner Summit",
++      "region": "California",
++      "country": "USA",
++      "latitude": 39.3181,
++      "longitude": -120.3241
++    },
++    {
++      "name": "Donner Pass",
++      "region": "California",
++      "country": "USA",
++      "latitude": 39.3181,
++      "longitude": -120.3241
++    },
++    {
++      "name": "South Lake Tahoe",
++      "region": "California",
++      "country": "USA",
++      "latitude": 38.9332,
++      "longitude": -119.9843
++    },
++    {
++      "name": "Kirkwood",
++      "region": "California",
++      "country": "USA",
++      "latitude": 38.6847,
++      "longitude": -120.0658
++    },
++    {
++      "name": "Downieville",
++      "region": "California",
++      "country": "USA",
++      "latitude": 39.5596,
++      "longitude": -120.8268
++    },
++    {
++      "name": "Springville",
++      "region": "California",
++      "country": "USA",
++      "latitude": 36.1349,
++      "longitude": -118.8120
++    },
++    {
++      "name": "Desolation Wilderness",
++      "region": "California",
++      "country": "USA",
++      "latitude": 38.9000,
++      "longitude": -120.1500
++    },
++    {
++      "name": "Sequoia National Park",
++      "region": "California",
++      "country": "USA",
++      "latitude": 36.4864,
++      "longitude": -118.5658
++    },
++    {
++      "name": "Lassen National Park",
++      "region": "California",
++      "country": "USA",
++      "latitude": 40.4977,
++      "longitude": -121.5056
++    },
++    {
++      "name": "Lava Beds National Monument",
++      "region": "California",
++      "country": "USA",
++      "latitude": 41.7143,
++      "longitude": -121.5078
++    },
++    {
++      "name": "Redwood National and State Parks",
++      "region": "California",
++      "country": "USA",
++      "latitude": 41.2132,
++      "longitude": -124.0046
++    },
++    {
++      "name": "Death Valley National Park",
++      "region": "California",
++      "country": "USA",
++      "latitude": 36.5054,
++      "longitude": -117.0794
++    },
++    {
++      "name": "Eastern Sierra",
++      "region": "California",
++      "country": "USA",
++      "latitude": 37.6000,
++      "longitude": -118.8000
++    },
++    {
++      "name": "Oakridge",
++      "region": "Oregon",
++      "country": "USA",
++      "latitude": 43.7468,
++      "longitude": -122.4609
++    },
++    {
++      "name": "Highway of Waterfalls",
++      "region": "Oregon",
++      "country": "USA",
++      "latitude": 45.5761,
++      "longitude": -122.1173
++    },
++    {
++      "name": "Moab",
++      "region": "Utah",
++      "country": "USA",
++      "latitude": 38.5733,
++      "longitude": -109.5498
++    },
++    {
++      "name": "Selkirk Crest",
++      "region": "Idaho",
++      "country": "USA",
++      "latitude": 48.7833,
++      "longitude": -116.6333
++    },
++    {
++      "name": "Humboldt-Toiyabe National Forest",
++      "region": "Nevada",
++      "country": "USA",
++      "latitude": 39.5000,
++      "longitude": -117.5000
++    },
++    {
++      "name": "Mt. Rose Highway",
++      "region": "Nevada",
++      "country": "USA",
++      "latitude": 39.3468,
++      "longitude": -119.9214
++    },
++    {
++      "name": "Pyramid Lake",
++      "region": "Nevada",
++      "country": "USA",
++      "latitude": 40.0500,
++      "longitude": -119.5000
++    },
++    {
++      "name": "Enchanted Tower",
++      "region": "New Mexico",
++      "country": "USA",
++      "latitude": 34.0667,
++      "longitude": -107.6333
++    },
++    {
++      "name": "Chinook Peak",
++      "region": "Washington",
++      "country": "USA",
++      "latitude": 46.8750,
++      "longitude": -121.5167
++    },
++    {
++      "name": "Iceland",
++      "region": "Iceland",
++      "country": "Iceland",
++      "latitude": 64.9631,
++      "longitude": -19.0208
++    },
++    {
++      "name": "France",
++      "region": "France",
++      "country": "France",
++      "latitude": 46.2276,
++      "longitude": 2.2137
++    },
++    {
++      "name": "Italy",
++      "region": "Italy",
++      "country": "Italy",
++      "latitude": 41.8719,
++      "longitude": 12.5674
++    },
++    {
++      "name": "Switzerland",
++      "region": "Switzerland",
++      "country": "Switzerland",
++      "latitude": 46.8182,
++      "longitude": 8.2275
++    }
++  ]
++}
+diff --git a/_data/regions.yml b/_data/regions.yml
+new file mode 100644
+index 0000000..75ba87e
+--- /dev/null
++++ b/_data/regions.yml
+@@ -0,0 +1,55 @@
++# Region taxonomy for adventure posts
++# Used for navigation and filtering
++
++usa:
++  name: "United States"
++  states:
++    california:
++      name: "California"
++      abbrev: "CA"
++    colorado:
++      name: "Colorado"
++      abbrev: "CO"
++    idaho:
++      name: "Idaho"
++      abbrev: "ID"
++    nevada:
++      name: "Nevada"
++      abbrev: "NV"
++    new-mexico:
++      name: "New Mexico"
++      abbrev: "NM"
++    oregon:
++      name: "Oregon"
++      abbrev: "OR"
++    utah:
++      name: "Utah"
++      abbrev: "UT"
++    washington:
++      name: "Washington"
++      abbrev: "WA"
++    wyoming:
++      name: "Wyoming"
++      abbrev: "WY"
++
++canada:
++  name: "Canada"
++  provinces:
++    british-columbia:
++      name: "British Columbia"
++      abbrev: "BC"
++    alberta:
++      name: "Alberta"
++      abbrev: "AB"
++
++international:
++  name: "International"
++  countries:
++    france:
++      name: "France"
++    italy:
++      name: "Italy"
++    switzerland:
++      name: "Switzerland"
++    iceland:
++      name: "Iceland"
+diff --git a/_includes/adventure-card.html b/_includes/adventure-card.html
+new file mode 100644
+index 0000000..52dee37
+--- /dev/null
++++ b/_includes/adventure-card.html
+@@ -0,0 +1,61 @@
++{% comment %}
++Adventure Card Component
++Usage: {% include adventure-card.html post=post %}
++{% endcomment %}
++
++<article class="adventure-card">
++  <a href="{{ site.baseurl }}{{ include.post.url }}">
++    <div class="adventure-card__image{% unless include.post.featured_image %} adventure-card__image--placeholder{% endunless %}">
++      {% if include.post.featured_image %}
++        <img src="{{ include.post.featured_image }}" alt="{{ include.post.title }}" loading="lazy">
++      {% else %}
++        <span class="placeholder-icon">
++          {% case include.post.activity %}
++            {% when 'climb' %}
++              &#x26F0;
++            {% when 'bike' %}
++              &#x1F6B2;
++            {% when 'hike' %}
++              &#x1F3D4;
++            {% when 'run' %}
++              &#x1F3C3;
++            {% when 'ski' %}
++              &#x26F7;
++            {% else %}
++              &#x1F30D;
++          {% endcase %}
++        </span>
++      {% endif %}
++
++      {% if include.post.activity %}
++        <span class="adventure-card__badge adventure-card__badge--{{ include.post.activity }}">
++          {{ include.post.activity | capitalize }}
++        </span>
++      {% elsif include.post.categories contains 'climb_log' %}
++        <span class="adventure-card__badge adventure-card__badge--climb">Climb</span>
++      {% elsif include.post.categories contains 'bike_log' %}
++        <span class="adventure-card__badge adventure-card__badge--bike">Bike</span>
++      {% elsif include.post.categories contains 'hike_log' %}
++        <span class="adventure-card__badge adventure-card__badge--hike">Hike</span>
++      {% elsif include.post.categories contains 'run_log' %}
++        <span class="adventure-card__badge adventure-card__badge--run">Run</span>
++      {% elsif include.post.categories contains 'ski_log' %}
++        <span class="adventure-card__badge adventure-card__badge--ski">Ski</span>
++      {% endif %}
++    </div>
++
++    <div class="adventure-card__content">
++      <h3 class="adventure-card__title">{{ include.post.title | split: ' | ' | first }}</h3>
++
++      {% if include.post.location %}
++        <p class="adventure-card__location">{{ include.post.location }}{% if include.post.region %}, {{ include.post.region }}{% endif %}</p>
++      {% endif %}
++
++      {% if include.show_excerpt %}
++        <p class="adventure-card__excerpt">{{ include.post.excerpt | strip_html | truncate: 100 }}</p>
++      {% endif %}
++
++      <p class="adventure-card__date">{{ include.post.date | date: "%B %e, %Y" }}</p>
++    </div>
++  </a>
++</article>
+diff --git a/_includes/map-data.html b/_includes/map-data.html
+new file mode 100644
+index 0000000..4b47c2d
+--- /dev/null
++++ b/_includes/map-data.html
+@@ -0,0 +1,34 @@
++{% comment %}
++Generates JSON data for the adventure map from posts with coordinates
++{% endcomment %}
++<script>
++var adventureData = [
++{% assign activity_posts = site.posts | where_exp: "post", "post.latitude" %}
++{% for post in activity_posts %}
++  {% if post.categories contains 'climb_log' %}
++    {% assign activity = "climb" %}
++  {% elsif post.categories contains 'bike_log' %}
++    {% assign activity = "bike" %}
++  {% elsif post.categories contains 'hike_log' %}
++    {% assign activity = "hike" %}
++  {% elsif post.categories contains 'run_log' %}
++    {% assign activity = "run" %}
++  {% elsif post.categories contains 'ski_log' %}
++    {% assign activity = "ski" %}
++  {% else %}
++    {% assign activity = "" %}
++  {% endif %}
++  {
++    "title": {{ post.title | split: ' | ' | first | jsonify }},
++    "url": "{{ site.baseurl }}{{ post.url }}",
++    "location": {{ post.location | jsonify }},
++    "region": {{ post.region | jsonify }},
++    "country": {{ post.country | jsonify }},
++    "latitude": {{ post.latitude }},
++    "longitude": {{ post.longitude }},
++    "activity": "{{ activity }}",
++    "date": "{{ post.date | date: '%Y-%m-%d' }}"
++  }{% unless forloop.last %},{% endunless %}
++{% endfor %}
++];
++</script>
+diff --git a/_layouts/default.html b/_layouts/default.html
+index ecb538e..902b95a 100644
+--- a/_layouts/default.html
++++ b/_layouts/default.html
+@@ -29,15 +29,56 @@
+           <nav>
+             <a href="{{ site.baseurl }}/">Home</a>
+             <a href="{{ site.baseurl }}/about">About</a>
+-<!--             <a href="{{ site.baseurl }}/resume">Resume</a> -->
+-<!--             <a href="{{ site.baseurl }}/papers">Papers</a> -->
++
++            <!-- Adventures Dropdown -->
++            <div class="nav-dropdown">
++              <span class="nav-dropdown__toggle">Adventures</span>
++              <div class="nav-dropdown__menu">
++                <a href="{{ site.baseurl }}/adventures/" class="nav-dropdown__item">All Adventures</a>
++                <div class="nav-dropdown__divider"></div>
++                <span class="nav-dropdown__item nav-dropdown__item--header">By Activity</span>
++                <a href="{{ site.baseurl }}/bike" class="nav-dropdown__item">
++                  <span class="nav-badge nav-badge--bike"></span>Bike
++                </a>
++                <a href="{{ site.baseurl }}/climb" class="nav-dropdown__item">
++                  <span class="nav-badge nav-badge--climb"></span>Climb
++                </a>
++                <a href="{{ site.baseurl }}/hike" class="nav-dropdown__item">
++                  <span class="nav-badge nav-badge--hike"></span>Hike
++                </a>
++                <a href="{{ site.baseurl }}/run" class="nav-dropdown__item">
++                  <span class="nav-badge nav-badge--run"></span>Run
++                </a>
++                <a href="{{ site.baseurl }}/ski" class="nav-dropdown__item">
++                  <span class="nav-badge nav-badge--ski"></span>Ski
++                </a>
++              </div>
++            </div>
++
++            <!-- Regions Dropdown -->
++            <div class="nav-dropdown">
++              <span class="nav-dropdown__toggle">Regions</span>
++              <div class="nav-dropdown__menu">
++                <span class="nav-dropdown__item nav-dropdown__item--header">USA</span>
++                <a href="{{ site.baseurl }}/region/california" class="nav-dropdown__item">California</a>
++                <a href="{{ site.baseurl }}/region/colorado" class="nav-dropdown__item">Colorado</a>
++                <a href="{{ site.baseurl }}/region/nevada" class="nav-dropdown__item">Nevada</a>
++                <a href="{{ site.baseurl }}/region/oregon" class="nav-dropdown__item">Oregon</a>
++                <a href="{{ site.baseurl }}/region/utah" class="nav-dropdown__item">Utah</a>
++                <a href="{{ site.baseurl }}/region/wyoming" class="nav-dropdown__item">Wyoming</a>
++                <div class="nav-dropdown__divider"></div>
++                <span class="nav-dropdown__item nav-dropdown__item--header">Canada</span>
++                <a href="{{ site.baseurl }}/region/british-columbia" class="nav-dropdown__item">British Columbia</a>
++                <a href="{{ site.baseurl }}/region/alberta" class="nav-dropdown__item">Alberta</a>
++                <div class="nav-dropdown__divider"></div>
++                <span class="nav-dropdown__item nav-dropdown__item--header">International</span>
++                <a href="{{ site.baseurl }}/region/international" class="nav-dropdown__item">All International</a>
++              </div>
++            </div>
++
+             <a href="{{ site.baseurl }}/create">Create</a>
+             <a href="{{ site.baseurl }}/books">Books</a>
+-            <a href="{{ site.baseurl }}/bike">Bike</a>
+-            <a href="{{ site.baseurl }}/climb">Climb</a>
+-            <a href="{{ site.baseurl }}/hike">Hike</a>
+-            <a href="{{ site.baseurl }}/run">Run</a>
+-            <a href="{{ site.baseurl }}/ski">Ski</a>
++            <a href="{{ site.baseurl }}/writing">Writing</a>
+           </nav>
+         </header>
+       </div>
+diff --git a/_layouts/region.html b/_layouts/region.html
+new file mode 100644
+index 0000000..9a21c60
+--- /dev/null
++++ b/_layouts/region.html
+@@ -0,0 +1,86 @@
++---
++layout: default
++---
++
++<div class="page-header">
++  <h1>{{ page.title }}</h1>
++  {% if page.description %}
++  <p class="page-description">{{ page.description }}</p>
++  {% endif %}
++</div>
++
++{% if page.filter_regions %}
++  {% comment %} Filter by multiple regions (e.g., for International) {% endcomment %}
++  {% assign filtered_posts = "" | split: "" %}
++  {% for post in site.posts %}
++    {% for region in page.filter_regions %}
++      {% if post.region == region %}
++        {% assign filtered_posts = filtered_posts | push: post %}
++      {% endif %}
++    {% endfor %}
++  {% endfor %}
++{% else %}
++  {% comment %} Filter by single region {% endcomment %}
++  {% assign filtered_posts = site.posts | where: "region", page.filter_region %}
++{% endif %}
++
++{% if filtered_posts.size > 0 %}
++<div class="filter-pills">
++  <button class="filter-pill active" data-filter="all">All</button>
++  <button class="filter-pill filter-pill--bike" data-filter="bike_log">Bike</button>
++  <button class="filter-pill filter-pill--climb" data-filter="climb_log">Climb</button>
++  <button class="filter-pill filter-pill--hike" data-filter="hike_log">Hike</button>
++  <button class="filter-pill filter-pill--run" data-filter="run_log">Run</button>
++  <button class="filter-pill filter-pill--ski" data-filter="ski_log">Ski</button>
++</div>
++
++<div class="card-grid" id="region-grid">
++  {% for post in filtered_posts %}
++    {% if post.categories contains 'climb_log' %}
++      {% assign activity_class = "climb_log" %}
++    {% elsif post.categories contains 'bike_log' %}
++      {% assign activity_class = "bike_log" %}
++    {% elsif post.categories contains 'hike_log' %}
++      {% assign activity_class = "hike_log" %}
++    {% elsif post.categories contains 'run_log' %}
++      {% assign activity_class = "run_log" %}
++    {% elsif post.categories contains 'ski_log' %}
++      {% assign activity_class = "ski_log" %}
++    {% else %}
++      {% assign activity_class = "" %}
++    {% endif %}
++    <div class="adventure-item" data-activity="{{ activity_class }}">
++      {% include adventure-card.html post=post %}
++    </div>
++  {% endfor %}
++</div>
++{% else %}
++<div class="empty-state">
++  <div class="empty-state__icon">&#x1F3D4;</div>
++  <p class="empty-state__message">No adventures in {{ page.title }} yet. More coming soon!</p>
++</div>
++{% endif %}
++
++<script>
++document.addEventListener('DOMContentLoaded', function() {
++  const filterButtons = document.querySelectorAll('.filter-pill');
++  const adventureItems = document.querySelectorAll('.adventure-item');
++
++  filterButtons.forEach(button => {
++    button.addEventListener('click', function() {
++      const filter = this.getAttribute('data-filter');
++
++      filterButtons.forEach(btn => btn.classList.remove('active'));
++      this.classList.add('active');
++
++      adventureItems.forEach(item => {
++        if (filter === 'all' || item.getAttribute('data-activity') === filter) {
++          item.style.display = 'block';
++        } else {
++          item.style.display = 'none';
++        }
++      });
++    });
++  });
++});
++</script>
+diff --git a/_sass/_cards.scss b/_sass/_cards.scss
+new file mode 100644
+index 0000000..ada3bd7
+--- /dev/null
++++ b/_sass/_cards.scss
+@@ -0,0 +1,308 @@
++//
++// CARD COMPONENTS
++//
++
++// ==========================================
++// Card Grid Layout
++// ==========================================
++.card-grid {
++  display: grid;
++  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
++  gap: 2rem;
++  padding: 1rem 0;
++
++  @include tablet {
++    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
++    gap: 1.5rem;
++  }
++
++  @include mobile {
++    grid-template-columns: 1fr;
++    gap: 1rem;
++  }
++}
++
++.card-grid--featured {
++  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
++
++  @include mobile {
++    grid-template-columns: 1fr;
++  }
++}
++
++// ==========================================
++// Adventure Card
++// ==========================================
++.adventure-card {
++  background: $cream;
++  border-radius: 12px;
++  overflow: hidden;
++  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
++  transition: transform 0.3s ease, box-shadow 0.3s ease;
++  display: flex;
++  flex-direction: column;
++
++  &:hover {
++    transform: translateY(-4px);
++    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
++  }
++
++  a {
++    text-decoration: none;
++    color: inherit;
++  }
++}
++
++// Card Image
++.adventure-card__image {
++  position: relative;
++  width: 100%;
++  height: 200px;
++  overflow: hidden;
++  background: $stone-light;
++
++  img {
++    width: 100%;
++    height: 100%;
++    object-fit: cover;
++    transition: transform 0.3s ease;
++  }
++
++  .adventure-card:hover & img {
++    transform: scale(1.05);
++  }
++}
++
++// Placeholder for posts without images
++.adventure-card__image--placeholder {
++  display: flex;
++  align-items: center;
++  justify-content: center;
++  background: linear-gradient(135deg, $forest-light 0%, $sky-light 100%);
++
++  .placeholder-icon {
++    font-size: 3rem;
++    opacity: 0.5;
++  }
++}
++
++// Activity Badge
++.adventure-card__badge {
++  position: absolute;
++  top: 12px;
++  left: 12px;
++  padding: 4px 12px;
++  border-radius: 20px;
++  font-size: 12px;
++  font-weight: 600;
++  text-transform: uppercase;
++  letter-spacing: 0.5px;
++  color: white;
++
++  &--climb { background: $color-climb; }
++  &--bike { background: $color-bike; }
++  &--hike { background: $color-hike; }
++  &--run { background: $color-run; }
++  &--ski { background: $color-ski; }
++}
++
++// Card Content
++.adventure-card__content {
++  padding: 1.25rem;
++  flex: 1;
++  display: flex;
++  flex-direction: column;
++}
++
++.adventure-card__title {
++  font-size: 1.1rem;
++  font-weight: 600;
++  color: $stone-dark;
++  margin: 0 0 0.5rem 0;
++  line-height: 1.4;
++}
++
++.adventure-card__location {
++  font-size: 0.9rem;
++  color: $stone-medium;
++  margin: 0 0 0.5rem 0;
++  display: flex;
++  align-items: center;
++  gap: 4px;
++
++  &::before {
++    content: "📍";
++    font-size: 0.8rem;
++  }
++}
++
++.adventure-card__date {
++  font-size: 0.85rem;
++  color: $stone-medium;
++  margin-top: auto;
++  padding-top: 0.75rem;
++  border-top: 1px solid $stone-light;
++}
++
++.adventure-card__excerpt {
++  font-size: 0.9rem;
++  color: $stone-medium;
++  line-height: 1.5;
++  margin: 0.5rem 0;
++  display: -webkit-box;
++  -webkit-line-clamp: 2;
++  -webkit-box-orient: vertical;
++  overflow: hidden;
++}
++
++// ==========================================
++// Region Filter Pills
++// ==========================================
++.filter-pills {
++  display: flex;
++  flex-wrap: wrap;
++  gap: 0.5rem;
++  padding: 1rem 0;
++  margin-bottom: 1rem;
++}
++
++.filter-pill {
++  padding: 8px 16px;
++  border-radius: 20px;
++  border: 2px solid $forest-medium;
++  background: transparent;
++  color: $forest-medium;
++  font-size: 0.9rem;
++  font-weight: 500;
++  cursor: pointer;
++  transition: all 0.2s ease;
++
++  &:hover, &.active {
++    background: $forest-medium;
++    color: white;
++  }
++
++  &--climb.active { background: $color-climb; border-color: $color-climb; }
++  &--bike.active { background: $color-bike; border-color: $color-bike; }
++  &--hike.active { background: $color-hike; border-color: $color-hike; }
++  &--run.active { background: $color-run; border-color: $color-run; }
++  &--ski.active { background: $color-ski; border-color: $color-ski; }
++}
++
++// ==========================================
++// Section Headers
++// ==========================================
++.section-header {
++  margin: 2rem 0 1rem;
++  padding-bottom: 0.5rem;
++  border-bottom: 2px solid $forest-light;
++
++  h2 {
++    color: $forest-dark;
++    font-size: 1.5rem;
++    margin: 0;
++  }
++
++  .section-subtitle {
++    color: $stone-medium;
++    font-size: 0.95rem;
++    margin: 0.25rem 0 0;
++  }
++}
++
++// ==========================================
++// Currently Reading Card (for homepage)
++// ==========================================
++.book-card {
++  display: flex;
++  gap: 1rem;
++  padding: 1rem;
++  background: $cream;
++  border-radius: 8px;
++  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
++
++  &__cover {
++    width: 80px;
++    height: 120px;
++    flex-shrink: 0;
++
++    img {
++      width: 100%;
++      height: 100%;
++      object-fit: cover;
++      border-radius: 4px;
++    }
++  }
++
++  &__info {
++    flex: 1;
++  }
++
++  &__title {
++    font-size: 1rem;
++    font-weight: 600;
++    color: $stone-dark;
++    margin: 0 0 0.25rem;
++  }
++
++  &__author {
++    font-size: 0.9rem;
++    color: $stone-medium;
++    margin: 0;
++  }
++}
++
++// ==========================================
++// Creative Gallery Grid
++// ==========================================
++.gallery-grid {
++  display: grid;
++  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
++  gap: 1rem;
++
++  @include mobile {
++    grid-template-columns: 1fr 1fr;
++    gap: 0.5rem;
++  }
++}
++
++.gallery-item {
++  position: relative;
++  overflow: hidden;
++  border-radius: 8px;
++  aspect-ratio: 1;
++
++  img {
++    width: 100%;
++    height: 100%;
++    object-fit: cover;
++    transition: transform 0.3s ease;
++  }
++
++  &:hover img {
++    transform: scale(1.05);
++  }
++
++  &--wide {
++    grid-column: span 2;
++    aspect-ratio: 2/1;
++  }
++}
++
++// ==========================================
++// Empty State
++// ==========================================
++.empty-state {
++  text-align: center;
++  padding: 3rem 1rem;
++  color: $stone-medium;
++
++  &__icon {
++    font-size: 3rem;
++    margin-bottom: 1rem;
++  }
++
++  &__message {
++    font-size: 1.1rem;
++  }
++}
+diff --git a/_sass/_variables.scss b/_sass/_variables.scss
+index e56c1c5..8ca8ac4 100644
+--- a/_sass/_variables.scss
++++ b/_sass/_variables.scss
+@@ -3,25 +3,73 @@
+ // VARIABLES
+ //
+ 
+-// Colors
+-$blue: #4183C4;
++// ==========================================
++// Nature-Inspired Color Palette
++// ==========================================
+ 
+-// Grays
++// Forest Greens (primary)
++$forest-dark: #2D5A3D;
++$forest-medium: #4A7C59;
++$forest-light: #8FBC8F;
++
++// Sky/Water Blues
++$sky-dark: #2E6171;
++$sky-medium: #4A90A4;
++$sky-light: #87CEEB;
++
++// Earth Tones
++$earth-brown: #8B7355;
++$earth-tan: #C4A77D;
++$earth-warm: #D4A574;
++
++// Neutrals
++$stone-dark: #3D3D3D;
++$stone-medium: #666666;
++$stone-light: #E8E4DF;
++$cream: #FAFAF8;
++
++// Activity colors for badges
++$color-climb: #D4A574;
++$color-bike: #6B8E23;
++$color-hike: #4A7C59;
++$color-run: #4A90A4;
++$color-ski: #B0C4DE;
++
++// ==========================================
++// Legacy Colors (for compatibility)
++// ==========================================
++$blue: $sky-medium;
+ $black: #000;
+ $darkerGray: #222;
+-$darkGray: #333;
+-$gray: #666;
++$darkGray: $stone-dark;
++$gray: $stone-medium;
+ $lightGray: #eee;
+-$white: #fff;
++$white: $cream;
+ 
++// ==========================================
+ // Font stacks
++// ==========================================
+ $helvetica: Helvetica, Arial, sans-serif;
+ $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ $georgia: Georgia, serif;
+ 
+-// Mobile breakpoints
++// ==========================================
++// Breakpoints
++// ==========================================
+ @mixin mobile {
+   @media screen and (max-width: 640px) {
+     @content;
+   }
++}
++
++@mixin tablet {
++  @media screen and (max-width: 900px) {
++    @content;
++  }
++}
++
++@mixin desktop-large {
++  @media screen and (min-width: 1200px) {
++    @content;
++  }
+ }
+\ No newline at end of file
+diff --git a/adventures/index.html b/adventures/index.html
+new file mode 100644
+index 0000000..03794f8
+--- /dev/null
++++ b/adventures/index.html
+@@ -0,0 +1,242 @@
++---
++layout: default
++title: All Adventures
++---
++
++<div class="page-header">
++  <h1>All Adventures</h1>
++  <p class="page-description">Every trip, climb, ride, and run in one place</p>
++</div>
++
++<!-- Adventure Statistics Section -->
++{% assign climb_count = 0 %}
++{% assign bike_count = 0 %}
++{% assign hike_count = 0 %}
++{% assign run_count = 0 %}
++{% assign ski_count = 0 %}
++
++{% for post in site.posts %}
++  {% if post.categories contains 'climb_log' %}
++    {% assign climb_count = climb_count | plus: 1 %}
++  {% elsif post.categories contains 'bike_log' %}
++    {% assign bike_count = bike_count | plus: 1 %}
++  {% elsif post.categories contains 'hike_log' %}
++    {% assign hike_count = hike_count | plus: 1 %}
++  {% elsif post.categories contains 'run_log' %}
++    {% assign run_count = run_count | plus: 1 %}
++  {% elsif post.categories contains 'ski_log' %}
++    {% assign ski_count = ski_count | plus: 1 %}
++  {% endif %}
++{% endfor %}
++
++{% assign total_adventures = climb_count | plus: bike_count | plus: hike_count | plus: run_count | plus: ski_count %}
++
++<div class="section-header">
++  <h2>Adventure Statistics</h2>
++  <p class="section-subtitle">{{ total_adventures }} logged adventures and counting</p>
++</div>
++
++<div class="stats-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; align-items: flex-start;">
++  <div id="adventure-donut" style="flex: 0 0 280px;"></div>
++  <div id="adventure-bars" style="flex: 1; min-width: 300px;"></div>
++</div>
++
++<div class="section-header">
++  <h2>All Adventures</h2>
++</div>
++
++<div class="filter-pills">
++  <button class="filter-pill active" data-filter="all">All ({{ total_adventures }})</button>
++  <button class="filter-pill filter-pill--bike" data-filter="bike_log">Bike ({{ bike_count }})</button>
++  <button class="filter-pill filter-pill--climb" data-filter="climb_log">Climb ({{ climb_count }})</button>
++  <button class="filter-pill filter-pill--hike" data-filter="hike_log">Hike ({{ hike_count }})</button>
++  <button class="filter-pill filter-pill--run" data-filter="run_log">Run ({{ run_count }})</button>
++  <button class="filter-pill filter-pill--ski" data-filter="ski_log">Ski ({{ ski_count }})</button>
++</div>
++
++<div class="card-grid" id="adventures-grid">
++  {% assign all_adventures = site.posts | where_exp: "post", "post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log'" %}
++  {% for post in all_adventures %}
++    {% if post.categories contains 'climb_log' %}
++      {% assign activity_class = "climb_log" %}
++    {% elsif post.categories contains 'bike_log' %}
++      {% assign activity_class = "bike_log" %}
++    {% elsif post.categories contains 'hike_log' %}
++      {% assign activity_class = "hike_log" %}
++    {% elsif post.categories contains 'run_log' %}
++      {% assign activity_class = "run_log" %}
++    {% elsif post.categories contains 'ski_log' %}
++      {% assign activity_class = "ski_log" %}
++    {% else %}
++      {% assign activity_class = "" %}
++    {% endif %}
++    <div class="adventure-item" data-activity="{{ activity_class }}">
++      {% include adventure-card.html post=post %}
++    </div>
++  {% endfor %}
++</div>
++
++<script src="https://d3js.org/d3.v7.min.js"></script>
++<script>
++document.addEventListener('DOMContentLoaded', function() {
++  // Filter functionality
++  const filterButtons = document.querySelectorAll('.filter-pill');
++  const adventureItems = document.querySelectorAll('.adventure-item');
++
++  filterButtons.forEach(button => {
++    button.addEventListener('click', function() {
++      const filter = this.getAttribute('data-filter');
++      filterButtons.forEach(btn => btn.classList.remove('active'));
++      this.classList.add('active');
++      adventureItems.forEach(item => {
++        if (filter === 'all' || item.getAttribute('data-activity') === filter) {
++          item.style.display = 'block';
++        } else {
++          item.style.display = 'none';
++        }
++      });
++    });
++  });
++
++  // Adventure Statistics Charts
++  const adventureData = [
++    { name: 'Climb', value: {{ climb_count }}, color: '#D4A574' },
++    { name: 'Bike', value: {{ bike_count }}, color: '#6B8E23' },
++    { name: 'Hike', value: {{ hike_count }}, color: '#4A7C59' },
++    { name: 'Run', value: {{ run_count }}, color: '#4A90A4' },
++    { name: 'Ski', value: {{ ski_count }}, color: '#B0C4DE' }
++  ];
++
++  const total = adventureData.reduce((sum, d) => sum + d.value, 0);
++
++  // Donut Chart
++  const donutContainer = document.getElementById('adventure-donut');
++  const donutWidth = 280;
++  const donutHeight = 220;
++  const radius = Math.min(donutWidth, donutHeight) / 2 - 30;
++
++  const donutSvg = d3.select('#adventure-donut')
++    .append('svg')
++    .attr('width', donutWidth)
++    .attr('height', donutHeight)
++    .append('g')
++    .attr('transform', `translate(${donutWidth/2},${donutHeight/2 + 10})`);
++
++  const pie = d3.pie().value(d => d.value).sort(null);
++  const arc = d3.arc().innerRadius(radius * 0.55).outerRadius(radius);
++
++  const arcs = donutSvg.selectAll('.arc')
++    .data(pie(adventureData))
++    .enter()
++    .append('g')
++    .attr('class', 'arc');
++
++  arcs.append('path')
++    .attr('d', arc)
++    .attr('fill', d => d.data.color)
++    .attr('stroke', 'white')
++    .attr('stroke-width', 2)
++    .style('cursor', 'pointer')
++    .on('mouseover', function(event, d) {
++      d3.select(this).transition().duration(200)
++        .attr('transform', function(d) {
++          const [x, y] = arc.centroid(d);
++          return `translate(${x * 0.05},${y * 0.05})`;
++        });
++    })
++    .on('mouseout', function() {
++      d3.select(this).transition().duration(200)
++        .attr('transform', 'translate(0,0)');
++    });
++
++  // Center text
++  donutSvg.append('text')
++    .attr('text-anchor', 'middle')
++    .attr('dy', '-0.1em')
++    .attr('font-size', '28px')
++    .attr('font-weight', '600')
++    .attr('fill', '#2D5A3D')
++    .text(total);
++
++  donutSvg.append('text')
++    .attr('text-anchor', 'middle')
++    .attr('dy', '1.2em')
++    .attr('font-size', '12px')
++    .attr('fill', '#666')
++    .text('adventures');
++
++  // Title
++  d3.select('#adventure-donut svg')
++    .append('text')
++    .attr('x', donutWidth / 2)
++    .attr('y', 16)
++    .attr('text-anchor', 'middle')
++    .attr('font-size', '14px')
++    .attr('font-weight', '600')
++    .attr('fill', '#2D5A3D')
++    .text('Adventures by Type');
++
++  // Bar Chart
++  const barContainer = document.getElementById('adventure-bars');
++  const barWidth = Math.min(400, barContainer.clientWidth);
++  const barHeight = 220;
++  const margin = { top: 30, right: 20, bottom: 40, left: 50 };
++
++  const barSvg = d3.select('#adventure-bars')
++    .append('svg')
++    .attr('width', barWidth)
++    .attr('height', barHeight);
++
++  const xScale = d3.scaleBand()
++    .domain(adventureData.map(d => d.name))
++    .range([margin.left, barWidth - margin.right])
++    .padding(0.3);
++
++  const yScale = d3.scaleLinear()
++    .domain([0, d3.max(adventureData, d => d.value) + 3])
++    .range([barHeight - margin.bottom, margin.top]);
++
++  // Bars
++  barSvg.selectAll('rect')
++    .data(adventureData)
++    .enter()
++    .append('rect')
++    .attr('x', d => xScale(d.name))
++    .attr('y', d => yScale(d.value))
++    .attr('width', xScale.bandwidth())
++    .attr('height', d => barHeight - margin.bottom - yScale(d.value))
++    .attr('fill', d => d.color)
++    .attr('rx', 4);
++
++  // Labels on bars
++  barSvg.selectAll('.bar-label')
++    .data(adventureData)
++    .enter()
++    .append('text')
++    .attr('class', 'bar-label')
++    .attr('x', d => xScale(d.name) + xScale.bandwidth() / 2)
++    .attr('y', d => yScale(d.value) - 5)
++    .attr('text-anchor', 'middle')
++    .attr('font-size', '13px')
++    .attr('font-weight', '600')
++    .attr('fill', '#3D3D3D')
++    .text(d => d.value);
++
++  // X axis
++  barSvg.append('g')
++    .attr('transform', `translate(0,${barHeight - margin.bottom})`)
++    .call(d3.axisBottom(xScale))
++    .selectAll('text')
++    .attr('font-size', '12px');
++
++  // Title
++  barSvg.append('text')
++    .attr('x', barWidth / 2)
++    .attr('y', 16)
++    .attr('text-anchor', 'middle')
++    .attr('font-size', '14px')
++    .attr('font-weight', '600')
++    .attr('fill', '#2D5A3D')
++    .text('Activity Breakdown');
++});
++</script>
+diff --git a/bike.html b/bike.html
+index 134979c..6211d55 100644
+--- a/bike.html
++++ b/bike.html
+@@ -4,19 +4,15 @@ title: Bike Log
+ category: bike_log
+ ---
+ 
+-<div class="posts">
++<div class="page-header">
++  <h1>Bike Log</h1>
++  <p class="page-description">Mountain biking trails and bikepacking adventures</p>
++</div>
++
++<div class="card-grid">
+   {% for post in site.posts %}
+     {% if post.categories contains 'bike_log' %}
+-      <article class="post">
+-
+-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+-
+-        <div class="entry">
+-          {{ post.excerpt }}
+-        </div>
+-
+-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+-      </article>
++      {% include adventure-card.html post=post %}
+     {% endif %}
+   {% endfor %}
+ </div>
+diff --git a/bike_log/_posts/2024-6-17-Oakridge.md b/bike_log/_posts/2024-6-17-Oakridge.md
+index 790257b..8321c71 100644
+--- a/bike_log/_posts/2024-6-17-Oakridge.md
++++ b/bike_log/_posts/2024-6-17-Oakridge.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: bike_log
+ title: Lawler Trail and Eula Ridge, Oakridge, OR | 30.05mi, 7283ft
++location: Oakridge
++region: Oregon
++country: USA
++latitude: 43.7468
++longitude: -122.4609
++featured_image: https://klepikhina.s3.amazonaws.com/Bike/2024/June/Oakridge/SaltCreekFalls.jpg
++activity: bike
+ ---
+ 
+ Big day of pedaling, ahoy! Woke up at a perfect secret camp spot and kicked off the day with some fog and rain at Salt Creek Falls. Then head into town for a coffee at Mane Street Coffee before hitting the trails.
+diff --git a/bike_log/_posts/2024-7-27-ArmstrongPass.md b/bike_log/_posts/2024-7-27-ArmstrongPass.md
+index 111f1b8..5c6b714 100644
+--- a/bike_log/_posts/2024-7-27-ArmstrongPass.md
++++ b/bike_log/_posts/2024-7-27-ArmstrongPass.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: bike_log
+ title: Armstrong Pass, South Lake Tahoe, CA | 23.6mi, 3944ft
++location: South Lake Tahoe
++region: California
++country: USA
++latitude: 38.9332
++longitude: -119.9843
++featured_image: https://klepikhina.s3.amazonaws.com/Bike/2024/July/ArmstrongPass/StarLake.jpg
++activity: bike
+ ---
+ 
+ Big loop on a trail bike but hugely rewarding! We parked at the Fountain Place Road x Saxon Tie Road intersection and pedaled the Powerline Road to High Meadows Road to Star Lake Road. If there was a way to shuttle this road by getting around the gate, that would make this lap even better. The road is a steep grind and covers about half of the elevation gain.
+diff --git a/bike_log/_posts/2024-7-5-ThunderMountain.md b/bike_log/_posts/2024-7-5-ThunderMountain.md
+index d740028..641b8e7 100644
+--- a/bike_log/_posts/2024-7-5-ThunderMountain.md
++++ b/bike_log/_posts/2024-7-5-ThunderMountain.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: bike_log
+ title: Thunder Mountain Loop, Kirkwood, CA | 11.7mi, 2480ft
++location: Kirkwood
++region: California
++country: USA
++latitude: 38.6847
++longitude: -120.0658
++featured_image: https://klepikhina.s3.amazonaws.com/Bike/2024/July/ThunderMountain/castle_rock_trail.jpg
++activity: bike
+ ---
+ 
+ Starting at 2pm during a heat wave, even in the mountains, is not the best idea. We did it anyway! Overall, a gorgeous loop.
+diff --git a/bike_log/_posts/2025-6-21-Teocalli.md b/bike_log/_posts/2025-6-21-Teocalli.md
+index e4d74f3..f6ffff2 100644
+--- a/bike_log/_posts/2025-6-21-Teocalli.md
++++ b/bike_log/_posts/2025-6-21-Teocalli.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: bike_log
+-title: Teocalli, Crested Butte, CO | 11 mi, 2329 ft
++title: Teocalli
++location: Crested Butte
++region: Colorado
++country: USA
++latitude: 38.8697
++longitude: -106.9878
++featured_image: https://klepikhina.s3.amazonaws.com/Bike/2025/June/Teocalli/group.jpg
++activity: bike
+ ---
+ 
+ Family ride in CB! Nothing to complain about (but I find a way to complain about the climb anyways). The Teocalli climb is no joke! This time of year, there's a river flowing down parts of the trail. If it looks like you should bushwack around the river - don't. Go through!
+diff --git a/books.html b/books.html
+index c4abf13..4eea2ff 100644
+--- a/books.html
++++ b/books.html
+@@ -1,251 +1,494 @@
+ ---
+-layout: page
++layout: default
+ title: Books
+ permalink: /books/
+ ---
+-<!DOCTYPE html>
+-<meta charset="utf-8">
++
++<div class="page-header">
++  <h1>Books</h1>
++  <p class="page-description">What I've been reading - click a year to expand</p>
++</div>
++
++<!-- Reading Statistics Section -->
++<div class="section-header">
++  <h2>Reading Statistics</h2>
++  <p class="section-subtitle">Books read by year and format</p>
++</div>
++
++<div class="stats-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
++  <div id="books-by-year" style="flex: 1; min-width: 300px;"></div>
++  <div id="books-by-format" style="flex: 1; min-width: 250px;"></div>
++</div>
++
++<div class="section-header">
++  <h2>Book Collection</h2>
++  <p class="section-subtitle">Click on a year to explore</p>
++</div>
++
+ <style>
+-.node {
+-  cursor: pointer;
++.book-tree-container {
++  width: 100%;
++  display: flex;
++  justify-content: center;
++  overflow: visible;
+ }
+ 
+-/* .node circle {
+-  fill: #fff;
+-  stroke: steelblue;
+-  stroke-width: 1.5px;
+-} */
++#book-tree {
++  width: 100%;
++  max-width: 1200px;
++  min-height: 700px;
++}
+ 
+-.node text {
+-  font: 16px sans-serif;
++#book-tree svg {
++  display: block;
++  margin: 0 auto;
+ }
+ 
+-.link {
+-  fill: none;
+-  stroke: #ccc;
+-  stroke-width: 1.5px;
++.book-node {
++  cursor: pointer;
+ }
+ 
+-.svg-container { 
+-	display: inline-block;
+-	position: relative;
+-	width: 100%;
+-	padding-bottom: 100%; 
+-	vertical-align: middle; 
+-	overflow: hidden; 
++.book-node circle {
++  fill: #8FBC8F;
++  stroke: #4A7C59;
++  stroke-width: 2px;
++  transition: all 0.3s ease;
+ }
+ 
+-.svg-content { 
+-	display: inline-block;
+-	position: absolute;
+-	top: 0;
+-	left: 0;
++.book-node:hover circle {
++  fill: #4A7C59;
++  transform: scale(1.1);
+ }
+ 
+-#chart { width:100%;height:100%;margin:0; padding:0; }
++.book-node.node--year circle {
++  fill: #2D5A3D;
++  stroke: #1a3a25;
++  r: 12;
++}
+ 
++.book-node.node--format circle {
++  fill: #4A90A4;
++  stroke: #2E6171;
++}
+ 
+-</style>
+-<div id="chart"></div>
+-</div>
+-<body>
+-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+-<script>
+-  // Code goes here
+-
+-var margin = {
+-    top: 50,
+-    right: 900,
+-    bottom: 500,
+-    left: 0
+-},
+-width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+-    height = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
+-
+-var i = 0,
+-    duration = 750,
+-    root;
+-
+-var tree = d3.layout.tree()
+-    .size([height, width]);
+-
+-var diagonal = d3.svg.diagonal()
+-    .projection(function (d) {
+-    return [d.x, d.y];
+-});
+-
+-var svg = d3.select("body").append("svg")
+-    // .attr("viewBox", '0 0 2000 1500')
+-    .attr("width", width + margin.right + margin.left)
+-    .attr("height", height + margin.top + margin.bottom)
+-    .append("g")
+-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+-    
+-
+-d3.json("../js/books.json", function(data) {
+-
+-root = data;
+-root.x0 = width / 2;
+-root.y0 = 0;
+-
+-function collapse(d) {
+-  if (d.children) {
+-    d._children = d.children;
+-    d._children.forEach(collapse);
+-    d.children = null;
+-  }
+-}
+-
+-root.children.forEach(collapse);
+-update(root);
+-
+-function update(source) {
+-  var tree = d3.layout.tree()
+-    .size([width, height]);
+-
+-  // Compute the new tree layout.
+-  var nodes = tree.nodes(root).reverse(),
+-      links = tree.links(nodes);
+-
+-  // Normalize for fixed-depth.
+-  nodes.forEach(function(d) { d.y = d.depth * 180; });
+-
+-  // Update the nodes…
+-  var node = svg.selectAll("g.node")
+-      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+-
+-  // Enter any new nodes at the parent's previous position.
+-  var nodeEnter = node.enter().append("g")
+-      .attr("class", "node")
+-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+-      .on("click", click);
+-
+-  // add picture
+-  // nodeEnter
+-  //   .append('defs')
+-  //   .append('pattern')
+-  //   .attr('id', function(d,i){
+-  //     return 'pic_' + d.name;
+-  //   })
+-  //   .attr('height',60)
+-  //   .attr('width',60)
+-  //   .attr('x',0)
+-  //   .attr('y',0)
+-  //   .append('image')
+-  //   .attr('xlink:href',function(d,i){
+-  //     return d.image;
+-  //   })
+-  //   .attr('height',60)
+-  //   .attr('width',60)
+-  //   .attr('x',0)
+-  //   .attr('y',0);
+-
+-  nodeEnter.append("image")
+-      .attr("xlink:href", function(d) { return d.image; })
+-      .attr("x", -75)
+-      .attr("y", 0)
+-      .attr("width", "150px")
+-      .attr("height", "150px");
+-
+-  // nodeEnter.append("circle")
+-  //     .attr("r", 1e-6)
+-  //     .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+-
+-  // var g = nodeEnter.append("g");
+-  
+-  nodeEnter.append("text")
+-      .attr("x", function(d) { return d.children || d._children ? -35 : 130; })
+-      .attr("dy", "1.35em")
+-      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+-      .attr("transform", function(d) { return d.children || d._children ?"translate(50,50) rotate(90)" : "translate(10,30) rotate(90)"; })
+-      .text(function(d) { return d.name; })
+-      .style("fill-opacity", 1e-6);
+-      
+-
+-  // Transition nodes to their new position.
+-  var nodeUpdate = node.transition()
+-      .duration(duration)
+-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+-
+-  nodeUpdate.select("circle")
+-      .attr("r", 30)
+-      .style("fill", function(d,i){
+-        return 'url(#pic_' + d.name+')';
+-      });
++.book-node.node--root circle {
++  fill: #D4A574;
++  stroke: #8B7355;
++  r: 15;
++}
+ 
+-  nodeUpdate.selectAll("text")
+-      .style("fill-opacity", 1);
++.book-node text {
++  font-size: 11px;
++  fill: #3D3D3D;
++  pointer-events: none;
++}
+ 
+-  // Transition exiting nodes to the parent's new position.
+-  var nodeExit = node.exit().transition()
+-      .duration(duration)
+-      .attr("transform", function(d) { return "translate(" + source.x + "," + source.y + ")"; })
+-      .remove();
++.book-node.node--internal text {
++  font-weight: 600;
++  font-size: 12px;
++}
+ 
+-  nodeExit.select("circle")
+-      .attr("r", 1e-6);
++.book-link {
++  fill: none;
++  stroke: #ccc;
++  stroke-width: 1.5px;
++  stroke-opacity: 0.6;
++}
+ 
+-  nodeExit.select("text")
+-      .style("fill-opacity", 1e-6);
++.book-cover {
++  cursor: pointer;
++  transition: transform 0.2s ease;
++}
+ 
+-  // Update the links…
+-  var link = svg.selectAll("path.link")
+-      .data(links, function(d) { return d.target.id; });
++.book-cover:hover {
++  transform: scale(1.1);
++}
+ 
+-  // Enter any new links at the parent's previous position.
+-  link.enter().insert("path", "g")
+-      .attr("class", "link")
+-      .attr("d",function(d) {
+-        var o = {x: source.x0, y: source.y0};
+-        return diagonal({source: o, target: o});
+-      });
++.book-tooltip {
++  position: absolute;
++  background: #FAFAF8;
++  border: 1px solid #E8E4DF;
++  border-radius: 8px;
++  padding: 10px 14px;
++  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
++  pointer-events: none;
++  z-index: 1000;
++  max-width: 200px;
++  font-size: 13px;
++}
+ 
+-  // Transition links to their new position.
+-  link.transition()
+-      .duration(duration)
+-      .attr("d", diagonal);
+-
+-  // Transition exiting nodes to the parent's new position.
+-  link.exit().transition()
+-      .duration(duration)
+-      .attr("d", function(d) {
+-        var o = {y: source.y, x: source.x};
+-        return diagonal({source: o, target: o});
+-      })
+-      .remove();
+-
+-  // Stash the old positions for transition.
+-  nodes.forEach(function(d) {
+-    d.x0 = d.x;
+-    d.y0 = d.y;
+-  });
++.book-tooltip .title {
++  font-weight: 600;
++  color: #2D5A3D;
++  margin-bottom: 4px;
+ }
+ 
+-// Toggle children on click.
+-function click(d) {
+-    if (d.open) {
+-        if (d.children) {
+-            width = width - d.children.length * 20;
+-            d._children = d.children;
+-            d.children = null;
+-        } else {
+-            width = width - d._children.length * 20;
++.book-tooltip .author {
++  color: #666;
++  font-size: 12px;
++}
++</style>
++
++<div class="book-tree-container">
++  <div id="book-tree"></div>
++</div>
++
++<script src="https://d3js.org/d3.v7.min.js"></script>
++<script>
++(function() {
++  const width = Math.min(1200, window.innerWidth - 40);
++  const height = 700;
++  const radius = Math.min(width, height) / 2 - 80;
++
++  // Create SVG
++  const svg = d3.select("#book-tree")
++    .append("svg")
++    .attr("width", width)
++    .attr("height", height)
++    .append("g")
++    .attr("transform", `translate(${width/2},${height/2})`);
++
++  // Create tooltip
++  const tooltip = d3.select("body")
++    .append("div")
++    .attr("class", "book-tooltip")
++    .style("opacity", 0);
++
++  // Load book data
++  d3.json("{{ site.baseurl }}/js/books.json").then(function(data) {
++    // Create tree layout - radial
++    const tree = d3.tree()
++      .size([2 * Math.PI, radius])
++      .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
++
++    const root = d3.hierarchy(data);
++
++    // Initially collapse all children
++    root.descendants().forEach((d, i) => {
++      d.id = i;
++      d._children = d.children;
++      if (d.depth > 0) d.children = null;
++    });
++
++    // Link generator for radial layout - curved links
++    const linkGenerator = d3.linkRadial()
++      .angle(d => d.x)
++      .radius(d => d.y);
++
++    // Groups for links and nodes
++    const gLink = svg.append("g")
++      .attr("class", "links")
++      .attr("fill", "none")
++      .attr("stroke", "#ccc")
++      .attr("stroke-opacity", 0.6)
++      .attr("stroke-width", 1.5);
++
++    const gNode = svg.append("g")
++      .attr("class", "nodes");
++
++    function update(source) {
++      const duration = 500;
++      const nodes = root.descendants().reverse();
++      const links = root.links();
++
++      // Compute new tree layout
++      tree(root);
++
++      // Transition for nodes
++      const node = gNode.selectAll("g.book-node")
++        .data(nodes, d => d.id);
++
++      // Enter new nodes
++      const nodeEnter = node.enter().append("g")
++        .attr("class", d => {
++          let classes = "book-node";
++          if (d.depth === 0) classes += " node--root";
++          else if (d.depth === 1) classes += " node--year node--internal";
++          else if (d.depth === 2) classes += " node--format node--internal";
++          return classes;
++        })
++        .attr("transform", d => `rotate(${source.x0 * 180 / Math.PI - 90}) translate(${source.y0},0)`)
++        .on("click", (event, d) => {
++          // If it's a book (has value/link), open Amazon
++          if (d.data.value && d.data.value.length > 0) {
++            window.open("https://www.amazon.com/dp/" + d.data.value.split("/dp/")[1]?.split("/")[0], "_blank");
++            return;
++          }
++          // Otherwise toggle children
++          if (d._children) {
+             d.children = d._children;
+             d._children = null;
+-        }
+-    } else {
+-        if (d.children) {
+-            width = width + d.children.length * 20;
++          } else if (d.children) {
+             d._children = d.children;
+             d.children = null;
+-        } else {
+-            width = width + d._children.length * 20;
+-            d.children = d._children;
+-            d._children = null;
+-        }
++          }
++          update(d);
++        });
++
++      // Add circles to new nodes
++      nodeEnter.append("circle")
++        .attr("r", d => {
++          if (d.depth === 0) return 15;
++          if (d.depth === 1) return 12;
++          if (d.depth === 2) return 8;
++          return 5;
++        })
++        .attr("fill", d => d._children ? "#4A7C59" : "#8FBC8F");
++
++      // Add images for books
++      nodeEnter.filter(d => d.data.image && d.data.image.length > 0)
++        .append("image")
++        .attr("class", "book-cover")
++        .attr("xlink:href", d => d.data.image)
++        .attr("x", -20)
++        .attr("y", -30)
++        .attr("width", 40)
++        .attr("height", 60)
++        .on("mouseover", (event, d) => {
++          const bookName = d.data.name.replace(/"/g, '');
++          const parts = bookName.split(', ');
++          const title = parts[0];
++          const author = parts.slice(1).join(', ');
++
++          tooltip.transition().duration(200).style("opacity", 1);
++          tooltip.html(`<div class="title">${title}</div><div class="author">${author}</div>`)
++            .style("left", (event.pageX + 10) + "px")
++            .style("top", (event.pageY - 28) + "px");
++        })
++        .on("mouseout", () => {
++          tooltip.transition().duration(500).style("opacity", 0);
++        });
++
++      // Add labels
++      nodeEnter.append("text")
++        .attr("dy", "0.31em")
++        .attr("x", d => d.data.image ? 0 : (d.x < Math.PI === !d.children ? 6 : -6))
++        .attr("text-anchor", d => d.data.image ? "middle" : (d.x < Math.PI === !d.children ? "start" : "end"))
++        .attr("transform", d => {
++          if (d.data.image) return "translate(0, 40)";
++          return d.x >= Math.PI ? "rotate(180)" : null;
++        })
++        .text(d => {
++          if (d.data.image) return ""; // Books show image, not text
++          return d.data.name;
++        })
++        .clone(true).lower()
++        .attr("stroke", "white")
++        .attr("stroke-width", 3);
++
++      // Transition nodes to new position
++      const nodeUpdate = node.merge(nodeEnter).transition().duration(duration)
++        .attr("transform", d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y},0)`)
++        .attr("fill-opacity", 1)
++        .attr("stroke-opacity", 1);
++
++      nodeUpdate.select("circle")
++        .attr("fill", d => d._children ? "#4A7C59" : "#8FBC8F");
++
++      // Transition exiting nodes
++      const nodeExit = node.exit().transition().duration(duration).remove()
++        .attr("transform", d => `rotate(${source.x * 180 / Math.PI - 90}) translate(${source.y},0)`)
++        .attr("fill-opacity", 0)
++        .attr("stroke-opacity", 0);
++
++      // Update links
++      const link = gLink.selectAll("path")
++        .data(links, d => d.target.id);
++
++      // Enter new links
++      const linkEnter = link.enter().append("path")
++        .attr("class", "book-link")
++        .attr("d", d => {
++          const o = {x: source.x0, y: source.y0};
++          return linkGenerator({source: o, target: o});
++        });
++
++      // Transition links
++      link.merge(linkEnter).transition().duration(duration)
++        .attr("d", linkGenerator);
++
++      // Remove exiting links
++      link.exit().transition().duration(duration).remove()
++        .attr("d", d => {
++          const o = {x: source.x, y: source.y};
++          return linkGenerator({source: o, target: o});
++        });
++
++      // Save old positions for transition
++      root.eachBefore(d => {
++        d.x0 = d.x;
++        d.y0 = d.y;
++      });
+     }
+-    d.open = !d.open;
+-    update(d);
+-}
+-});
++
++    // Initial positions
++    root.x0 = 0;
++    root.y0 = 0;
++
++    update(root);
++
++  }).catch(function(error) {
++    console.error("Error loading books data:", error);
++    document.getElementById("book-tree").innerHTML = '<p class="text-center">Could not load book data. Please try refreshing.</p>';
++  });
++})();
++
++// Book Statistics Charts
++(function() {
++  d3.json("{{ site.baseurl }}/js/books.json").then(function(data) {
++    // Calculate stats from data
++    const yearStats = [];
++    const formatStats = { audio: 0, physical: 0 };
++
++    data.children.forEach(yearNode => {
++      let yearTotal = 0;
++      yearNode.children.forEach(formatNode => {
++        const count = formatNode.children ? formatNode.children.length : 0;
++        yearTotal += count;
++        if (formatNode.name === 'audio') formatStats.audio += count;
++        else if (formatNode.name === 'physical') formatStats.physical += count;
++      });
++      yearStats.push({ year: yearNode.name, count: yearTotal });
++    });
++
++    // Books by Year - Bar Chart
++    const yearContainer = document.getElementById('books-by-year');
++    const yearWidth = Math.min(400, yearContainer.clientWidth);
++    const yearHeight = 200;
++    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
++
++    const yearSvg = d3.select('#books-by-year')
++      .append('svg')
++      .attr('width', yearWidth)
++      .attr('height', yearHeight);
++
++    const xScale = d3.scaleBand()
++      .domain(yearStats.map(d => d.year))
++      .range([margin.left, yearWidth - margin.right])
++      .padding(0.2);
++
++    const yScale = d3.scaleLinear()
++      .domain([0, d3.max(yearStats, d => d.count) + 2])
++      .range([yearHeight - margin.bottom, margin.top]);
++
++    // Bars
++    yearSvg.selectAll('rect')
++      .data(yearStats)
++      .enter()
++      .append('rect')
++      .attr('x', d => xScale(d.year))
++      .attr('y', d => yScale(d.count))
++      .attr('width', xScale.bandwidth())
++      .attr('height', d => yearHeight - margin.bottom - yScale(d.count))
++      .attr('fill', '#4A7C59')
++      .attr('rx', 4);
++
++    // Labels on bars
++    yearSvg.selectAll('.bar-label')
++      .data(yearStats)
++      .enter()
++      .append('text')
++      .attr('class', 'bar-label')
++      .attr('x', d => xScale(d.year) + xScale.bandwidth() / 2)
++      .attr('y', d => yScale(d.count) - 5)
++      .attr('text-anchor', 'middle')
++      .attr('font-size', '12px')
++      .attr('fill', '#3D3D3D')
++      .text(d => d.count);
++
++    // X axis
++    yearSvg.append('g')
++      .attr('transform', `translate(0,${yearHeight - margin.bottom})`)
++      .call(d3.axisBottom(xScale))
++      .selectAll('text')
++      .attr('font-size', '11px');
++
++    // Title
++    yearSvg.append('text')
++      .attr('x', yearWidth / 2)
++      .attr('y', 12)
++      .attr('text-anchor', 'middle')
++      .attr('font-size', '14px')
++      .attr('font-weight', '600')
++      .attr('fill', '#2D5A3D')
++      .text('Books by Year');
++
++    // Format Donut Chart
++    const formatContainer = document.getElementById('books-by-format');
++    const formatWidth = Math.min(250, formatContainer.clientWidth);
++    const formatHeight = 200;
++    const formatRadius = Math.min(formatWidth, formatHeight) / 2 - 20;
++
++    const formatSvg = d3.select('#books-by-format')
++      .append('svg')
++      .attr('width', formatWidth)
++      .attr('height', formatHeight)
++      .append('g')
++      .attr('transform', `translate(${formatWidth/2},${formatHeight/2 + 10})`);
++
++    const formatData = [
++      { name: 'Physical', value: formatStats.physical, color: '#4A7C59' },
++      { name: 'Audio', value: formatStats.audio, color: '#4A90A4' }
++    ];
++
++    const pie = d3.pie().value(d => d.value).sort(null);
++    const arc = d3.arc().innerRadius(formatRadius * 0.5).outerRadius(formatRadius);
++
++    const arcs = formatSvg.selectAll('.arc')
++      .data(pie(formatData))
++      .enter()
++      .append('g')
++      .attr('class', 'arc');
++
++    arcs.append('path')
++      .attr('d', arc)
++      .attr('fill', d => d.data.color)
++      .attr('stroke', 'white')
++      .attr('stroke-width', 2);
++
++    // Legend
++    const legend = formatSvg.selectAll('.legend')
++      .data(formatData)
++      .enter()
++      .append('g')
++      .attr('class', 'legend')
++      .attr('transform', (d, i) => `translate(${formatRadius + 10},${-20 + i * 22})`);
++
++    legend.append('rect')
++      .attr('width', 14)
++      .attr('height', 14)
++      .attr('fill', d => d.color)
++      .attr('rx', 2);
++
++    legend.append('text')
++      .attr('x', 20)
++      .attr('y', 11)
++      .attr('font-size', '12px')
++      .attr('fill', '#3D3D3D')
++      .text(d => `${d.name}: ${d.value}`);
++
++    // Center text
++    formatSvg.append('text')
++      .attr('text-anchor', 'middle')
++      .attr('dy', '0.35em')
++      .attr('font-size', '20px')
++      .attr('font-weight', '600')
++      .attr('fill', '#2D5A3D')
++      .text(formatStats.audio + formatStats.physical);
++
++    // Title
++    d3.select('#books-by-format svg')
++      .append('text')
++      .attr('x', formatWidth / 2)
++      .attr('y', 12)
++      .attr('text-anchor', 'middle')
++      .attr('font-size', '14px')
++      .attr('font-weight', '600')
++      .attr('fill', '#2D5A3D')
++      .text('Books by Format');
++
++  }).catch(function(error) {
++    console.error("Error loading books data for stats:", error);
++  });
++})();
+ </script>
+diff --git a/climb.html b/climb.html
+index 776e041..f0350cf 100644
+--- a/climb.html
++++ b/climb.html
+@@ -4,19 +4,15 @@ title: Climb Log
+ category: climb_log
+ ---
+ 
+-<div class="posts">
++<div class="page-header">
++  <h1>Climb Log</h1>
++  <p class="page-description">Multi-pitch routes, cragging adventures, and alpine scrambles</p>
++</div>
++
++<div class="card-grid">
+   {% for post in site.posts %}
+     {% if post.categories contains 'climb_log' %}
+-      <article class="post">
+-
+-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+-
+-        <div class="entry">
+-          {{ post.excerpt }}
+-        </div>
+-
+-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+-      </article>
++      {% include adventure-card.html post=post %}
+     {% endif %}
+   {% endfor %}
+ </div>
+diff --git a/climb_log/_posts/2024-10-14-DAFFDomeGuideCracks.md b/climb_log/_posts/2024-10-14-DAFFDomeGuideCracks.md
+index c628646..a4e2c9c 100644
+--- a/climb_log/_posts/2024-10-14-DAFFDomeGuideCracks.md
++++ b/climb_log/_posts/2024-10-14-DAFFDomeGuideCracks.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: climb_log
+ title: DAFF Dome Guide Cracks, Yosemite National Park, CA | crag - 4 climbs
++location: Yosemite National Park
++region: California
++country: USA
++latitude: 37.8651
++longitude: -119.5383
++featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/October/DAFFDome/guidecracks.jpg
++activity: climb
+ ---
+ 
+ From left to right, the pictured cracks are: 5.8, 5.8, 5.7, 5.5.
+diff --git a/climb_log/_posts/2024-10-15-JohnMuirRouteCathedralPeak.md b/climb_log/_posts/2024-10-15-JohnMuirRouteCathedralPeak.md
+index 12bf896..bc716c0 100644
+--- a/climb_log/_posts/2024-10-15-JohnMuirRouteCathedralPeak.md
++++ b/climb_log/_posts/2024-10-15-JohnMuirRouteCathedralPeak.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: climb_log
+ title: John Muir Route (The Mountaineer's Route) - Cathedral Peak, Yosemite National Park, CA | easy 5th scramble
++location: Yosemite National Park
++region: California
++country: USA
++latitude: 37.8651
++longitude: -119.5383
++featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/October/CathedralPeak/cathedralpeak.jpg
++activity: climb
+ ---
+ 
+ Would love to come back some day and climb the main face of Cathedral! Today we decided to do the scamble on the south face. This route is primarily a hike until the last bit which rapidly transitions from 3rd to 4th to easy 5th class.
+diff --git a/climb_log/_posts/2024-10-20-ElectricLundyLand.md b/climb_log/_posts/2024-10-20-ElectricLundyLand.md
+index 3feb0dd..14e490a 100644
+--- a/climb_log/_posts/2024-10-20-ElectricLundyLand.md
++++ b/climb_log/_posts/2024-10-20-ElectricLundyLand.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: climb_log
+-title: Electric Lundy Land, Easter Sierra, CA | 5.10a - ~6 pitches
++title: Electric Lundy Land
++location: Eastern Sierra
++region: California
++country: USA
++latitude: 38.0250
++longitude: -119.2250
++featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/October/ElectricLundyLand/moon_redmtns.jpg
++activity: climb
+ ---
+ 
+ Met up with Alex and Abby to get in a final alpine day before the winter! We drove down to Lundy Canyon, just north of Mono Lake.
+diff --git a/climb_log/_posts/2024-11-10-PyramidLake.md b/climb_log/_posts/2024-11-10-PyramidLake.md
+index 1615ded..b0b20f1 100644
+--- a/climb_log/_posts/2024-11-10-PyramidLake.md
++++ b/climb_log/_posts/2024-11-10-PyramidLake.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: climb_log
+-title: Pig Rock + Contra Canyon, Pyramid Lake, NV | crag - 3 climbs
++title: Pig Rock + Contra Canyon
++location: Pyramid Lake
++region: Nevada
++country: USA
++latitude: 40.0500
++longitude: -119.5000
++featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/November/PyramidLakeArea/album.jpg
++activity: climb
+ ---
+ 
+ Winter climbing crag near Reno! Everyone knows about Tahoe but do people know about Pyramid Lake? It is only slightly smaller in surface area and is the termination point of the Truckee River (the only outlet from Lake Tahoe).
+diff --git a/climb_log/_posts/2024-5-19-JuniorHigh.md b/climb_log/_posts/2024-5-19-JuniorHigh.md
+index 9ea68de..83789c0 100644
+--- a/climb_log/_posts/2024-5-19-JuniorHigh.md
++++ b/climb_log/_posts/2024-5-19-JuniorHigh.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: climb_log
+ title: Junior High, School Rock, Donner Summit, CA | 5.6 - 3 pitches
++location: Donner Summit
++region: California
++country: USA
++latitude: 39.3181
++longitude: -120.3241
++featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/May/SchoolRockJuniorHigh/climb.jpg
++activity: climb
+ ---
+ 
+ On a warm spring day, we took a trip up to cannibal-mountain.. I mean... Donner Summit! This is one of the most popular climbing areas in the Lake Tahoe area. We were lucky to be the only ones going up Junior High on School Rock. Junior High is one of the few multi-pitches on the I-80 corridor.
+diff --git a/climb_log/_posts/2024-7-4-Labyrinth.md b/climb_log/_posts/2024-7-4-Labyrinth.md
+index 2b0df8b..1fdbe72 100644
+--- a/climb_log/_posts/2024-7-4-Labyrinth.md
++++ b/climb_log/_posts/2024-7-4-Labyrinth.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: climb_log
+ title: Labyrinth, Black Wall, Donner Summit, CA | 5.6 - 2 pitches
++location: Donner Summit
++region: California
++country: USA
++latitude: 39.3181
++longitude: -120.3241
++featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/July/Labyrinth/approach1.jpg
++activity: climb
+ ---
+ 
+ You want a squeeze chimney? This is the best bang for your buck. Was it a 5.6? Maybe - people solo it. Did it feel like one? Boyyyy!
+diff --git a/climb_log/_posts/2024-8-10-SevenTeacups.md b/climb_log/_posts/2024-8-10-SevenTeacups.md
+index 616b7f2..dd83ec4 100644
+--- a/climb_log/_posts/2024-8-10-SevenTeacups.md
++++ b/climb_log/_posts/2024-8-10-SevenTeacups.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: climb_log
+ title: Seven Teacups, Springville, CA | canyoneering - 7 rappels
++location: Springville
++region: California
++country: USA
++latitude: 36.1349
++longitude: -118.8120
++featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/August/SevenTeacups/teacupend.jpg
++activity: climb
+ ---
+ 
+ Southern California is apparently a huge canyoneering destination! Many of the canyons are dry and the Seven Teacups is a unique feature and one of the few wet canyons. Prior to heading out, we spent some time studying the canyon on ropewiki and a couple of great blog posts.
+diff --git a/climb_log/_posts/2025-4-12-OttosRoute.md b/climb_log/_posts/2025-4-12-OttosRoute.md
+index 5d66174..f343461 100644
+--- a/climb_log/_posts/2025-4-12-OttosRoute.md
++++ b/climb_log/_posts/2025-4-12-OttosRoute.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: climb_log
+-title: Otto's Route, Colorado National Monument, CO | 5.8+ - 4 pitches
++title: Otto's Route
++location: Colorado National Monument
++region: Colorado
++country: USA
++latitude: 39.0377
++longitude: -108.6879
++featured_image: https://klepikhina.s3.amazonaws.com/Climb/2025/April/OttosRoute/monument.jpg
++activity: climb
+ ---
+ 
+ First multi-pitch of 2025! Took a weekend trip out to Fruita with my family and seized the opportunity to climb Independence Monument in Colorado National Monument. I learned about the difference between national monuments and national parks. Colorado National Monument was established by President William Howard Taft in 1911 to preserve its "extraordinary examples of weathering and erosion". John Otto was the monument's first superintendent and encouraged the establishment of the monument. He lived in the monument, solely built trails to encourage visitors, and even got married at the base of Independence Monument.
+diff --git a/climb_log/_posts/2025-6-6-TenSleep.md b/climb_log/_posts/2025-6-6-TenSleep.md
+index 865a468..c6d2221 100644
+--- a/climb_log/_posts/2025-6-6-TenSleep.md
++++ b/climb_log/_posts/2025-6-6-TenSleep.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: climb_log
+-title: Ten Sleep, WY | cragging
++title: Ten Sleep Cragging
++location: Ten Sleep
++region: Wyoming
++country: USA
++latitude: 44.0489
++longitude: -107.4417
++featured_image: https://klepikhina.s3.amazonaws.com/Climb/2025/July/TenSleep/views2.jpg
++activity: climb
+ ---
+ 
+ Climbing trip, best friends, fireworks in Wyoming. Not a bad way to spend the Fourth! Started off weak with both Justin and I having food poisoning and only got better with time. It can really only go uphill from there.
+diff --git a/create.md b/create.md
+index 7a6af16..92297c9 100644
+--- a/create.md
++++ b/create.md
+@@ -1,107 +1,152 @@
+ ---
+-layout: page
++layout: default
+ title: Create
+ permalink: /create/
+ ---
+ 
+-**Digital Art**
++<div class="page-header">
++  <h1>Create</h1>
++  <p class="page-description">Digital art, photography, and creative projects</p>
++</div>
+ 
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/art/boulderroads.png" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/art/bouldertrails.png" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/art/indigomilkcap.png" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/art/intotheskyunfinished.png" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/art/sammy.png" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/art/leo.png" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/art/moabroads.png" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/art/moabtrails.png" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/art/parrottoadstool.png" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/art/veiledlady.png" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/art/rosslandroads.png" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/art/rosslandtopo.png" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/art/scarlet_wax_cap.png" width="1000">&nbsp;
+-</p>
++<div class="section-header">
++  <h2>Digital Art</h2>
++  <p class="section-subtitle">Map visualizations, illustrations, and digital drawings</p>
++</div>
+ 
+-**Photos**
++<div class="gallery-grid">
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/art/indigomilkcap.png" alt="Indigo Milk Cap mushroom illustration" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/boulderroads.png" alt="Boulder roads visualization" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/bouldertrails.png" alt="Boulder trails visualization" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/art/intotheskyunfinished.png" alt="Into the sky illustration" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/sammy.png" alt="Sammy illustration" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/leo.png" alt="Leo illustration" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/moabroads.png" alt="Moab roads visualization" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/moabtrails.png" alt="Moab trails visualization" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/parrottoadstool.png" alt="Parrot toadstool illustration" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/veiledlady.png" alt="Veiled lady mushroom illustration" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/rosslandroads.png" alt="Rossland roads visualization" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/art/rosslandtopo.png" alt="Rossland topography" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/art/scarlet_wax_cap.png" alt="Scarlet wax cap mushroom illustration" loading="lazy">
++  </div>
++</div>
+ 
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/arrowslitsportugal.jpg" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/aspens.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/banff.jpg" width="500">&nbsp;&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/bloom.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/buchanan.jpg" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/chief.jpg" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/enchantedtowercave.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/classicredbarn.jpg" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/crescentspire.jpg" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/fairytree.jpg" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/glowinghill.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/gimliridge.jpg" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/goldenmeadow.jpg" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/gumwall.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/houndstooth.jpg" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/kootenaysea.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/jumbopass.jpg" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/lovetime.jpg" width="500">&nbsp;&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/scorched.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/lockfence.jpg" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/mananddog.jpg" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/moss.jpg" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/rockwall.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/prayerflags.jpg" width="1000">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/thepalisade.jpg" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/treemoss.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/tulipfalls.jpg" width="500">&nbsp;
+-  <img src="{{ site.baseurl }}/images/photos/valmont.jpg" width="500">&nbsp;
+-</p>
+-<p align="center">
+-  <img src="{{ site.baseurl }}/images/photos/vancouverisland.jpg" width="1000">&nbsp;
+-</p>
++<div class="section-header mt-2">
++  <h2>Photography</h2>
++  <p class="section-subtitle">Moments captured on the trail and beyond</p>
++</div>
++
++<div class="gallery-grid">
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/photos/buchanan.jpg" alt="Buchanan" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/arrowslitsportugal.jpg" alt="Arrow slits in Portugal" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/aspens.jpg" alt="Aspens" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/banff.jpg" alt="Banff" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/bloom.jpg" alt="Bloom" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/photos/classicredbarn.jpg" alt="Classic red barn" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/chief.jpg" alt="The Chief" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/enchantedtowercave.jpg" alt="Enchanted Tower cave" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/photos/crescentspire.jpg" alt="Crescent Spire" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/fairytree.jpg" alt="Fairy tree" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/glowinghill.jpg" alt="Glowing hill" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/photos/gimliridge.jpg" alt="Gimli Ridge" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/goldenmeadow.jpg" alt="Golden meadow" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/gumwall.jpg" alt="Gum wall" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/houndstooth.jpg" alt="Houndstooth" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/kootenaysea.jpg" alt="Kootenay sea" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/photos/jumbopass.jpg" alt="Jumbo Pass" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/lovetime.jpg" alt="Love time" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/scorched.jpg" alt="Scorched" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/photos/lockfence.jpg" alt="Lock fence" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/photos/mananddog.jpg" alt="Man and dog" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/moss.jpg" alt="Moss" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/rockwall.jpg" alt="Rockwall" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/photos/prayerflags.jpg" alt="Prayer flags" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/thepalisade.jpg" alt="The Palisade" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/treemoss.jpg" alt="Tree moss" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/tulipfalls.jpg" alt="Tulip falls" loading="lazy">
++  </div>
++  <div class="gallery-item">
++    <img src="{{ site.baseurl }}/images/photos/valmont.jpg" alt="Valmont" loading="lazy">
++  </div>
++  <div class="gallery-item gallery-item--wide">
++    <img src="{{ site.baseurl }}/images/photos/vancouverisland.jpg" alt="Vancouver Island" loading="lazy">
++  </div>
++</div>
+diff --git a/hike.html b/hike.html
+index cd00bc2..f6c9387 100644
+--- a/hike.html
++++ b/hike.html
+@@ -4,19 +4,15 @@ title: Hike Log
+ category: hike_log
+ ---
+ 
+-<div class="posts">
++<div class="page-header">
++  <h1>Hike Log</h1>
++  <p class="page-description">Peak bagging, backpacking, and nature explorations</p>
++</div>
++
++<div class="card-grid">
+   {% for post in site.posts %}
+     {% if post.categories contains 'hike_log' %}
+-      <article class="post">
+-
+-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+-
+-        <div class="entry">
+-          {{ post.excerpt }}
+-        </div>
+-
+-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+-      </article>
++      {% include adventure-card.html post=post %}
+     {% endif %}
+   {% endfor %}
+ </div>
+diff --git a/hike_log/_posts/2024-04-13-Sequoia.md b/hike_log/_posts/2024-04-13-Sequoia.md
+index c4759b9..87681b0 100644
+--- a/hike_log/_posts/2024-04-13-Sequoia.md
++++ b/hike_log/_posts/2024-04-13-Sequoia.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: hike_log
+ title: Sequoia National Park, CA
++location: Sequoia National Park
++region: California
++country: USA
++latitude: 36.4864
++longitude: -118.5658
++featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/April/Sequoia/big_tree1.jpg
++activity: hike
+ ---
+ 
+ With an injury in the family and a free weekend, we made a weekend trip down to Sequoia. We started on the north side of the park (Big Stump entrance) and checked out the General Grant tree - the nation's Christmas Tree.
+diff --git a/hike_log/_posts/2024-11-17-DeathValley.md b/hike_log/_posts/2024-11-17-DeathValley.md
+index 9fdbded..dcb2ac0 100644
+--- a/hike_log/_posts/2024-11-17-DeathValley.md
++++ b/hike_log/_posts/2024-11-17-DeathValley.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: hike_log
+-title: Death Valley National Park, CA | sampler
++title: Death Valley National Park
++location: Death Valley National Park
++region: California
++country: USA
++latitude: 36.5054
++longitude: -117.0794
++featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/ubehebe.jpg
++activity: hike
+ ---
+ 
+ Checking off the area bucket list items - Death Valley ✔️. Would highly recommend using freecampsites.net - definitely some hit or miss, but boy did we hit with this one (won't link, you'll have to find it yourselves 😉). This one was a bit outside of the national park. 
+diff --git a/hike_log/_posts/2024-6-18-HighwayOfWaterfalls.md b/hike_log/_posts/2024-6-18-HighwayOfWaterfalls.md
+index 3e9185f..e514df5 100644
+--- a/hike_log/_posts/2024-6-18-HighwayOfWaterfalls.md
++++ b/hike_log/_posts/2024-6-18-HighwayOfWaterfalls.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: hike_log
+ title: Highway of Waterfalls, OR
++location: Highway of Waterfalls
++region: Oregon
++country: USA
++latitude: 45.5761
++longitude: -122.1173
++featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/June/HighwayOfWaterfalls/ClearwaterFalls.jpg
++activity: hike
+ ---
+ 
+ Per a friend's recommendation, we took a drive down the highway of waterfalls in Oregon (N. Umpqua Hwy). Sure enough, there are numerous waterfalls to check out! We had a long day of driving after biking in Bend, OR, so we only stopped at the quick hikes.
+diff --git a/hike_log/_posts/2024-6-19-LavaBeds.md b/hike_log/_posts/2024-6-19-LavaBeds.md
+index c4fdec2..ba16f47 100644
+--- a/hike_log/_posts/2024-6-19-LavaBeds.md
++++ b/hike_log/_posts/2024-6-19-LavaBeds.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: hike_log
+ title: Lava Beds National Monument, CA
++location: Lava Beds National Monument
++region: California
++country: USA
++latitude: 41.7143
++longitude: -121.5078
++featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/June/LavaBeds/lavabeds.jpg
++activity: hike
+ ---
+ 
+ Any one else not know this existed? What a cool random stop! Close to the border of Oregon, Lava Beds National Monument is a worthwhile detour. Bring a headlamp and a jacket!
+diff --git a/hike_log/_posts/2024-8-11-YosemiteFalls.md b/hike_log/_posts/2024-8-11-YosemiteFalls.md
+index cfba907..ed8344e 100644
+--- a/hike_log/_posts/2024-8-11-YosemiteFalls.md
++++ b/hike_log/_posts/2024-8-11-YosemiteFalls.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: hike_log
+ title: Yosemite Falls, Humboldt-Toiyabe National Forest, NV | 7.4mi, 3225ft
++location: Yosemite
++region: Nevada
++country: USA
++latitude: 39.5000
++longitude: -117.5000
++featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/August/YosemiteFalls/HalfDome.jpg
++activity: hike
+ ---
+ 
+ Reservation systems to hike! How silly, but it is what it is. We drove into Yosemite before 5am to skip the reservation. We were recommended an excellent, private and free secret camp spot just outside the gate 🤐 which made the early wake up much easier! We drove in in the dark and parked near Camp 4 to take a nap until sunrise.
+diff --git a/hike_log/_posts/2024-9-1-Iceland.md b/hike_log/_posts/2024-9-1-Iceland.md
+index f52f59d..aa6486d 100644
+--- a/hike_log/_posts/2024-9-1-Iceland.md
++++ b/hike_log/_posts/2024-9-1-Iceland.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: hike_log
+ title: A Bit of Iceland
++location: Iceland
++region: Iceland
++country: Iceland
++latitude: 64.9631
++longitude: -19.0208
++featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/Iceland/Djupagilsfoss.jpg
++activity: hike
+ ---
+ 
+ Too much to say! Will have to come back to this post and fill in stories. Perhaps draw a map?
+diff --git a/hike_log/_posts/2024-9-14-PyramidPeak.md b/hike_log/_posts/2024-9-14-PyramidPeak.md
+index ccd34a2..a461910 100644
+--- a/hike_log/_posts/2024-9-14-PyramidPeak.md
++++ b/hike_log/_posts/2024-9-14-PyramidPeak.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: hike_log
+ title: Pyramid Peak, Desolation Wilderness, CA | 7.58mi, 4091ft
++location: Desolation Wilderness
++region: California
++country: USA
++latitude: 38.9000
++longitude: -120.1500
++featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/PyramidPeak/lovers_leap.jpg
++activity: hike
+ ---
+ 
+ With Kelsea in town we need to check out some new hikes! I've been wanting to check out Lake Aloha, and what better way to do it than to see it from above off of Pyramid Peak. This hike is a steep slog through the forest until you reach the semi-scramble-y summit.
+diff --git a/hike_log/_posts/2024-9-29-LassenPeak.md b/hike_log/_posts/2024-9-29-LassenPeak.md
+index e0a5618..44963f3 100644
+--- a/hike_log/_posts/2024-9-29-LassenPeak.md
++++ b/hike_log/_posts/2024-9-29-LassenPeak.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: hike_log
+ title: Lassen Peak, Lassen National Park, CA | 5.1mi, 2021ft
++location: Lassen National Park
++region: California
++country: USA
++latitude: 40.4977
++longitude: -121.5056
++featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/LassenPeak/bottom.jpg
++activity: hike
+ ---
+ 
+ We spent the weekend in the beautiful Trinity Alps with amazing friends - riding ATVs, paddleboarding, drinking milkshakes and playing cornhole. On the way back, we stopped for a quick "stroll" to the top of Lassen Peak. Our friends were skeptical that it would be a quick hike so, naturally, Justin and I had to be as fast and casual as we could.
+diff --git a/index.html b/index.html
+index 9b64df6..960da67 100644
+--- a/index.html
++++ b/index.html
+@@ -1,14 +1,119 @@
+ ---
+ layout: default
+ ---
+-    
+-<script async src="https://cse.google.com/cse.js?cx=1306748dd16a94060"></script>
+-<div class="gcse-search"></div>
+ 
+-<img src="{{ site.baseurl }}/images/map_area.PNG" alt="World" width="1000" usemap="#world">
++<div class="hero-section">
++  <h1 class="hero-title">Adventures & Stories</h1>
++  <p class="hero-subtitle">Climbing, biking, hiking, running, skiing - and everything in between</p>
++</div>
+ 
+-<map name="world">
+-  <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+-  <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+-  <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm">
+-</map>
++<!-- Adventure Map -->
++<div class="section-header">
++  <h2>Where I've Been</h2>
++  <p class="section-subtitle">Click a marker to explore</p>
++</div>
++
++<div class="map-filters">
++  <button class="filter-pill map-filter active" data-filter="all" onclick="AdventureMap.filter('all')">All</button>
++  <button class="filter-pill filter-pill--bike map-filter" data-filter="bike" onclick="AdventureMap.filter('bike')">Bike</button>
++  <button class="filter-pill filter-pill--climb map-filter" data-filter="climb" onclick="AdventureMap.filter('climb')">Climb</button>
++  <button class="filter-pill filter-pill--hike map-filter" data-filter="hike" onclick="AdventureMap.filter('hike')">Hike</button>
++  <button class="filter-pill filter-pill--run map-filter" data-filter="run" onclick="AdventureMap.filter('run')">Run</button>
++  <button class="filter-pill filter-pill--ski map-filter" data-filter="ski" onclick="AdventureMap.filter('ski')">Ski</button>
++</div>
++
++<div id="adventure-map" class="adventure-map"></div>
++
++<!-- Recent Adventures -->
++<div class="section-header">
++  <h2>Recent Adventures</h2>
++  <p class="section-subtitle"><a href="{{ site.baseurl }}/adventures/">View all adventures &rarr;</a></p>
++</div>
++
++<div class="card-grid card-grid--featured">
++  {% assign adventure_posts = site.posts | where_exp: "post", "post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log'" %}
++  {% for post in adventure_posts limit:6 %}
++    {% include adventure-card.html post=post %}
++  {% endfor %}
++</div>
++
++<!-- Currently Reading -->
++<div class="section-header">
++  <h2>Currently Reading</h2>
++  <p class="section-subtitle"><a href="{{ site.baseurl }}/books">See all books &rarr;</a></p>
++</div>
++
++<div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
++  <div class="book-card">
++    <div class="book-card__cover">
++      <img src="https://klepikhina.s3.amazonaws.com/Books/stoneblind.jpg" alt="Stone Blind">
++    </div>
++    <div class="book-card__info">
++      <h3 class="book-card__title">"Stone Blind"</h3>
++      <p class="book-card__author">Natalie Haynes</p>
++    </div>
++  </div>
++
++  <div class="book-card">
++    <div class="book-card__cover">
++      <img src="https://klepikhina.s3.amazonaws.com/Books/SomewhereBeyondTheSea.jpg" alt="Somewhere Beyond the Sea">
++    </div>
++    <div class="book-card__info">
++      <h3 class="book-card__title">"Somewhere Beyond the Sea"</h3>
++      <p class="book-card__author">TJ Klune</p>
++    </div>
++  </div>
++
++  <div class="book-card">
++    <div class="book-card__cover">
++      <img src="https://klepikhina.s3.amazonaws.com/Books/ARiverRunsThroughIt.jpg" alt="A River Runs Through It">
++    </div>
++    <div class="book-card__info">
++      <h3 class="book-card__title">"A River Runs Through It"</h3>
++      <p class="book-card__author">Norman Maclean</p>
++    </div>
++  </div>
++</div>
++
++<!-- D3.js and TopoJSON for the map -->
++<script src="https://d3js.org/d3.v7.min.js"></script>
++<script src="https://unpkg.com/topojson-client@3"></script>
++<script src="{{ site.baseurl }}/js/adventure-map.js"></script>
++
++{% include map-data.html %}
++
++<script>
++document.addEventListener('DOMContentLoaded', function() {
++  // Initialize the map with adventure data
++  if (typeof adventureData !== 'undefined' && adventureData.length > 0) {
++    AdventureMap.init('adventure-map', adventureData);
++  } else {
++    // Fallback: create dummy data from recent posts for demonstration
++    // This will be replaced once posts have coordinates
++    var fallbackData = [
++      {% assign adventure_posts = site.posts | where_exp: "post", "post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log'" %}
++      {% for post in adventure_posts limit:20 %}
++        {% if post.categories contains 'climb_log' %}{% assign activity = "climb" %}
++        {% elsif post.categories contains 'bike_log' %}{% assign activity = "bike" %}
++        {% elsif post.categories contains 'hike_log' %}{% assign activity = "hike" %}
++        {% elsif post.categories contains 'run_log' %}{% assign activity = "run" %}
++        {% elsif post.categories contains 'ski_log' %}{% assign activity = "ski" %}
++        {% else %}{% assign activity = "" %}{% endif %}
++      {
++        title: {{ post.title | split: ' | ' | first | jsonify }},
++        url: "{{ site.baseurl }}{{ post.url }}",
++        location: {{ post.location | default: post.title | split: ',' | first | jsonify }},
++        region: {{ post.region | default: "" | jsonify }},
++        latitude: {{ post.latitude | default: 40 | plus: forloop.index | divided_by: 10.0 }},
++        longitude: {{ post.longitude | default: -110 | plus: forloop.index | times: 2 }},
++        activity: "{{ activity }}"
++      }{% unless forloop.last %},{% endunless %}
++      {% endfor %}
++    ];
++    // Only init if we have no real data yet
++    if (adventureData.length === 0) {
++      document.getElementById('adventure-map').innerHTML = '<p class="text-center" style="padding: 2rem; color: #666;">Adventure map will appear once posts have coordinates added.</p>';
++    }
++  }
++});
++</script>
+diff --git a/js/adventure-map.js b/js/adventure-map.js
+new file mode 100644
+index 0000000..14eaca4
+--- /dev/null
++++ b/js/adventure-map.js
+@@ -0,0 +1,172 @@
++/**
++ * Adventure Map - D3.js Interactive World Map
++ * Displays adventure locations with colored markers by activity type
++ */
++
++(function() {
++  'use strict';
++
++  // Activity colors matching the CSS
++  const activityColors = {
++    climb: '#D4A574',
++    bike: '#6B8E23',
++    hike: '#4A7C59',
++    run: '#4A90A4',
++    ski: '#B0C4DE'
++  };
++
++  // Initialize the map
++  function initAdventureMap(containerId, adventures) {
++    const container = document.getElementById(containerId);
++    if (!container) return;
++
++    const width = container.clientWidth;
++    const height = Math.min(500, width * 0.6);
++
++    // Clear any existing content
++    container.innerHTML = '';
++
++    // Create SVG
++    const svg = d3.select('#' + containerId)
++      .append('svg')
++      .attr('width', width)
++      .attr('height', height)
++      .attr('viewBox', `0 0 ${width} ${height}`)
++      .attr('preserveAspectRatio', 'xMidYMid meet');
++
++    // Create projection - focused on North America and Europe
++    const projection = d3.geoNaturalEarth1()
++      .scale(width / 4.5)
++      .center([-100, 45])
++      .translate([width / 2, height / 2]);
++
++    const path = d3.geoPath().projection(projection);
++
++    // Create tooltip
++    const tooltip = d3.select('body')
++      .append('div')
++      .attr('class', 'map-tooltip')
++      .style('opacity', 0)
++      .style('position', 'absolute')
++      .style('pointer-events', 'none');
++
++    // Load world map data
++    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
++      .then(function(world) {
++        // Draw countries
++        svg.append('g')
++          .attr('class', 'countries')
++          .selectAll('path')
++          .data(topojson.feature(world, world.objects.countries).features)
++          .enter()
++          .append('path')
++          .attr('d', path)
++          .attr('fill', '#E8E4DF')
++          .attr('stroke', '#fff')
++          .attr('stroke-width', 0.5);
++
++        // Group adventures by location to handle overlapping markers
++        const locationGroups = {};
++        adventures.forEach(function(adv) {
++          const key = adv.latitude + ',' + adv.longitude;
++          if (!locationGroups[key]) {
++            locationGroups[key] = [];
++          }
++          locationGroups[key].push(adv);
++        });
++
++        // Draw adventure markers
++        const markers = svg.append('g')
++          .attr('class', 'markers')
++          .selectAll('circle')
++          .data(adventures)
++          .enter()
++          .append('circle')
++          .attr('cx', function(d) {
++            return projection([d.longitude, d.latitude])[0];
++          })
++          .attr('cy', function(d) {
++            return projection([d.longitude, d.latitude])[1];
++          })
++          .attr('r', 6)
++          .attr('fill', function(d) {
++            return activityColors[d.activity] || '#666';
++          })
++          .attr('stroke', '#fff')
++          .attr('stroke-width', 1.5)
++          .attr('class', function(d) {
++            return 'marker marker--' + d.activity;
++          })
++          .style('cursor', 'pointer')
++          .on('mouseover', function(event, d) {
++            d3.select(this)
++              .transition()
++              .duration(200)
++              .attr('r', 10);
++
++            tooltip.transition()
++              .duration(200)
++              .style('opacity', 1);
++
++            tooltip.html(
++              '<div class="tooltip-title">' + d.title + '</div>' +
++              '<div class="tooltip-location">' + d.location +
++              (d.region ? ', ' + d.region : '') + '</div>'
++            )
++              .style('left', (event.pageX + 10) + 'px')
++              .style('top', (event.pageY - 28) + 'px');
++          })
++          .on('mouseout', function() {
++            d3.select(this)
++              .transition()
++              .duration(200)
++              .attr('r', 6);
++
++            tooltip.transition()
++              .duration(500)
++              .style('opacity', 0);
++          })
++          .on('click', function(event, d) {
++            window.location.href = d.url;
++          });
++
++        // Add zoom functionality
++        const zoom = d3.zoom()
++          .scaleExtent([1, 8])
++          .on('zoom', function(event) {
++            svg.selectAll('g').attr('transform', event.transform);
++          });
++
++        svg.call(zoom);
++      })
++      .catch(function(error) {
++        console.error('Error loading map data:', error);
++        container.innerHTML = '<p class="text-center">Map could not be loaded. Please try refreshing the page.</p>';
++      });
++  }
++
++  // Filter markers by activity type
++  function filterMarkers(activity) {
++    const markers = d3.selectAll('.marker');
++
++    if (activity === 'all') {
++      markers.style('opacity', 1);
++    } else {
++      markers.style('opacity', function() {
++        return d3.select(this).classed('marker--' + activity) ? 1 : 0.2;
++      });
++    }
++
++    // Update filter buttons
++    document.querySelectorAll('.map-filter').forEach(function(btn) {
++      btn.classList.remove('active');
++    });
++    document.querySelector('.map-filter[data-filter="' + activity + '"]').classList.add('active');
++  }
++
++  // Expose to global scope
++  window.AdventureMap = {
++    init: initAdventureMap,
++    filter: filterMarkers
++  };
++})();
+diff --git a/region/alberta.html b/region/alberta.html
+new file mode 100644
+index 0000000..a49b5ca
+--- /dev/null
++++ b/region/alberta.html
+@@ -0,0 +1,7 @@
++---
++layout: region
++title: Alberta
++description: Canadian Rockies - alpine climbs and backcountry skiing
++filter_region: Alberta
++permalink: /region/alberta/
++---
+diff --git a/region/british-columbia.html b/region/british-columbia.html
+new file mode 100644
+index 0000000..8f94c38
+--- /dev/null
++++ b/region/british-columbia.html
+@@ -0,0 +1,7 @@
++---
++layout: region
++title: British Columbia
++description: Canadian adventures - from the Coast Mountains to the Kootenays
++filter_region: British Columbia
++permalink: /region/british-columbia/
++---
+diff --git a/region/california.html b/region/california.html
+new file mode 100644
+index 0000000..c0b70b5
+--- /dev/null
++++ b/region/california.html
+@@ -0,0 +1,7 @@
++---
++layout: region
++title: California
++description: Adventures in the Golden State - from the Sierra Nevada to the Pacific coast
++filter_region: California
++permalink: /region/california/
++---
+diff --git a/region/colorado.html b/region/colorado.html
+new file mode 100644
+index 0000000..89498f1
+--- /dev/null
++++ b/region/colorado.html
+@@ -0,0 +1,7 @@
++---
++layout: region
++title: Colorado
++description: Rocky Mountain adventures - peaks, trails, and powder days
++filter_region: Colorado
++permalink: /region/colorado/
++---
+diff --git a/region/international.html b/region/international.html
+new file mode 100644
+index 0000000..bb8e796
+--- /dev/null
++++ b/region/international.html
+@@ -0,0 +1,11 @@
++---
++layout: region
++title: International Adventures
++description: Explorations beyond North America
++filter_regions:
++  - Iceland
++  - France
++  - Italy
++  - Switzerland
++permalink: /region/international/
++---
+diff --git a/region/nevada.html b/region/nevada.html
+new file mode 100644
+index 0000000..8ad2adb
+--- /dev/null
++++ b/region/nevada.html
+@@ -0,0 +1,7 @@
++---
++layout: region
++title: Nevada
++description: Desert peaks and alpine terrain in the Silver State
++filter_region: Nevada
++permalink: /region/nevada/
++---
+diff --git a/region/oregon.html b/region/oregon.html
+new file mode 100644
+index 0000000..fb663f4
+--- /dev/null
++++ b/region/oregon.html
+@@ -0,0 +1,7 @@
++---
++layout: region
++title: Oregon
++description: Pacific Northwest adventures - waterfalls, forests, and trails
++filter_region: Oregon
++permalink: /region/oregon/
++---
+diff --git a/region/utah.html b/region/utah.html
+new file mode 100644
+index 0000000..1939603
+--- /dev/null
++++ b/region/utah.html
+@@ -0,0 +1,7 @@
++---
++layout: region
++title: Utah
++description: Red rock country - desert trails and canyon adventures
++filter_region: Utah
++permalink: /region/utah/
++---
+diff --git a/region/wyoming.html b/region/wyoming.html
+new file mode 100644
+index 0000000..46f3d24
+--- /dev/null
++++ b/region/wyoming.html
+@@ -0,0 +1,7 @@
++---
++layout: region
++title: Wyoming
++description: Wild West climbing and mountain adventures
++filter_region: Wyoming
++permalink: /region/wyoming/
++---
+diff --git a/run.html b/run.html
+index 9e4bad2..3ad4e2e 100644
+--- a/run.html
++++ b/run.html
+@@ -4,19 +4,15 @@ title: Run Log
+ category: run_log
+ ---
+ 
+-<div class="posts">
++<div class="page-header">
++  <h1>Run Log</h1>
++  <p class="page-description">Trail running, ultras, and fastpacking adventures</p>
++</div>
++
++<div class="card-grid">
+   {% for post in site.posts %}
+     {% if post.categories contains 'run_log' %}
+-      <article class="post">
+-
+-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+-
+-        <div class="entry">
+-          {{ post.excerpt }}
+-        </div>
+-
+-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+-      </article>
++      {% include adventure-card.html post=post %}
+     {% endif %}
+   {% endfor %}
+ </div>
+diff --git a/ski.html b/ski.html
+index 072fe85..fca7407 100644
+--- a/ski.html
++++ b/ski.html
+@@ -4,19 +4,15 @@ title: Ski Log
+ category: ski_log
+ ---
+ 
+-<div class="posts">
++<div class="page-header">
++  <h1>Ski Log</h1>
++  <p class="page-description">Backcountry skiing, ski touring, and powder days</p>
++</div>
++
++<div class="card-grid">
+   {% for post in site.posts %}
+     {% if post.categories contains 'ski_log' %}
+-      <article class="post">
+-
+-        <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+-
+-        <div class="entry">
+-          {{ post.excerpt }}
+-        </div>
+-
+-        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+-      </article>
++      {% include adventure-card.html post=post %}
+     {% endif %}
+   {% endfor %}
+ </div>
+diff --git a/ski_log/_posts/2024-2-13-Brohm.md b/ski_log/_posts/2024-2-13-Brohm.md
+index 14985e7..07e4c9c 100644
+--- a/ski_log/_posts/2024-2-13-Brohm.md
++++ b/ski_log/_posts/2024-2-13-Brohm.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: ski_log
+ title: Brohm Ridge, Squamish, BC
++location: Squamish
++region: British Columbia
++country: Canada
++latitude: 49.7016
++longitude: -123.1558
++featured_image: https://klepikhina.s3.amazonaws.com/Ski/2024/February/Brohm/doubleup.jpg
++activity: ski
+ ---
+ 
+ First time sled skiing! Kelsea did amazing doubling me up to the sledding/ sled skiing zone. Only jumped off the sled one time. Lessons learned - counter steering is counterintuitive, sledding is a full body activity, you have to lean so much more than anticipated, side hills are a challenge.
+diff --git a/ski_log/_posts/2024-3-10-CastlePeak.md b/ski_log/_posts/2024-3-10-CastlePeak.md
+index 3976b7f..cddc481 100644
+--- a/ski_log/_posts/2024-3-10-CastlePeak.md
++++ b/ski_log/_posts/2024-3-10-CastlePeak.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: ski_log
+ title: Castle Peak, Donner Pass, CA
++location: Donner Pass
++region: California
++country: USA
++latitude: 39.3181
++longitude: -120.3241
++featured_image: https://klepikhina.s3.amazonaws.com/Ski/2024/March/CastlePeak/start.jpg
++activity: ski
+ ---
+ 
+ It's about time we checked out some touring in the area! One weekend after the storm and approaching spring skiing!
+diff --git a/ski_log/_posts/2024-3-24-InclinePeak.md b/ski_log/_posts/2024-3-24-InclinePeak.md
+index 9a60032..65d7365 100644
+--- a/ski_log/_posts/2024-3-24-InclinePeak.md
++++ b/ski_log/_posts/2024-3-24-InclinePeak.md
+@@ -1,6 +1,13 @@
+ ---
+ layout: ski_log
+ title: Incline Peak, Mt. Rose Highway, NV
++location: Mt. Rose Highway
++region: Nevada
++country: USA
++latitude: 39.3468
++longitude: -119.9214
++featured_image: https://klepikhina.s3.amazonaws.com/Ski/2024/March/InclinePeak/field.jpg
++activity: ski
+ ---
+ 
+ I finally got a chance to go for a little tour with a new friend in Reno! We picked the perfect sleepy, sneaky powder day. We started around 11am, there were plenty of parking spaces, and we had the best window. Some people were finishing up their tours, no one else was heading up at the same time as us, and we skied fresh pow with no one else around!
+diff --git a/style.scss b/style.scss
+index a86caaf..a271621 100644
+--- a/style.scss
++++ b/style.scss
+@@ -5,6 +5,7 @@
+ //
+ @import "reset";
+ @import "variables";
++@import "cards";
+ // Syntax highlighting @import is at the bottom of this file
+ /**************/
+ /* BASE RULES */
+@@ -55,11 +56,11 @@ p {
+   margin: 15px 0;
+ }
+ a {
+-  color: $blue;
++  color: $forest-medium;
+   text-decoration: none;
+ 	cursor: pointer;
+   &:hover, &:active {
+-    color: $blue;
++    color: $forest-dark;
+   }
+ }
+ ul, ol {
+@@ -169,26 +170,190 @@ img {
+     margin: 3px 0;
+   }
+ }
++// ==========================================
++// Navigation with Dropdowns
++// ==========================================
+ nav {
+   float: right;
+-  margin-top: 23px; // @TODO: Vertically middle align
++  margin-top: 23px;
+   font-family: $helveticaNeue;
+-  font-size: 18px;
++  font-size: 16px;
++  display: flex;
++  align-items: center;
++  gap: 0;
++
+   @include mobile {
+     float: none;
+     margin-top: 9px;
+-    display: block;
+-    font-size: 16px;
++    display: flex;
++    flex-wrap: wrap;
++    justify-content: center;
++    font-size: 14px;
+   }
+-  a {
++
++  > a, .nav-dropdown {
+     margin-left: 20px;
+-    color: $darkGray;
++    @include mobile {
++      margin: 5px 10px;
++    }
++  }
++
++  > a {
++    color: $stone-dark;
+     text-align: right;
+-    font-weight: 300;
+-    letter-spacing: 1px;
++    font-weight: 400;
++    letter-spacing: 0.5px;
++    transition: color 0.2s ease;
++
++    &:hover {
++      color: $forest-medium;
++    }
++
+     @include mobile {
+-      margin: 0 10px;
+-      color: $blue;
++      color: $forest-medium;
++    }
++  }
++}
++
++// Dropdown Container
++.nav-dropdown {
++  position: relative;
++  display: inline-block;
++
++  .nav-dropdown__toggle {
++    color: $stone-dark;
++    font-weight: 400;
++    letter-spacing: 0.5px;
++    cursor: pointer;
++    padding: 5px 0;
++    display: flex;
++    align-items: center;
++    gap: 4px;
++    transition: color 0.2s ease;
++
++    &:hover {
++      color: $forest-medium;
++    }
++
++    &::after {
++      content: "▾";
++      font-size: 10px;
++      transition: transform 0.2s ease;
++    }
++  }
++
++  &:hover .nav-dropdown__toggle::after {
++    transform: rotate(180deg);
++  }
++
++  .nav-dropdown__menu {
++    position: absolute;
++    top: 100%;
++    left: 0;
++    min-width: 180px;
++    background: $cream;
++    border-radius: 8px;
++    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
++    padding: 8px 0;
++    opacity: 0;
++    visibility: hidden;
++    transform: translateY(10px);
++    transition: all 0.2s ease;
++    z-index: 1000;
++
++    // Show on hover
++    .nav-dropdown:hover & {
++      opacity: 1;
++      visibility: visible;
++      transform: translateY(0);
++    }
++  }
++
++  .nav-dropdown__item {
++    display: block;
++    padding: 10px 16px;
++    color: $stone-dark;
++    font-size: 14px;
++    transition: background 0.2s ease;
++
++    &:hover {
++      background: $stone-light;
++      color: $forest-dark;
++    }
++
++    &--header {
++      font-weight: 600;
++      font-size: 12px;
++      text-transform: uppercase;
++      letter-spacing: 0.5px;
++      color: $stone-medium;
++      padding: 8px 16px 4px;
++      cursor: default;
++
++      &:hover {
++        background: transparent;
++      }
++    }
++  }
++
++  .nav-dropdown__divider {
++    height: 1px;
++    background: $stone-light;
++    margin: 8px 0;
++  }
++}
++
++// Activity Badge Colors in Nav
++.nav-badge {
++  display: inline-block;
++  width: 8px;
++  height: 8px;
++  border-radius: 50%;
++  margin-right: 8px;
++
++  &--climb { background: $color-climb; }
++  &--bike { background: $color-bike; }
++  &--hike { background: $color-hike; }
++  &--run { background: $color-run; }
++  &--ski { background: $color-ski; }
++}
++
++// Mobile Navigation Toggle
++.nav-mobile-toggle {
++  display: none;
++
++  @include mobile {
++    display: block;
++    background: none;
++    border: none;
++    font-size: 24px;
++    cursor: pointer;
++    padding: 10px;
++  }
++}
++
++// Mobile: Dropdown opens on click (handled with checkbox hack or JS)
++@include mobile {
++  .nav-dropdown {
++    width: 100%;
++    text-align: center;
++
++    .nav-dropdown__menu {
++      position: static;
++      box-shadow: none;
++      background: $stone-light;
++      border-radius: 0;
++      max-height: 0;
++      overflow: hidden;
++      padding: 0;
++      opacity: 1;
++      visibility: visible;
++      transform: none;
++    }
++
++    &.active .nav-dropdown__menu {
++      max-height: 500px;
++      padding: 8px 0;
+     }
+   }
+ }
+@@ -230,6 +395,267 @@ footer {
+   padding: 20px 0;
+   text-align: center;
+ }
++// ==========================================
++// Adventure Map
++// ==========================================
++.adventure-map {
++  width: 100%;
++  height: 500px;
++  background: $stone-light;
++  border-radius: 12px;
++  overflow: hidden;
++  position: relative;
++
++  @include mobile {
++    height: 350px;
++  }
++}
++
++.map-filters {
++  display: flex;
++  flex-wrap: wrap;
++  gap: 0.5rem;
++  padding: 1rem 0;
++  justify-content: center;
++}
++
++.map-tooltip {
++  position: absolute;
++  background: $cream;
++  padding: 12px 16px;
++  border-radius: 8px;
++  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
++  pointer-events: none;
++  z-index: 100;
++  max-width: 250px;
++
++  .tooltip-title {
++    font-weight: 600;
++    color: $stone-dark;
++    margin-bottom: 4px;
++  }
++
++  .tooltip-location {
++    font-size: 0.9rem;
++    color: $stone-medium;
++  }
++}
++
++// ==========================================
++// Homepage Hero Section
++// ==========================================
++.hero-section {
++  margin-bottom: 2rem;
++}
++
++.hero-title {
++  font-size: 2rem;
++  color: $forest-dark;
++  margin-bottom: 0.5rem;
++
++  @include mobile {
++    font-size: 1.5rem;
++  }
++}
++
++.hero-subtitle {
++  color: $stone-medium;
++  font-size: 1.1rem;
++  margin-bottom: 1.5rem;
++}
++
++// ==========================================
++// Page Headers
++// ==========================================
++.page-header {
++  margin-bottom: 2rem;
++  padding-bottom: 1rem;
++  border-bottom: 2px solid $forest-light;
++
++  h1 {
++    color: $forest-dark;
++    margin: 0;
++  }
++
++  .page-description {
++    color: $stone-medium;
++    margin: 0.5rem 0 0;
++  }
++}
++
++// ==========================================
++// Writing / Blog Styles
++// ==========================================
++.writing-list {
++  .post-item {
++    padding: 1.5rem 0;
++    border-bottom: 1px solid $stone-light;
++
++    &:last-child {
++      border-bottom: none;
++    }
++  }
++
++  .post-title {
++    font-size: 1.3rem;
++    color: $forest-dark;
++    margin: 0 0 0.5rem;
++
++    a {
++      color: inherit;
++      &:hover {
++        color: $forest-medium;
++      }
++    }
++  }
++
++  .post-meta {
++    font-size: 0.9rem;
++    color: $stone-medium;
++  }
++
++  .post-excerpt {
++    margin-top: 0.5rem;
++    color: $stone-dark;
++    line-height: 1.6;
++  }
++}
++
++// Enhanced Post Layout
++.post-single {
++  max-width: 800px;
++  margin: 0 auto;
++
++  .post-header {
++    margin-bottom: 2rem;
++  }
++
++  .post-featured-image {
++    width: 100%;
++    max-height: 400px;
++    object-fit: cover;
++    border-radius: 12px;
++    margin-bottom: 1.5rem;
++  }
++
++  .post-title {
++    font-size: 2rem;
++    color: $forest-dark;
++    margin: 0 0 0.5rem;
++    line-height: 1.3;
++
++    @include mobile {
++      font-size: 1.5rem;
++    }
++  }
++
++  .post-meta {
++    color: $stone-medium;
++    font-size: 0.95rem;
++    display: flex;
++    flex-wrap: wrap;
++    gap: 1rem;
++  }
++
++  .post-content {
++    font-size: 1.05rem;
++    line-height: 1.8;
++    color: $stone-dark;
++
++    p {
++      margin: 1.5rem 0;
++    }
++
++    img {
++      border-radius: 8px;
++      margin: 1.5rem 0;
++    }
++
++    h2 {
++      color: $forest-dark;
++      margin-top: 2rem;
++    }
++
++    h3 {
++      color: $forest-medium;
++    }
++
++    blockquote {
++      border-left: 3px solid $forest-medium;
++      padding-left: 1.5rem;
++      margin: 1.5rem 0;
++      color: $stone-medium;
++      font-style: italic;
++    }
++  }
++}
++
++// ==========================================
++// Books Page Radial Tree Styles
++// ==========================================
++.books-container {
++  width: 100%;
++  min-height: 600px;
++  display: flex;
++  justify-content: center;
++  align-items: center;
++}
++
++.book-tree {
++  width: 100%;
++  height: 800px;
++
++  @include mobile {
++    height: 500px;
++  }
++}
++
++.book-node {
++  cursor: pointer;
++
++  text {
++    font-size: 12px;
++    fill: $stone-dark;
++  }
++
++  circle {
++    fill: $forest-light;
++    stroke: $forest-medium;
++    stroke-width: 2px;
++    transition: all 0.2s ease;
++  }
++
++  &:hover circle {
++    fill: $forest-medium;
++  }
++}
++
++.book-link {
++  fill: none;
++  stroke: $stone-light;
++  stroke-width: 1.5px;
++}
++
++// ==========================================
++// Utilities
++// ==========================================
++.text-center { text-align: center; }
++.mt-1 { margin-top: 1rem; }
++.mt-2 { margin-top: 2rem; }
++.mb-1 { margin-bottom: 1rem; }
++.mb-2 { margin-bottom: 2rem; }
++
++.visually-hidden {
++  position: absolute;
++  width: 1px;
++  height: 1px;
++  padding: 0;
++  margin: -1px;
++  overflow: hidden;
++  clip: rect(0, 0, 0, 0);
++  border: 0;
++}
++
+ // Settled on moving the import of syntax highlighting to the bottom of the CSS
+ // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
+ @import "highlights";
+diff --git a/writing.html b/writing.html
+new file mode 100644
+index 0000000..f862b5d
+--- /dev/null
++++ b/writing.html
+@@ -0,0 +1,52 @@
++---
++layout: default
++title: Writing
++permalink: /writing/
++---
++
++<div class="page-header">
++  <h1>Writing</h1>
++  <p class="page-description">Essays, stories, and reflections</p>
++</div>
++
++{% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blog' or post.categories == empty" %}
++{% assign has_posts = false %}
++{% for post in site.posts %}
++  {% unless post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log' %}
++    {% assign has_posts = true %}
++    {% break %}
++  {% endunless %}
++{% endfor %}
++
++{% if has_posts %}
++<div class="writing-list">
++  {% for post in site.posts %}
++    {% unless post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log' %}
++    <article class="post-item">
++      <h2 class="post-title">
++        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
++      </h2>
++      <p class="post-meta">
++        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %e, %Y" }}</time>
++        {% if post.categories.size > 0 %}
++          <span class="post-categories">
++            {% for category in post.categories %}
++              <span class="category-tag">{{ category }}</span>
++            {% endfor %}
++          </span>
++        {% endif %}
++      </p>
++      {% if post.excerpt %}
++      <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
++      {% endif %}
++    </article>
++    {% endunless %}
++  {% endfor %}
++</div>
++{% else %}
++<div class="empty-state">
++  <div class="empty-state__icon">&#x270D;</div>
++  <p class="empty-state__message">Writing section coming soon.</p>
++  <p style="color: #666; margin-top: 1rem;">In the meantime, explore the <a href="{{ site.baseurl }}/adventures/">adventure logs</a> for trip reports and stories from the trail.</p>
++</div>
++{% endif %}
+-- 
+2.52.0
+

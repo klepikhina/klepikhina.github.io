@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Lassen Peak, Lassen National Park, CA | 5.1mi, 2021ft
+location: Lassen National Park
+region: California
+country: USA
+latitude: 40.4977
+longitude: -121.5056
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/LassenPeak/bottom.jpg
+activity: hike
 ---
 
 We spent the weekend in the beautiful Trinity Alps with amazing friends - riding ATVs, paddleboarding, drinking milkshakes and playing cornhole. On the way back, we stopped for a quick "stroll" to the top of Lassen Peak. Our friends were skeptical that it would be a quick hike so, naturally, Justin and I had to be as fast and casual as we could.

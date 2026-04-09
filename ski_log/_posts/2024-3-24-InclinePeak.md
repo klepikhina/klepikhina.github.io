@@ -1,6 +1,13 @@
 ---
 layout: ski_log
 title: Incline Peak, Mt. Rose Highway, NV
+location: Mt. Rose Highway
+region: Nevada
+country: USA
+latitude: 39.3468
+longitude: -119.9214
+featured_image: https://klepikhina.s3.amazonaws.com/Ski/2024/March/InclinePeak/field.jpg
+activity: ski
 ---
 
 I finally got a chance to go for a little tour with a new friend in Reno! We picked the perfect sleepy, sneaky powder day. We started around 11am, there were plenty of parking spaces, and we had the best window. Some people were finishing up their tours, no one else was heading up at the same time as us, and we skied fresh pow with no one else around!

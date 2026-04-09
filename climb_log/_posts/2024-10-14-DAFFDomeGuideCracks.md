@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: DAFF Dome Guide Cracks, Yosemite National Park, CA | crag - 4 climbs
+location: Yosemite National Park
+region: California
+country: USA
+latitude: 37.8651
+longitude: -119.5383
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/October/DAFFDome/guidecracks.jpg
+activity: climb
 ---
 
 From left to right, the pictured cracks are: 5.8, 5.8, 5.7, 5.5.

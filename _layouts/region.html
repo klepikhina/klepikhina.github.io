@@ -1,0 +1,86 @@
+---
+layout: default
+---
+
+<div class="page-header">
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}
+  <p class="page-description">{{ page.description }}</p>
+  {% endif %}
+</div>
+
+{% if page.filter_regions %}
+  {% comment %} Filter by multiple regions (e.g., for International) {% endcomment %}
+  {% assign filtered_posts = "" | split: "" %}
+  {% for post in site.posts %}
+    {% for region in page.filter_regions %}
+      {% if post.region == region %}
+        {% assign filtered_posts = filtered_posts | push: post %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% comment %} Filter by single region {% endcomment %}
+  {% assign filtered_posts = site.posts | where: "region", page.filter_region %}
+{% endif %}
+
+{% if filtered_posts.size > 0 %}
+<div class="filter-pills">
+  <button class="filter-pill active" data-filter="all">All</button>
+  <button class="filter-pill filter-pill--bike" data-filter="bike_log">Bike</button>
+  <button class="filter-pill filter-pill--climb" data-filter="climb_log">Climb</button>
+  <button class="filter-pill filter-pill--hike" data-filter="hike_log">Hike</button>
+  <button class="filter-pill filter-pill--run" data-filter="run_log">Run</button>
+  <button class="filter-pill filter-pill--ski" data-filter="ski_log">Ski</button>
+</div>
+
+<div class="card-grid" id="region-grid">
+  {% for post in filtered_posts %}
+    {% if post.categories contains 'climb_log' %}
+      {% assign activity_class = "climb_log" %}
+    {% elsif post.categories contains 'bike_log' %}
+      {% assign activity_class = "bike_log" %}
+    {% elsif post.categories contains 'hike_log' %}
+      {% assign activity_class = "hike_log" %}
+    {% elsif post.categories contains 'run_log' %}
+      {% assign activity_class = "run_log" %}
+    {% elsif post.categories contains 'ski_log' %}
+      {% assign activity_class = "ski_log" %}
+    {% else %}
+      {% assign activity_class = "" %}
+    {% endif %}
+    <div class="adventure-item" data-activity="{{ activity_class }}">
+      {% include adventure-card.html post=post %}
+    </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+  <div class="empty-state__icon">&#x1F3D4;</div>
+  <p class="empty-state__message">No adventures in {{ page.title }} yet. More coming soon!</p>
+</div>
+{% endif %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-pill');
+  const adventureItems = document.querySelectorAll('.adventure-item');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      adventureItems.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-activity') === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>

@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Seven Teacups, Springville, CA | canyoneering - 7 rappels
+location: Springville
+region: California
+country: USA
+latitude: 36.1349
+longitude: -118.8120
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/August/SevenTeacups/teacupend.jpg
+activity: climb
 ---
 
 Southern California is apparently a huge canyoneering destination! Many of the canyons are dry and the Seven Teacups is a unique feature and one of the few wet canyons. Prior to heading out, we spent some time studying the canyon on ropewiki and a couple of great blog posts.

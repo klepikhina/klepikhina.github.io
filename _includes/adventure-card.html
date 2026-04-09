@@ -1,0 +1,61 @@
+{% comment %}
+Adventure Card Component
+Usage: {% include adventure-card.html post=post %}
+{% endcomment %}
+
+<article class="adventure-card">
+  <a href="{{ site.baseurl }}{{ include.post.url }}">
+    <div class="adventure-card__image{% unless include.post.featured_image %} adventure-card__image--placeholder{% endunless %}">
+      {% if include.post.featured_image %}
+        <img src="{{ include.post.featured_image }}" alt="{{ include.post.title }}" loading="lazy">
+      {% else %}
+        <span class="placeholder-icon">
+          {% case include.post.activity %}
+            {% when 'climb' %}
+              &#x26F0;
+            {% when 'bike' %}
+              &#x1F6B2;
+            {% when 'hike' %}
+              &#x1F3D4;
+            {% when 'run' %}
+              &#x1F3C3;
+            {% when 'ski' %}
+              &#x26F7;
+            {% else %}
+              &#x1F30D;
+          {% endcase %}
+        </span>
+      {% endif %}
+
+      {% if include.post.activity %}
+        <span class="adventure-card__badge adventure-card__badge--{{ include.post.activity }}">
+          {{ include.post.activity | capitalize }}
+        </span>
+      {% elsif include.post.categories contains 'climb_log' %}
+        <span class="adventure-card__badge adventure-card__badge--climb">Climb</span>
+      {% elsif include.post.categories contains 'bike_log' %}
+        <span class="adventure-card__badge adventure-card__badge--bike">Bike</span>
+      {% elsif include.post.categories contains 'hike_log' %}
+        <span class="adventure-card__badge adventure-card__badge--hike">Hike</span>
+      {% elsif include.post.categories contains 'run_log' %}
+        <span class="adventure-card__badge adventure-card__badge--run">Run</span>
+      {% elsif include.post.categories contains 'ski_log' %}
+        <span class="adventure-card__badge adventure-card__badge--ski">Ski</span>
+      {% endif %}
+    </div>
+
+    <div class="adventure-card__content">
+      <h3 class="adventure-card__title">{{ include.post.title | split: ' | ' | first }}</h3>
+
+      {% if include.post.location %}
+        <p class="adventure-card__location">{{ include.post.location }}{% if include.post.region %}, {{ include.post.region }}{% endif %}</p>
+      {% endif %}
+
+      {% if include.show_excerpt %}
+        <p class="adventure-card__excerpt">{{ include.post.excerpt | strip_html | truncate: 100 }}</p>
+      {% endif %}
+
+      <p class="adventure-card__date">{{ include.post.date | date: "%B %e, %Y" }}</p>
+    </div>
+  </a>
+</article>

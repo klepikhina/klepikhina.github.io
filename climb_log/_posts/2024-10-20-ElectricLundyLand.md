@@ -1,6 +1,13 @@
 ---
 layout: climb_log
-title: Electric Lundy Land, Easter Sierra, CA | 5.10a - ~6 pitches
+title: Electric Lundy Land
+location: Eastern Sierra
+region: California
+country: USA
+latitude: 38.0250
+longitude: -119.2250
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/October/ElectricLundyLand/moon_redmtns.jpg
+activity: climb
 ---
 
 Met up with Alex and Abby to get in a final alpine day before the winter! We drove down to Lundy Canyon, just north of Mono Lake.

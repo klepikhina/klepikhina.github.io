@@ -1,0 +1,55 @@
+# Region taxonomy for adventure posts
+# Used for navigation and filtering
+
+usa:
+  name: "United States"
+  states:
+    california:
+      name: "California"
+      abbrev: "CA"
+    colorado:
+      name: "Colorado"
+      abbrev: "CO"
+    idaho:
+      name: "Idaho"
+      abbrev: "ID"
+    nevada:
+      name: "Nevada"
+      abbrev: "NV"
+    new-mexico:
+      name: "New Mexico"
+      abbrev: "NM"
+    oregon:
+      name: "Oregon"
+      abbrev: "OR"
+    utah:
+      name: "Utah"
+      abbrev: "UT"
+    washington:
+      name: "Washington"
+      abbrev: "WA"
+    wyoming:
+      name: "Wyoming"
+      abbrev: "WY"
+
+canada:
+  name: "Canada"
+  provinces:
+    british-columbia:
+      name: "British Columbia"
+      abbrev: "BC"
+    alberta:
+      name: "Alberta"
+      abbrev: "AB"
+
+international:
+  name: "International"
+  countries:
+    france:
+      name: "France"
+    italy:
+      name: "Italy"
+    switzerland:
+      name: "Switzerland"
+    iceland:
+      name: "Iceland"

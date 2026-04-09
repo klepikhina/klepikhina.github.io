@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: John Muir Route (The Mountaineer's Route) - Cathedral Peak, Yosemite National Park, CA | easy 5th scramble
+location: Yosemite National Park
+region: California
+country: USA
+latitude: 37.8651
+longitude: -119.5383
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/October/CathedralPeak/cathedralpeak.jpg
+activity: climb
 ---
 
 Would love to come back some day and climb the main face of Cathedral! Today we decided to do the scamble on the south face. This route is primarily a hike until the last bit which rapidly transitions from 3rd to 4th to easy 5th class.

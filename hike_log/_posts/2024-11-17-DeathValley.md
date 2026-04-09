@@ -1,6 +1,13 @@
 ---
 layout: hike_log
-title: Death Valley National Park, CA | sampler
+title: Death Valley National Park
+location: Death Valley National Park
+region: California
+country: USA
+latitude: 36.5054
+longitude: -117.0794
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/ubehebe.jpg
+activity: hike
 ---
 
 Checking off the area bucket list items - Death Valley ✔️. Would highly recommend using freecampsites.net - definitely some hit or miss, but boy did we hit with this one (won't link, you'll have to find it yourselves 😉). This one was a bit outside of the national park. 

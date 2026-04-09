@@ -1,6 +1,13 @@
 ---
 layout: bike_log
 title: Lawler Trail and Eula Ridge, Oakridge, OR | 30.05mi, 7283ft
+location: Oakridge
+region: Oregon
+country: USA
+latitude: 43.7468
+longitude: -122.4609
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2024/June/Oakridge/SaltCreekFalls.jpg
+activity: bike
 ---
 
 Big day of pedaling, ahoy! Woke up at a perfect secret camp spot and kicked off the day with some fog and rain at Salt Creek Falls. Then head into town for a coffee at Mane Street Coffee before hitting the trails.
