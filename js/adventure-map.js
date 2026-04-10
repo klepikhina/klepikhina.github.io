@@ -45,6 +45,20 @@
     '54': 'West Virginia', '55': 'Wisconsin', '56': 'Wyoming'
   };
 
+  // Country ID to name mapping (ISO 3166-1 numeric codes used in world-atlas)
+  const countryIds = {
+    '250': 'France', '380': 'Italy', '756': 'Switzerland', '352': 'Iceland',
+    '826': 'United Kingdom', '276': 'Germany', '724': 'Spain', '620': 'Portugal',
+    '40': 'Austria', '56': 'Belgium', '528': 'Netherlands', '208': 'Denmark',
+    '578': 'Norway', '752': 'Sweden', '246': 'Finland', '616': 'Poland',
+    '203': 'Czech Republic', '300': 'Greece', '792': 'Turkey', '392': 'Japan',
+    '156': 'China', '356': 'India', '36': 'Australia', '554': 'New Zealand',
+    '484': 'Mexico', '76': 'Brazil', '32': 'Argentina', '152': 'Chile',
+    '170': 'Colombia', '604': 'Peru', '218': 'Ecuador', '858': 'Uruguay',
+    '862': 'Venezuela', '68': 'Bolivia', '600': 'Paraguay',
+    '124': 'Canada', '840': 'United States of America'
+  };
+
   // Initialize the map
   function initAdventureMap(containerId, adventures) {
     const container = document.getElementById(containerId);
@@ -76,10 +90,10 @@
       .attr('class', 'map-group')
       .attr('clip-path', 'url(#map-clip)');
 
-    // Create projection - focused on North America
+    // Create projection - show full globe, centered to show both Americas and Europe
     const projection = d3.geoNaturalEarth1()
-      .scale(width / 4.5)
-      .center([-100, 45])
+      .scale(width / 5.5)
+      .center([-40, 30])
       .translate([width / 2, height / 2]);
 
     const path = d3.geoPath().projection(projection);
@@ -101,19 +115,40 @@
         .style('z-index', '1000');
     }
 
-    // Collect visited regions from adventures
+    // Collect visited regions and countries from adventures
     const visitedRegions = new Set();
+    const visitedCountries = new Set();
     const regionActivities = {};
 
     adventures.forEach(function(adv) {
       if (adv.region) {
-        visitedRegions.add(adv.region);
-        if (!regionActivities[adv.region]) {
-          regionActivities[adv.region] = new Set();
-        }
-        regionActivities[adv.region].add(adv.activity);
+        // Handle comma-separated regions
+        const regions = adv.region.split(',').map(r => r.trim());
+        regions.forEach(region => {
+          visitedRegions.add(region);
+          if (!regionActivities[region]) {
+            regionActivities[region] = new Set();
+          }
+          regionActivities[region].add(adv.activity);
+        });
+      }
+      if (adv.country) {
+        // Handle comma-separated countries
+        const countries = adv.country.split(',').map(c => c.trim());
+        countries.forEach(country => {
+          visitedCountries.add(country);
+          if (!regionActivities[country]) {
+            regionActivities[country] = new Set();
+          }
+          regionActivities[country].add(adv.activity);
+        });
       }
     });
+
+    // Function to get URL slug for a region
+    function getRegionSlug(name) {
+      return name.toLowerCase().replace(/\s+/g, '-');
+    }
 
     // Load map data - US states and world countries
     Promise.all([
@@ -136,6 +171,20 @@
         return '#E8E4DF';
       }
 
+      // Function to check if a country is visited and get its fill
+      function getCountryFill(countryId) {
+        const countryName = countryIds[countryId];
+        if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
+          const activities = regionActivities[countryName];
+          if (activities && activities.size > 0) {
+            const firstActivity = activities.values().next().value;
+            return activityColorsLight[firstActivity] || 'rgba(74, 124, 89, 0.3)';
+          }
+          return 'rgba(74, 124, 89, 0.3)';
+        }
+        return '#E8E4DF';
+      }
+
       // Draw world countries first (as base layer)
       mapGroup.append('g')
         .attr('class', 'countries')
@@ -144,9 +193,41 @@
         .enter()
         .append('path')
         .attr('d', path)
-        .attr('fill', '#E8E4DF')
+        .attr('fill', d => getCountryFill(d.id))
         .attr('stroke', '#ccc')
-        .attr('stroke-width', 0.5);
+        .attr('stroke-width', 0.5)
+        .attr('class', d => {
+          const countryName = countryIds[d.id];
+          if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
+            return 'region-visited';
+          }
+          return '';
+        })
+        .attr('data-region', d => countryIds[d.id] || '')
+        .style('cursor', d => {
+          const countryName = countryIds[d.id];
+          return (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) ? 'pointer' : 'default';
+        })
+        .on('mouseover', function(event, d) {
+          const countryName = countryIds[d.id];
+          if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
+            d3.select(this).attr('fill-opacity', 0.8);
+            tooltip.transition().duration(200).style('opacity', 1);
+            tooltip.html('<div style="font-weight: 600; color: #2D5A3D;">' + countryName + '</div>')
+              .style('left', (event.pageX + 10) + 'px')
+              .style('top', (event.pageY - 28) + 'px');
+          }
+        })
+        .on('mouseout', function(event, d) {
+          d3.select(this).attr('fill-opacity', 1);
+          tooltip.transition().duration(500).style('opacity', 0);
+        })
+        .on('click', function(event, d) {
+          const countryName = countryIds[d.id];
+          if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
+            window.location.href = '/regions/' + getRegionSlug(countryName) + '/';
+          }
+        });
 
       // Draw US states
       const usStates = topojson.feature(usData, usData.objects.states).features;
@@ -162,7 +243,33 @@
           return getRegionFill(stateName);
         })
         .attr('stroke', '#999')
-        .attr('stroke-width', 0.5);
+        .attr('stroke-width', 0.5)
+        .attr('class', d => {
+          const stateName = stateFips[d.id];
+          return visitedRegions.has(stateName) ? 'region-visited' : '';
+        })
+        .attr('data-region', d => stateFips[d.id] || '')
+        .style('cursor', d => visitedRegions.has(stateFips[d.id]) ? 'pointer' : 'default')
+        .on('mouseover', function(event, d) {
+          const stateName = stateFips[d.id];
+          if (visitedRegions.has(stateName)) {
+            d3.select(this).attr('fill-opacity', 0.8);
+            tooltip.transition().duration(200).style('opacity', 1);
+            tooltip.html('<div style="font-weight: 600; color: #2D5A3D;">' + stateName + '</div>')
+              .style('left', (event.pageX + 10) + 'px')
+              .style('top', (event.pageY - 28) + 'px');
+          }
+        })
+        .on('mouseout', function() {
+          d3.select(this).attr('fill-opacity', 1);
+          tooltip.transition().duration(500).style('opacity', 0);
+        })
+        .on('click', function(event, d) {
+          const stateName = stateFips[d.id];
+          if (visitedRegions.has(stateName)) {
+            window.location.href = '/regions/' + getRegionSlug(stateName) + '/';
+          }
+        });
 
       // Draw Canadian provinces
       if (canadaData && canadaData.features) {
@@ -178,7 +285,30 @@
             return getRegionFill(provinceName);
           })
           .attr('stroke', '#999')
-          .attr('stroke-width', 0.5);
+          .attr('stroke-width', 0.5)
+          .attr('class', d => visitedRegions.has(d.properties.name) ? 'region-visited' : '')
+          .attr('data-region', d => d.properties.name || '')
+          .style('cursor', d => visitedRegions.has(d.properties.name) ? 'pointer' : 'default')
+          .on('mouseover', function(event, d) {
+            const provinceName = d.properties.name;
+            if (visitedRegions.has(provinceName)) {
+              d3.select(this).attr('fill-opacity', 0.8);
+              tooltip.transition().duration(200).style('opacity', 1);
+              tooltip.html('<div style="font-weight: 600; color: #2D5A3D;">' + provinceName + '</div>')
+                .style('left', (event.pageX + 10) + 'px')
+                .style('top', (event.pageY - 28) + 'px');
+            }
+          })
+          .on('mouseout', function() {
+            d3.select(this).attr('fill-opacity', 1);
+            tooltip.transition().duration(500).style('opacity', 0);
+          })
+          .on('click', function(event, d) {
+            const provinceName = d.properties.name;
+            if (visitedRegions.has(provinceName)) {
+              window.location.href = '/regions/' + getRegionSlug(provinceName) + '/';
+            }
+          });
       }
 
       // Draw state/province boundaries with slightly darker stroke
@@ -248,9 +378,10 @@
         });
 
       // Add zoom functionality with proper scaling
+      // Allow panning beyond initial view to see full globe
       const zoom = d3.zoom()
-        .scaleExtent([1, 12])
-        .translateExtent([[0, 0], [width, height]]) // Limit panning to map bounds
+        .scaleExtent([0.5, 12])
+        .translateExtent([[-width, -height], [width * 2, height * 2]]) // Allow panning to see full globe
         .on('zoom', function(event) {
           currentZoomScale = event.transform.k;
 
