@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: 3rd Flatiron East Face (Standard), Boulder, CO | 5.4 - 8 pitches
+location: Boulder
+region: Colorado
+country: USA
+latitude: 39.9873
+longitude: -105.2934
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/October/ThirdFlatiron/sky.JPG
+activity: climb
 ---
 
 Kelsea's in town! We decided to do a quick climb up the third flatiron on the standard route. Such a beautiful and fun playground. We saw the usual casual soloers in trail runners and hawaiian shirts, and belayers with no anchors. I think Justin placed 1-2 pieces per pitch. Nothing out of the ordinary!
