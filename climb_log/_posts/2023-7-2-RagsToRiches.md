@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Rags to Riches, Crowsnest Pass, AB | 5.8 - 6 pitches
+location: Rags to Riches
+region: Crowsnest Pass
+country: British Columbia
+latitude: 49.6356
+longitude: -114.6961
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2023/July/RagsToRiches/top_views.jpg
+activity: climb
 ---
 
 A long weekend spent in the East Kootenays! Justin, James and I went out to Crowsnest pass to check out "Rags to Riches" near Emerald Lake. Let me tell you - those rocks are LOOSE. Canadian Rockies don't mess around. Would definitely recommend strapping on the helmet right away.
