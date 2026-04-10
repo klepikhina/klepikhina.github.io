@@ -3,7 +3,7 @@ layout: climb_log
 title: Beehive Five (Selkirk Traverse), Selkirk Crest, ID | Scramble, Traverse, Bushwack, 5.6 - 3 pitches
 location: Selkirk Traverse
 region: Idaho
-country: USa
+country: USA
 latitude: 48.6506
 longitude: -116.6648
 featured_image: https://klepikhina.s3.amazonaws.com/Climb/2023/June/BeehiveFive/top_1_ksenia.jpg
