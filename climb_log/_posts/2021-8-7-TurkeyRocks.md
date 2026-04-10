@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Turkey Rocks, South Platte, CO | Multiple Pitches
+location: South Platte
+region: Colorado
+country: USA
+latitude: 39.1151
+longitude: -105.2351
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/eric_justin.JPG
+activity: climb
 ---
 
 Turkey Rocks - "one of the finest concentrations of crack climbing in Colorado". What better place to learn how to crack climb? I had never been crack climbing and couldn't miss the opportunity. I spent the afternoon on Friday trail running with my mom in Winter Park. I had a half marathon in Steamboat on Sunday. Could I squeeze in a trip to Turkey Rocks? Bien sur!
