@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: 2nd Flatiron (Freeway), Boulder, CO | 5.0 - 6 pitch scramble
+location: Boulder
+region: Colorado
+country: USA
+latitude: 39.9893
+longitude: -105.2930
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/December/SecondFlatiron/ha_hannah_ksenia.jpg
+activity: climb
 ---
 
 I wanted to compile a few photos from multiple happy jaunts up Freeway. Is there anything more Boulder classic than a casual run up the Second? 
