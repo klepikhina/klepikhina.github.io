@@ -1,16 +1,12 @@
 ---
 layout: bike_log
 title: Downieville Loop, Downieville, CA | 34.18mi, 5013ft
----
----
-layout: bike_log
-title: Downieville Loop, Downieville, CA | 34.18mi, 5013ft
 location: Downieville
 region: California
 country: USA
-latitude: 49.0894
-longitude: -118.6774
-featured_image: https://klepikhina.s3.amazonaws.com/Bike/2023/June/Summerland/me_and_dad_day2.jpg
+latitude: 39.5823
+longitude: -120.8103
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2023/October/Downieville/bigtree.jpg
 activity: bike
 ---
 
