@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Glade Creek Falls, Glade, BC | WI2-3 - 3 pitches
+location: Glade
+region: British Columbia
+country: Canada
+latitude: 49.3775
+longitude: -117.5421
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/December/GladeCreekFalls/p2.jpg
+activity: climb
 ---
 
 Wow! My first time ice climbing! Didn't take nearly enough photos. Also my first time on BC ferries!
