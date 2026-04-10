@@ -6,7 +6,7 @@ region: California
 country: USA
 latitude: 39.3181
 longitude: -120.3241
-featured_image: https://klepikhina.s3.amazonaws.com/Ski/2024/March/CastlePeak/start.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Ski/2024/March/CastlePeak/ridge1.jpg
 activity: ski
 ---
 
