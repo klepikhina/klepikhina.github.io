@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: First Flatiron - North Arete, Boulder, CO | 5.4 - 5 pitches
+location: Boulder
+region: Colorado
+country: USA
+latitude: 39.9904
+longitude: -105.2950
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2023/April/FirstFlatiron/top.jpg
+activity: climb
 ---
 
 Boyyy after a heck of a time driving to Colorado down from BC and a chaotic week - we wanted to squeeze in a quick lap of the first flatiron. 
