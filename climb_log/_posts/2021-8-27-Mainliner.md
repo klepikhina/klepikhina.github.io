@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Mainliner, Estes Park, CO | 5.9 - 5 pitches
+location: Estes Park
+region: Colorado
+country: USA
+latitude: 40.4131
+longitude: -105.5522
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/August/Mainliner/mainliner.jpg
+activity: climb
 ---
 
 The approach to Mainliner was about 3.5 miles. It was mostly gradual with a steep section at the end to approach the climb. We tried approaching this climb earlier in the year, but were stopped by raptor closures. This time we got to get on it!
