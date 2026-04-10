@@ -9,20 +9,36 @@ layout: default
   {% endif %}
 </div>
 
-{% if page.filter_regions %}
-  {% comment %} Filter by multiple regions (e.g., for International) {% endcomment %}
-  {% assign filtered_posts = "" | split: "" %}
-  {% for post in site.posts %}
-    {% for region in page.filter_regions %}
-      {% if post.region == region %}
-        {% assign filtered_posts = filtered_posts | push: post %}
+{% assign filtered_posts = "" | split: "" %}
+{% for post in site.posts %}
+  {% assign matched = false %}
+
+  {% if page.filter_regions %}
+    {% comment %} Filter by multiple regions (e.g., for aggregate pages like USA, Canada, Europe) {% endcomment %}
+    {% for filter_region in page.filter_regions %}
+      {% if post.region == filter_region %}
+        {% assign matched = true %}
+      {% elsif post.region contains filter_region %}
+        {% assign matched = true %}
+      {% elsif post.country contains filter_region %}
+        {% assign matched = true %}
       {% endif %}
     {% endfor %}
-  {% endfor %}
-{% else %}
-  {% comment %} Filter by single region {% endcomment %}
-  {% assign filtered_posts = site.posts | where: "region", page.filter_region %}
-{% endif %}
+  {% else %}
+    {% comment %} Filter by single region - check region and country fields {% endcomment %}
+    {% if post.region == page.filter_region %}
+      {% assign matched = true %}
+    {% elsif post.region contains page.filter_region %}
+      {% assign matched = true %}
+    {% elsif post.country contains page.filter_region %}
+      {% assign matched = true %}
+    {% endif %}
+  {% endif %}
+
+  {% if matched %}
+    {% assign filtered_posts = filtered_posts | push: post %}
+  {% endif %}
+{% endfor %}
 
 {% if filtered_posts.size > 0 %}
 <div class="filter-pills">
