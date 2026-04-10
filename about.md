@@ -1,37 +1,75 @@
 ---
-layout: page
+layout: default
 title: About
 permalink: /about/
 ---
 
-<div class="hero-section">
-  <h1 class="hero-title">About Ksenia</h1>
-  <p class="hero-subtitle">The everything in between</p>
+<div class="page-header">
+  <h1>About</h1>
+  <p class="page-description">The everything in between</p>
 </div>
 
-Hi, I’m Ksenia Lepikhina (she/her). I am many things:
-- Born in Russia, raised in CO, with brief stints in British Columbia and Nevada
-- Excited about running, mountain biking, climbing, downhill skiing/ski touring/nordic skiing
-- Inclined to enjoy reading, painting and photography
-- Educated in math and statistics
-- Interested in population epidemiology, public health, climate science and journalism
+<div class="section-header">
+  <h2>Hi, I’m Ksenia (she/her)</h2>
+  <p class="section-subtitle">A quick snapshot</p>
+</div>
 
-A brief work resume:
-- patched bike frames through _carbon repair_;
-- analyzed automatic gain control data for _GPS_ to flag potential jamming and spoofing attacks;
-- researched _permafrost degradation_ in the north slope of Alaska by looking at snow seasonality, brightness temperature and soil moisture;
-- used machine learning models to optimize a fixed versus variable price _ad tech_ problem;
-- studied _elliptic curve cryptography_;
-- researched clustering of _malicious IPs_;
-- assisted _teaching_ two levels of undergraduate/ graduate statistical methodology;
-- led an intro to _data science webinar_ for a grade school audience;
-- _authored_ a white paper discussing initial impacts of COVID-19 on the citizen science and education sectors; 
-- performed statistical analysis to measure _hospital quality_ and update hospital ratings;
-- _modeled_ likelihood of health outcomes using _social determinants of health_;
-- enduro _mountain bike coach_ for high school girls;
+<div class="page-content">
+  <ul>
+    <li>Born in Russia, raised in CO, with brief stints in British Columbia and Nevada</li>
+    <li>Excited about running, mountain biking, climbing, downhill skiing/ski touring/nordic skiing</li>
+    <li>Inclined to enjoy reading, painting and photography</li>
+    <li>Educated in math and statistics</li>
+    <li>Interested in population epidemiology, public health, climate science and journalism</li>
+  </ul>
+</div>
 
-My <a href="https://www.youtube.com/watch?v=CjxFvm3E73M&feature=youtu.be" target="_blank">identity</a> impacts every aspect of my life from what I write, to what I photograph, to what I read, to what and how I teach. Enjoy a peek into the world through my lens.
+<div class="section-header mt-2">
+  <h2>Career highlights</h2>
+  <p class="section-subtitle">A mix of research, analytics, teaching, and odd jobs</p>
+</div>
 
-### Contact me
+<div class="page-content">
+  <ul>
+    <li>patched bike frames through <em>carbon repair</em>;</li>
+    <li>analyzed automatic gain control data for <em>GPS</em> to flag potential jamming and spoofing attacks;</li>
+    <li>researched <em>permafrost degradation</em> in the north slope of Alaska by looking at snow seasonality, brightness temperature and soil moisture;</li>
+    <li>used machine learning models to optimize a fixed versus variable price <em>ad tech</em> problem;</li>
+    <li>studied <em>elliptic curve cryptography</em>;</li>
+    <li>researched clustering of <em>malicious IPs</em>;</li>
+    <li>assisted <em>teaching</em> two levels of undergraduate/graduate statistical methodology;</li>
+    <li>led an intro to <em>data science webinar</em> for a grade school audience;</li>
+    <li><em>authored</em> a white paper discussing initial impacts of COVID-19 on the citizen science and education sectors;</li>
+    <li>performed statistical analysis to measure <em>hospital quality</em> and update hospital ratings;</li>
+    <li><em>modeled</em> likelihood of health outcomes using <em>social determinants of health</em>;</li>
+    <li>enduro and cross country <em>mountain bike coach</em> for high school girls;</li>
+    <li>optimized an xgboost time series model to predict day sales out standing for the <em>medical supply chain</em>;</li>
+  </ul>
+</div>
 
-[Email me!](mailto:kklepi@gmail.com)
+<div class="section-header mt-2">
+  <h2>Identity</h2>
+  <p class="section-subtitle">Why I create, write, and explore the way I do</p>
+</div>
+
+<div class="page-content">
+  <p>
+    My identity impacts every aspect of my life from what I write, to what I photograph, to what I read,
+    to what and how I teach.
+  </p>
+
+  <p>
+    Enjoy a peek into the world through my lens.
+  </p>
+</div>
+
+<div class="section-header mt-2">
+  <h2>Contact me</h2>
+  <p class="section-subtitle">Reach out anytime</p>
+</div>
+
+<div class="page-content">
+  <p>
+    <a href="mailto:kklepi@gmail.com">Email me!</a>
+  </p>
+</div>
