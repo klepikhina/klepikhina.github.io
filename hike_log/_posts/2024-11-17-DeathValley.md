@@ -6,7 +6,7 @@ region: California
 country: USA
 latitude: 36.5054
 longitude: -117.0794
-featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/ubehebe.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/camp1_morning.jpg
 activity: hike
 ---
 
