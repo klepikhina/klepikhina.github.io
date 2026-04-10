@@ -1,6 +1,13 @@
 ---
 layout: run_log
 title: Rockwall, Kootenay National Park, BC | 56km, 2650m
+location: Kootenay National Park
+region: British Columbia
+country: Canada
+latitude: 51.0968
+longitude: -116.1619
+featured_image: https://klepikhina.s3.amazonaws.com/Run/2022/August/Rockwall/rockwallpass.jpg
+activity: run
 ---
 
 After two months of little to no training, Justin, Erin, and I decided we were ready to run Rockwall - a 56km (~35mi) trail with 2650m (~8700ft) of elevation gain. What could possibly go wrong? Nothing! <a href="https://www.strava.com/activities/7556354259" target="_blank">(is what we proved)</a>
