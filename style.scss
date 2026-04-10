@@ -246,6 +246,13 @@ nav {
     transform: rotate(180deg);
   }
 
+  // Show menu on hover
+  &:hover .nav-dropdown__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
   .nav-dropdown__menu {
     position: absolute;
     top: 100%;
@@ -260,13 +267,6 @@ nav {
     transform: translateY(10px);
     transition: all 0.2s ease;
     z-index: 1000;
-
-    // Show on hover
-    .nav-dropdown:hover & {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
   }
 
   .nav-dropdown__item {
