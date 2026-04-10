@@ -159,7 +159,14 @@ permalink: /books/
     // Create tree layout - radial
     const tree = d3.tree()
       .size([2 * Math.PI, radius])
-      .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
+      .separation((a, b) => {
+        // Give leaf nodes (books) more space based on sibling count
+        if (!a.children && !b.children && a.parent === b.parent) {
+          const siblingCount = a.parent.children.length;
+          return Math.max(1, 10 / siblingCount) / a.depth;
+        }
+        return (a.parent == b.parent ? 1 : 2) / a.depth;
+      });
 
     const root = d3.hierarchy(data);
 
@@ -188,6 +195,12 @@ permalink: /books/
 
     function update(source) {
       const duration = 500;
+
+      // Fix #3: Dynamic radius based on visible leaf count
+      const visibleLeaves = root.leaves().length;
+      const dynamicRadius = Math.max(radius, visibleLeaves * 12);
+      tree.size([2 * Math.PI, dynamicRadius]);
+
       const nodes = root.descendants().reverse();
       const links = root.links();
 
@@ -214,7 +227,19 @@ permalink: /books/
             window.open("https://www.amazon.com/dp/" + d.data.value.split("/dp/")[1]?.split("/")[0], "_blank");
             return;
           }
-          // Otherwise toggle children
+
+          // Fix #1: Only one year expanded at a time
+          if (d._children && d.depth === 1) {
+            // Collapse other years first
+            root.children.forEach(sibling => {
+              if (sibling !== d && sibling.children) {
+                sibling._children = sibling.children;
+                sibling.children = null;
+              }
+            });
+          }
+
+          // Toggle children
           if (d._children) {
             d.children = d._children;
             d._children = null;
@@ -236,14 +261,15 @@ permalink: /books/
         .attr("fill", d => d._children ? "#4A7C59" : "#8FBC8F");
 
       // Add images for books
+      // Fix #2: Dynamic cover sizing based on sibling count
       nodeEnter.filter(d => d.data.image && d.data.image.length > 0)
         .append("image")
         .attr("class", "book-cover")
         .attr("xlink:href", d => d.data.image)
-        .attr("x", -20)
-        .attr("y", -30)
-        .attr("width", 40)
-        .attr("height", 60)
+        .attr("x", d => -Math.min(25, 400 / d.parent.children.length) / 2)
+        .attr("y", d => -Math.min(37, 600 / d.parent.children.length))
+        .attr("width", d => Math.min(50, 400 / d.parent.children.length))
+        .attr("height", d => Math.min(75, 600 / d.parent.children.length))
         .on("mouseover", (event, d) => {
           const bookName = d.data.name.replace(/"/g, '');
           const parts = bookName.split(', ');
