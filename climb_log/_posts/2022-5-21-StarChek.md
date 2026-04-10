@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Star Chek, Squamish, BC | 5.8+ - 3 pitches
+location: Squamish
+region: British Columbia
+country: Canada
+latitude: 49.9223
+longitude: -123.1669
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2022/May/StarChek/p1.jpg
+activity: climb
 ---
 
 Star Chek! My first time leading part of a multi! 
