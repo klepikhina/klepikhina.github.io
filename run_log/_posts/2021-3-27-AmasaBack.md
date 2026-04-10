@@ -1,6 +1,13 @@
 ---
 layout: run_log
 title: Amasa Back, Moab, UT | 13.2mi, 1677ft
+location: Moab
+region: Utah
+country: USA
+latitude: 38.5518
+longitude: -109.6407
+featured_image: https://klepikhina.s3.amazonaws.com/Run/2021/March/AmasaBack/me.jpg
+activity: run
 ---
 
 There is no place like home. \*clicks heels\*
