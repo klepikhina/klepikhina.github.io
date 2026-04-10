@@ -6,7 +6,7 @@ region: Oregon
 country: USA
 latitude: 45.5761
 longitude: -122.1173
-featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/June/HighwayOfWaterfalls/ClearwaterFalls.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/June/HighwayOfWaterfalls/WatsonFalls.jpg
 activity: hike
 ---
 
