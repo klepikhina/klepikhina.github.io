@@ -6,7 +6,7 @@ region: California
 country: USA
 latitude: 40.4977
 longitude: -121.5056
-featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/LassenPeak/bottom.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/LassenPeak/summit.jpg
 activity: hike
 ---
 
