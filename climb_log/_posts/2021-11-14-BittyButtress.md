@@ -5,7 +5,7 @@ location: Boulder
 region: Colorado
 country: USA
 latitude: 40.0014
-longitude: 40.00137409255895, -105.3871
+longitude: -105.3871
 featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/November/BittyButtress/bb_belay_ledge.jpg
 activity: climb
 ---
