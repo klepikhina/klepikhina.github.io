@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Northwest Ridge + Lion's Way*, Bugaboo Provincial Park, BC | 4th class - 600ft, 5.6 - 6 pitches
+location: Bugaboo Provincial Park
+region: British Columbia
+country: Canada
+latitude: 50.7431
+longitude: -116.7688
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2022/August/Bugaboos/lionsway_bottom.jpg
+activity: climb
 ---
 
 Justin has been talking up the Bugaboos for as long as I've known him. We decided it's time for me to see what it's all about! It was Justin's fifth or sixth time up and my first. I'm very lucky to get to follow him around.
