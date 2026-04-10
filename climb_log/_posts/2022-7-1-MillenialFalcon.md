@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Millenial Falcon, Grand Forks, BC | 5.9 - 5 pitches
+location: Grand Forks
+region: British Columbia
+country: Canada
+latitude: 49.2560
+longitude: -118.4467
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/selfies.jpg
+activity: climb
 ---
 
 Grand Forks is a bit of an underexplored climbing gem. About 29km up North Fork Road, you can find the Slabs at Lynch Bluffs. Parking is on the east side of the road. When we first approached Millenial Falcon, we accidentally took the right fork and almost started up the wrong climb. Remember to take the left fork on the trail! The drawing on the <a href="http://wonowmedia.com/wp-content/uploads/2020/10/Grand-Forks-Climbing-Guide-2020.pdf" target="_blank">"Not a Guide"</a> is actually quite helpful. 
