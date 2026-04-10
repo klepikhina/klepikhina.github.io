@@ -1,6 +1,13 @@
 ---
 layout: bike_log
 title: Seven Summits, Rossland, BC | 36km, 1190m
+location: Rossland
+region: British Columbia
+country: Canada
+latitude: 49.1749
+longitude: -117.8601
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/lauren_justin_doneclimbing.jpg
+activity: bike
 ---
 
 After two beers at RBC the previous night, I was shockingly hungover for a bright and early pick up (7am) for a shuttle for Seven Summits. Never the less I persisted.
