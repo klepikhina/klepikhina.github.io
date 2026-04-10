@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Nisleheim - East Ridge, Valhallas, BC | 5.7 - 5 pitches
+location: Nisleheim
+region: Valhallas
+country: British Columbia
+latitude: 49.7683
+longitude: -117.6534
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2023/July/Nisleheim/climb_start.jpg
+activity: climb
 ---
 
 Most people that come up to climb in the Valhallas aim to climb Gimli. Some day I'll come back for it! This weekend we went up to bag two peaks - Nisleheim and Wolfs Ears.
