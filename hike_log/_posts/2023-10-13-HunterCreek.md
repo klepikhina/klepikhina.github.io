@@ -1,7 +1,15 @@
 ---
 layout: hike_log
 title: Hunter Creek, Humboldt-Toiyabe National Forest, NV | 5.7mi, 1181ft
+location: Reno
+region: Nevada
+country: USA
+latitude: 39.4928
+longitude: -119.8949
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2023/October/HunterCreek/up1.jpg
+activity: hike
 ---
+
 
 One of the first places we checked out after our migration down south was Hunter Creek Falls.
 
