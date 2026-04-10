@@ -6,7 +6,7 @@ region: California
 country: USA
 latitude: 38.9000
 longitude: -120.1500
-featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/PyramidPeak/lovers_leap.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/PyramidPeak/summit.jpg
 activity: hike
 ---
 
