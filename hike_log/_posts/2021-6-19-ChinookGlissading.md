@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Chinook Peak Glissading, Okanogan-Wenatchee National Forest, WA | 6.3mi, 1595ft
+location: Chinook Peak
+region: Washington
+country: USA
+latitude: 46.8974
+longitude: -121.5107
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2021/ChinookPeak/lake_hike.jpg
+activity: hike
 ---
 
 When Hannah and Andy told me they were having an engagement party, I gave them a bit of a hard time for not inviting me. They told me they didn't think anyone would fly over since it wasn't in Colorado, but that I could join if wanted to make the trip. So of course I did! Hannah's family asked if I had ever been glissading and I had not. Why not try new things? 
