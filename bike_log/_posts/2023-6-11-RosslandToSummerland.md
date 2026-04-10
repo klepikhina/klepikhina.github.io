@@ -1,6 +1,13 @@
 ---
 layout: bike_log
-title: Rossland, BC to Summerland, BC | 291km, 4195m
+title: Teocalli
+location: Rossland --> Summerland
+region: British Columbia
+country: Canada
+latitude: 49.0894
+longitude: -118.6774
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2023/June/Summerland/me_and_dad_day2.jpg
+activity: bike
 ---
 
 What better way to spend an early Father's Day than a 3-day bike packing trip? My dad, Tim, Lauren, and I planned a trip to bike from Rossland to Summerland. Along the way, we planned to stay in Grand Forks and Rock Creek.
