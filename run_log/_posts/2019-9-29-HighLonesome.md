@@ -1,6 +1,13 @@
 ---
 layout: run_log
 title: High Lonesome, Roosevelt National Forest, CO | 14.4mi, 3162ft
+location: Eldora
+region: Colorado
+country: USA
+latitude: 39.9495
+longitude: -105.6958
+featured_image: https://klepikhina.s3.amazonaws.com/Run/2019/September/HighLonesome/top1.jpg
+activity: run
 ---
 
 This was one off the bucket list! A very cool run that takes you from the Eldora side of the front range to the ridgeline where you can see Winter Park. A splendid fall color run with my mom.
