@@ -6,7 +6,7 @@ region: California
 country: USA
 latitude: 41.7143
 longitude: -121.5078
-featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/June/LavaBeds/lavabeds.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/June/LavaBeds/merrill_cave.jpg
 activity: hike
 ---
 
