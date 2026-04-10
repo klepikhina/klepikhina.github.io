@@ -1,6 +1,13 @@
 ---
 layout: run_log
 title: Boulder Skyline, Boulder, CO | 17.3mi, 5250ft
+location: Boulder
+region: Colorado
+country: USA
+latitude: 39.9733
+longitude: -105.3069
+featured_image: https://klepikhina.s3.amazonaws.com/Run/2021/May/BoulderSkyline/skyline_bearme.jpg
+activity: run
 ---
 
 Kick off the data with a bright and early Boulder Skyline job with David! The Boulder Skyline Traverse traces the silhoutte of the front range. Though I had done the run a few times, David was the one that came prepared and fed me snacks along the way. <a href="https://www.strava.com/activities/5340359880" target="_blank">Link to Strava.</a>
