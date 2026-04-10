@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: The Chief, Squamish, BC | 5.9 - 16 pitches
+location: Squamish
+region: British Columbia
+country: Canada
+latitude: 49.6786
+longitude: -123.1518
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/grandwall.jpg
+activity: climb
 ---
 
 Justin's birthday! I had never been up the Chief in Squamish and Justin was kind enough to take me up the classic easy route. So beautiful, so fun! We didn't even have to wait in any sort of conga line.
