@@ -9,17 +9,17 @@
 
   // Activity colors matching the CSS
   const activityColors = {
-    climb: '#D4A574',
-    bike: '#6B8E23',
-    hike: '#4A7C59',
-    run: '#4A90A4',
-    ski: '#B0B9DE'
+    climb: '#D4A574',    // tan
+    bike: '#C25450',     // rust red
+    hike: '#4A7C59',     // forest green
+    run: '#4A90A4',      // blue
+    ski: '#B0B9DE'       // light blue
   };
 
   // Lighter versions for region shading
   const activityColorsLight = {
     climb: 'rgba(212, 165, 116, 0.25)',
-    bike: 'rgba(107, 142, 35, 0.25)',
+    bike: 'rgba(194, 84, 80, 0.25)',
     hike: 'rgba(74, 124, 89, 0.25)',
     run: 'rgba(74, 144, 164, 0.25)',
     ski: 'rgba(176, 185, 222, 0.25)'
@@ -163,29 +163,10 @@
         return '#E8E4DF';
       }
 
-      // Countries with overseas territories that should only highlight the main territory
-      // Format: countryId -> [minLon, maxLon, minLat, maxLat] for main territory
-      const countryBounds = {
-        '250': [-5, 10, 41, 51],      // France (metropolitan only, excludes French Guiana, etc.)
-        '528': [3, 8, 50, 54],        // Netherlands (excludes Caribbean)
-        '826': [-8, 2, 49, 61]        // UK (excludes overseas territories)
-      };
-
-      // Function to check if a point is within bounds
-      function isInBounds(lon, lat, bounds) {
-        return lon >= bounds[0] && lon <= bounds[1] && lat >= bounds[2] && lat <= bounds[3];
-      }
-
       // Function to check if a country is visited and get its fill
-      function getCountryFill(countryId, centroid) {
+      function getCountryFill(countryId) {
         const countryName = countryIds[countryId];
         if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
-          // Check if this territory should be filtered by bounds
-          if (countryBounds[countryId] && centroid) {
-            if (!isInBounds(centroid[0], centroid[1], countryBounds[countryId])) {
-              return '#E8E4DF'; // Don't highlight overseas territories
-            }
-          }
           const activities = regionActivities[countryName];
           if (activities && activities.size > 0) {
             const firstActivity = activities.values().next().value;
@@ -204,20 +185,11 @@
         .enter()
         .append('path')
         .attr('d', path)
-        .attr('fill', d => {
-          // Get centroid for bounds checking (in geographic coordinates)
-          const centroid = d3.geoCentroid(d);
-          return getCountryFill(d.id, centroid);
-        })
+        .attr('fill', d => getCountryFill(d.id))
         .attr('stroke', '#ccc')
         .attr('stroke-width', 0.5)
         .attr('class', d => {
           const countryName = countryIds[d.id];
-          const centroid = d3.geoCentroid(d);
-          // Check bounds for countries with overseas territories
-          if (countryBounds[d.id] && !isInBounds(centroid[0], centroid[1], countryBounds[d.id])) {
-            return '';
-          }
           if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
             return 'region-visited';
           }
@@ -226,20 +198,10 @@
         .attr('data-region', d => countryIds[d.id] || '')
         .style('cursor', d => {
           const countryName = countryIds[d.id];
-          const centroid = d3.geoCentroid(d);
-          // Check bounds for countries with overseas territories
-          if (countryBounds[d.id] && !isInBounds(centroid[0], centroid[1], countryBounds[d.id])) {
-            return 'default';
-          }
           return (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) ? 'pointer' : 'default';
         })
         .on('mouseover', function(event, d) {
           const countryName = countryIds[d.id];
-          const centroid = d3.geoCentroid(d);
-          // Check bounds for countries with overseas territories
-          if (countryBounds[d.id] && !isInBounds(centroid[0], centroid[1], countryBounds[d.id])) {
-            return; // Don't highlight overseas territories
-          }
           if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
             // Use vibrant color on hover
             const activities = regionActivities[countryName];
@@ -254,18 +216,12 @@
           }
         })
         .on('mouseout', function(event, d) {
-          const centroid = d3.geoCentroid(d);
           // Restore to light color
-          d3.select(this).attr('fill', getCountryFill(d.id, centroid));
+          d3.select(this).attr('fill', getCountryFill(d.id));
           tooltip.transition().duration(500).style('opacity', 0);
         })
         .on('click', function(event, d) {
           const countryName = countryIds[d.id];
-          const centroid = d3.geoCentroid(d);
-          // Check bounds for countries with overseas territories
-          if (countryBounds[d.id] && !isInBounds(centroid[0], centroid[1], countryBounds[d.id])) {
-            return; // Don't navigate for overseas territories
-          }
           if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
             window.location.href = '/regions/' + getRegionSlug(countryName) + '/';
           }
