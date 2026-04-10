@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Granby Dam, Grand Forks, BC | Crag
+location: Grand Forks
+region: British Columbia
+country: Canada
+latitude: 49.0538
+longitude: -118.4590
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2023/April/GranbyDam/base.jpg
+activity: climb
 ---
 
 Sometimes I think I know what I'm doing sport climbing, but then I want to spell "crag" like "craig" and think maybe not.
