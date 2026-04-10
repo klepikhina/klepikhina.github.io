@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Great Sand Dunes National Park, CO
+location: Great Sand Dunes National Park
+region: Colorado
+country: USA
+latitude: 37.7446
+longitude: -105.5297
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2018/GreatSandDunes/dunes_h6.jpg
+activity: hike
 ---
 
 A bucketlist destination in Colorado. One thing we missed doing is dune skiing or sledding! For another time.
