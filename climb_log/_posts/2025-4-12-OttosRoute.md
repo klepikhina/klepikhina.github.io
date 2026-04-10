@@ -6,7 +6,7 @@ region: Colorado
 country: USA
 latitude: 39.0377
 longitude: -108.6879
-featured_image: https://klepikhina.s3.amazonaws.com/Climb/2025/April/OttosRoute/monument.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2025/April/OttosRoute/firstview.jpg
 activity: climb
 ---
 
