@@ -65,7 +65,7 @@
     if (!container) return;
 
     const width = container.clientWidth;
-    const height = Math.min(500, width * 0.6);
+    const height = Math.min(600, width * 0.55);
 
     // Clear any existing content
     container.innerHTML = '';
@@ -75,25 +75,17 @@
       .append('svg')
       .attr('width', width)
       .attr('height', height)
-      .style('background', '#f5f5f5');
-
-    // Create a clip path to contain the map
-    svg.append('defs')
-      .append('clipPath')
-      .attr('id', 'map-clip')
-      .append('rect')
-      .attr('width', width)
-      .attr('height', height);
+      .style('background', '#f5f5f5')
+      .style('overflow', 'hidden');
 
     // Main group for all map content (will be transformed on zoom)
     const mapGroup = svg.append('g')
-      .attr('class', 'map-group')
-      .attr('clip-path', 'url(#map-clip)');
+      .attr('class', 'map-group');
 
-    // Create projection - show full globe, centered to show both Americas and Europe
+    // Create projection - show full globe, scale to fill container
     const projection = d3.geoNaturalEarth1()
-      .scale(width / 5.5)
-      .center([-40, 30])
+      .scale(width / 5)
+      .center([0, 15])
       .translate([width / 2, height / 2]);
 
     const path = d3.geoPath().projection(projection);
@@ -171,10 +163,29 @@
         return '#E8E4DF';
       }
 
+      // Countries with overseas territories that should only highlight the main territory
+      // Format: countryId -> [minLon, maxLon, minLat, maxLat] for main territory
+      const countryBounds = {
+        '250': [-5, 10, 41, 51],      // France (metropolitan only, excludes French Guiana, etc.)
+        '528': [3, 8, 50, 54],        // Netherlands (excludes Caribbean)
+        '826': [-8, 2, 49, 61]        // UK (excludes overseas territories)
+      };
+
+      // Function to check if a point is within bounds
+      function isInBounds(lon, lat, bounds) {
+        return lon >= bounds[0] && lon <= bounds[1] && lat >= bounds[2] && lat <= bounds[3];
+      }
+
       // Function to check if a country is visited and get its fill
-      function getCountryFill(countryId) {
+      function getCountryFill(countryId, centroid) {
         const countryName = countryIds[countryId];
         if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
+          // Check if this territory should be filtered by bounds
+          if (countryBounds[countryId] && centroid) {
+            if (!isInBounds(centroid[0], centroid[1], countryBounds[countryId])) {
+              return '#E8E4DF'; // Don't highlight overseas territories
+            }
+          }
           const activities = regionActivities[countryName];
           if (activities && activities.size > 0) {
             const firstActivity = activities.values().next().value;
@@ -193,11 +204,20 @@
         .enter()
         .append('path')
         .attr('d', path)
-        .attr('fill', d => getCountryFill(d.id))
+        .attr('fill', d => {
+          // Get centroid for bounds checking (in geographic coordinates)
+          const centroid = d3.geoCentroid(d);
+          return getCountryFill(d.id, centroid);
+        })
         .attr('stroke', '#ccc')
         .attr('stroke-width', 0.5)
         .attr('class', d => {
           const countryName = countryIds[d.id];
+          const centroid = d3.geoCentroid(d);
+          // Check bounds for countries with overseas territories
+          if (countryBounds[d.id] && !isInBounds(centroid[0], centroid[1], countryBounds[d.id])) {
+            return '';
+          }
           if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
             return 'region-visited';
           }
@@ -206,12 +226,27 @@
         .attr('data-region', d => countryIds[d.id] || '')
         .style('cursor', d => {
           const countryName = countryIds[d.id];
+          const centroid = d3.geoCentroid(d);
+          // Check bounds for countries with overseas territories
+          if (countryBounds[d.id] && !isInBounds(centroid[0], centroid[1], countryBounds[d.id])) {
+            return 'default';
+          }
           return (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) ? 'pointer' : 'default';
         })
         .on('mouseover', function(event, d) {
           const countryName = countryIds[d.id];
+          const centroid = d3.geoCentroid(d);
+          // Check bounds for countries with overseas territories
+          if (countryBounds[d.id] && !isInBounds(centroid[0], centroid[1], countryBounds[d.id])) {
+            return; // Don't highlight overseas territories
+          }
           if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
-            d3.select(this).attr('fill-opacity', 0.8);
+            // Use vibrant color on hover
+            const activities = regionActivities[countryName];
+            if (activities && activities.size > 0) {
+              const firstActivity = activities.values().next().value;
+              d3.select(this).attr('fill', activityColors[firstActivity] || '#4A7C59');
+            }
             tooltip.transition().duration(200).style('opacity', 1);
             tooltip.html('<div style="font-weight: 600; color: #2D5A3D;">' + countryName + '</div>')
               .style('left', (event.pageX + 10) + 'px')
@@ -219,11 +254,18 @@
           }
         })
         .on('mouseout', function(event, d) {
-          d3.select(this).attr('fill-opacity', 1);
+          const centroid = d3.geoCentroid(d);
+          // Restore to light color
+          d3.select(this).attr('fill', getCountryFill(d.id, centroid));
           tooltip.transition().duration(500).style('opacity', 0);
         })
         .on('click', function(event, d) {
           const countryName = countryIds[d.id];
+          const centroid = d3.geoCentroid(d);
+          // Check bounds for countries with overseas territories
+          if (countryBounds[d.id] && !isInBounds(centroid[0], centroid[1], countryBounds[d.id])) {
+            return; // Don't navigate for overseas territories
+          }
           if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
             window.location.href = '/regions/' + getRegionSlug(countryName) + '/';
           }
@@ -242,7 +284,7 @@
           const stateName = stateFips[d.id] || '';
           return getRegionFill(stateName);
         })
-        .attr('stroke', '#999')
+        .attr('stroke', '#bbb')
         .attr('stroke-width', 0.5)
         .attr('class', d => {
           const stateName = stateFips[d.id];
@@ -253,15 +295,22 @@
         .on('mouseover', function(event, d) {
           const stateName = stateFips[d.id];
           if (visitedRegions.has(stateName)) {
-            d3.select(this).attr('fill-opacity', 0.8);
+            // Use vibrant color on hover
+            const activities = regionActivities[stateName];
+            if (activities && activities.size > 0) {
+              const firstActivity = activities.values().next().value;
+              d3.select(this).attr('fill', activityColors[firstActivity] || '#4A7C59');
+            }
             tooltip.transition().duration(200).style('opacity', 1);
             tooltip.html('<div style="font-weight: 600; color: #2D5A3D;">' + stateName + '</div>')
               .style('left', (event.pageX + 10) + 'px')
               .style('top', (event.pageY - 28) + 'px');
           }
         })
-        .on('mouseout', function() {
-          d3.select(this).attr('fill-opacity', 1);
+        .on('mouseout', function(event, d) {
+          const stateName = stateFips[d.id];
+          // Restore to light color
+          d3.select(this).attr('fill', getRegionFill(stateName));
           tooltip.transition().duration(500).style('opacity', 0);
         })
         .on('click', function(event, d) {
@@ -284,7 +333,7 @@
             const provinceName = d.properties.name || '';
             return getRegionFill(provinceName);
           })
-          .attr('stroke', '#999')
+          .attr('stroke', '#bbb')
           .attr('stroke-width', 0.5)
           .attr('class', d => visitedRegions.has(d.properties.name) ? 'region-visited' : '')
           .attr('data-region', d => d.properties.name || '')
@@ -292,15 +341,22 @@
           .on('mouseover', function(event, d) {
             const provinceName = d.properties.name;
             if (visitedRegions.has(provinceName)) {
-              d3.select(this).attr('fill-opacity', 0.8);
+              // Use vibrant color on hover
+              const activities = regionActivities[provinceName];
+              if (activities && activities.size > 0) {
+                const firstActivity = activities.values().next().value;
+                d3.select(this).attr('fill', activityColors[firstActivity] || '#4A7C59');
+              }
               tooltip.transition().duration(200).style('opacity', 1);
               tooltip.html('<div style="font-weight: 600; color: #2D5A3D;">' + provinceName + '</div>')
                 .style('left', (event.pageX + 10) + 'px')
                 .style('top', (event.pageY - 28) + 'px');
             }
           })
-          .on('mouseout', function() {
-            d3.select(this).attr('fill-opacity', 1);
+          .on('mouseout', function(event, d) {
+            const provinceName = d.properties.name;
+            // Restore to light color
+            d3.select(this).attr('fill', getRegionFill(provinceName));
             tooltip.transition().duration(500).style('opacity', 0);
           })
           .on('click', function(event, d) {
@@ -311,13 +367,13 @@
           });
       }
 
-      // Draw state/province boundaries with slightly darker stroke
+      // Draw state/province boundaries
       mapGroup.append('path')
         .datum(topojson.mesh(usData, usData.objects.states, (a, b) => a !== b))
         .attr('class', 'state-boundaries')
         .attr('fill', 'none')
-        .attr('stroke', '#888')
-        .attr('stroke-width', 0.75)
+        .attr('stroke', '#bbb')
+        .attr('stroke-width', 0.5)
         .attr('d', path);
 
       // Markers group - separate so we can scale independently
@@ -380,8 +436,8 @@
       // Add zoom functionality with proper scaling
       // Allow panning beyond initial view to see full globe
       const zoom = d3.zoom()
-        .scaleExtent([0.5, 12])
-        .translateExtent([[-width, -height], [width * 2, height * 2]]) // Allow panning to see full globe
+        .scaleExtent([0.8, 20])
+        .translateExtent([[-width * 0.5, -height * 0.5], [width * 1.5, height * 1.5]]) // Allow panning to see full globe
         .on('zoom', function(event) {
           currentZoomScale = event.transform.k;
 
@@ -395,7 +451,7 @@
 
           // Scale state boundaries
           mapGroup.selectAll('.state-boundaries')
-            .attr('stroke-width', 0.75 / currentZoomScale);
+            .attr('stroke-width', 0.5 / currentZoomScale);
 
           mapGroup.selectAll('.us-states path, .canada-provinces path')
             .attr('stroke-width', 0.5 / currentZoomScale);
