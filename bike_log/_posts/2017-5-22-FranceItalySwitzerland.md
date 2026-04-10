@@ -1,6 +1,17 @@
 ---
 layout: bike_log
-title: France, Italy Switzerland 2017
+title: France, Italy, Switzerland 2017
+---
+---
+layout: bike_log
+title: France, Italy, Switzerland 2017
+location: France, Italy, Switzerland
+region: Europe
+country: France, Italy, Switzerland
+latitude: 46.3948
+longitude: 6.2154
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2017/May/Europe/lauterbrunnen3.JPG
+activity: bike
 ---
 
 Two week Euro loop: FR -> IT -> CH -> FR
