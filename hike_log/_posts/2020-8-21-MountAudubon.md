@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Mount Audubon, Roosevelt National Forest, CO | 9mi, 2979ft
+location: Roosevelt National Forest
+region: Colorado
+country: USA
+latitude: 40.0989
+longitude: -105.6175
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2020/Audubon/lake1.jpg
+activity: hike
 ---
 
 I was dying to go up to the alpine after being stuck at home due to COVID. Despite the smoke, we trekked our way up Mount Audubon, one of the most beautiful 13ers in Colorado.
