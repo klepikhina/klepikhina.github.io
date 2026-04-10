@@ -6,7 +6,7 @@ region: Iceland
 country: Iceland
 latitude: 64.9631
 longitude: -19.0208
-featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/Iceland/Djupagilsfoss.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/September/Iceland/Hrisvadsfoss_selfie.jpg
 activity: hike
 ---
 
