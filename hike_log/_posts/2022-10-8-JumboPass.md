@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Jumbo Pass, Purcells, BC | 12.5km, 1217m
+location: Purcells
+region: British Columbia
+country: Canada
+latitude: 50.4134
+longitude: -116.5705
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2022/October/Jumbo/meadow_glaciers_smoke.jpg
+activity: hike
 ---
 
 We intended to do Jumbo Pass and Monica Meadows two weekends prior but were turned around due to an active wildfire. This weekend, the fire was "being held" and though we were warned about rolling debris and fallen trees, we decided it was worth trying to drive up anyway. 
