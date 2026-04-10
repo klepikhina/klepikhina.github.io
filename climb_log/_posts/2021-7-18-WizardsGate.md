@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Wizards Gate, Estes Park, CO | 5.11a/b - 4 pitches; 5.8 - 5 pitches
+location: Estes Park
+region: Colorado
+country: USA
+latitude: 40.3035
+longitude: -105.5241
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/July/WizardsGate/rock.jpg
+activity: climb
 ---
 
 Eric and Justin took me up my second multipitch! They definitely have me hooked. We did two runs up Wizards Gate:
