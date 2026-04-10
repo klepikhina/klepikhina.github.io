@@ -1,6 +1,13 @@
 ---
 layout: run_log
 title: Green Lake and Baxter Gulch, Crested Butte, CO | 16mi, 2850ft
+location: Crested Butte
+region: Colorado
+country: USA
+latitude: 38.8491
+longitude: -106.9921
+featured_image: https://klepikhina.s3.amazonaws.com/Run/2021/June/GreenLake/greenlake_creekcrossing3_baxtergulch.jpg
+activity: run
 ---
 
 Glowing morning run with my mom and Sammy. This was the trip to Crested Butte that would convince my parents to move here. Crested Butte has always felt like home away from home. <a href="https://www.strava.com/activities/5419816750" target="_blank">Link to Strava.</a>
