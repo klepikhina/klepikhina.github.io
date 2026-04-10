@@ -2,10 +2,10 @@
 layout: hike_log
 title: Yosemite Falls, Humboldt-Toiyabe National Forest, NV | 7.4mi, 3225ft
 location: Yosemite
-region: Nevada
+region: California
 country: USA
-latitude: 39.5000
-longitude: -117.5000
+latitude: 37.7581
+longitude: -119.5951
 featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/August/YosemiteFalls/HalfDome.jpg
 activity: hike
 ---
