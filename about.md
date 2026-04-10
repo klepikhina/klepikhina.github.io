@@ -4,6 +4,11 @@ title: About
 permalink: /about/
 ---
 
+<div class="hero-section">
+  <h1 class="hero-title">About Ksenia</h1>
+  <p class="hero-subtitle">The everything in between</p>
+</div>
+
 Hi, I’m Ksenia Lepikhina (she/her). I am many things:
 - Born in Russia, raised in CO, with brief stints in British Columbia and Nevada
 - Excited about running, mountain biking, climbing, downhill skiing/ski touring/nordic skiing
