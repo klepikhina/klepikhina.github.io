@@ -1,6 +1,6 @@
 ---
 layout: hike_log
-title: Yosemite Falls, Humboldt-Toiyabe National Forest, NV | 7.4mi, 3225ft
+title: Yosemite Falls, Yosemite National Park, CA | 7.4mi, 3225ft
 location: Yosemite
 region: California
 country: USA
