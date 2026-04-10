@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Bitty Buttress, Boulder, CO | 5.8+ - 3 pitches
+location: Boulder
+region: Colorado
+country: USA
+latitude: 40.0014
+longitude: 40.00137409255895, -105.3871
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/November/BittyButtress/bb_belay_ledge.jpg
+activity: climb
 ---
 
 Climbing season was going late in Boulder! I asked Joe if he'd be willing to take me up Bitty Buttress and he kindly agreed. I love a quick afternoon multi!
