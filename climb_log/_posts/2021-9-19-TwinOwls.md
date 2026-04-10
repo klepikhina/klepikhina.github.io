@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: East Ridge + The Bowels of the Owls, Estes Park, CO | 5.8 - 2 pitches; 5.0 - 3 pitch down climb
+location: Estes Park
+region: Colorado
+country: USA
+latitude: 40.4037
+longitude: -105.5179
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/September/TwinOwls/p2_2.jpg
+activity: climb
 ---
 
 Geared up to do a quick run of the East Ridge of the Twin Owls. Short but sweet!
