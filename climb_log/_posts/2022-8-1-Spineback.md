@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Spineback Ridge, Fernie, BC | 5.9 - 3 pitch + scramble
+location: Fernie
+region: British Columbia
+country: Canada
+latitude: 49.4917
+longitude: -115.1929
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2022/August/FernieSpineback/SpinebackStartOfClimb.jpg
+activity: climb
 ---
 
 On August 1, Justin, some friends, and I set out to climb Spineback per Vic's suggestion. Like she said, it was very nice. What's not to like about an enjoyable, non crumbly, short, limestone multipitch in Fernie, BC?
