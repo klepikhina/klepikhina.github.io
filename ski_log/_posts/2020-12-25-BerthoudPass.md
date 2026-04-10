@@ -1,6 +1,13 @@
 ---
 layout: ski_log
 title: Berthoud Pass, Winter Park, CO
+location: Winter Park
+region: Colorado
+country: USA
+latitude: 39.8024
+longitude: -105.7863
+featured_image: https://klepikhina.s3.amazonaws.com/Ski/2020/December/Bethoud/back_up.jpg
+activity: ski
 ---
 
 I love my family. I'm very lucky to get to go ski touring with my parents on Christmas. We did a casual walk up Berthoud and a short semi early season ski down.
