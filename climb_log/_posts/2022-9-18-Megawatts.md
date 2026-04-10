@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Megawatts, Castlegar, BC | 5.8 - 8 pitches
+location: Castlegar
+region: British Columbia
+country: Canada
+latitude: 49.3226
+longitude: -117.6110
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2022/September/Megawatts/megawatts_start.jpg
+activity: climb
 ---
 
 We started climbing Megawatts around 12:15 on Sunday afternoon and finished up around 3:45pm. We climbed as a party of 3 with Justin leading, Wesley in the middle, and me taking up the back. Wesley's first multipitch!!
