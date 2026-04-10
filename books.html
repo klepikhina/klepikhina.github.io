@@ -270,14 +270,17 @@ permalink: /books/
               const match = book.name.match(/"([^"]+)",\s*(.+)/);
               const title = match ? match[1] : book.name;
               const author = match ? match[2] : '';
-              const amazonId = book.value ? book.value.split("/dp/")[1]?.split("/")[0] : null;
+              // Use Goodreads book ID if available, otherwise search by title
+              const goodreadsUrl = book.value
+                ? `https://www.goodreads.com/book/show/${book.value}`
+                : `https://www.goodreads.com/search?q=${encodeURIComponent(title + ' ' + author)}`;
 
               return `
                 <div class="bookshelf-book"
                      data-title="${title.replace(/"/g, '&quot;')}"
                      data-author="${author.replace(/"/g, '&quot;')}"
                      data-format="${book.format}"
-                     ${amazonId ? `onclick="window.open('https://www.amazon.com/dp/${amazonId}', '_blank')"` : ''}>
+                     onclick="window.open('${goodreadsUrl}', '_blank')">
                   <img src="${book.image}" alt="${title}" loading="lazy">
                   <span class="bookshelf-book__format bookshelf-book__format--${book.format}"
                         title="${book.format}">
