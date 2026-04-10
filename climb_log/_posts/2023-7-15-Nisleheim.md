@@ -1,9 +1,9 @@
 ---
 layout: climb_log
 title: Nisleheim - East Ridge, Valhallas, BC | 5.7 - 5 pitches
-location: Nisleheim
-region: Valhallas
-country: British Columbia
+location: Valhallas
+region: British Columbia
+country: Canada
 latitude: 49.7683
 longitude: -117.6534
 featured_image: https://klepikhina.s3.amazonaws.com/Climb/2023/July/Nisleheim/climb_start.jpg
