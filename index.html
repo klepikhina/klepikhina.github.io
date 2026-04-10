@@ -43,43 +43,55 @@ layout: default
     {% endfor %}
   </div>
 
-<!-- Currently Reading -->
-<div class="section-header">
-  <h2>Currently Reading</h2>
-  <p class="section-subtitle"><a href="{{ site.baseurl }}/books">See all books &rarr;</a></p>
-</div>
-
-<div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-  <div class="book-card">
-    <div class="book-card__cover">
-      <img src="https://klepikhina.s3.amazonaws.com/Books/stoneblind.jpg" alt="Stone Blind">
-    </div>
-    <div class="book-card__info">
-      <h3 class="book-card__title">"Stone Blind"</h3>
-      <p class="book-card__author">Natalie Haynes</p>
-    </div>
+<!-- Currently Reading -->                                                                                                                            
+  <div class="section-header">                                                                                                                          
+    <h2>Recently Read</h2>                                                                                                                          
+    <p class="section-subtitle"><a href="{{ site.baseurl }}/books">See all books &rarr;</a></p>                                                       
   </div>
 
-  <div class="book-card">
-    <div class="book-card__cover">
-      <img src="https://klepikhina.s3.amazonaws.com/Books/SomewhereBeyondTheSea.jpg" alt="Somewhere Beyond the Sea">
-    </div>
-    <div class="book-card__info">
-      <h3 class="book-card__title">"Somewhere Beyond the Sea"</h3>
-      <p class="book-card__author">TJ Klune</p>
-    </div>
+  <div id="current-books" class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+    <!-- Books loaded dynamically -->
   </div>
 
-  <div class="book-card">
-    <div class="book-card__cover">
-      <img src="https://klepikhina.s3.amazonaws.com/Books/ARiverRunsThroughIt.jpg" alt="A River Runs Through It">
-    </div>
-    <div class="book-card__info">
-      <h3 class="book-card__title">"A River Runs Through It"</h3>
-      <p class="book-card__author">Norman Maclean</p>
-    </div>
-  </div>
-</div>
+  <script>
+  fetch('{{ site.baseurl }}/js/books.json')
+    .then(response => response.json())
+    .then(data => {
+      // Flatten all books from all years, preserving order
+      const allBooks = data.children.flatMap(year =>
+        year.children.flatMap(format =>
+          (format.children || []).map(book => ({
+            ...book,
+            year: year.name,
+            format: format.name
+          }))
+        )
+      );
+
+      // Last 3 books added to the JSON (most recent)
+      const recentBooks = allBooks.slice(-3).reverse();
+
+      const container = document.getElementById('current-books');
+      container.innerHTML = recentBooks.map(book => {
+        // Parse "Title", Author format
+        const match = book.name.match(/"([^"]+)",\s*(.+)/);
+        const title = match ? match[1] : book.name;
+        const author = match ? match[2] : '';
+
+        return `
+          <div class="book-card">
+            <div class="book-card__cover">
+              <img src="${book.image}" alt="${title}">
+            </div>
+            <div class="book-card__info">
+              <h3 class="book-card__title">"${title}"</h3>
+              <p class="book-card__author">${author}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+    });
+  </script>
 
 <!-- D3.js and TopoJSON for the map -->
 <script src="https://d3js.org/d3.v7.min.js"></script>
