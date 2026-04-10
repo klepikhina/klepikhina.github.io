@@ -1,10 +1,6 @@
 ---
 layout: bike_log
 title: France, Italy, Switzerland 2017
----
----
-layout: bike_log
-title: France, Italy, Switzerland 2017
 location: France, Italy, Switzerland
 region: Europe
 country: France, Italy, Switzerland
