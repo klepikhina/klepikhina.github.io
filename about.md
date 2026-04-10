@@ -43,7 +43,7 @@ permalink: /about/
     <li>performed statistical analysis to measure <em>hospital quality</em> and update hospital ratings;</li>
     <li><em>modeled</em> likelihood of health outcomes using <em>social determinants of health</em>;</li>
     <li>enduro and cross country <em>mountain bike coach</em> for high school girls;</li>
-    <li>optimized an xgboost time series model to predict day sales out standing for the <em>medical supply chain</em>;</li>
+    <li>optimized an xgboost time series model to predict day sales outstanding for the <em>medical supply chain</em>;</li>
   </ul>
 </div>
 
