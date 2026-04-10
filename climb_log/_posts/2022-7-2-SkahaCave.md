@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Skaha Cave, Skaha - Penticton, BC | Cave Scramble
+location: Penticton
+region: British Columbia
+country: Canada
+latitude: 49.4492
+longitude: -119.5611
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2022/July/SkahaCave/photocopier_justin.jpg
+activity: climb
 ---
 
 For July long, we took a quick weekend trip down to Penticton. In addition to walking around to different breweries and farmers markets, floating the channel and climbing, we got to go through the cave at Skaha!
