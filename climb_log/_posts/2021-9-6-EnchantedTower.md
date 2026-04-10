@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Enchanted Tower, Socorro County, NM | Multiple Pitches
+location: Socorro County
+region: New Mexico
+country: USA
+latitude: 34.2309
+longitude: -107.9169
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/September/EnchantedTower/et_starrynight.jpg
+activity: climb
 ---
 
 Though Justin and I tried to convince Eric to come up to Colorado again, he convinced us that it was our turn to drive down to New Mexico to visit him. After making the 6.5 hour drive down to Los Alamos, Eric asked if we would be up for a mini road trip down to another climbing area. Justin agreed right away; I was skeptical of the additional 4.5 hour drive. Never the less, we got in the car the next day and set off to Enchanted Tower.
