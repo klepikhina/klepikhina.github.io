@@ -1,6 +1,6 @@
 ---
 layout: bike_log
-title: Teocalli
+title: Rossland, BC to Summerland, BC | 291km, 4195m
 location: Rossland --> Summerland
 region: British Columbia
 country: Canada
