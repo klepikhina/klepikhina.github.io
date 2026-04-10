@@ -1,0 +1,18 @@
+diff a/_sass/_variables.scss b/_sass/_variables.scss	(rejected hunks)
+@@ -29,11 +29,11 @@ $stone-light: #E8E4DF;
+ $cream: #FAFAF8;
+ 
+ // Activity colors for badges
+-$color-climb: #D4A574;
+-$color-bike: #6B8E23;
+-$color-hike: #4A7C59;
+-$color-run: #4A90A4;
+-$color-ski: #B0C4DE;
++$color-climb: #D4A574;  // tan
++$color-bike: #C25450;   // rust red
++$color-hike: #4A7C59;   // forest green
++$color-run: #4A90A4;    // blue
++$color-ski: #B0C4DE;    // light blue
+ 
+ // ==========================================
+ // Legacy Colors (for compatibility)

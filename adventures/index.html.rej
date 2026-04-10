@@ -1,0 +1,10 @@
+diff a/adventures/index.html b/adventures/index.html	(rejected hunks)
+@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
+   // Adventure Statistics Charts
+   const adventureData = [
+     { name: 'Climb', value: {{ climb_count }}, color: '#D4A574' },
+-    { name: 'Bike', value: {{ bike_count }}, color: '#6B8E23' },
++    { name: 'Bike', value: {{ bike_count }}, color: '#C25450' },
+     { name: 'Hike', value: {{ hike_count }}, color: '#4A7C59' },
+     { name: 'Run', value: {{ run_count }}, color: '#4A90A4' },
+     { name: 'Ski', value: {{ ski_count }}, color: '#B0C4DE' }

@@ -30,49 +30,77 @@
             <a href="{{ site.baseurl }}/">Home</a>
             <a href="{{ site.baseurl }}/about">About</a>
 
-            <!-- Adventures Dropdown -->
+            <!-- Trips Dropdown -->
             <div class="nav-dropdown">
-              <span class="nav-dropdown__toggle">Adventures</span>
+              <span class="nav-dropdown__toggle">Trips</span>
               <div class="nav-dropdown__menu">
-                <a href="{{ site.baseurl }}/adventures/" class="nav-dropdown__item">All Adventures</a>
+                <a href="{{ site.baseurl }}/adventures/" class="nav-dropdown__item">All Trips</a>
                 <div class="nav-dropdown__divider"></div>
-                <span class="nav-dropdown__item nav-dropdown__item--header">By Activity</span>
-                <a href="{{ site.baseurl }}/bike" class="nav-dropdown__item">
-                  <span class="nav-badge nav-badge--bike"></span>Bike
-                </a>
-                <a href="{{ site.baseurl }}/climb" class="nav-dropdown__item">
-                  <span class="nav-badge nav-badge--climb"></span>Climb
-                </a>
-                <a href="{{ site.baseurl }}/hike" class="nav-dropdown__item">
-                  <span class="nav-badge nav-badge--hike"></span>Hike
-                </a>
-                <a href="{{ site.baseurl }}/run" class="nav-dropdown__item">
-                  <span class="nav-badge nav-badge--run"></span>Run
-                </a>
-                <a href="{{ site.baseurl }}/ski" class="nav-dropdown__item">
-                  <span class="nav-badge nav-badge--ski"></span>Ski
-                </a>
-              </div>
-            </div>
 
-            <!-- Regions Dropdown -->
-            <div class="nav-dropdown">
-              <span class="nav-dropdown__toggle">Regions</span>
-              <div class="nav-dropdown__menu">
-                <span class="nav-dropdown__item nav-dropdown__item--header">USA</span>
-                <a href="{{ site.baseurl }}/region/california" class="nav-dropdown__item">California</a>
-                <a href="{{ site.baseurl }}/region/colorado" class="nav-dropdown__item">Colorado</a>
-                <a href="{{ site.baseurl }}/region/nevada" class="nav-dropdown__item">Nevada</a>
-                <a href="{{ site.baseurl }}/region/oregon" class="nav-dropdown__item">Oregon</a>
-                <a href="{{ site.baseurl }}/region/utah" class="nav-dropdown__item">Utah</a>
-                <a href="{{ site.baseurl }}/region/wyoming" class="nav-dropdown__item">Wyoming</a>
-                <div class="nav-dropdown__divider"></div>
-                <span class="nav-dropdown__item nav-dropdown__item--header">Canada</span>
-                <a href="{{ site.baseurl }}/region/british-columbia" class="nav-dropdown__item">British Columbia</a>
-                <a href="{{ site.baseurl }}/region/alberta" class="nav-dropdown__item">Alberta</a>
-                <div class="nav-dropdown__divider"></div>
-                <span class="nav-dropdown__item nav-dropdown__item--header">International</span>
-                <a href="{{ site.baseurl }}/region/international" class="nav-dropdown__item">All International</a>
+                <!-- By Type Submenu -->
+                <div class="nav-dropdown__submenu">
+                  <span class="nav-dropdown__item nav-dropdown__item--has-submenu">By Type ▸</span>
+                  <div class="nav-dropdown__submenu-content">
+                    <a href="{{ site.baseurl }}/bike" class="nav-dropdown__item">
+                      <span class="nav-badge nav-badge--bike"></span>Bike
+                    </a>
+                    <a href="{{ site.baseurl }}/climb" class="nav-dropdown__item">
+                      <span class="nav-badge nav-badge--climb"></span>Climb
+                    </a>
+                    <a href="{{ site.baseurl }}/hike" class="nav-dropdown__item">
+                      <span class="nav-badge nav-badge--hike"></span>Hike
+                    </a>
+                    <a href="{{ site.baseurl }}/run" class="nav-dropdown__item">
+                      <span class="nav-badge nav-badge--run"></span>Run
+                    </a>
+                    <a href="{{ site.baseurl }}/ski" class="nav-dropdown__item">
+                      <span class="nav-badge nav-badge--ski"></span>Ski
+                    </a>
+                  </div>
+                </div>
+
+                <!-- By Region Submenu -->
+                <div class="nav-dropdown__submenu">
+                  <span class="nav-dropdown__item nav-dropdown__item--has-submenu">By Region ▸</span>
+                  <div class="nav-dropdown__submenu-content">
+                    <!-- USA Sub-submenu -->
+                    <div class="nav-dropdown__submenu">
+                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu">USA ▸</span>
+                      <div class="nav-dropdown__submenu-content">
+                        <a href="{{ site.baseurl }}/region/usa" class="nav-dropdown__item"><strong>All USA</strong></a>
+                        <a href="{{ site.baseurl }}/region/california" class="nav-dropdown__item">California</a>
+                        <a href="{{ site.baseurl }}/region/colorado" class="nav-dropdown__item">Colorado</a>
+                        <a href="{{ site.baseurl }}/region/idaho" class="nav-dropdown__item">Idaho</a>
+                        <a href="{{ site.baseurl }}/region/nevada" class="nav-dropdown__item">Nevada</a>
+                        <a href="{{ site.baseurl }}/region/new-mexico" class="nav-dropdown__item">New Mexico</a>
+                        <a href="{{ site.baseurl }}/region/oregon" class="nav-dropdown__item">Oregon</a>
+                        <a href="{{ site.baseurl }}/region/utah" class="nav-dropdown__item">Utah</a>
+                        <a href="{{ site.baseurl }}/region/washington" class="nav-dropdown__item">Washington</a>
+                        <a href="{{ site.baseurl }}/region/wyoming" class="nav-dropdown__item">Wyoming</a>
+                      </div>
+                    </div>
+                    <!-- Canada Sub-submenu -->
+                    <div class="nav-dropdown__submenu">
+                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu">Canada ▸</span>
+                      <div class="nav-dropdown__submenu-content">
+                        <a href="{{ site.baseurl }}/region/canada" class="nav-dropdown__item"><strong>All Canada</strong></a>
+                        <a href="{{ site.baseurl }}/region/alberta" class="nav-dropdown__item">Alberta</a>
+                        <a href="{{ site.baseurl }}/region/british-columbia" class="nav-dropdown__item">British Columbia</a>
+                      </div>
+                    </div>
+                    <!-- Europe Sub-submenu -->
+                    <div class="nav-dropdown__submenu">
+                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu">Europe ▸</span>
+                      <div class="nav-dropdown__submenu-content">
+                        <a href="{{ site.baseurl }}/region/europe" class="nav-dropdown__item"><strong>All Europe</strong></a>
+                        <a href="{{ site.baseurl }}/region/france" class="nav-dropdown__item">France</a>
+                        <a href="{{ site.baseurl }}/region/iceland" class="nav-dropdown__item">Iceland</a>
+                        <a href="{{ site.baseurl }}/region/italy" class="nav-dropdown__item">Italy</a>
+                        <a href="{{ site.baseurl }}/region/switzerland" class="nav-dropdown__item">Switzerland</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -97,6 +125,28 @@
     </div>
 
     {% include analytics.html %}
+
+    <script>
+    // Mobile navigation handling
+    document.querySelectorAll('.nav-dropdown__toggle').forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        if (window.innerWidth <= 640) {
+          e.preventDefault();
+          this.closest('.nav-dropdown').classList.toggle('active');
+        }
+      });
+    });
+
+    document.querySelectorAll('.nav-dropdown__item--has-submenu').forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        if (window.innerWidth <= 640) {
+          e.preventDefault();
+          e.stopPropagation();
+          this.closest('.nav-dropdown__submenu').classList.toggle('active');
+        }
+      });
+    });
+    </script>
   </body>
   {% seo %}
 </html>

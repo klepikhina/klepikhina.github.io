@@ -301,6 +301,47 @@ nav {
     background: $stone-light;
     margin: 8px 0;
   }
+
+  // Nested Submenu
+  .nav-dropdown__submenu {
+    position: relative;
+
+    .nav-dropdown__item--has-submenu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .nav-dropdown__submenu-content {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      min-width: 160px;
+      background: $cream;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-10px);
+      transition: all 0.2s ease;
+      z-index: 1001;
+    }
+
+    &:hover > .nav-dropdown__submenu-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    // Nested submenus inside submenus
+    .nav-dropdown__submenu {
+      .nav-dropdown__submenu-content {
+        left: 100%;
+        top: 0;
+      }
+    }
+  }
 }
 
 // Activity Badge Colors in Nav
@@ -352,8 +393,35 @@ nav {
     }
 
     &.active .nav-dropdown__menu {
-      max-height: 500px;
+      max-height: 800px;
       padding: 8px 0;
+    }
+
+    // Mobile submenus - show inline
+    .nav-dropdown__submenu {
+      .nav-dropdown__submenu-content {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: darken($stone-light, 5%);
+        border-radius: 0;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      &.active > .nav-dropdown__submenu-content {
+        max-height: 500px;
+      }
+
+      .nav-dropdown__item {
+        padding-left: 24px;
+      }
+
+      .nav-dropdown__submenu .nav-dropdown__item {
+        padding-left: 36px;
+      }
     }
   }
 }
