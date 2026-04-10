@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Gwillim Lakes, Valhallas, BC | 11.75km, 827m
+location: Valhallas
+region: British Columbia
+country: Canada
+latitude: 49.7717
+longitude: -117.6289
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2023/July/GwillimLakes/traildown1.jpg
+activity: hike
 ---
 
 Gwillim Lakes! A place we'll certainly be returning to. I love driving into the Valhallas and trying to identify which mountains we have seen before from a different angle.
