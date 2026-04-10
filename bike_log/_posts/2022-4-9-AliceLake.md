@@ -1,6 +1,13 @@
 ---
 layout: bike_log
 title: Alice Lake, Squamish, BC | 24.4km, 779m
+location: Squamish
+region: British Columbia
+country: Canada
+latitude: 49.7739
+longitude: -123.1136
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2022/April/AliceLake/innout_adam.jpg
+activity: bike
 ---
 
 Went to visit Kelsea on the coast... impulse bought a new bike. C'est la vie. ¯\_(ツ)_/¯
