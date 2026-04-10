@@ -2,6 +2,17 @@
 layout: bike_log
 title: Downieville Loop, Downieville, CA | 34.18mi, 5013ft
 ---
+---
+layout: bike_log
+title: Downieville Loop, Downieville, CA | 34.18mi, 5013ft
+location: Downieville
+region: California
+country: USA
+latitude: 49.0894
+longitude: -118.6774
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2023/June/Summerland/me_and_dad_day2.jpg
+activity: bike
+---
 
 Growing up racing mountain bikes, I have heard about Downieville and the Downieville classic almost my entire life. So as soon as we moved to Nevada and learned that Downieville is only 1.5 hours away, we knew we had to go check it out.
 
