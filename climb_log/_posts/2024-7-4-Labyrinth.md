@@ -6,7 +6,7 @@ region: California
 country: USA
 latitude: 39.3181
 longitude: -120.3241
-featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/July/Labyrinth/approach1.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2024/July/Labyrinth/chimney.jpg
 activity: climb
 ---
 
