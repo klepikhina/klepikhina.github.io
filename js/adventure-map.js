@@ -12,7 +12,7 @@
     bike: '#6B8E23',
     hike: '#4A7C59',
     run: '#4A90A4',
-    ski: '#B0C4DE'
+    ski: '#B0B9DE'
   };
 
   // Initialize the map
