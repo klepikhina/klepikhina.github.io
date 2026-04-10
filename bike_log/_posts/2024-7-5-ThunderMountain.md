@@ -6,7 +6,7 @@ region: California
 country: USA
 latitude: 38.6847
 longitude: -120.0658
-featured_image: https://klepikhina.s3.amazonaws.com/Bike/2024/July/ThunderMountain/castle_rock_trail.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2024/July/ThunderMountain/sentinels.jpg
 activity: bike
 ---
 
