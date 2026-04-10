@@ -1,6 +1,6 @@
 ---
 layout: bike_log
-title: Teocalli
+title: Teocalli, Crested Butte, CO | 11 mi, 2329 ft
 location: Crested Butte
 region: Colorado
 country: USA
