@@ -6,7 +6,7 @@ region: Colorado
 country: USA
 latitude: 38.8697
 longitude: -106.9878
-featured_image: https://klepikhina.s3.amazonaws.com/Bike/2025/June/Teocalli/group.jpg
+featured_image: https://klepikhina.s3.amazonaws.com/Bike/2025/June/Teocalli/swim.jpg
 activity: bike
 ---
 
