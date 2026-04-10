@@ -1,16 +1,23 @@
 ---
 layout: climb_log
-title: Angel's Way, Boulder, CO | 5.2 - 8 pitch scramble
+title: Stairway to Heaven, Boulder, CO | 5.2 - 8 pitch scramble
+location: Boulder
+region: Colorado
+country: USA
+latitude: 39.9726
+longitude: -105.2866
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2021/July/AngelsWay/meridge.jpg
+activity: climb
 ---
 
-Cliff and I reconnected for the first time since high school after realizing we're both in Boulder. I told him that I was excited that I had scrambled the Second and that I was interested in other scrambling -- but nothing too hard. Cliff suggested Angel's Way. The approach trail starts from the NCAR trail head.
+Cliff and I reconnected for the first time since high school after realizing we're both in Boulder. I told him that I was excited that I had scrambled the Second and that I was interested in other scrambling -- but nothing too hard. Cliff suggested Stairway to Heaven. The approach trail starts from the NCAR trail head.
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/July/AngelsWay/angelsway.jpg" width="500">&nbsp;
   <img src="https://klepikhina.s3.amazonaws.com/Climb/2021/July/AngelsWay/scarystep.jpg" width="500">&nbsp;
 </p>
 <p align="center">
-  Looking down Angel's Way; Cliff taking the one scary slab move -- then getting stung by a hornet
+  Looking down Stairway to Heaven; Cliff taking the one scary slab move -- then getting stung by a hornet
 </p>
 
 <p align="center">
