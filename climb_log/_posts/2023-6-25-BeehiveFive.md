@@ -1,6 +1,13 @@
 ---
 layout: climb_log
 title: Beehive Five (Selkirk Traverse), Selkirk Crest, ID | Scramble, Traverse, Bushwack, 5.6 - 3 pitches
+location: Selkirk Traverse
+region: Idaho
+country: USa
+latitude: 48.6506
+longitude: -116.6648
+featured_image: https://klepikhina.s3.amazonaws.com/Climb/2023/June/BeehiveFive/top_1_ksenia.jpg
+activity: climb
 ---
 
 On a whim, we decided to seize the two-day weekend and make a quick trip down to Idaho's panhandle. On Saturday we checked out the Schweitzer bike park and the town of Sandpoint (along with its disc golf course). On Sunday we took on the Beehive Five (aka the Selkirk Traverse).
