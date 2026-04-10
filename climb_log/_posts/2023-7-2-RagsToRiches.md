@@ -1,9 +1,9 @@
 ---
 layout: climb_log
 title: Rags to Riches, Crowsnest Pass, AB | 5.8 - 6 pitches
-location: Rags to Riches
-region: Crowsnest Pass
-country: British Columbia
+location: Crowsnest Pass
+region: Alberta
+country: Canada
 latitude: 49.6356
 longitude: -114.6961
 featured_image: https://klepikhina.s3.amazonaws.com/Climb/2023/July/RagsToRiches/top_views.jpg
