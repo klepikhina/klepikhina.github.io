@@ -223,7 +223,7 @@
         .on('click', function(event, d) {
           const countryName = countryIds[d.id];
           if (countryName && (visitedCountries.has(countryName) || visitedRegions.has(countryName))) {
-            window.location.href = '/regions/' + getRegionSlug(countryName) + '/';
+            window.location.href = '/region/' + getRegionSlug(countryName) + '/';
           }
         });
 
@@ -272,7 +272,7 @@
         .on('click', function(event, d) {
           const stateName = stateFips[d.id];
           if (visitedRegions.has(stateName)) {
-            window.location.href = '/regions/' + getRegionSlug(stateName) + '/';
+            window.location.href = '/region/' + getRegionSlug(stateName) + '/';
           }
         });
 
@@ -318,7 +318,7 @@
           .on('click', function(event, d) {
             const provinceName = d.properties.name;
             if (visitedRegions.has(provinceName)) {
-              window.location.href = '/regions/' + getRegionSlug(provinceName) + '/';
+              window.location.href = '/region/' + getRegionSlug(provinceName) + '/';
             }
           });
       }
