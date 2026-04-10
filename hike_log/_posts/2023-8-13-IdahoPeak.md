@@ -1,6 +1,13 @@
 ---
 layout: hike_log
 title: Idaho Peak, Selkirk Range, BC | 14.5km, 1050m
+location: Selkirk Range
+region: British Columbia
+country: Canada
+latitude: 49.9716
+longitude: -117.3008
+featured_image: https://klepikhina.s3.amazonaws.com/Hike/2023/August/IdahoPeak/sunset1.jpg
+activity: hike
 ---
 
 After weeks of seeing articles about the Perseids meteor shower, it was finally August 12th - the peak of the meteor shower. I was lucky enough to rope Ash and some friends into a little overnight trip up to Idaho Peak.
