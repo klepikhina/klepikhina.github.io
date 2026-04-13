@@ -10,16 +10,16 @@ featured_image: https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/dayp
 activity: ski
 ---
 
-Dream vacation! Our group  of 6 (et al.) had an adventure packed few days in Tokyo before heading north to Hokkaido. We spent our time by wandering the fish market, splashing through Team Labs, staring in awe at the rare snowfall in the city, petting cats at the cat cafe, enjoying the Studio Ghibli museum, appreciating the sweeping views from Shibuya Sky, and congratulating our friends on a new engagement!
+Dream vacation! Our group of 6 (et al.) had an adventure-packed few days in Tokyo before heading north to Hokkaido. We spent our time by wandering the fish market, splashing through Team Labs, staring in awe at the rare snowfall in the city, petting cats at the cat cafe, enjoying the Studio Ghibli museum, appreciating the sweeping views from Shibuya Sky, and congratulating our friends on a new engagement!
 
-Phew! Action packed start. Then onto the Shinkansen to travel over 160mph on our way to Hokkaido.
+Phew! Then onto the Shinkansen to travel over 160mph on our way to Hokkaido.
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/shinkansen1.jpg" width="500">&nbsp;
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/shinkansen2.jpg" width="500">&nbsp;
 </p>
 
-We had some fun driving on the left side of the road (and sometimes the right - dang tourists...) and arrived to our accomidations and started our snow dances.
+We had some fun driving on the left side of the road (and sometimes the right - dang tourists...) and arrived to our accommodations and started our snow dances.
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/leftdrive.jpg" width="500">&nbsp;
@@ -55,7 +55,7 @@ After skiing, dipping in onsens (of course), and checking out the infamous fridg
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/nightpow.jpg" width="500">&nbsp;
 </p>
 
-Somehow we managed to squeeze in two side quests on this trip as well. The first, was an evening trip to Otaru where we were lucky to walk along the canal for the snow fest.
+Somehow we managed to squeeze in two side quests on this trip as well. The first was an evening trip to Otaru where we were lucky to walk along the canal for the snow fest.
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/seaofjapan.jpg" width="333">&nbsp;
@@ -63,7 +63,7 @@ Somehow we managed to squeeze in two side quests on this trip as well. The first
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/otaru.jpg" width="333">&nbsp;
 </p>
 
-Our second side quest was a drive out to Noboribetsu. On our way we got our first peek of Yotei and the calm waters of Lake Toya. In Noboribetsu we walked the boardwalks around the hot springs before retiring to the grand onsen in town.
+Our second side quest was a drive out to Noboribetsu. On our way, we got our first peek of Yotei and the calm waters of Lake Toya. In Noboribetsu we walked the boardwalks around the hot springs before retiring to the grand onsen in town.
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/yoteicar.jpg" width="333">&nbsp;
@@ -71,11 +71,13 @@ Our second side quest was a drive out to Noboribetsu. On our way we got our firs
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/noboribetsu.jpg" width="333">&nbsp;
 </p>
 
-On our final ski day, we were treated to clear views of Mt. Yotei. We nailed the timing to get a blue bird day, right before it started to rain as we were driving away.
+On our final ski day, we were treated to clear views of Mt. Yotei. We nailed the timing to get a bluebird day, right before it started to rain as we were driving away.
 
 <p align="center">
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/meyotei.jpg" width="500">&nbsp;
   <img src="https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/yotei.jpg" width="500">&nbsp;
 </p>
 
-Of note: do not skip the ice cream, do not skip the onigiri
+Of note: do not skip the ice cream; do not skip the onigiri.
+
+
