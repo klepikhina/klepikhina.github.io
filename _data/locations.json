@@ -384,6 +384,13 @@
       "country": "Switzerland",
       "latitude": 46.8182,
       "longitude": 8.2275
+    },
+    {
+      "name": "Japan",
+      "region": "Japan",
+      "country": "Japan",
+      "latitude": 35.6807,
+      "longitude": 35.6807
     }
   ]
 }
