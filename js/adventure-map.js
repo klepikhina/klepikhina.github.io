@@ -56,7 +56,7 @@
     '484': 'Mexico', '76': 'Brazil', '32': 'Argentina', '152': 'Chile',
     '170': 'Colombia', '604': 'Peru', '218': 'Ecuador', '858': 'Uruguay',
     '862': 'Venezuela', '68': 'Bolivia', '600': 'Paraguay',
-    '124': 'Canada', '840': 'United States of America'
+    '124': 'Canada', '840': 'United States of America', '392': 'Japan'
   };
 
   // Initialize the map
