@@ -10,7 +10,7 @@ featured_image: https://klepikhina.s3.amazonaws.com/Hike/2025/November/MtAudubon
 activity: hike
 ---
 
-My first [repeat post](https://klepikhina.github.io/MountAudubon/), exciting! My last time up here was in 2020 during Covid. Last time, I was escaping the indoors, to be outside in the smoke.
+My first [repeat post](https://klepikhina.github.io/MountAudubon/), exciting! My last time up here was in 2020 during Covid. Last time, I was escaping the indoors to be outside in the smoke.
 
 This time, we were delighted to find snow and 100mph (only a slight exaggeration) winds. This go around was also a bit longer as the Brainard Lake gate was closed. 
 
