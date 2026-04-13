@@ -1,0 +1,9 @@
+---
+layout: region
+title: Asia
+description: Asia adventures
+filter_regions:
+  - Japan
+permalink: /region/asia/
+---
+I 
