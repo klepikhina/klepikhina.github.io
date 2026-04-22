@@ -700,6 +700,31 @@
 			"image": "",
 			"value": "",
 			"children": [{
+					"name": "audio",
+					"image": "",
+					"value": "",
+					"children": [
+						{
+							"name": "\"The Serviceberry\", Robin Wall Kimmerer",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/serviceberry.jpg",
+							"value": "208840291"
+							
+						},
+						{
+							"name": "\"How Not to Drown in a Glass of Water", Angie Cruz",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/how_not_to_drown.jpg",
+							"value": "59808037"
+							
+						},
+						{
+							"name": "\"Cleavage", Jennifer Finney Boylan",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/cleavage_jfc.jpg",
+							"value": "211004927"
+							
+						}
+					]
+				},
+				{
 					"name": "physical",
 					"image": "",
 					"value": "",
@@ -738,6 +763,11 @@
 							"name": "\"How To Solve Your Own Murder\", Kristen Perrin",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/HowToSolveYourOwnMurder.jpg",
 							"value": "181350367"
+						},
+						{
+							"name": "\"Voices from Chernobyl\", Svetlana Alexievich",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/voices_from_chernobyl.jpg",
+							"value": "357486"
 						}
 					]
 				}
