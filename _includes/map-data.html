@@ -2,8 +2,8 @@
   Generates JSON data for the adventure map from posts with coordinates                                                                                 
   {% endcomment %}                                                                                                                                      
   <script>                                                                                                                                              
-  var adventureData = [                                                                                                                                 
-  {% for post in site.posts %}                                                                                                                          
+  var adventureData = [
+  {% for post in site.posts %}
     {% if post.latitude %}
     {% if post.categories contains 'climb_log' %}
       {% assign activity = "climb" %}
@@ -18,17 +18,7 @@
     {% else %}
       {% assign activity = "" %}
     {% endif %}
-    {
-      "title": {{ post.title | split: ' | ' | first | jsonify }},
-      "url": "{{ site.baseurl }}{{ post.url }}",
-      "location": {{ post.location | jsonify }},
-      "region": {{ post.region | jsonify }},
-      "country": {{ post.country | jsonify }},
-      "latitude": {{ post.latitude }},
-      "longitude": {{ post.longitude }},
-      "activity": "{{ activity }}",
-      "date": "{{ post.date | date: '%Y-%m-%d' }}"
-    },
+    { "title": {{ post.title | split: ' | ' | first | jsonify }}, "url": "{{ site.baseurl }}{{ post.url }}", "location": {{ post.location | jsonify }}, "region": {{ post.region | jsonify }}, "country": {{ post.country | jsonify }}, "latitude": {{ post.latitude }}, "longitude": {{ post.longitude }}, "activity": "{{ activity }}", "date": "{{ post.date | date: '%Y-%m-%d' }}" },
     {% elsif post.coordinates %}
     {% if post.categories contains 'climb_log' %}
       {% assign activity = "climb" %}
@@ -44,21 +34,10 @@
       {% assign activity = "" %}
     {% endif %}
     {% for coord in post.coordinates %}
-      {
-          "title": {{ post.title | split: ' | ' | first | jsonify }},
-          "url": "{{ site.baseurl }}{{ post.url }}",
-          "location": {{ coord.label | default: post.location | jsonify }},
-          "region": {{ post.region | jsonify }},
-          "country": {{ post.country | jsonify }},
-          "latitude": {{ coord.latitude }},
-          "longitude": {{ coord.longitude }},
-          "activity": "{{ activity }}",
-          "date": "{{ post.date | date: '%Y-%m-%d' }}"
-      }{% if forloop.last %}{% else %},{% endif %}
+    { "title": {{ post.title | split: ' | ' | first | jsonify }}, "url": "{{ site.baseurl }}{{ post.url }}", "location": {{ coord.label | default: post.location | jsonify }}, "region": {{ post.region | jsonify }}, "country": {{ post.country | jsonify }}, "latitude": {{ coord.latitude }}, "longitude": {{ coord.longitude }}, "activity": "{{ activity }}", "date": "{{ post.date | date: '%Y-%m-%d' }}" },
     {% endfor %}
     {% endif %}
   {% endfor %}
-  ];
-  // Remove trailing comma by filtering empty entries
+  null];
   adventureData = adventureData.filter(function(item) { return item && item.title; });
   </script>
