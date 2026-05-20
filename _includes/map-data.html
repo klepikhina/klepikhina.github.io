@@ -54,7 +54,7 @@
           "longitude": {{ coord.longitude }},
           "activity": "{{ activity }}",
           "date": "{{ post.date | date: '%Y-%m-%d' }}"
-      }{{ forloop.last | if: '' | else: ',' }}
+      }{% if forloop.last %}{% else %},{% endif %}
     {% endfor %}
     {% endif %}
   {% endfor %}
