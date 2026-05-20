@@ -29,6 +29,33 @@
       "activity": "{{ activity }}",
       "date": "{{ post.date | date: '%Y-%m-%d' }}"
     },
+    {% elsif post.coordinates %}
+    {% if post.categories contains 'climb_log' %}
+      {% assign activity = "climb" %}
+    {% elsif post.categories contains 'bike_log' %}
+      {% assign activity = "bike" %}
+    {% elsif post.categories contains 'hike_log' %}
+      {% assign activity = "hike" %}
+    {% elsif post.categories contains 'run_log' %}
+      {% assign activity = "run" %}
+    {% elsif post.categories contains 'ski_log' %}
+      {% assign activity = "ski" %}
+    {% else %}
+      {% assign activity = "" %}
+    {% endif %}
+    {% for coord in post.coordinates %}
+      {
+          "title": {{ post.title | split: ' | ' | first | jsonify }},
+          "url": "{{ site.baseurl }}{{ post.url }}",
+          "location": {{ coord.label | default: post.location | jsonify }},
+          "region": {{ post.region | jsonify }},
+          "country": {{ post.country | jsonify }},
+          "latitude": {{ coord.latitude }},
+          "longitude": {{ coord.longitude }},
+          "activity": "{{ activity }}",
+          "date": "{{ post.date | date: '%Y-%m-%d' }}"
+      }{{ forloop.last | if: '' | else: ',' }}
+    {% endfor %}
     {% endif %}
   {% endfor %}
   ];
