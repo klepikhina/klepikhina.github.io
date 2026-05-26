@@ -20,6 +20,7 @@ layout: default
   <button class="filter-pill filter-pill--hike map-filter" data-filter="hike" onclick="AdventureMap.filter('hike')">Hike</button>
   <button class="filter-pill filter-pill--run map-filter" data-filter="run" onclick="AdventureMap.filter('run')">Run</button>
   <button class="filter-pill filter-pill--ski map-filter" data-filter="ski" onclick="AdventureMap.filter('ski')">Ski</button>
+  <button class="filter-pill filter-pill--water map-filter" data-filter="water" onclick="AdventureMap.filter('water')">Water</button>
 </div>
 
 <div id="adventure-map" class="adventure-map"></div>
@@ -35,7 +36,7 @@ layout: default
     {% for post in site.posts %}
       {% if count < 6 %}
         {% if post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories
-  contains 'run_log' or post.categories contains 'ski_log' %}
+  contains 'run_log' or post.categories contains 'ski_log' or post.categories contains 'water_log' %}
           {% include adventure-card.html post=post %}
           {% assign count = count | plus: 1 %}
         {% endif %}
@@ -113,12 +114,13 @@ document.addEventListener('DOMContentLoaded', function() {
       {% for post in site.posts %}
         {% if fallback_count < 20 %}
           {% if post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories
-  contains 'run_log' or post.categories contains 'ski_log' %}
+  contains 'run_log' or post.categories contains 'ski_log' or post.categories contains 'water_log' %}
             {% if post.categories contains 'climb_log' %}{% assign activity = "climb" %}
             {% elsif post.categories contains 'bike_log' %}{% assign activity = "bike" %}
             {% elsif post.categories contains 'hike_log' %}{% assign activity = "hike" %}
             {% elsif post.categories contains 'run_log' %}{% assign activity = "run" %}
             {% elsif post.categories contains 'ski_log' %}{% assign activity = "ski" %}
+            {% elsif post.categories contains 'water_log' %}{% assign activity = "water" %}
             {% else %}{% assign activity = "" %}{% endif %}
           {
             title: {{ post.title | split: ' | ' | first | jsonify }},
