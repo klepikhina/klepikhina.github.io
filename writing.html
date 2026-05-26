@@ -11,7 +11,7 @@ permalink: /writing/
 
 {% assign has_posts = false %}
 {% for post in site.posts %}
-  {% unless post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log' %}
+  {% unless post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log' or post.categories contains 'water_log' %}
     {% assign has_posts = true %}
     {% break %}
   {% endunless %}
@@ -20,7 +20,7 @@ permalink: /writing/
 {% if has_posts %}
 <div class="writing-list">
   {% for post in site.posts %}
-    {% unless post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log' %}
+    {% unless post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories contains 'run_log' or post.categories contains 'ski_log' or post.categories contains 'water_log' %}
     <article class="post-item">
       <h2 class="post-title">
         <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
