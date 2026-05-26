@@ -14,6 +14,7 @@ title: All Trips
 {% assign hike_count = 0 %}
 {% assign run_count = 0 %}
 {% assign ski_count = 0 %}
+{% assign water_count = 0 %}
 
 {% for post in site.posts %}
   {% if post.categories contains 'climb_log' %}
@@ -26,6 +27,8 @@ title: All Trips
     {% assign run_count = run_count | plus: 1 %}
   {% elsif post.categories contains 'ski_log' %}
     {% assign ski_count = ski_count | plus: 1 %}
+  {% elsif post.categories contains 'water_log' %}
+    {% assign water_count = water_count | plus: 1 %}
   {% endif %}
 {% endfor %}
 
@@ -52,12 +55,13 @@ title: All Trips
   <button class="filter-pill filter-pill--hike" data-filter="hike_log">Hike ({{ hike_count }})</button>
   <button class="filter-pill filter-pill--run" data-filter="run_log">Run ({{ run_count }})</button>
   <button class="filter-pill filter-pill--ski" data-filter="ski_log">Ski ({{ ski_count }})</button>
+  <button class="filter-pill filter-pill--water" data-filter="water_log">Water ({{ water_count }})</button>
 </div>
 
 <div class="card-grid" id="adventures-grid">
     {% for post in site.posts %}
       {% if post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories
-  contains 'run_log' or post.categories contains 'ski_log' %}
+  contains 'run_log' or post.categories contains 'ski_log' or post.categories contains 'water_log' %}
       {% if post.categories contains 'climb_log' %}
         {% assign activity_class = "climb_log" %}
       {% elsif post.categories contains 'bike_log' %}
@@ -68,6 +72,8 @@ title: All Trips
         {% assign activity_class = "run_log" %}
       {% elsif post.categories contains 'ski_log' %}
         {% assign activity_class = "ski_log" %}
+      {% elsif post.categories contains 'water_log' %}
+        {% assign activity_class = "water_log" %}
       {% else %}
         {% assign activity_class = "" %}
       {% endif %}
@@ -106,7 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'Bike', value: {{ bike_count }}, color: '#C25450' },
     { name: 'Hike', value: {{ hike_count }}, color: '#4A7C59' },
     { name: 'Run', value: {{ run_count }}, color: '#4A90A4' },
-    { name: 'Ski', value: {{ ski_count }}, color: '#B0C4DE' }
+    { name: 'Ski', value: {{ ski_count }}, color: '#B0C4DE' },
+    { name: 'Water', value: {{ water_count }}, color: '#0C589C' }
   ];
 
   const total = adventureData.reduce((sum, d) => sum + d.value, 0);
