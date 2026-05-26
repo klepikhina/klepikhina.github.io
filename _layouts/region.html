@@ -48,6 +48,7 @@ layout: default
   <button class="filter-pill filter-pill--hike" data-filter="hike_log">Hike</button>
   <button class="filter-pill filter-pill--run" data-filter="run_log">Run</button>
   <button class="filter-pill filter-pill--ski" data-filter="ski_log">Ski</button>
+  <button class="filter-pill filter-pill--water" data-filter="water_log">Water</button>
 </div>
 
 <div class="card-grid" id="region-grid">
@@ -62,6 +63,8 @@ layout: default
       {% assign activity_class = "run_log" %}
     {% elsif post.categories contains 'ski_log' %}
       {% assign activity_class = "ski_log" %}
+    {% elsif post.categories contains 'water_log' %}
+      {% assign activity_class = "water_log" %}
     {% else %}
       {% assign activity_class = "" %}
     {% endif %}
