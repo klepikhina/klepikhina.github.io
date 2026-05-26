@@ -21,6 +21,8 @@ Usage: {% include adventure-card.html post=post %}
               &#x1F3C3;
             {% when 'ski' %}
               &#x26F7;
+            {% when 'water' %}
+              &#x1F30A;
             {% else %}
               &#x1F30D;
           {% endcase %}
@@ -41,6 +43,8 @@ Usage: {% include adventure-card.html post=post %}
         <span class="adventure-card__badge adventure-card__badge--run">Run</span>
       {% elsif include.post.categories contains 'ski_log' %}
         <span class="adventure-card__badge adventure-card__badge--ski">Ski</span>
+      {% elsif include.post.categories contains 'water_log' %}
+        <span class="adventure-card__badge adventure-card__badge--water">Water</span>
       {% endif %}
     </div>
 
