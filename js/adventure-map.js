@@ -13,7 +13,8 @@
     bike: '#C25450',     // rust red
     hike: '#4A7C59',     // forest green
     run: '#4A90A4',      // blue
-    ski: '#B0B9DE'       // light blue
+    ski: '#B0B9DE',      // light blue
+    water: '##0C589C'       // dark blue
   };
 
   // Lighter versions for region shading
@@ -22,7 +23,8 @@
     bike: 'rgba(194, 84, 80, 0.25)',
     hike: 'rgba(74, 124, 89, 0.25)',
     run: 'rgba(74, 144, 164, 0.25)',
-    ski: 'rgba(176, 185, 222, 0.25)'
+    ski: 'rgba(176, 185, 222, 0.25)',
+    water: 'rgba(12, 88, 156, 0.25)'
   };
 
   let currentZoomScale = 1;
