@@ -104,6 +104,7 @@
   &--hike { background: $color-hike; }
   &--run { background: $color-run; }
   &--ski { background: $color-ski; }
+  &--water { background: $color-water; }
 }
 
 // Card Content
@@ -187,6 +188,7 @@
   &--hike.active { background: $color-hike; border-color: $color-hike; }
   &--run.active { background: $color-run; border-color: $color-run; }
   &--ski.active { background: $color-ski; border-color: $color-ski; }
+  &--water.active { background: $color-water; border-color: $color-water; }
 }
 
 // ==========================================
