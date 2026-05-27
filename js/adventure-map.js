@@ -14,7 +14,7 @@
     hike: '#4A7C59',     // forest green
     run: '#4A90A4',      // blue
     ski: '#B0B9DE',      // light blue
-    water: '##0C589C'       // dark blue
+    water: '#0C589C'       // dark blue
   };
 
   // Lighter versions for region shading
