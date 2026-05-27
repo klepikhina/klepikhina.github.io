@@ -1,0 +1,18 @@
+---
+layout: default
+title: Water Log
+category: water_log
+---
+
+<div class="page-header">
+  <h1>Water Log</h1>
+  <p class="page-description">Floating, swimming, rafting, and canyoneering</p>
+</div>
+
+<div class="card-grid">
+  {% for post in site.posts %}
+    {% if post.categories contains 'water_log' %}
+      {% include adventure-card.html post=post %}
+    {% endif %}
+  {% endfor %}
+</div>
