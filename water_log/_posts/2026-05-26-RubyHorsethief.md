@@ -109,7 +109,7 @@ By day 3 we had our packing out system dialed and got out of their quickly. We p
 We found two figure petroglyphs.
 
 <p align="center">
-  <img src="https://klepikhina.s3.amazonaws.com/Water/2026/May/RubyHorsethief/petroglyphs_cave.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Water/2026/May/RubyHorsethief/petroglyphs_cave.jpg" width="1000">&nbsp;
 </p>
 
 <p align="center">
