@@ -4,8 +4,8 @@ title: Highway of Waterfalls, OR
 location: Highway of Waterfalls
 region: Oregon
 country: USA
-latitude: 45.5761
-longitude: -122.1173
+latitude: 43.2917
+longitude: -122.5624
 featured_image: https://klepikhina.s3.amazonaws.com/Hike/2024/June/HighwayOfWaterfalls/WatsonFalls.jpg
 activity: hike
 ---
