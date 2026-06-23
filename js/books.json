@@ -739,6 +739,12 @@
 							"image": "https://klepikhina.s3.amazonaws.com/Books/PsychopathTest.jpg",
 							"value": "12391521"
 							
+						},
+						{
+							"name": "\"Convenience Store Woman\", Sayaka Murata",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/ConvenienceStoreWoman.jpg",
+							"value": "36739755"
+							
 						}
 					]
 				},
@@ -806,6 +812,11 @@
 							"name": "\"Eat Like a Fish: My Adventures as a Fisherman Turned Restorative Ocean Farmer\", Bren Smith",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/EatLikeAFish.jpg",
 							"value": "41552367"
+						},
+						{
+							"name": "\"No More Tears: The Dark Secrets of Johnson & Johnson\", Gardiner Harris",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/NoMoreTears.jpg",
+							"value": "216247552"
 						}
 					]
 				}
