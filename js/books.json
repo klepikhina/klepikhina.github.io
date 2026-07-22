@@ -707,56 +707,52 @@
 						{
 							"name": "\"The Serviceberry\", Robin Wall Kimmerer",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/serviceberry.jpg",
-							"value": "208840291"
-							
+							"value": "208840291"							
 						},
 						{
 							"name": "\"How Not to Drown in a Glass of Water\", Angie Cruz",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/how_not_to_drown.jpg",
-							"value": "59808037"
-							
+							"value": "59808037"							
 						},
 						{
 							"name": "\"Cleavage\", Jennifer Finney Boylan",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/cleavage_jfc.jpg",
-							"value": "211004927"
-							
+							"value": "211004927"							
 						},
 						{
 							"name": "\"The Sun Does Shine\", Anthony Ray Hinton",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/TheSunDoesShine.jpg",
-							"value": "34964905"
-							
+							"value": "34964905"							
 						},
 						{
 							"name": "\"How Far the Light Reaches: A Life in Ten Sea Creatures\", Sabrina Imbler",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/HowFarTheLightReaches.jpg",
-							"value": "60769830"
-							
+							"value": "60769830"							
 						},
 						{
 							"name": "\"The Psychopath Test\", Jon Ronson",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/PsychopathTest.jpg",
-							"value": "12391521"
-							
+							"value": "12391521"							
 						},
 						{
 							"name": "\"Convenience Store Woman\", Sayaka Murata",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/ConvenienceStoreWoman.jpg",
-							"value": "36739755"
-							
+							"value": "36739755"							
 						},
 						{
 							"name": "\"The Sirens\", Emilia Hart",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/TheSirens.jpg",
-							"value": "210411871"
-							
+							"value": "210411871"							
 						},
 						{
 							"name": "\"A Marriage at Sea: A True Story of Love, Obsession, and Shipwreck\", Sophie Elmhirst",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/MarriageAtSea.jpg",
-							"value": "220239083"
-							
+							"value": "220239083"							
+						},
+						{
+							"name": "\"Abundance\", Ezra Klein, Derek Thompson",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/Abundance.jpg",
+							"value": "176444106"							
 						}
 					]
 				},
