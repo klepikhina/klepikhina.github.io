@@ -1,4 +1,4 @@
-<img width="3072" height="4080" alt="prehike" src="https://github.com/user-attachments/assets/14d4ca01-df5e-4f59-86d4-707a340380be" />---
+---
 layout: hike_log
 title: Kingston Peak Road + James Peak, Roosevelt National Forest, CO | 4.42mi, 1424ft
 location: Roosevelt National Forest
