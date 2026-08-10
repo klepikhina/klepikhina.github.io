@@ -753,6 +753,11 @@
 							"name": "\"Abundance\", Ezra Klein, Derek Thompson",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/Abundance.jpg",
 							"value": "176444106"							
+						},
+						{
+							"name": "\"Twice\", Mitch Albom",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/Twice.jpg",
+							"value": "223688905"							
 						}
 					]
 				},
@@ -825,6 +830,11 @@
 							"name": "\"No More Tears: The Dark Secrets of Johnson & Johnson\", Gardiner Harris",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/NoMoreTears.jpg",
 							"value": "216247552"
+						},
+						{
+							"name": "\"Shady Hollow\", Juneau Black",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/ShadyHollow.jpg",
+							"value": "58735031"
 						}
 					]
 				}
