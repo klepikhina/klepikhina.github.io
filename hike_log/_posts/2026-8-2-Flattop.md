@@ -33,8 +33,8 @@ Along the way, we could see Longs Peak and several climbing and hiking groups su
 </p>
 
 <p align="center">
-  <img src="https://klepikhina.s3.amazonaws.com/Hike/2026/August/Flattop/longs.jpg" width="500">&nbsp;
-  <img src="https://klepikhina.s3.amazonaws.com/Hike/2026/August/Flattop/pika.jpg" width="500">&nbsp; 
+  <img src="https://klepikhina.s3.amazonaws.com/Hike/2026/August/Flattop/redsun.jpg" width="500">&nbsp;
+  <img src="https://klepikhina.s3.amazonaws.com/Hike/2026/August/Flattop/redsun2.jpg" width="500">&nbsp; 
 </p>
 
 <p align="center">
