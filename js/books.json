@@ -835,6 +835,11 @@
 							"name": "\"Shady Hollow\", Juneau Black",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/ShadyHollow.jpg",
 							"value": "58735031"
+						},
+						{
+							"name": "\"The Paper Menagerie and Other Stories\", Ken Liu",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/PaperMenagerieOthers.jpg",
+							"value": "24885533"
 						}
 					]
 				}
