@@ -763,6 +763,16 @@
 							"name": "\"I Who Have Never Known Men\", Jacqueline Harpman",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/IWhoHaveNeverKnownMen.jpg",
 							"value": "60811826"							
+						},
+						{
+							"name": "\"Careless People: A Cautionary Tale of Power, Greed, and Lost Idealism\", Sarah Wynn-Williams",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/CarelessPeople.jpg",
+							"value": "223436601"							
+						},
+						{
+							"name": "\"Upon a Starlit Tide\", Kell Woods",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/UponAStarlitTide.jpg",
+							"value": "211004131"							
 						}
 					]
 				},
@@ -850,6 +860,11 @@
 							"name": "\"Malibu Rising\", Taylor Jenkins Reid",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/MalibuRising.jpg",
 							"value": "55404546"
+						},
+						{
+							"name": "\"Dungeon Crawler Carl\", Matt Dinniman",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/DungeonCrawlerCarl.jpg",
+							"value": "56791389"
 						}
 					]
 				}
