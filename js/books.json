@@ -885,6 +885,11 @@
 							"name": "\"Small Things Like These\", Claire Keegan",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/SmallThingsLikeThese.jpg",
 							"value": "58662236"
+						},
+						{
+							"name": "\"Death and the Gardener\", Georgi Gospodinov",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/DeathAndTheGardener.jpg",
+							"value": "223736245"
 						}
 					]
 				}
