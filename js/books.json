@@ -890,6 +890,11 @@
 							"name": "\"Death and the Gardener\", Georgi Gospodinov",
 							"image": "https://klepikhina.s3.amazonaws.com/Books/DeathAndTheGardener.jpg",
 							"value": "223736245"
+						},
+						{
+							"name": "\"Carl's Doomsday Scenario\", Matt Dinniman",
+							"image": "https://klepikhina.s3.amazonaws.com/Books/CarlsDoomsdayScenario.jpg",
+							"value": "212393364"
 						}
 					]
 				}
