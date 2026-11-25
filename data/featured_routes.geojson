@@ -2,7 +2,7 @@
  "type": "FeatureCollection",
  "metadata": {
   "generated_by": "scripts/build_atlas.py",
-  "generated_at": "2026-11-25T03:44:01Z",
+  "generated_at": "2026-11-25T05:31:34Z",
   "curation": "Only explicitly curated, blog-linked routes from scripts/curated_routes.json. When GPX is supplied, lines are trimmed and timestamps are stripped.",
   "crs": "EPSG:4326"
  },

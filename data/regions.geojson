@@ -2,11 +2,11 @@
  "type": "FeatureCollection",
  "metadata": {
   "generated_by": "scripts/build_atlas.py",
-  "generated_at": "2026-11-25T03:44:01Z",
+  "generated_at": "2026-11-25T05:31:34Z",
   "watershed_source": "HydroBASINS global level 8 (v1c)",
   "region_basis": "Natural Earth admin-1 states/provinces (US/Canada) and admin-0 countries",
   "crs": "EPSG:4326",
-  "privacy": "Aggregate statistics only. No raw GPS tracks, timestamps, or activity files are stored here. total_vert_ft and total_distance_mi sum only trips where that value was known; see vert_coverage and distance_coverage."
+  "privacy": "Aggregate statistics only. No raw GPS tracks, timestamps, or activity files are stored here. total_vert_ft and total_distance_mi sum only activities where that value was known; see vert_coverage and distance_coverage."
  },
  "features": [
   {
@@ -5898,8 +5898,7 @@
      "hike",
      "run",
      "ski",
-     "water",
-     "other"
+     "water"
     ],
     "featured_story_count": 37,
     "vert_coverage": 0.76,
@@ -5910,8 +5909,7 @@
      "hike": 75,
      "run": 61,
      "ski": 46,
-     "water": 1,
-     "other": 3
+     "water": 4
     },
     "stats": {
      "bike": {
@@ -5949,29 +5947,22 @@
       "vert_coverage": 0.91,
       "distance_coverage": 0.91,
       "styles": {
-       "touring": 16,
-       "alpine": 20,
-       "nordic": 10
+       "touring": 24,
+       "alpine": 7,
+       "nordic": 15
       },
       "style_pct": {
-       "touring": 35,
-       "alpine": 43,
-       "nordic": 22
+       "touring": 52,
+       "alpine": 15,
+       "nordic": 33
       }
      },
      "water": {
-      "trips": 1,
-      "vert_ft": 0,
-      "distance_mi": 0,
-      "vert_coverage": 0.0,
-      "distance_coverage": 0.0
-     },
-     "other": {
-      "trips": 3,
+      "trips": 4,
       "vert_ft": 0,
       "distance_mi": 9.0,
-      "vert_coverage": 1.0,
-      "distance_coverage": 1.0
+      "vert_coverage": 0.75,
+      "distance_coverage": 0.75
      }
     },
     "top_stories": [
@@ -6011,18 +6002,18 @@
     "ski_trips": 46,
     "ski_vert_ft": 42740,
     "ski_distance_mi": 253.5,
-    "ski_touring_pct": 35,
-    "ski_touring_count": 16,
-    "ski_alpine_pct": 43,
-    "ski_alpine_count": 20,
-    "ski_nordic_pct": 22,
-    "ski_nordic_count": 10,
-    "water_trips": 1,
+    "ski_touring_pct": 52,
+    "ski_touring_count": 24,
+    "ski_alpine_pct": 15,
+    "ski_alpine_count": 7,
+    "ski_nordic_pct": 33,
+    "ski_nordic_count": 15,
+    "water_trips": 4,
     "water_vert_ft": 0,
-    "water_distance_mi": 0.0,
-    "other_trips": 3.0,
-    "other_vert_ft": 0.0,
-    "other_distance_mi": 9.0
+    "water_distance_mi": 9.0,
+    "other_trips": null,
+    "other_vert_ft": null,
+    "other_distance_mi": null
    }
   },
   {
@@ -14588,7 +14579,7 @@
      "hike",
      "run",
      "ski",
-     "other"
+     "water"
     ],
     "featured_story_count": 17,
     "vert_coverage": 0.85,
@@ -14599,7 +14590,7 @@
      "hike": 23,
      "run": 2,
      "ski": 7,
-     "other": 2
+     "water": 2
     },
     "stats": {
      "bike": {
@@ -14647,7 +14638,7 @@
        "nordic": 0
       }
      },
-     "other": {
+     "water": {
       "trips": 2,
       "vert_ft": 0,
       "distance_mi": 4.6,
@@ -14698,12 +14689,12 @@
     "ski_alpine_count": 6,
     "ski_nordic_pct": 0,
     "ski_nordic_count": 0,
-    "water_trips": 0,
+    "water_trips": 2,
     "water_vert_ft": 0,
-    "water_distance_mi": 0.0,
-    "other_trips": 2.0,
-    "other_vert_ft": 0.0,
-    "other_distance_mi": 4.6
+    "water_distance_mi": 4.6,
+    "other_trips": null,
+    "other_vert_ft": null,
+    "other_distance_mi": null
    }
   },
   {
@@ -15080,8 +15071,8 @@
      "hike": 198,
      "run": 486,
      "ski": 85,
-     "water": 1,
-     "other": 55
+     "water": 12,
+     "other": 44
     },
     "stats": {
      "bike": {
@@ -15119,27 +15110,27 @@
       "vert_coverage": 0.99,
       "distance_coverage": 0.99,
       "styles": {
-       "touring": 2,
-       "alpine": 80,
-       "nordic": 3
+       "touring": 8,
+       "alpine": 46,
+       "nordic": 31
       },
       "style_pct": {
-       "touring": 2,
-       "alpine": 94,
-       "nordic": 4
+       "touring": 9,
+       "alpine": 54,
+       "nordic": 36
       }
      },
      "water": {
-      "trips": 1,
-      "vert_ft": 0,
-      "distance_mi": 0,
-      "vert_coverage": 0.0,
-      "distance_coverage": 0.0
+      "trips": 12,
+      "vert_ft": 1874,
+      "distance_mi": 46.8,
+      "vert_coverage": 0.92,
+      "distance_coverage": 0.92
      },
      "other": {
-      "trips": 55,
-      "vert_ft": 39942,
-      "distance_mi": 167.3,
+      "trips": 44,
+      "vert_ft": 38068,
+      "distance_mi": 120.6,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -15181,18 +15172,18 @@
     "ski_trips": 85,
     "ski_vert_ft": 250656,
     "ski_distance_mi": 965.2,
-    "ski_touring_pct": 2,
-    "ski_touring_count": 2,
-    "ski_alpine_pct": 94,
-    "ski_alpine_count": 80,
-    "ski_nordic_pct": 4,
-    "ski_nordic_count": 3,
-    "water_trips": 1,
-    "water_vert_ft": 0,
-    "water_distance_mi": 0.0,
-    "other_trips": 55.0,
-    "other_vert_ft": 39942.0,
-    "other_distance_mi": 167.3
+    "ski_touring_pct": 9,
+    "ski_touring_count": 8,
+    "ski_alpine_pct": 54,
+    "ski_alpine_count": 46,
+    "ski_nordic_pct": 36,
+    "ski_nordic_count": 31,
+    "water_trips": 12,
+    "water_vert_ft": 1874,
+    "water_distance_mi": 46.8,
+    "other_trips": 44.0,
+    "other_vert_ft": 38068.0,
+    "other_distance_mi": 120.6
    }
   },
   {
@@ -22389,6 +22380,7 @@
      "hike",
      "run",
      "ski",
+     "water",
      "other"
     ],
     "featured_story_count": 3,
@@ -22400,7 +22392,8 @@
      "hike": 16,
      "run": 54,
      "ski": 5,
-     "other": 2
+     "water": 1,
+     "other": 1
     },
     "stats": {
      "bike": {
@@ -22448,10 +22441,17 @@
        "nordic": 60
       }
      },
+     "water": {
+      "trips": 1,
+      "vert_ft": 0,
+      "distance_mi": 1.5,
+      "vert_coverage": 1.0,
+      "distance_coverage": 1.0
+     },
      "other": {
-      "trips": 2,
+      "trips": 1,
       "vert_ft": 52,
-      "distance_mi": 4.9,
+      "distance_mi": 3.4,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -22499,12 +22499,12 @@
     "ski_alpine_count": 0,
     "ski_nordic_pct": 60,
     "ski_nordic_count": 3,
-    "water_trips": 0,
+    "water_trips": 1,
     "water_vert_ft": 0,
-    "water_distance_mi": 0.0,
-    "other_trips": 2.0,
+    "water_distance_mi": 1.5,
+    "other_trips": 1.0,
     "other_vert_ft": 52.0,
-    "other_distance_mi": 4.9
+    "other_distance_mi": 3.4
    }
   },
   {

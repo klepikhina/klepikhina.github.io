@@ -4,11 +4,11 @@ map_lib: true
 ---
 
 <div class="hero-section">
-  <h1 class="hero-title">Trips & Stories</h1>
+  <h1 class="hero-title">Activities & Stories</h1>
   <p class="hero-subtitle">Climbing, biking, hiking, running, skiing - and everything in between</p>
 </div>
 
-<!-- Watershed Atlas -->
+<!-- Adventure atlas -->
 <div class="section-header">
   <h2>Where I've Been</h2>
   <p class="section-subtitle">An atlas of logged adventures and the stories behind them</p>
@@ -25,13 +25,8 @@ map_lib: true
 </div>
 
 <div class="atlas-shell">
-  <div id="adventure-map" class="adventure-map" role="region" aria-label="Interactive atlas of states, provinces, countries, trails, climbs, and trip stories" tabindex="0"></div>
+  <div id="adventure-map" class="adventure-map" role="region" aria-label="Interactive atlas of states, provinces, countries, trails, climbs, and activity stories" tabindex="0"></div>
 </div>
-
-<p class="map-note">
-  Green shaded states, provinces, and countries show where you've been active or written a story; the warm heatmap shows where the selected trip type is concentrated. Click a region to zoom in and see its stats. Markers are blog-linked routes.
-  Boundaries follow Natural Earth; aggregate data is built by <code>scripts/build_atlas.py</code>.
-</p>
 
 <div id="atlas-backdrop" class="atlas-drawer-backdrop" hidden></div>
 <aside id="atlas-drawer" class="atlas-drawer" role="dialog" aria-modal="true" aria-labelledby="atlas-drawer-title" aria-hidden="true">
@@ -39,10 +34,10 @@ map_lib: true
   <div class="atlas-drawer__body"></div>
 </aside>
 
-<!-- Recent Trips -->
+<!-- Recent Activities -->
 <div class="section-header">
-  <h2>Recent Trips</h2>
-  <p class="section-subtitle"><a href="{{ site.baseurl }}/adventures/">View all trips &rarr;</a></p>
+  <h2>Recent Activities</h2>
+  <p class="section-subtitle"><a href="{{ site.baseurl }}/adventures/">View all activities &rarr;</a></p>
 </div>
 
 <div class="card-grid card-grid--featured">

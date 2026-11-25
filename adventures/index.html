@@ -1,14 +1,14 @@
 ---
 layout: default
-title: All Trips
+title: All Activities
 ---
 
 <div class="page-header">
-  <h1>All Trips</h1>
-  <p class="page-description">Every trip, climb, ride, and run in one place</p>
+  <h1>All Activities</h1>
+  <p class="page-description">Every activity, climb, ride, and run in one place</p>
 </div>
 
-<!-- Trip Statistics Section -->
+<!-- Activity Statistics Section -->
 {% assign climb_count = 0 %}
 {% assign bike_count = 0 %}
 {% assign hike_count = 0 %}
@@ -35,8 +35,8 @@ title: All Trips
 {% assign total_adventures = climb_count | plus: bike_count | plus: hike_count | plus: run_count | plus: ski_count %}
 
 <div class="section-header">
-  <h2>Trip Statistics</h2>
-  <p class="section-subtitle">{{ total_adventures }} logged trips and counting</p>
+  <h2>Activity Statistics</h2>
+  <p class="section-subtitle">{{ total_adventures }} logged activities and counting</p>
 </div>
 
 <div class="stats-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; align-items: flex-start;">
@@ -45,7 +45,7 @@ title: All Trips
 </div>
 
 <div class="section-header">
-  <h2>All Trips</h2>
+  <h2>All Activities</h2>
 </div>
 
 <div class="filter-pills">
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .attr('dy', '1.2em')
     .attr('font-size', '12px')
     .attr('fill', '#666')
-    .text('trips');
+    .text('activities');
 
   // Title
   d3.select('#adventure-donut svg')
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .attr('font-size', '14px')
     .attr('font-weight', '600')
     .attr('fill', '#2D5A3D')
-    .text('Trips by Type');
+    .text('Activities by Type');
 
   // Bar Chart
   const barContainer = document.getElementById('adventure-bars');
