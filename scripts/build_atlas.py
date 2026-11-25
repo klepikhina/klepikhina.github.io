@@ -328,6 +328,15 @@ def stable_private_record(record: Dict[str, Any]) -> Dict[str, Any]:
     return result
 
 
+def cached_private_records(cache: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Reuse parsed summaries when raw exports are not available (cloud mode)."""
+    records: List[Dict[str, Any]] = []
+    for entry in cache.values():
+        if isinstance(entry, dict) and isinstance(entry.get("record"), dict):
+            records.append(stable_private_record(entry["record"]))
+    return records
+
+
 # ---------------------------------------------------------------------------
 # Post front matter
 # ---------------------------------------------------------------------------
@@ -715,6 +724,7 @@ def discover_track_files(strava_dir: Path) -> List[Path]:
 def load_strava_activities(
     strava_dir: Path,
     cache: Optional[Dict[str, Any]] = None,
+    prune_cache: bool = True,
 ) -> List[Dict[str, Any]]:
     """Read Strava tracks, reusing cached summaries for unchanged files.
 
@@ -792,7 +802,7 @@ def load_strava_activities(
         if parsed % 250 == 0:
             log(f"  parsed {parsed:,}/{len(files):,} track files")
 
-    if cache is not None:
+    if cache is not None and prune_cache:
         for key in list(cache):
             if key not in active_keys:
                 del cache[key]
@@ -834,6 +844,7 @@ def read_garmin_metadata(garmin_dir: Path) -> Dict[str, Dict[str, str]]:
 def load_garmin_activities(
     garmin_dir: Path,
     cache: Optional[Dict[str, Any]] = None,
+    prune_cache: bool = True,
 ) -> List[Dict[str, Any]]:
     """Read Garmin FIT/GPX exports, reusing cached summaries for unchanged files.
 
@@ -910,7 +921,7 @@ def load_garmin_activities(
         records.append(record)
         parsed += 1
 
-    if cache is not None:
+    if cache is not None and prune_cache:
         for key in list(cache):
             if key not in active_keys:
                 del cache[key]
@@ -2171,6 +2182,11 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="ignore and do not update the private export cache (reparse everything)",
     )
+    parser.add_argument(
+        "--use-cache-records",
+        action="store_true",
+        help="build from cached parsed summaries without raw exports (cloud mode)",
+    )
     parser.add_argument("--dry-run", action="store_true", help="validate and report without writing files or cache")
     return parser
 
@@ -2184,6 +2200,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     state_path = args.state_path.expanduser()
     cache_enabled = not args.no_cache
+    if args.use_cache_records and not cache_enabled:
+        sys.exit("--use-cache-records cannot be combined with --no-cache")
     state = load_state(state_path, cache_enabled)
 
     posts = load_posts(args.posts_dir, config)
@@ -2192,14 +2210,22 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     private_records: List[Dict[str, Any]] = []
     strava_records: List[Dict[str, Any]] = []
     garmin_records: List[Dict[str, Any]] = []
-    if args.strava_dir:
-        strava_cache = state["strava"] if cache_enabled else None
-        strava_records = load_strava_activities(args.strava_dir.expanduser(), strava_cache)
-        log(f"Strava activities read: {len(strava_records)}")
-    if args.garmin_dir:
-        garmin_cache = state["garmin"] if cache_enabled else None
-        garmin_records = load_garmin_activities(args.garmin_dir.expanduser(), garmin_cache)
-        log(f"Garmin activities read: {len(garmin_records)}")
+    if args.use_cache_records:
+        strava_records = cached_private_records(state["strava"])
+        garmin_records = cached_private_records(state["garmin"])
+        log(
+            f"cached activities read: {len(strava_records)} Strava, "
+            f"{len(garmin_records)} Garmin (no raw exports)"
+        )
+    else:
+        if args.strava_dir:
+            strava_cache = state["strava"] if cache_enabled else None
+            strava_records = load_strava_activities(args.strava_dir.expanduser(), strava_cache)
+            log(f"Strava activities read: {len(strava_records)}")
+        if args.garmin_dir:
+            garmin_cache = state["garmin"] if cache_enabled else None
+            garmin_records = load_garmin_activities(args.garmin_dir.expanduser(), garmin_cache)
+            log(f"Garmin activities read: {len(garmin_records)}")
     if garmin_records:
         strava_records, _ = dedupe_garmin_primary(strava_records, garmin_records)
     private_records.extend(garmin_records)

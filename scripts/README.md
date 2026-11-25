@@ -59,86 +59,70 @@ per continent, downloaded on demand and cached in `~/.cache/klepikhina-atlas`
 (override with `KLEPIKINA_ATLAS_CACHE`). Public Natural Earth country polygons
 are cached there too, for naming regions outside the blog.
 
-## Automatic source sync
+## Weekly cloud sync
 
-`sync_sources.py` is the local sync daemon. It polls Strava and Garmin for new
-activities, refreshes the Mountain Project ticks CSV, rebuilds the atlas
-incrementally, then commits/pushes `data/*.geojson` to `dev` and opens or updates
-a PR for review. **It never merges.** Install the launchd agent and changes show
-up on GitHub within `interval_minutes` (15 by default).
+`.github/workflows/atlas-sync.yml` runs every **Monday at 06:15 UTC** and can also
+be started manually with **Run workflow**. It runs in GitHub Actions, so your
+Mac does not need to be on. Each run:
+
+1. polls Garmin (and Strava when configured) for new activities,
+2. reads the Mountain Project ticks CSV from an encrypted secret,
+3. rebuilds the atlas from a compact parsed cache in a private repo,
+4. commits only aggregate `data/*.geojson` directly to `master`, and
+5. lets GitHub Pages rebuild the site.
+
+Routine activity updates **do not create a PR**.
 
 One-time setup:
 
-```bash
-python3 -m pip install -r scripts/requirements.txt
-python3 scripts/sync_sources.py setup-strava      # stores client id/secret, prints auth URL
-python3 scripts/sync_sources.py authorize-strava  # paste the code from the redirect URL
-python3 scripts/sync_sources.py setup-garmin      # Personal API key from Garmin Connect settings
-python3 scripts/sync_sources.py setup-github      # token used only to open/update the PR
-python3 -m pip install playwright && python3 -m playwright install chromium
-python3 scripts/sync_sources.py mountain-login    # log in once; saves the ticks URL
-python3 scripts/sync_sources.py install-scheduler
-python3 scripts/sync_sources.py status
-```
+1. Create an empty **private** GitHub repo for the sync state, for example
+   `klepikhina/atlas-private`. If you use a different name, add a repository
+   variable `ATLAS_PRIVATE_REPO` with that value.
+2. Add these Actions secrets to this repository:
 
-- **Strava:** create an API app at `strava.com/settings/api`, set the callback
-  domain to `localhost`, and request `activity:read_all`. New API apps may need a
-  paid Strava subscription; a 403 during token setup usually means that. The
-  sync refreshes the short-lived token automatically and stores only the rotating
-  refresh token in macOS Keychain. It fetches activities since the last run (plus a 7-day lookback
-  for late uploads), downloads `latlng`/`altitude`/`time` streams, writes private
-  GPX files into `private/strava_export/activities/`, and appends matching rows
-  to `activities.csv`.
-- **Garmin:** create a **Personal API key** in Garmin Connect → Settings →
-  Personal API Token. The sync exchanges it for a 24-hour bearer token, caches
-  that token in `private/sync_state.json`, downloads each new activity ZIP,
-  extracts the FIT/GPX track into `private/garmin_export/activities/`, and writes
-  `private/garmin_export/activities.csv`. The official client requires Python
-  3.12, so this script calls the documented endpoints directly and works with
-  the repo's Python 3.11 environment.
-- **Mountain Project:** the public Data API is closed, so this is best-effort
-  browser automation. `mountain-login` opens a persistent Chromium profile; the
-  sync reuses that logged-in session to click **Export CSV** on your ticks page.
-  If the browser step fails, it falls back to copying a newer ticks CSV from
-  `~/Downloads`. There is no new-activity webhook, so a new tick appears after
-  you export (or after the browser automation runs).
-- **Secrets:** macOS Keychain is preferred (`security` CLI). If it is unavailable,
-  `private/.env` is used with `0600` permissions. Neither is committed. Never
-  paste a token in chat or a shell command you intend to keep in history.
+   | Secret | Purpose |
+   | --- | --- |
+   | `GARMIN_API_KEY` | Garmin Connect Personal API key (required) |
+   | `ATLAS_PRIVATE_REPO_TOKEN` | Token with write access to the private state repo |
+   | `MOUNTAIN_PROJECT_TICKS_B64` | Base64 of `private/mountain-project-ticks.csv` |
+   | `STRAVA_CLIENT_ID` | Optional Strava app client ID |
+   | `STRAVA_CLIENT_SECRET` | Optional Strava app client secret |
+   | `STRAVA_REFRESH_TOKEN` | Optional Strava refresh token |
+
+   The built-in `GITHUB_TOKEN` pushes the aggregate data to `master`.
+
+3. Seed the private state repo from your Mac once:
+
+   ```bash
+   ATLAS_PRIVATE_REPO_TOKEN=... python3 scripts/cloud_sync.py seed-private
+   ```
+
+   This uploads only `atlas_state.json` (parsed summaries) and `sync_state.json`
+   (activity IDs and token expiry). No raw GPX/FIT files or ticks CSVs are
+   uploaded.
+
+4. Create the Mountain Project secret after each new CSV export:
+
+   ```bash
+   base64 -i private/mountain-project-ticks.csv | tr -d '\n' | pbcopy
+   ```
+
+   Paste that value into the `MOUNTAIN_PROJECT_TICKS_B64` Actions secret.
+
+- **Garmin:** free Personal API key from Garmin Connect → Settings → Personal
+  API Token. The cloud job requests a fresh 24-hour token each week and imports
+  activities from the last 14 days.
+- **Strava:** optional; new API apps may require a paid subscription. A 403
+  during token setup usually means that.
 - **Garmin wins:** if an outing appears in both Strava and Garmin (same local
-  date, activity filter, and track distance within 12% / 0.5 mi), the Strava
-  copy is dropped. Blog posts are still de-duplicated against the winner.
-- **Publishing:** data changes are committed on `dev`, pushed to `origin/dev`,
-  and a PR `dev → master` is opened or updated with title “Update adventure
-  atlas data”. The HTTPS push uses the stored GitHub token through a local
-  `GIT_ASKPASS` helper; the token is never written to the repo. You merge when
-  you are happy with it. Set `auto_publish: false` in `private/sync_config.json`
-  to keep changes local only.
+  date, activity filter, and distance within 12% / 0.5 mi), the Strava copy is
+  dropped. Blog posts are still de-duplicated against the winner.
+- **Privacy:** raw FIT/GPX files and the ticks CSV exist only in the runner's
+  temporary directory and are discarded. The public repo receives only the
+  aggregate/coarse-cell GeoJSON already shown on the site.
 
-Non-secret settings live in `private/sync_config.json` (gitignored). Useful ones:
-
-```json
-{
-  "interval_minutes": 15,
-  "strava_lookback_days": 7,
-  "garmin_lookback_days": 7,
-  "max_activities_per_sync": 100,
-  "mountain_project_ticks_url": "",
-  "refresh_crag_coords": false,
-  "auto_publish": true
-}
-```
-
-Manual commands:
-
-```bash
-python3 scripts/sync_sources.py sync --dry-run              # credentials/state only
-python3 scripts/sync_sources.py sync --sources strava,garmin
-python3 scripts/sync_sources.py sync --no-publish           # rebuild locally
-python3 scripts/sync_sources.py uninstall-scheduler
-```
-
-Logs go to `private/logs/sync.log` when installed via launchd.
+The older `sync_sources.py` commands still work for one-off local imports, but
+the launchd scheduler and PR flow are no longer the recommended path.
 
 ## Build from the blog only
 
