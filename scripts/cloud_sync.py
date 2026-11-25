@@ -9,9 +9,9 @@ Raw FIT/GPX files and Mountain Project CSVs exist only in the runner's temporary
 directory and are discarded when the job ends. Nothing private is committed to
 the public site repo.
 
-Required secrets:
-  GITHUB_TOKEN                 built-in Actions token (contents: write)
-  ATLAS_PRIVATE_REPO_TOKEN     token with write access to ATLAS_PRIVATE_REPO
+Required secrets/env:
+  ATLAS_PRIVATE_REPO_TOKEN     token with read/write access to ATLAS_PRIVATE_REPO
+  GITHUB_TOKEN                 built-in Actions token, used by git push only
   GARMIN_API_KEY               Garmin Connect Personal API key
   MOUNTAIN_PROJECT_TICKS_B64   base64 of the private ticks CSV (optional)
 
@@ -61,9 +61,11 @@ def require_env(name: str, hint: str = "") -> str:
     return value
 
 
-def github_token(local_seed: bool = False) -> str:
-    name = "ATLAS_PRIVATE_REPO_TOKEN" if local_seed else "GITHUB_TOKEN"
-    return require_env(name, "store it as a GitHub Actions secret")
+def github_token() -> str:
+    # The built-in GITHUB_TOKEN is scoped to the site repo and cannot read or
+    # write a separate private repo. The private-repo token is used for all
+    # private-state API calls; GITHUB_TOKEN remains available to git push.
+    return require_env("ATLAS_PRIVATE_REPO_TOKEN", "store it as a GitHub Actions secret")
 
 
 def github_headers(token: str) -> Dict[str, str]:
@@ -80,19 +82,18 @@ def contents_url(path: str) -> str:
 
 
 def github_get_file(path: str, token: str) -> Optional[bytes]:
+    # The JSON contents endpoint omits content for files over 1 MB, which is
+    # exactly the size of the parsed-activity cache. Ask GitHub for raw bytes.
+    url = contents_url(path) + "?" + urllib.parse.urlencode({"ref": PRIVATE_BRANCH})
+    headers = github_headers(token)
+    headers["Accept"] = "application/vnd.github.raw+json"
     try:
-        result = sync.request_json(
-            contents_url(path),
-            headers=github_headers(token),
-            params={"ref": PRIVATE_BRANCH},
-        )
+        raw, _ = sync.http_request(url, headers=headers)
     except sync.SyncError as exc:
         if "HTTP 404" in str(exc):
             return None
         raise
-    if not isinstance(result, dict) or result.get("encoding") != "base64":
-        return None
-    return base64.b64decode(result.get("content") or "")
+    return raw
 
 
 def github_put_file(path: str, content: bytes, token: str, message: str) -> None:
@@ -319,7 +320,7 @@ def main(argv: Optional[list[str]] = None) -> int:
         seed_private(
             args.state.expanduser(),
             args.sync_state.expanduser(),
-            github_token(local_seed=True),
+            github_token(),
         )
         return 0
 
