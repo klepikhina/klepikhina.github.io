@@ -55,13 +55,6 @@
       unit: 'mi',
       colors: ['#6F8C6B', '#527751', '#3A5E3D', '#28482E', '#173420']
     },
-    area: {
-      property: 'area_km2',
-      short: 'Area',
-      label: 'Area covered',
-      unit: 'km\u00b2',
-      colors: ['#6F8C6B', '#527751', '#3A5E3D', '#28482E', '#173420']
-    },
     touring: {
       property: 'ski_touring_count',
       short: 'Touring',
@@ -634,8 +627,7 @@
     return [
       { label: sport + ' ' + activityNoun(count), value: formatNumber(count) },
       { label: 'Vert', value: formatNumber(properties[prefix + 'vert_ft']) + ' ft' },
-      { label: 'Distance', value: formatNumber(properties[prefix + 'distance_mi']) + ' mi' },
-      { label: 'Area', value: formatNumber(properties.area_km2) + ' km\u00b2' }
+      { label: 'Distance', value: formatNumber(properties[prefix + 'distance_mi']) + ' mi' }
     ];
   }
 
@@ -734,8 +726,9 @@
     state.legend.querySelector('.atlas-legend__title').textContent = densityLabel();
     state.legend.querySelector('.atlas-legend__min').textContent = '0';
     state.legend.querySelector('.atlas-legend__max').textContent = formatNumber(max) + ' / cell';
+    // Use the exact ramp the map paints, so the key cannot drift from the map.
     state.legend.querySelector('.atlas-legend__bar').style.background =
-      'linear-gradient(90deg,#F7ECB3,#FAD082,#F6C96B,#EE9A4C,#D9643F,#93352A)';
+      'linear-gradient(90deg,' + METRICS[state.metric].colors.join(',') + ')';
   }
 
   // Keep the green admin shading and the heatmap on exactly the same filter /
