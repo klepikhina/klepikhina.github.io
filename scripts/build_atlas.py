@@ -19,10 +19,12 @@ The script has two data sources:
     (title, location, region, latitude/longitude or nested coordinates, activity,
     date). This produces the committed sample files.
 
-  * Private mode - pass --strava-dir and/or --ticks-csv. Raw GPX/FIT tracks are
-    read in memory, spatially joined to admin polygons, and reduced to counts
-    and sums per region. Raw tracks are never written to disk and never copied
-    into the repo. Only aggregate numbers and public admin polygons are emitted.
+  * Private mode - pass --strava-dir, --garmin-dir, and/or --ticks-csv. Raw
+    GPX/FIT tracks are read in memory, spatially joined to admin polygons, and
+    reduced to counts and sums per region. Raw tracks are never written to disk
+    and never copied into the repo. Only aggregate numbers and public admin
+    polygons are emitted. Garmin activities win when the same outing appears in
+    both Strava and Garmin exports.
 
 Curated blogged GPX (opt-in, public by definition) can be turned into real
 route lines with --blogged. Those tracks are trimmed by --trim-meters at each
@@ -39,6 +41,7 @@ Private aggregation + curated lines (exports stay in gitignored private/):
     python3 scripts/fetch_crag_coords.py --ticks private/mountain-project-ticks.csv
     python3 scripts/build_atlas.py \
         --strava-dir private/strava_export \
+        --garmin-dir private/garmin_export \
         --ticks-csv private/mountain-project-ticks.csv \
         --blogged scripts/blogged_tracks.json \
         --download-watersheds
@@ -264,7 +267,12 @@ STATE_VERSION = 2
 
 
 def empty_state() -> Dict[str, Any]:
-    return {"version": STATE_VERSION, "strava": {}, "ticks": {"coords_sig": "", "rows": {}}}
+    return {
+        "version": STATE_VERSION,
+        "strava": {},
+        "garmin": {},
+        "ticks": {"coords_sig": "", "rows": {}},
+    }
 
 
 def load_state(path: Path, enabled: bool = True) -> Dict[str, Any]:
@@ -280,6 +288,7 @@ def load_state(path: Path, enabled: bool = True) -> Dict[str, Any]:
         warn("cache schema changed; reparsing private exports")
         return empty_state()
     data.setdefault("strava", {})
+    data.setdefault("garmin", {})
     ticks = data.setdefault("ticks", {})
     ticks.setdefault("coords_sig", "")
     ticks.setdefault("rows", {})
@@ -664,7 +673,11 @@ def read_strava_metadata(strava_dir: Path) -> Dict[str, Dict[str, str]]:
     metadata: Dict[str, Dict[str, str]] = {}
     with path.open("r", encoding="utf-8-sig", errors="replace", newline="") as handle:
         for row in csv.DictReader(handle):
-            lower = {str(key).strip().lower(): (value or "").strip() for key, value in row.items()}
+            lower = {
+                str(key).strip().lower(): (value or "").strip() if isinstance(value, str) else ""
+                for key, value in row.items()
+                if key
+            }
             filename = lower.get("filename") or lower.get("file name") or ""
             activity_id = lower.get("activity id") or lower.get("id") or ""
             activity_type = lower.get("activity type") or lower.get("type") or ""
@@ -787,7 +800,9 @@ def load_strava_activities(
     return records
 
 
-def attach_ski_styles(records: List[Dict[str, Any]], strava_dir: Path) -> int:
+def attach_ski_styles(
+    records: List[Dict[str, Any]], strava_dir: Path, source: Optional[str] = None
+) -> int:
     """Add ski style from activities.csv without re-parsing cached tracks."""
     metadata = read_strava_metadata(strava_dir)
     if not metadata:
@@ -795,6 +810,8 @@ def attach_ski_styles(records: List[Dict[str, Any]], strava_dir: Path) -> int:
     attached = 0
     for record in records:
         if record.get("activity") != "ski" or record.get("ski_style"):
+            continue
+        if source and record.get("source") != source:
             continue
         slug = str(record.get("slug") or "")
         candidates = [slug, slug.split(".")[0], slug.replace(".fit", "").replace(".gpx", "")]
@@ -807,6 +824,135 @@ def attach_ski_styles(records: List[Dict[str, Any]], strava_dir: Path) -> int:
         if not record.get("ski_style"):
             record["ski_style"] = classify_ski_style(str(record.get("title") or slug))
     return attached
+
+
+def read_garmin_metadata(garmin_dir: Path) -> Dict[str, Dict[str, str]]:
+    """Read Garmin activities.csv using the same column names as Strava."""
+    return read_strava_metadata(garmin_dir)
+
+
+def load_garmin_activities(
+    garmin_dir: Path,
+    cache: Optional[Dict[str, Any]] = None,
+) -> List[Dict[str, Any]]:
+    """Read Garmin FIT/GPX exports, reusing cached summaries for unchanged files.
+
+    The sync layer writes Garmin tracks into ``private/garmin_export`` with an
+    ``activities.csv`` that mirrors Strava's column names, so the same parser
+    can be reused. The cache is separate from Strava's.
+    """
+    if not garmin_dir.exists():
+        warn(f"Garmin directory not found: {garmin_dir}")
+        return []
+    metadata = read_garmin_metadata(garmin_dir)
+    files = discover_track_files(garmin_dir)
+    log(f"discovered {len(files):,} Garmin track files")
+    records: List[Dict[str, Any]] = []
+    active_keys = set()
+    reused = 0
+    parsed = 0
+
+    for path in files:
+        key = str(path.resolve())
+        active_keys.add(key)
+        signature = file_signature(path)
+        cached = cache.get(key) if cache is not None else None
+        if (
+            isinstance(cached, dict)
+            and cached.get("sig") == signature
+            and isinstance(cached.get("record"), dict)
+        ):
+            records.append(stable_private_record(cached["record"]))
+            reused += 1
+            continue
+
+        if path.name.lower().endswith((".fit", ".fit.gz")):
+            points, fit_sport = read_fit(path)
+        else:
+            points = read_gpx(path)
+            fit_sport = ""
+        if len(points) < 2:
+            if cache is not None:
+                cache.pop(key, None)
+            continue
+        stats = track_stats(points)
+        meta = metadata.get(path.name) or metadata.get(path.stem.split(".")[0]) or {}
+        date_text = meta.get("date") or ""
+        if not date_text:
+            timestamps = [point[3] for point in points if point[3] is not None]
+            if timestamps:
+                date_text = timestamps[0].date().isoformat()
+        sport = meta.get("sport") or normalize_sport(fit_sport) or "other"
+        record = {
+            "slug": path.stem,
+            "title": meta.get("name") or path.stem,
+            "activity": sport,
+            "ski_style": meta.get("ski_style") or classify_ski_style(meta.get("name") or path.stem),
+            "location": "",
+            "region_name": None,
+            "region_id": None,
+            "configured_region": None,
+            "lat": points[0][1],
+            "lon": points[0][0],
+            "date": date_text,
+            "season_year": season_year(date_text),
+            "summary": "",
+            "image": "",
+            "post_url": "",
+            "distance_mi": round(stats["distance_mi"], 2),
+            "elevation_ft": round(stats["gain_ft"]),
+            "grade": "",
+            "pitches": None,
+            "source": "garmin",
+        }
+        if cache is not None:
+            cache[key] = {"sig": signature, "record": stable_private_record(record)}
+        records.append(record)
+        parsed += 1
+
+    if cache is not None:
+        for key in list(cache):
+            if key not in active_keys:
+                del cache[key]
+    log(f"Garmin tracks: {reused} cached, {parsed} newly parsed")
+    return records
+
+
+def dedupe_garmin_primary(
+    strava_records: List[Dict[str, Any]], garmin_records: List[Dict[str, Any]]
+) -> Tuple[List[Dict[str, Any]], int]:
+    """Drop Strava duplicates of Garmin activities (Garmin is authoritative).
+
+    A match is the same local date, the same atlas activity filter, and a track
+    distance within 12% (or half a mile, whichever is larger). Dates can differ
+    by a few seconds at midnight, which this deliberately tolerates.
+    """
+    if not garmin_records or not strava_records:
+        return strava_records, 0
+    keep: List[Dict[str, Any]] = []
+    removed = 0
+    for strava in strava_records:
+        duplicate = False
+        for garmin in garmin_records:
+            if strava.get("date") != garmin.get("date"):
+                continue
+            if strava.get("activity") != garmin.get("activity"):
+                continue
+            distance_a = to_float(strava.get("distance_mi"))
+            distance_b = to_float(garmin.get("distance_mi"))
+            if distance_a is None or distance_b is None:
+                continue
+            tolerance = max(0.5, 0.12 * max(abs(distance_a), abs(distance_b)))
+            if abs(distance_a - distance_b) <= tolerance:
+                duplicate = True
+                break
+        if duplicate:
+            removed += 1
+        else:
+            keep.append(strava)
+    if removed:
+        log(f"Garmin primary de-duplication: dropped {removed} overlapping Strava activity(ies)")
+    return keep, removed
 
 
 def load_mp_ticks(
@@ -860,7 +1006,11 @@ def load_mp_ticks(
     with csv_path.open("r", encoding="utf-8-sig", errors="replace", newline="") as handle:
         reader = csv.DictReader(handle)
         for row in reader:
-            lower = {str(key).strip().lower(): (value or "").strip() for key, value in row.items()}
+            lower = {
+                str(key).strip().lower(): (value or "").strip() if isinstance(value, str) else ""
+                for key, value in row.items()
+                if key
+            }
             # Hash only fields that affect the published aggregates. Notes,
             # personal stars, and URLs can change in a refreshed export without
             # forcing a reparse.
@@ -1868,6 +2018,53 @@ def write_collection(
         "metadata": metadata,
         "features": list(features),
     })
+    # Keep generated_at stable when the published content is unchanged. Without
+    # this, every scheduled sync would create an empty data commit and PR.
+    if path.exists():
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            existing = None
+        if isinstance(existing, dict):
+            old_meta = dict(existing.get("metadata") or {})
+            old_stamp = old_meta.pop("generated_at", None)
+            new_meta = dict(collection["metadata"])
+            new_stamp = new_meta.pop("generated_at", None)
+            old_features = existing.get("features")
+            new_features = collection["features"]
+            features_equal = old_features == new_features
+            if not features_equal:
+                # Density cells are keyed by cell_id; their input order can vary
+                # when a new source is added. Preserve the published order when
+                # the keyed contents are identical.
+                def by_cell_id(features: Any) -> Optional[Dict[str, Any]]:
+                    if not isinstance(features, list):
+                        return None
+                    mapped: Dict[str, Any] = {}
+                    for feature in features:
+                        props = feature.get("properties") if isinstance(feature, dict) else None
+                        cell_id = props.get("cell_id") if isinstance(props, dict) else None
+                        if not isinstance(cell_id, str):
+                            return None
+                        mapped[cell_id] = feature
+                    return mapped
+
+                old_map = by_cell_id(old_features)
+                new_map = by_cell_id(new_features)
+                if old_map is not None and new_map is not None and old_map == new_map:
+                    collection["features"] = old_features
+                    features_equal = True
+            if (
+                existing.get("type") == collection["type"]
+                and features_equal
+                and old_meta == new_meta
+            ):
+                collection["metadata"]["generated_at"] = old_stamp or new_stamp
+                if dry_run:
+                    log(f"dry run: no data change for {path}")
+                else:
+                    log(f"unchanged {path}")
+                return
     payload = json.dumps(collection, ensure_ascii=False, indent=1, allow_nan=False)
     if dry_run:
         log(f"dry run: would write {path} ({len(payload):,} bytes)")
@@ -1933,6 +2130,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--posts-dir", type=Path, default=REPO_ROOT, help="Jekyll site root (default: repo root)")
     parser.add_argument("--strava-dir", type=Path, help="folder of raw Strava GPX/FIT exports (private mode)")
+    parser.add_argument("--garmin-dir", type=Path, help="folder of raw Garmin FIT/GPX exports (private mode)")
     parser.add_argument("--ticks-csv", type=Path, help="private Mountain Project ticks CSV (keep outside data/)")
     parser.add_argument(
         "--crag-coords",
@@ -1992,11 +2190,20 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     log(f"posts with coordinates: {len(posts)}")
 
     private_records: List[Dict[str, Any]] = []
+    strava_records: List[Dict[str, Any]] = []
+    garmin_records: List[Dict[str, Any]] = []
     if args.strava_dir:
         strava_cache = state["strava"] if cache_enabled else None
         strava_records = load_strava_activities(args.strava_dir.expanduser(), strava_cache)
         log(f"Strava activities read: {len(strava_records)}")
-        private_records.extend(strava_records)
+    if args.garmin_dir:
+        garmin_cache = state["garmin"] if cache_enabled else None
+        garmin_records = load_garmin_activities(args.garmin_dir.expanduser(), garmin_cache)
+        log(f"Garmin activities read: {len(garmin_records)}")
+    if garmin_records:
+        strava_records, _ = dedupe_garmin_primary(strava_records, garmin_records)
+    private_records.extend(garmin_records)
+    private_records.extend(strava_records)
     if args.ticks_csv:
         crag_coords: Dict[str, Tuple[float, float]] = {}
         coords_path = args.crag_coords
@@ -2019,9 +2226,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         private_records.extend(ticks)
 
     if args.strava_dir:
-        attached = attach_ski_styles(private_records, args.strava_dir.expanduser())
+        attached = attach_ski_styles(private_records, args.strava_dir.expanduser(), source="strava")
         if attached:
             log(f"ski styles from Strava metadata: {attached} activity(ies)")
+    if args.garmin_dir:
+        attached = attach_ski_styles(private_records, args.garmin_dir.expanduser(), source="garmin")
+        if attached:
+            log(f"ski styles from Garmin metadata: {attached} activity(ies)")
 
     dynamic = config.get("mode") == "dynamic"
     snap_deg = 0 if dynamic else 0.08
@@ -2145,9 +2356,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             }
         )
 
+    generated_at = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     region_metadata = {
         "generated_by": "scripts/build_atlas.py",
-        "generated_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_at": generated_at,
         "watershed_source": config["watershed"]["dataset"],
         "region_basis": (
             "Natural Earth admin-1 states/provinces (US/Canada) and admin-0 countries"
@@ -2163,7 +2375,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     }
     route_metadata = {
         "generated_by": "scripts/build_atlas.py",
-        "generated_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_at": generated_at,
         "curation": (
             "Only explicitly curated, blog-linked routes from scripts/curated_routes.json. "
             "When GPX is supplied, lines are trimmed and timestamps are stripped."
@@ -2173,7 +2385,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     density_metadata = {
         "generated_by": "scripts/build_atlas.py",
-        "generated_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated_at": generated_at,
         "cell_deg": density_info["cell_deg"],
         "privacy": (
             "Anonymised density only. Activity locations are coarsened into "

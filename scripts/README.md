@@ -11,7 +11,7 @@
 Everything the browser sees is generated from:
 
 - YAML front matter in `*_posts/*.md` (the public blog), and/or
-- a private Strava export and Mountain Project ticks CSV that stay on your machine.
+- private Strava/Garmin exports and a Mountain Project ticks CSV that stay on your machine.
 
 The atlas is global: Natural Earth admin-1 polygons cover US states and Canadian
 provinces, and admin-0 polygons cover every other country, so California,
@@ -59,6 +59,85 @@ per continent, downloaded on demand and cached in `~/.cache/klepikhina-atlas`
 (override with `KLEPIKINA_ATLAS_CACHE`). Public Natural Earth country polygons
 are cached there too, for naming regions outside the blog.
 
+## Automatic source sync
+
+`sync_sources.py` is the local sync daemon. It polls Strava and Garmin for new
+activities, refreshes the Mountain Project ticks CSV, rebuilds the atlas
+incrementally, then commits/pushes `data/*.geojson` to `dev` and opens or updates
+a PR for review. **It never merges.** Install the launchd agent and changes show
+up on GitHub within `interval_minutes` (15 by default).
+
+One-time setup:
+
+```bash
+python3 -m pip install -r scripts/requirements.txt
+python3 scripts/sync_sources.py setup-strava      # stores client id/secret, prints auth URL
+python3 scripts/sync_sources.py authorize-strava  # paste the code from the redirect URL
+python3 scripts/sync_sources.py setup-garmin      # Personal API key from Garmin Connect settings
+python3 scripts/sync_sources.py setup-github      # token used only to open/update the PR
+python3 -m pip install playwright && python3 -m playwright install chromium
+python3 scripts/sync_sources.py mountain-login    # log in once; saves the ticks URL
+python3 scripts/sync_sources.py install-scheduler
+python3 scripts/sync_sources.py status
+```
+
+- **Strava:** create an API app at `strava.com/settings/api`, set the callback
+  domain to `localhost`, and request `activity:read_all`. New API apps may need a
+  paid Strava subscription; a 403 during token setup usually means that. The
+  sync refreshes the short-lived token automatically and stores only the rotating
+  refresh token in macOS Keychain. It fetches activities since the last run (plus a 7-day lookback
+  for late uploads), downloads `latlng`/`altitude`/`time` streams, writes private
+  GPX files into `private/strava_export/activities/`, and appends matching rows
+  to `activities.csv`.
+- **Garmin:** create a **Personal API key** in Garmin Connect → Settings →
+  Personal API Token. The sync exchanges it for a 24-hour bearer token, caches
+  that token in `private/sync_state.json`, downloads each new activity ZIP,
+  extracts the FIT/GPX track into `private/garmin_export/activities/`, and writes
+  `private/garmin_export/activities.csv`. The official client requires Python
+  3.12, so this script calls the documented endpoints directly and works with
+  the repo's Python 3.11 environment.
+- **Mountain Project:** the public Data API is closed, so this is best-effort
+  browser automation. `mountain-login` opens a persistent Chromium profile; the
+  sync reuses that logged-in session to click **Export CSV** on your ticks page.
+  If the browser step fails, it falls back to copying a newer ticks CSV from
+  `~/Downloads`. There is no new-activity webhook, so a new tick appears after
+  you export (or after the browser automation runs).
+- **Secrets:** macOS Keychain is preferred (`security` CLI). If it is unavailable,
+  `private/.env` is used with `0600` permissions. Neither is committed. Never
+  paste a token in chat or a shell command you intend to keep in history.
+- **Garmin wins:** if an outing appears in both Strava and Garmin (same local
+  date, activity filter, and track distance within 12% / 0.5 mi), the Strava
+  copy is dropped. Blog posts are still de-duplicated against the winner.
+- **Publishing:** data changes are committed on `dev`, pushed to `origin/dev`,
+  and a PR `dev → master` is opened or updated with title “Update adventure
+  atlas data”. You merge when you are happy with it. Set `auto_publish: false`
+  in `private/sync_config.json` to keep changes local only.
+
+Non-secret settings live in `private/sync_config.json` (gitignored). Useful ones:
+
+```json
+{
+  "interval_minutes": 15,
+  "strava_lookback_days": 7,
+  "garmin_lookback_days": 7,
+  "max_activities_per_sync": 100,
+  "mountain_project_ticks_url": "",
+  "refresh_crag_coords": false,
+  "auto_publish": true
+}
+```
+
+Manual commands:
+
+```bash
+python3 scripts/sync_sources.py sync --dry-run              # credentials/state only
+python3 scripts/sync_sources.py sync --sources strava,garmin
+python3 scripts/sync_sources.py sync --no-publish           # rebuild locally
+python3 scripts/sync_sources.py uninstall-scheduler
+```
+
+Logs go to `private/logs/sync.log` when installed via launchd.
+
 ## Build from the blog only
 
 This is how the committed sample files were produced. It needs nothing except
@@ -70,9 +149,10 @@ python3 scripts/build_atlas.py --download-watersheds
 
 ## Build with private activity data
 
-Export from Strava (**Settings → My Account → Download or Delete Your Account →
-Request your archive**) and download your Mountain Project ticks CSV. Put them
-in `private/`, which is gitignored and excluded from Jekyll:
+For ongoing updates, use **Automatic source sync** above. For a one-time manual
+import, export from Strava (**Settings → My Account → Download or Delete Your
+Account → Request your archive**) and download your Mountain Project ticks CSV.
+Put them in `private/`, which is gitignored and excluded from Jekyll:
 
 ```bash
 mkdir -p private
@@ -265,6 +345,7 @@ warnings for empty geometry, zero-activity regions, or missing slugs.
 | `--watersheds PATH [PATH ...]` | Use local shapefiles instead of all cached continents |
 | `--regions-geojson PATH` | Reuse region polygons from an existing file |
 | `--strava-dir PATH` | Private Strava export directory |
+| `--garmin-dir PATH` | Private Garmin export directory (Garmin wins overlaps) |
 | `--ticks-csv PATH` | Private Mountain Project ticks CSV |
 | `--crag-coords PATH` | JSON location/crag → `[lon, lat]` (default `scripts/crag_coords.json`) |
 | `--blogged PATH` | Manifest of published GPX tracks |
