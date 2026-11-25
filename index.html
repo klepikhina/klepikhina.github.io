@@ -59,15 +59,15 @@ map_lib: true
   {% endfor %}
 </div>
 
-<!-- Currently Reading -->                                                                                                                            
-  <div class="section-header">                                                                                                                          
-    <h2>Recently Read</h2>                                                                                                                          
-    <p class="section-subtitle"><a href="{{ site.baseurl }}/books">See all books &rarr;</a></p>                                                       
-  </div>
+<!-- Currently Reading -->
+<div class="section-header">
+  <h2>Recently Read</h2>
+  <p class="section-subtitle"><a href="{{ site.baseurl }}/books">See all books &rarr;</a></p>
+</div>
 
-  <div id="current-books" class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-    <!-- Books loaded dynamically -->
-  </div>
+<div id="current-books" class="card-grid">
+  <!-- Books loaded dynamically -->
+</div>
 
   <script>
   fetch('{{ site.baseurl }}/js/books.json')

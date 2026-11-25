@@ -15,9 +15,9 @@ permalink: /books/
   <p class="section-subtitle">Books read by year and format</p>
 </div>
 
-<div class="stats-container" style="display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
-  <div id="books-by-year" style="flex: 1; min-width: 300px;"></div>
-  <div id="books-by-format" style="flex: 1; min-width: 250px;"></div>
+<div class="stats-container">
+  <div id="books-by-year"></div>
+  <div id="books-by-format"></div>
 </div>
 
 <noscript>
@@ -32,13 +32,32 @@ permalink: /books/
 </div>
 
 <!-- Format filter -->
-<div class="bookshelf-filters" style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+<div class="bookshelf-filters">
   <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
   <button type="button" class="filter-pill filter-pill--physical" data-filter="physical" aria-pressed="false">Physical</button>
   <button type="button" class="filter-pill filter-pill--audio" data-filter="audio" aria-pressed="false">Audio</button>
 </div>
 
 <style>
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stats-container > div {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.bookshelf-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .bookshelf-filters .filter-pill {
   padding: 0.5rem 1rem;
   border: 2px solid #E8E4DF;
@@ -212,6 +231,26 @@ permalink: /books/
   margin-top: 4px;
   text-transform: capitalize;
 }
+
+@media screen and (max-width: 640px) {
+  .stats-container {
+    gap: 1rem;
+  }
+
+  .stats-container > div {
+    flex-basis: 100%;
+  }
+
+  .bookshelf-filters .filter-pill {
+    flex: 1 1 auto;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .bookshelf-grid {
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    gap: 0.75rem;
+  }
+}
 </style>
 
 <div id="bookshelf" class="bookshelf"></div>
@@ -362,8 +401,10 @@ permalink: /books/
     const rect = e.currentTarget.getBoundingClientRect();
     const x = Number.isFinite(e.clientX) ? e.clientX : rect.left + rect.width / 2;
     const y = Number.isFinite(e.clientY) ? e.clientY : rect.bottom;
-    tooltip.style.left = (x + 15) + 'px';
-    tooltip.style.top = (y + 15) + 'px';
+    const maxLeft = window.innerWidth - tooltip.offsetWidth - 8;
+    const maxTop = window.innerHeight - tooltip.offsetHeight - 8;
+    tooltip.style.left = Math.max(8, Math.min(x + 15, maxLeft)) + 'px';
+    tooltip.style.top = Math.max(8, Math.min(y + 15, maxTop)) + 'px';
   }
 
   function moveTooltip(e) {

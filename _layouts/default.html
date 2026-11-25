@@ -115,24 +115,45 @@
     <script>
     // Mobile navigation handling (keyboard accessible)
     function bindNavToggle(toggle, containerSelector) {
+      const container = toggle.closest(containerSelector);
+
+      function setExpanded(open) {
+        toggle.setAttribute('aria-expanded', String(open));
+      }
+
       function toggleMenu(event) {
         if (window.innerWidth > 640) return;
         event.preventDefault();
         event.stopPropagation();
-        const container = toggle.closest(containerSelector);
-        const open = container.classList.toggle('active');
-        toggle.setAttribute('aria-expanded', String(open));
+
+        const open = !container.classList.contains('active');
+        document.querySelectorAll(containerSelector + '.active').forEach(function(other) {
+          if (other === container) return;
+          other.classList.remove('active');
+          const otherToggle = other.querySelector(':scope > .nav-dropdown__toggle, :scope > .nav-dropdown__item--has-submenu');
+          if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+        });
+
+        container.classList.toggle('active', open);
+        setExpanded(open);
       }
+
       toggle.addEventListener('click', toggleMenu);
       toggle.addEventListener('keydown', function(event) {
         if (event.key === 'Enter' || event.key === ' ') toggleMenu(event);
       });
-      // Desktop CSS opens menus on :focus-within; keep ARIA in sync.
+
+      // Desktop CSS opens menus on :focus-within; keep ARIA in sync while
+      // focus moves through links inside the panel.
       toggle.addEventListener('focus', function() {
-        if (window.innerWidth > 640) toggle.setAttribute('aria-expanded', 'true');
+        if (window.innerWidth > 640) setExpanded(true);
       });
-      toggle.addEventListener('blur', function() {
-        if (window.innerWidth > 640) toggle.setAttribute('aria-expanded', 'false');
+      container.addEventListener('focusout', function() {
+        if (window.innerWidth > 640) {
+          requestAnimationFrame(function() {
+            if (!container.contains(document.activeElement)) setExpanded(false);
+          });
+        }
       });
     }
 
