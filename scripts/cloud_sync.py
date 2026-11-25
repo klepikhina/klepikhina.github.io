@@ -28,6 +28,7 @@ import argparse
 import base64
 import binascii
 import datetime as dt
+import gzip
 import json
 import os
 import subprocess
@@ -190,6 +191,13 @@ def write_ticks_secret(temp: Path) -> Optional[Path]:
         raw = base64.b64decode(encoded, validate=True)
     except (ValueError, binascii.Error) as exc:
         raise sync.SyncError(f"MOUNTAIN_PROJECT_TICKS_B64 is not valid base64: {exc}") from exc
+    # GitHub Actions secrets have a size limit, so the CSV is usually gzipped
+    # before base64 encoding. Accept plain CSV too for older setups.
+    if raw.startswith(b"\x1f\x8b"):
+        try:
+            raw = gzip.decompress(raw)
+        except OSError as exc:
+            raise sync.SyncError(f"MOUNTAIN_PROJECT_TICKS_B64 gzip data is invalid: {exc}") from exc
     path = temp / "mountain-project-ticks.csv"
     path.write_bytes(raw)
     log(f"Mountain Project: staged {len(raw):,} bytes of private ticks data")

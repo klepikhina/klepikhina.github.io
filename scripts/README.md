@@ -104,8 +104,10 @@ One-time setup:
 4. Create the Mountain Project secret after each new CSV export:
 
    ```bash
-   base64 -i private/mountain-project-ticks.csv | tr -d '\n' | pbcopy
+   gzip -c private/mountain-project-ticks.csv | base64 | tr -d '\n' | pbcopy
    ```
+
+   Gzip keeps the secret well under GitHub's size limit; the sync decompresses it automatically.
 
    Paste that value into the `MOUNTAIN_PROJECT_TICKS_B64` Actions secret.
 
