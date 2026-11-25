@@ -20,6 +20,16 @@
     water: '#0C589C'
   };
 
+  // Shared with the legend so the density key always shows the heatmap ramp.
+  var HEATMAP_COLORS = [
+    'rgba(255, 236, 179, 0)',
+    'rgba(250, 220, 130, 0.55)',
+    '#F6C96B',
+    '#EE9A4C',
+    '#D9643F',
+    '#93352A'
+  ];
+
   var ACTIVITY_LABELS = {
     bike: 'Bike',
     climb: 'Climb',
@@ -318,12 +328,12 @@
   function heatmapColorExpression() {
     return [
       'interpolate', ['linear'], ['heatmap-density'],
-      0, 'rgba(255, 236, 179, 0)',
-      0.16, 'rgba(250, 220, 130, 0.55)',
-      0.35, '#F6C96B',
-      0.58, '#EE9A4C',
-      0.78, '#D9643F',
-      1, '#93352A'
+      0, HEATMAP_COLORS[0],
+      0.16, HEATMAP_COLORS[1],
+      0.35, HEATMAP_COLORS[2],
+      0.58, HEATMAP_COLORS[3],
+      0.78, HEATMAP_COLORS[4],
+      1, HEATMAP_COLORS[5]
     ];
   }
 
@@ -726,9 +736,10 @@
     state.legend.querySelector('.atlas-legend__title').textContent = densityLabel();
     state.legend.querySelector('.atlas-legend__min').textContent = '0';
     state.legend.querySelector('.atlas-legend__max').textContent = formatNumber(max) + ' / cell';
-    // Use the exact ramp the map paints, so the key cannot drift from the map.
+    // The box is the heatmap key, so it uses the same ramp as the heatmap layer.
+    // Skip the fully transparent zero stop so the key is legible.
     state.legend.querySelector('.atlas-legend__bar').style.background =
-      'linear-gradient(90deg,' + METRICS[state.metric].colors.join(',') + ')';
+      'linear-gradient(90deg,' + HEATMAP_COLORS.slice(1).join(',') + ')';
   }
 
   // Keep the green admin shading and the heatmap on exactly the same filter /
