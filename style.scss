@@ -1392,6 +1392,237 @@ body.atlas-drawer-open {
 }
 
 // ==========================================
+// Year in Motion Spiral
+// ==========================================
+.motion-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+
+  > div {
+    background: $cream;
+    border: 1px solid $stone-light;
+    border-radius: 12px;
+    padding: 0.85rem 0.5rem;
+    text-align: center;
+    min-width: 0;
+  }
+
+  strong {
+    display: block;
+    color: $forest-dark;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  span {
+    display: block;
+    color: $stone-medium;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+
+    strong { font-size: 1.25rem; }
+    span { font-size: 0.7rem; }
+  }
+}
+
+.insight-card {
+  background: #fff;
+  border: 1px solid $stone-light;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(45, 90, 61, 0.06);
+
+  @include mobile {
+    padding: 1rem 0.75rem;
+  }
+}
+
+.motion-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.motion-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+
+  .filter-pill {
+    padding: 0.35rem 0.75rem;
+    border: 1.5px solid $stone-light;
+    border-radius: 20px;
+    background: $cream;
+    color: $stone-medium;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    &:hover { border-color: $forest-medium; color: $forest-dark; }
+    &.active { background: $forest-medium; border-color: $forest-medium; color: #fff; }
+    &.filter-pill--bike.active { background: $color-bike; border-color: $color-bike; }
+    &.filter-pill--climb.active { background: $color-climb; border-color: $color-climb; color: $stone-dark; }
+    &.filter-pill--hike.active { background: $color-hike; border-color: $color-hike; }
+    &.filter-pill--run.active { background: $color-run; border-color: $color-run; }
+    &.filter-pill--ski.active { background: $color-ski; border-color: $color-ski; color: $stone-dark; }
+    &.filter-pill--water.active { background: $color-water; border-color: $color-water; }
+  }
+}
+
+.motion-scale {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: $stone-medium;
+  font-size: 0.85rem;
+  white-space: nowrap;
+
+  input { accent-color: $forest-medium; }
+}
+
+.motion-spiral {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+
+  svg {
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+  }
+
+  @include mobile {
+    svg { max-width: 520px; }
+  }
+}
+
+.motion-ring {
+  fill: none;
+  stroke: $stone-light;
+  stroke-width: 1;
+}
+
+.motion-spokes line {
+  stroke: $stone-light;
+  stroke-width: 0.7;
+  opacity: 0.75;
+}
+
+.motion-month,
+.motion-year-label {
+  fill: $stone-medium;
+  font-size: 11px;
+  font-family: $helvetica;
+}
+
+.motion-month { text-anchor: middle; }
+
+.motion-petal {
+  cursor: pointer;
+  transition: opacity 0.15s ease, stroke-width 0.15s ease;
+
+  &:hover,
+  &:focus {
+    stroke: $forest-dark;
+    stroke-width: 1.6;
+    outline: none;
+    filter: drop-shadow(0 0 3px rgba(45, 90, 61, 0.45));
+  }
+}
+
+.motion-glow { pointer-events: none; }
+
+.motion-hub-bg {
+  fill: $cream;
+  stroke: $stone-light;
+}
+
+.motion-hub-title {
+  text-anchor: middle;
+  fill: $forest-dark;
+  font-family: $helveticaNeue;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.motion-hub-years {
+  text-anchor: middle;
+  fill: $stone-medium;
+  font-size: 12px;
+}
+
+.motion-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1rem;
+  margin-top: 1rem;
+  color: $stone-medium;
+  font-size: 0.85rem;
+
+  span { display: inline-flex; align-items: center; gap: 0.35rem; }
+}
+
+.motion-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &--bike { background: $color-bike; }
+  &--climb { background: $color-climb; }
+  &--hike { background: $color-hike; }
+  &--run { background: $color-run; }
+  &--ski { background: $color-ski; }
+  &--water { background: $color-water; }
+}
+
+.motion-tooltip {
+  position: fixed;
+  z-index: 1000;
+  max-width: 240px;
+  padding: 0.6rem 0.75rem;
+  background: #fff;
+  border: 1px solid $stone-light;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  color: $stone-dark;
+  font-size: 0.85rem;
+  pointer-events: auto;
+
+  &[hidden] { display: none; }
+  strong, span { display: block; }
+  span { color: $stone-medium; margin-top: 0.15rem; }
+  a { display: block; margin-top: 0.35rem; font-size: 0.8rem; }
+}
+
+.motion-hint {
+  margin: 0.75rem 0 0;
+  text-align: center;
+  color: $stone-medium;
+  font-size: 0.85rem;
+}
+
+.motion-empty {
+  padding: 4rem 1rem;
+  text-align: center;
+  color: $stone-medium;
+}
+
+// ==========================================
 // Utilities
 // ==========================================
 .text-center { text-align: center; }

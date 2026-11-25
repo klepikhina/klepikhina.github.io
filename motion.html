@@ -1,0 +1,65 @@
+---
+layout: default
+title: Year in Motion
+permalink: /motion/
+---
+
+<div class="page-header">
+  <h1>Year in Motion</h1>
+  <p class="page-description">One petal per day I moved. Length is distance, glow is elevation, color is the sport.</p>
+</div>
+
+{% assign daily = site.data.insights.daily %}
+{% if daily.metadata %}
+<div class="motion-summary" aria-label="Lifetime activity summary">
+  <div><strong>{{ daily.metadata.days }}</strong><span>days outside</span></div>
+  <div><strong>{{ daily.metadata.total_distance_mi }}</strong><span>miles logged</span></div>
+  <div><strong>{{ daily.metadata.total_elevation_ft }}</strong><span>feet of vert</span></div>
+  <div><strong>{{ daily.metadata.years }}</strong><span>years of stories</span></div>
+</div>
+{% endif %}
+
+<section class="insight-card motion-card">
+  <div class="motion-toolbar">
+    <div class="motion-filters" role="group" aria-label="Filter by activity">
+      <button type="button" class="filter-pill active" data-sport="all" aria-pressed="true">All</button>
+      <button type="button" class="filter-pill filter-pill--bike" data-sport="bike" aria-pressed="false">Bike</button>
+      <button type="button" class="filter-pill filter-pill--climb" data-sport="climb" aria-pressed="false">Climb</button>
+      <button type="button" class="filter-pill filter-pill--hike" data-sport="hike" aria-pressed="false">Hike</button>
+      <button type="button" class="filter-pill filter-pill--run" data-sport="run" aria-pressed="false">Run</button>
+      <button type="button" class="filter-pill filter-pill--ski" data-sport="ski" aria-pressed="false">Ski</button>
+      <button type="button" class="filter-pill filter-pill--water" data-sport="water" aria-pressed="false">Water</button>
+    </div>
+    <label class="motion-scale">
+      <input type="checkbox" id="motion-year-scale" />
+      Scale each year to itself
+    </label>
+  </div>
+
+  <div id="motion-spiral" class="motion-spiral" role="img" aria-label="Radial calendar of activity days by year and sport"></div>
+  <div id="motion-tooltip" class="motion-tooltip" role="status" aria-live="polite" hidden></div>
+
+  <div class="motion-legend" aria-label="Activity colors">
+    <span><i class="motion-dot motion-dot--bike"></i>Bike</span>
+    <span><i class="motion-dot motion-dot--climb"></i>Climb</span>
+    <span><i class="motion-dot motion-dot--hike"></i>Hike</span>
+    <span><i class="motion-dot motion-dot--run"></i>Run</span>
+    <span><i class="motion-dot motion-dot--ski"></i>Ski</span>
+    <span><i class="motion-dot motion-dot--water"></i>Water</span>
+  </div>
+
+  <p class="motion-hint">Hover or focus a petal for the day. Click to open the atlas filtered to that sport — no location is attached.</p>
+</section>
+
+<noscript>
+  <div class="noscript-panel">
+    <p>The spiral needs JavaScript. The underlying daily aggregates are available in the
+      <a href="{{ site.baseurl }}/data/insights/daily.json">daily insights data file</a>.</p>
+  </div>
+</noscript>
+
+<script id="motion-data" type="application/json">{{ daily.days | jsonify }}</script>
+<script>
+  window.MOTION_BASEURL = {{ site.baseurl | jsonify }};
+</script>
+<script src="{{ site.baseurl }}/js/motion-spiral.js" defer></script>

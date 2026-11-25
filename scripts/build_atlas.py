@@ -8,6 +8,7 @@ Three layers are produced:
   data/featured_routes.geojson Curated, blog-linked routes and crag markers.
   data/activities.json         Canonical story records for every Jekyll page.
   data/region_pages.json       Region page/nav definitions generated from the atlas.
+  data/insights/*.json         Privacy-safe aggregates for visualisations.
   region/*.html                Region pages, generated from data/region_pages.json.
 
 By default the atlas is global. Natural Earth admin-1 polygons supply US states
@@ -72,6 +73,8 @@ import shutil
 import ssl
 import sys
 import tempfile
+import time
+import urllib.parse
 import urllib.request
 import zipfile
 from collections import Counter
@@ -2092,7 +2095,9 @@ def write_collection(
     log(f"wrote {path} ({len(payload):,} bytes)")
 
 
-def write_json(path: Path, document: Dict[str, Any], dry_run: bool) -> None:
+def write_json(
+    path: Path, document: Dict[str, Any], dry_run: bool, compact: bool = False
+) -> None:
     """Write a JSON document, preserving generated_at when content is unchanged."""
     payload_document = json_safe(document)
     if isinstance(payload_document.get("metadata"), dict) and path.exists():
@@ -2109,14 +2114,26 @@ def write_json(path: Path, document: Dict[str, Any], dry_run: bool) -> None:
             new_body = {key: value for key, value in payload_document.items() if key != "metadata"}
             if old_body == new_body and old_meta == new_meta:
                 payload_document["metadata"]["generated_at"] = old_stamp or new_stamp
-                payload = json.dumps(payload_document, ensure_ascii=False, indent=1, allow_nan=False)
+                payload = json.dumps(
+                    payload_document,
+                    ensure_ascii=False,
+                    allow_nan=False,
+                    separators=(",", ":") if compact else None,
+                    indent=None if compact else 1,
+                )
                 if dry_run:
                     log(f"dry run: no data change for {path}")
                 else:
                     log(f"unchanged {path}")
                 return
 
-    payload = json.dumps(payload_document, ensure_ascii=False, indent=1, allow_nan=False)
+    payload = json.dumps(
+        payload_document,
+        ensure_ascii=False,
+        allow_nan=False,
+        separators=(",", ":") if compact else None,
+        indent=None if compact else 1,
+    )
     if dry_run:
         log(f"dry run: would write {path} ({len(payload):,} bytes)")
         return
@@ -2389,6 +2406,424 @@ def print_report(regions: "gpd.GeoDataFrame", featured: List[Dict[str, Any]]) ->
 
 
 # ---------------------------------------------------------------------------
+# Privacy-safe insight aggregates
+# ---------------------------------------------------------------------------
+
+
+def cell_key_from_point(lon: Any, lat: Any, cell_deg: float) -> str:
+    """Return the same coarse cell id used by activity_density.geojson."""
+    if lon is None or lat is None:
+        return ""
+    try:
+        ix = math.floor(float(lon) / cell_deg)
+        iy = math.floor(float(lat) / cell_deg)
+    except (TypeError, ValueError, OverflowError):
+        return ""
+    return f"{ix}_{iy}"
+
+
+def cell_center(cell: str, cell_deg: float) -> Optional[Tuple[float, float]]:
+    """Coarse cell centre (lon, lat) for optional weather lookups."""
+    try:
+        ix, iy = (int(part) for part in cell.split("_"))
+    except (TypeError, ValueError):
+        return None
+    return ((ix + 0.5) * cell_deg, (iy + 0.5) * cell_deg)
+
+
+def build_daily_insights(
+    records: List[Dict[str, Any]], config: Dict[str, Any], generated_at: str
+) -> Dict[str, Any]:
+    """Collapse private activities into public per-day, per-sport totals.
+
+    Only dates, coarse region ids, coarse density cell ids, and numeric totals
+    are emitted. No coordinates, file names, timestamps, or tracks are kept.
+    """
+    cell_deg = float(config["watershed"].get("density_cell_deg", 0.5))
+    by_date: Dict[str, Dict[str, Any]] = {}
+
+    for record in records:
+        date = record.get("date") or ""
+        if not date:
+            continue
+        try:
+            day_of_year = dt.date.fromisoformat(date).timetuple().tm_yday
+        except ValueError:
+            continue
+
+        sport = record.get("activity") or "other"
+        bucket = by_date.setdefault(
+            date,
+            {
+                "date": date,
+                "year": season_year(date),
+                "day_of_year": day_of_year,
+                "activities": 0,
+                "distance_mi": 0.0,
+                "elevation_ft": 0.0,
+                "sports": {},
+                "regions": Counter(),
+                "cells": Counter(),
+            },
+        )
+        sport_bucket = bucket["sports"].setdefault(
+            sport, {"count": 0, "distance_mi": 0.0, "elevation_ft": 0.0}
+        )
+        distance = float(finite_or_none(record.get("distance_mi")) or 0)
+        elevation = float(finite_or_none(record.get("elevation_ft")) or 0)
+        sport_bucket["count"] += 1
+        sport_bucket["distance_mi"] += distance
+        sport_bucket["elevation_ft"] += elevation
+        bucket["activities"] += 1
+        bucket["distance_mi"] += distance
+        bucket["elevation_ft"] += elevation
+
+        region_id = record.get("region_id")
+        if region_id:
+            bucket["regions"][str(region_id)] += 1
+        cell = cell_key_from_point(record.get("lon"), record.get("lat"), cell_deg)
+        if cell:
+            bucket["cells"][cell] += 1
+
+    days: List[Dict[str, Any]] = []
+    for date in sorted(by_date):
+        bucket = by_date[date]
+        sports = {}
+        for sport, values in sorted(bucket["sports"].items()):
+            sports[sport] = {
+                "count": values["count"],
+                "distance_mi": round(values["distance_mi"], 2),
+                "elevation_ft": int(round(values["elevation_ft"])),
+            }
+        region = bucket["regions"].most_common(1)
+        cell = bucket["cells"].most_common(1)
+        days.append(
+            {
+                "date": date,
+                "year": bucket["year"],
+                "day_of_year": bucket["day_of_year"],
+                "activities": bucket["activities"],
+                "distance_mi": round(bucket["distance_mi"], 2),
+                "elevation_ft": int(round(bucket["elevation_ft"])),
+                "region_id": region[0][0] if region else "",
+                "cell": cell[0][0] if cell else "",
+                "sports": sports,
+            }
+        )
+
+    metadata = {
+        "generated_by": "scripts/build_atlas.py",
+        "generated_at": generated_at,
+        "days": len(days),
+        "activities": sum(day["activities"] for day in days),
+        "years": len({day["year"] for day in days if day["year"] is not None}),
+        "total_distance_mi": round(sum(day["distance_mi"] for day in days), 1),
+        "total_elevation_ft": sum(day["elevation_ft"] for day in days),
+        "privacy": (
+            "Per-day, per-sport aggregates only. Region and cell ids are removed before "
+            "publication, so a date cannot be tied to a location. No raw tracks, "
+            "timestamps, activity files, or precise coordinates are published."
+        ),
+    }
+    return {"metadata": metadata, "days": days}
+
+
+def grade_band(grade: Any) -> str:
+    """Reduce a route grade to a countable band without revealing route names."""
+    text = str(grade or "").strip()
+    if not text:
+        return "ungraded"
+    for pattern in (r"5\.\d+[abcd]?", r"V\d+", r"WI\s?\d+"):
+        match = re.match(pattern, text, re.I)
+        if match:
+            return re.sub(r"\s+", "", match.group(0)).upper().replace("WI", "WI ")
+    return text[:12]
+
+
+def build_climbing_insights(records: List[Dict[str, Any]], generated_at: str) -> Dict[str, Any]:
+    """Aggregate Mountain Project ticks by year, grade, style, and region."""
+    ticks = [
+        record
+        for record in records
+        if record.get("source") == "mountain-project" and record.get("date")
+    ]
+    years: Dict[int, Dict[str, Any]] = {}
+    grades: Counter = Counter()
+    styles: Counter = Counter()
+    regions: Counter = Counter()
+
+    for tick in ticks:
+        year = season_year(tick["date"])
+        if year is None:
+            continue
+        band = grade_band(tick.get("grade"))
+        style = (tick.get("style") or "Unknown").strip() or "Unknown"
+        region = str(tick.get("region_id") or "unknown")
+
+        grades[band] += 1
+        styles[style] += 1
+        regions[region] += 1
+
+        row = years.setdefault(
+            year, {"ticks": 0, "grades": Counter(), "styles": Counter(), "regions": Counter()}
+        )
+        row["ticks"] += 1
+        row["grades"][band] += 1
+        row["styles"][style] += 1
+        row["regions"][region] += 1
+
+    year_rows = []
+    for year in sorted(years):
+        row = years[year]
+        year_rows.append(
+            {
+                "year": year,
+                "ticks": row["ticks"],
+                "grades": dict(sorted(row["grades"].items())),
+                "styles": dict(sorted(row["styles"].items())),
+                "regions": dict(sorted(row["regions"].items())),
+            }
+        )
+
+    return {
+        "metadata": {
+            "generated_by": "scripts/build_atlas.py",
+            "generated_at": generated_at,
+            "total_ticks": len(ticks),
+            "privacy": (
+                "Counts by grade/style/region only. Route names, notes, star ratings, "
+                "and coordinates are never published from the private ticks export."
+            ),
+        },
+        "years": year_rows,
+        "grades": dict(sorted(grades.items())),
+        "styles": dict(sorted(styles.items())),
+        "regions": dict(sorted(regions.items())),
+    }
+
+
+def build_books_insights(books_path: Path, generated_at: str) -> Dict[str, Any]:
+    """Summarise the already-public bookshelf by year and format."""
+    if not books_path.exists():
+        warn(f"books data not found at {books_path}; skipping book aggregates")
+        return {}
+    try:
+        document = json.loads(books_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        warn(f"could not read {books_path} ({exc}); skipping book aggregates")
+        return {}
+
+    years = []
+    formats: Counter = Counter()
+    total = 0
+    for year_node in document.get("children", []):
+        year = str(year_node.get("name") or "")
+        year_formats: Counter = Counter()
+        count = 0
+        for format_node in year_node.get("children", []):
+            fmt = str(format_node.get("name") or "other").strip().lower() or "other"
+            books = format_node.get("children") or []
+            year_formats[fmt] += len(books)
+            formats[fmt] += len(books)
+            count += len(books)
+        if not count:
+            continue
+        total += count
+        years.append(
+            {"year": year, "books": count, "formats": dict(sorted(year_formats.items()))}
+        )
+
+    return {
+        "metadata": {
+            "generated_by": "scripts/build_atlas.py",
+            "generated_at": generated_at,
+            "source": "js/books.json (already published bookshelf data)",
+            "total_books": total,
+        },
+        "years": years,
+        "formats": dict(sorted(formats.items())),
+    }
+
+
+def build_region_timeline(records: List[Dict[str, Any]], generated_at: str) -> Dict[str, Any]:
+    """First public region visited, useful for 'exploration frontier' graphics."""
+    regions: Dict[str, Dict[str, Any]] = {}
+    for record in records:
+        region_id = record.get("region_id")
+        date = record.get("date")
+        if not region_id or not date:
+            continue
+        entry = regions.setdefault(
+            str(region_id),
+            {
+                "region_id": str(region_id),
+                "region_name": record.get("region_name")
+                or str(region_id).replace("-", " ").title(),
+                "first_date": date,
+                "activity_count": 0,
+            },
+        )
+        if date < entry["first_date"]:
+            entry["first_date"] = date
+        entry["activity_count"] += 1
+
+    timeline = sorted(
+        regions.values(), key=lambda row: (row["first_date"], row["region_id"])
+    )
+    return {
+        "metadata": {
+            "generated_by": "scripts/build_atlas.py",
+            "generated_at": generated_at,
+            "regions": len(timeline),
+            "privacy": "Coarse public regions and first-visit dates only.",
+        },
+        "regions": timeline,
+    }
+
+
+def fetch_weather_range(
+    center: Tuple[float, float], start: str, end: str
+) -> Optional[List[Dict[str, Any]]]:
+    """Fetch one day-range of historical weather at a coarse cell centre."""
+    lon, lat = center
+    query = urllib.parse.urlencode(
+        {
+            "latitude": f"{lat:.3f}",
+            "longitude": f"{lon:.3f}",
+            "start_date": start,
+            "end_date": end,
+            "daily": "temperature_2m_mean,precipitation_sum",
+            "timezone": "UTC",
+        }
+    )
+    request = urllib.request.Request(
+        f"https://archive-api.open-meteo.com/v1/archive?{query}",
+        headers={"User-Agent": "klepikhina-atlas/1.0 (+https://klepikhina.github.io)"},
+    )
+    with urllib.request.urlopen(request, timeout=30, context=ssl_context()) as response:
+        document = json.loads(response.read().decode("utf-8"))
+    daily = document.get("daily") or {}
+    times = daily.get("time") or []
+    temperatures = daily.get("temperature_2m_mean") or []
+    precipitation = daily.get("precipitation_sum") or []
+    rows = []
+    for index, date in enumerate(times):
+        temperature = temperatures[index] if index < len(temperatures) else None
+        rain = precipitation[index] if index < len(precipitation) else None
+        if temperature is None and rain is None:
+            continue
+        rows.append(
+            {
+                "date": date,
+                "temperature_c": round(float(temperature), 1) if temperature is not None else None,
+                "precipitation_mm": round(float(rain), 1) if rain is not None else None,
+            }
+        )
+    return rows
+
+
+def build_weather_insights(
+    days: List[Dict[str, Any]],
+    previous: Optional[Dict[str, Any]],
+    config: Dict[str, Any],
+    generated_at: str,
+    fetch: bool = True,
+) -> Dict[str, Any]:
+    """Incrementally cache monthly weather at coarse cells.
+
+    Dates are collapsed to year+month before publication so a specific activity
+    day can never be joined back to a cell. Only cell centres from the already
+    public density grid are sent to the weather API.
+    """
+    cell_deg = float(config["watershed"].get("density_cell_deg", 0.5))
+    cached: Dict[str, Dict[str, Any]] = {}
+    for row in (previous or {}).get("weather", []):
+        cell, year, month = row.get("cell"), row.get("year"), row.get("month")
+        if cell and year and month:
+            cached[f"{cell}|{int(year):04d}-{int(month):02d}"] = row
+
+    needed_months: set = set()
+    missing: Dict[str, set] = {}
+    for day in days:
+        cell, date = day.get("cell"), day.get("date")
+        if not cell or not date or len(date) < 7:
+            continue
+        month = date[:7]
+        key = f"{cell}|{month}"
+        needed_months.add(key)
+        if key not in cached:
+            missing.setdefault(str(cell), set()).add(month)
+
+    if fetch:
+        for cell, months in sorted(missing.items()):
+            center = cell_center(cell, cell_deg)
+            if center is None:
+                continue
+            first_month = min(months)
+            last_year, last_month = (int(part) for part in max(months).split("-"))
+            next_month = dt.date(last_year + (last_month == 12), last_month % 12 + 1, 1)
+            end = (next_month - dt.timedelta(days=1)).isoformat()
+            try:
+                rows = fetch_weather_range(center, f"{first_month}-01", end)
+            except Exception as exc:  # network failures must not break the atlas
+                warn(f"weather lookup failed for cell {cell}: {exc}")
+                continue
+            if not rows:
+                continue
+
+            buckets: Dict[str, Dict[str, List[float]]] = {}
+            for row in rows:
+                month = str(row.get("date") or "")[:7]
+                key = f"{cell}|{month}"
+                if key not in needed_months:
+                    continue
+                bucket = buckets.setdefault(key, {"temperature": [], "precipitation": []})
+                if row.get("temperature_c") is not None:
+                    bucket["temperature"].append(float(row["temperature_c"]))
+                if row.get("precipitation_mm") is not None:
+                    bucket["precipitation"].append(float(row["precipitation_mm"]))
+
+            for key, bucket in buckets.items():
+                year, month = (int(part) for part in key.split("|")[1].split("-"))
+                temperatures = bucket["temperature"]
+                precipitation = bucket["precipitation"]
+                cached[key] = {
+                    "cell": cell,
+                    "year": year,
+                    "month": month,
+                    "days": len(temperatures) or len(precipitation),
+                    "temperature_c": (
+                        round(sum(temperatures) / len(temperatures), 1)
+                        if temperatures else None
+                    ),
+                    "precipitation_mm": (
+                        round(sum(precipitation) / len(precipitation), 1)
+                        if precipitation else None
+                    ),
+                }
+            time.sleep(0.15)
+
+    weather = sorted(
+        cached.values(), key=lambda row: (row["year"], row["month"], row["cell"])
+    )
+    return {
+        "metadata": {
+            "generated_by": "scripts/build_atlas.py",
+            "generated_at": generated_at,
+            "source": "Open-Meteo archive API, one query per coarse cell",
+            "months_with_weather": len(weather),
+            "privacy": (
+                "Weather is aggregated by year and month at the centre of the published "
+                "0.5-degree density cell. Activity dates are never published next to a "
+                "cell, so a specific day cannot be tied to a location. No home "
+                "coordinates or precise activity locations are sent."
+            ),
+        },
+        "weather": weather,
+    }
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -2421,6 +2856,17 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--regions-config", type=Path, default=SCRIPT_DIR / "regions_config.json")
     parser.add_argument("--curated", type=Path, default=SCRIPT_DIR / "curated_routes.json")
     parser.add_argument("--blogged", type=Path, help="JSON manifest of curated blogged GPX tracks")
+    parser.add_argument(
+        "--books-json",
+        type=Path,
+        default=REPO_ROOT / "js" / "books.json",
+        help="already-published bookshelf JSON (default: js/books.json)",
+    )
+    parser.add_argument(
+        "--weather",
+        action="store_true",
+        help="incrementally fetch historical weather at coarse cells (Open-Meteo)",
+    )
     parser.add_argument("--out-dir", type=Path, default=REPO_ROOT / "data")
     parser.add_argument("--simplify-deg", type=float, default=None, help="watershed simplification in degrees")
     parser.add_argument("--feature-simplify-deg", type=float, default=0.0004, help="route line simplification")
@@ -2702,6 +3148,48 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     region_data = build_region_pages(region_features, config, generated_at)
     write_json(args.out_dir / "region_pages.json", region_data, args.dry_run)
     write_site_pages(region_data, args.out_dir, args.dry_run)
+
+    insights_dir = args.out_dir / "insights"
+    daily_insights = build_daily_insights(records, config, generated_at)
+    public_daily = {
+        "metadata": daily_insights["metadata"],
+        "days": [
+            {key: value for key, value in day.items() if key not in ("region_id", "cell")}
+            for day in daily_insights["days"]
+        ],
+    }
+    write_json(insights_dir / "daily.json", public_daily, args.dry_run, compact=True)
+    write_json(
+        insights_dir / "climbing.json",
+        build_climbing_insights(records, generated_at),
+        args.dry_run,
+        compact=True,
+    )
+    write_json(
+        insights_dir / "region_timeline.json",
+        build_region_timeline(records, generated_at),
+        args.dry_run,
+        compact=True,
+    )
+    books_insights = build_books_insights(args.books_json, generated_at)
+    if books_insights:
+        write_json(insights_dir / "books.json", books_insights, args.dry_run, compact=True)
+    if args.weather:
+        weather_path = insights_dir / "weather.json"
+        previous_weather = None
+        if weather_path.exists():
+            try:
+                previous_weather = json.loads(weather_path.read_text(encoding="utf-8"))
+            except (OSError, ValueError) as exc:
+                warn(f"could not read weather cache {weather_path} ({exc}); refetching")
+        weather_insights = build_weather_insights(
+            daily_insights["days"],
+            previous_weather,
+            config,
+            generated_at,
+            fetch=not args.dry_run,
+        )
+        write_json(weather_path, weather_insights, args.dry_run, compact=True)
 
     save_state(state_path, state, cache_enabled, args.dry_run)
     return 0
