@@ -3,6 +3,8 @@ layout: default
 title: Create (archived)
 permalink: /create/
 seo: false
+sitemap: false
+noindex: true
 ---
 
 <div class="page-header">

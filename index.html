@@ -28,10 +28,22 @@ map_lib: true
   <div id="adventure-map" class="adventure-map" role="region" aria-label="Interactive atlas of states, provinces, countries, trails, climbs, and activity stories" tabindex="0"></div>
 </div>
 
+<noscript>
+  <div class="noscript-panel">
+    <h3>Popular regions</h3>
+    <ul>
+      {% assign noscript_regions = site.data.region_pages.regions | sort: "featured_story_count" | reverse | limit: 6 %}
+      {% for region in noscript_regions %}
+        <li><a href="{{ site.baseurl }}{{ region.url }}">{{ region.name }}</a> — {{ region.featured_story_count }} featured stories</li>
+      {% endfor %}
+    </ul>
+    <p><a href="{{ site.baseurl }}/adventures/">Browse all activities without JavaScript &rarr;</a></p>
+  </div>
+</noscript>
+
 <div id="atlas-backdrop" class="atlas-drawer-backdrop" hidden></div>
 <aside id="atlas-drawer" class="atlas-drawer" role="dialog" aria-modal="true" aria-labelledby="atlas-drawer-title" aria-hidden="true">
   <button class="atlas-drawer__close" type="button" aria-label="Close details">&times;</button>
-  <h2 id="atlas-drawer-title" class="visually-hidden">Activity details</h2>
   <div class="atlas-drawer__body"></div>
 </aside>
 
@@ -42,17 +54,10 @@ map_lib: true
 </div>
 
 <div class="card-grid card-grid--featured">
-    {% assign count = 0 %}
-    {% for post in site.posts %}
-      {% if count < 6 %}
-        {% if post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories
-  contains 'run_log' or post.categories contains 'ski_log' or post.categories contains 'water_log' %}
-          {% include adventure-card.html post=post %}
-          {% assign count = count | plus: 1 %}
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  </div>
+  {% for activity in site.data.activities.activities limit: 6 %}
+    {% include adventure-card.html activity=activity show_excerpt=true %}
+  {% endfor %}
+</div>
 
 <!-- Currently Reading -->                                                                                                                            
   <div class="section-header">                                                                                                                          
@@ -110,8 +115,8 @@ map_lib: true
   </script>
 
 <!-- MapLibre GL JS and the adventure atlas -->
-<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<script src="{{ site.baseurl }}/js/atlas-map.js"></script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
+<script src="{{ site.baseurl }}/js/atlas-map.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   if (window.AtlasMap) {

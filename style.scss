@@ -247,7 +247,8 @@ nav {
   }
 
   // Show menu on hover
-  &:hover .nav-dropdown__menu {
+  &:hover .nav-dropdown__menu,
+  &:focus-within .nav-dropdown__menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -328,7 +329,8 @@ nav {
       z-index: 1001;
     }
 
-    &:hover > .nav-dropdown__submenu-content {
+    &:hover > .nav-dropdown__submenu-content,
+    &:focus-within > .nav-dropdown__submenu-content {
       opacity: 1;
       visibility: visible;
       transform: translateX(0);

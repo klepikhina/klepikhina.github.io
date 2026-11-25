@@ -1,65 +1,88 @@
 {% comment %}
 Adventure Card Component
-Usage: {% include adventure-card.html post=post %}
+Usage: {% include adventure-card.html activity=activity %}
+       {% include adventure-card.html post=post %}
 {% endcomment %}
 
+{% if include.activity %}
+  {% assign item = include.activity %}
+  {% assign item_url = item.post_url %}
+  {% assign item_image = item.image %}
+  {% assign item_excerpt = item.excerpt %}
+  {% assign item_filter = item.filter %}
+  {% assign item_activity = item.activity %}
+  {% assign item_slug = item.slug %}
+{% else %}
+  {% assign item = include.post %}
+  {% assign item_url = item.url %}
+  {% assign item_image = item.featured_image %}
+  {% assign item_excerpt = item.excerpt %}
+  {% assign item_slug = item.slug %}
+  {% assign item_filter = "" %}
+  {% assign item_activity = item.activity %}
+  {% if item.categories contains 'climb_log' %}
+    {% assign item_filter = 'climb_log' %}
+  {% elsif item.categories contains 'bike_log' %}
+    {% assign item_filter = 'bike_log' %}
+  {% elsif item.categories contains 'hike_log' %}
+    {% assign item_filter = 'hike_log' %}
+  {% elsif item.categories contains 'run_log' %}
+    {% assign item_filter = 'run_log' %}
+  {% elsif item.categories contains 'ski_log' %}
+    {% assign item_filter = 'ski_log' %}
+  {% elsif item.categories contains 'water_log' %}
+    {% assign item_filter = 'water_log' %}
+  {% endif %}
+  {% if item_activity == nil or item_activity == empty %}
+    {% assign item_activity = item_filter | remove: '_log' %}
+  {% endif %}
+{% endif %}
+
 <article class="adventure-card">
-  <a href="{{ site.baseurl }}{{ include.post.url }}">
-    <div class="adventure-card__image{% unless include.post.featured_image %} adventure-card__image--placeholder{% endunless %}">
-      {% if include.post.featured_image %}
-        <img src="{{ include.post.featured_image }}" alt="{{ include.post.title }}" loading="lazy">
+  <a href="{{ site.baseurl }}{{ item_url }}">
+    <div class="adventure-card__image{% unless item_image %} adventure-card__image--placeholder{% endunless %}">
+      {% if item_image %}
+        <img src="{{ item_image }}" alt="{{ item.title }}" loading="lazy" decoding="async">
       {% else %}
-        <span class="placeholder-icon">
-          {% case include.post.activity %}
-            {% when 'climb' %}
-              &#x26F0;
-            {% when 'bike' %}
-              &#x1F6B2;
-            {% when 'hike' %}
-              &#x1F3D4;
-            {% when 'run' %}
-              &#x1F3C3;
-            {% when 'ski' %}
-              &#x26F7;
-            {% when 'water' %}
-              &#x1F30A;
-            {% else %}
-              &#x1F30D;
+        <span class="placeholder-icon" aria-hidden="true">
+          {% case item_activity %}
+            {% when 'climb' %} &#x26F0;
+            {% when 'bike' %} &#x1F6B2;
+            {% when 'hike' %} &#x1F3D4;
+            {% when 'run' %} &#x1F3C3;
+            {% when 'ski' %} &#x26F7;
+            {% when 'water' %} &#x1F30A;
+            {% else %} &#x1F30D;
           {% endcase %}
         </span>
       {% endif %}
 
-      {% if include.post.activity %}
-        <span class="adventure-card__badge adventure-card__badge--{{ include.post.activity }}">
-          {{ include.post.activity | capitalize }}
+      {% if item_activity %}
+        <span class="adventure-card__badge adventure-card__badge--{{ item_activity }}">
+          {{ item_activity | capitalize }}
         </span>
-      {% elsif include.post.categories contains 'climb_log' %}
-        <span class="adventure-card__badge adventure-card__badge--climb">Climb</span>
-      {% elsif include.post.categories contains 'bike_log' %}
-        <span class="adventure-card__badge adventure-card__badge--bike">Bike</span>
-      {% elsif include.post.categories contains 'hike_log' %}
-        <span class="adventure-card__badge adventure-card__badge--hike">Hike</span>
-      {% elsif include.post.categories contains 'run_log' %}
-        <span class="adventure-card__badge adventure-card__badge--run">Run</span>
-      {% elsif include.post.categories contains 'ski_log' %}
-        <span class="adventure-card__badge adventure-card__badge--ski">Ski</span>
-      {% elsif include.post.categories contains 'water_log' %}
-        <span class="adventure-card__badge adventure-card__badge--water">Water</span>
       {% endif %}
     </div>
 
     <div class="adventure-card__content">
-      <h3 class="adventure-card__title">{{ include.post.title | split: ' | ' | first }}</h3>
+      <h3 class="adventure-card__title">{{ item.title | split: ' | ' | first }}</h3>
 
-      {% if include.post.location %}
-        <p class="adventure-card__location">{{ include.post.location }}{% if include.post.region %}, {{ include.post.region }}{% endif %}</p>
+      {% assign item_region = item.region_name | default: item.region %}
+      {% if item.location %}
+        <p class="adventure-card__location">{{ item.location }}{% if item.region and item.region != item.location %}, {{ item.region }}{% endif %}</p>
+      {% elsif item_region %}
+        <p class="adventure-card__location">{{ item_region }}</p>
       {% endif %}
 
       {% if include.show_excerpt %}
-        <p class="adventure-card__excerpt">{{ include.post.excerpt | strip_html | truncate: 100 }}</p>
+        <p class="adventure-card__excerpt">{{ item_excerpt | strip_html | truncate: 100 }}</p>
       {% endif %}
 
-      <p class="adventure-card__date">{{ include.post.date | date: "%B %e, %Y" }}</p>
+      <p class="adventure-card__date">{{ item.date | date: "%B %e, %Y" }}</p>
     </div>
   </a>
+
+  {% if item_slug %}
+    <a class="adventure-card__map-link" href="{{ site.baseurl }}/?route={{ item_slug | url_encode }}">View on atlas <span aria-hidden="true">&rarr;</span></a>
+  {% endif %}
 </article>

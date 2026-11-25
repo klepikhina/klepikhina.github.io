@@ -6,7 +6,8 @@
  *   2. data/regions.geojson          - Natural Earth states/provinces/countries
  *   3. data/featured_routes.geojson  - curated, blog-linked routes and crags
  *
- * Public surface: window.AtlasMap.init(containerId, options)
+ * Public surface: window.AtlasMap.init(containerId, options),
+ *                 window.AtlasMap.openRoute(slug), window.AtlasMap.openRegion(id)
  */
 (function () {
   'use strict';
@@ -366,55 +367,18 @@
   // Map style
   // -------------------------------------------------------------------------
 
+  // Minimal fallback used only when the remote basemap style never loads.
+  // addAtlasLayers() supplies the DEM source, so keep this style source-free.
   function buildStyle() {
     return {
       version: 8,
       glyphs: 'https://fonts.openmaptiles.org/{fontstack}/{range}.pbf',
-      sources: {
-        'basemap': {
-          type: 'raster',
-          tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-          tileSize: 256,
-          maxzoom: 19,
-          attribution: '&copy; OpenStreetMap contributors'
-        },
-        'terrain-dem': {
-          type: 'raster-dem',
-          tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],
-          encoding: 'terrarium',
-          tileSize: 256,
-          maxzoom: 14,
-          attribution: 'Terrain: Mapzen / AWS Open Data'
-        }
-      },
+      sources: {},
       layers: [
         {
           id: 'background',
           type: 'background',
           paint: { 'background-color': '#F6F5F1' }
-        },
-        {
-          id: 'basemap',
-          type: 'raster',
-          source: 'basemap',
-          paint: {
-            'raster-opacity': 0.9,
-            'raster-saturation': -0.45,
-            'raster-contrast': 0.02,
-            'raster-brightness-max': 0.96
-          }
-        },
-        {
-          id: 'hillshade',
-          type: 'hillshade',
-          source: 'terrain-dem',
-          layout: { visibility: 'none' },
-          paint: {
-            'hillshade-exaggeration': 0.38,
-            'hillshade-shadow-color': '#6B7A63',
-            'hillshade-highlight-color': '#FFFFFF',
-            'hillshade-accent-color': '#8A9A84'
-          }
         }
       ]
     };
@@ -996,6 +960,88 @@
   }
 
   // -------------------------------------------------------------------------
+  // Deep links
+  // -------------------------------------------------------------------------
+
+  var pendingDeepLink = null;
+
+  function findRoute(slug) {
+    var features = (state.routes && state.routes.features) || [];
+    var wanted = String(slug || '').toLowerCase();
+    for (var i = 0; i < features.length; i += 1) {
+      var props = features[i].properties || {};
+      var candidates = [props.slug, props.id, props.post_url];
+      for (var j = 0; j < candidates.length; j += 1) {
+        var candidate = String(candidates[j] || '').toLowerCase().replace(/^\/+|\/+$/g, '');
+        if (candidate === wanted) return features[i];
+      }
+    }
+    return null;
+  }
+
+  function findRegions(value) {
+    var features = (state.regions && state.regions.features) || [];
+    var wanted = String(value || '').toLowerCase().split(',')
+      .map(function (part) { return part.trim(); })
+      .filter(Boolean);
+    return features.filter(function (feature) {
+      var props = feature.properties || {};
+      var id = String(props.region_id || '').toLowerCase();
+      var name = String(props.region_name || '').toLowerCase();
+      return wanted.some(function (item) { return item === id || item === name; });
+    });
+  }
+
+  function openRoute(slug) {
+    var feature = findRoute(slug);
+    if (!feature || !state.map) {
+      pendingDeepLink = { type: 'route', id: slug };
+      return false;
+    }
+    applyFilter(feature.properties.activity || 'all');
+    var bounds = featureBounds([feature]);
+    if (!bounds.isEmpty()) {
+      state.map.fitBounds(bounds, { padding: 70, maxZoom: 11, duration: 900 });
+    }
+    openDrawer(routeDrawer(feature.properties));
+    return true;
+  }
+
+  function openRegion(value) {
+    var features = findRegions(value);
+    if (!features.length || !state.map) {
+      pendingDeepLink = { type: 'region', id: value };
+      return false;
+    }
+    var bounds = featureBounds(features);
+    if (!bounds.isEmpty()) {
+      state.map.fitBounds(bounds, { padding: 70, maxZoom: 9, duration: 900 });
+    }
+    openDrawer(regionDrawer(features[0].properties));
+    return true;
+  }
+
+  function flushDeepLink() {
+    if (!pendingDeepLink) return;
+    var link = pendingDeepLink;
+    pendingDeepLink = null;
+    if (link.type === 'route') openRoute(link.id);
+    else openRegion(link.id);
+  }
+
+  function readDeepLink() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var route = params.get('route');
+      var region = params.get('region');
+      if (route) pendingDeepLink = { type: 'route', id: route };
+      else if (region) pendingDeepLink = { type: 'region', id: region };
+    } catch (error) {
+      /* Deep links are optional; older browsers can still use the map. */
+    }
+  }
+
+  // -------------------------------------------------------------------------
   // Init
   // -------------------------------------------------------------------------
 
@@ -1042,9 +1088,24 @@
     // MapLibre's `load` waits for every basemap tile. If the remote style is
     // slow (or a headless browser cannot render tiles), we can already add our
     // sources on `style.load`, so the atlas does not depend on the basemap.
+    // After 10 seconds we swap in a minimal local style so the atlas still works.
     var mapReady = new Promise(function (resolve) {
-      state.map.once('style.load', resolve);
-      state.map.once('load', resolve);
+      var settled = false;
+      var timer;
+      function ready() {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        resolve();
+      }
+      timer = setTimeout(function () {
+        if (settled) return;
+        status.textContent = 'Basemap is slow; switching to a simple map\u2026';
+        state.map.once('style.load', ready);
+        state.map.setStyle(buildStyle());
+      }, 10000);
+      state.map.once('style.load', ready);
+      state.map.once('load', ready);
     });
 
     Promise.all([
@@ -1062,6 +1123,7 @@
         buildLegend();
         wireMapEvents();
         resetView(false);
+        flushDeepLink();
         status.remove();
         state.map.resize();
       })
@@ -1072,14 +1134,21 @@
 
     wireFilters();
     wireDrawer();
+    readDeepLink();
 
     return {
       map: state.map,
       setFilter: applyFilter,
       setMetric: setMetric,
-      reset: function () { resetView(true); }
+      reset: function () { resetView(true); },
+      openRoute: openRoute,
+      openRegion: openRegion
     };
   }
 
-  window.AtlasMap = { init: init };
+  window.AtlasMap = {
+    init: init,
+    openRoute: openRoute,
+    openRegion: openRegion
+  };
 })();

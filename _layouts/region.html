@@ -7,78 +7,49 @@ layout: default
   {% if page.description %}
   <p class="page-description">{{ page.description }}</p>
   {% endif %}
+  <p class="section-subtitle">
+    {{ page.activity_count }} logged activities &middot; {{ page.featured_story_count }} featured stories
+  </p>
+  <p class="section-subtitle">
+    <a href="{{ site.baseurl }}/?region={{ page.region_ids | join: ',' | url_encode }}">View this region on the atlas &rarr;</a>
+  </p>
 </div>
 
-{% assign filtered_posts = "" | split: "" %}
-{% for post in site.posts %}
-  {% assign matched = false %}
-
-  {% if page.filter_regions %}
-    {% comment %} Filter by multiple regions (e.g., for aggregate pages like USA, Canada, Europe) {% endcomment %}
-    {% for filter_region in page.filter_regions %}
-      {% if post.region == filter_region %}
-        {% assign matched = true %}
-      {% elsif post.region contains filter_region %}
-        {% assign matched = true %}
-      {% elsif post.country contains filter_region %}
-        {% assign matched = true %}
-      {% endif %}
-    {% endfor %}
-  {% else %}
-    {% comment %} Filter by single region - check region and country fields {% endcomment %}
-    {% if post.region == page.filter_region %}
-      {% assign matched = true %}
-    {% elsif post.region contains page.filter_region %}
-      {% assign matched = true %}
-    {% elsif post.country contains page.filter_region %}
-      {% assign matched = true %}
-    {% endif %}
-  {% endif %}
-
-  {% if matched %}
-    {% assign filtered_posts = filtered_posts | push: post %}
+{% assign activities = site.data.activities.activities %}
+{% assign filtered_activities = "" | split: "" %}
+{% for activity in activities %}
+  {% if page.region_ids contains activity.region_id %}
+    {% assign filtered_activities = filtered_activities | push: activity %}
   {% endif %}
 {% endfor %}
 
-{% if filtered_posts.size > 0 %}
-<div class="filter-pills">
-  <button class="filter-pill active" data-filter="all">All</button>
-  <button class="filter-pill filter-pill--bike" data-filter="bike_log">Bike</button>
-  <button class="filter-pill filter-pill--climb" data-filter="climb_log">Climb</button>
-  <button class="filter-pill filter-pill--hike" data-filter="hike_log">Hike</button>
-  <button class="filter-pill filter-pill--run" data-filter="run_log">Run</button>
-  <button class="filter-pill filter-pill--ski" data-filter="ski_log">Ski</button>
-  <button class="filter-pill filter-pill--water" data-filter="water_log">Water</button>
+{% if filtered_activities.size > 0 %}
+<div class="filter-pills" role="group" aria-label="Filter stories by activity">
+  <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
+  <button type="button" class="filter-pill filter-pill--bike" data-filter="bike_log" aria-pressed="false">Bike</button>
+  <button type="button" class="filter-pill filter-pill--climb" data-filter="climb_log" aria-pressed="false">Climb</button>
+  <button type="button" class="filter-pill filter-pill--hike" data-filter="hike_log" aria-pressed="false">Hike</button>
+  <button type="button" class="filter-pill filter-pill--run" data-filter="run_log" aria-pressed="false">Run</button>
+  <button type="button" class="filter-pill filter-pill--ski" data-filter="ski_log" aria-pressed="false">Ski</button>
+  <button type="button" class="filter-pill filter-pill--water" data-filter="water_log" aria-pressed="false">Water</button>
 </div>
 
 <div class="card-grid" id="region-grid">
-  {% for post in filtered_posts %}
-    {% if post.categories contains 'climb_log' %}
-      {% assign activity_class = "climb_log" %}
-    {% elsif post.categories contains 'bike_log' %}
-      {% assign activity_class = "bike_log" %}
-    {% elsif post.categories contains 'hike_log' %}
-      {% assign activity_class = "hike_log" %}
-    {% elsif post.categories contains 'run_log' %}
-      {% assign activity_class = "run_log" %}
-    {% elsif post.categories contains 'ski_log' %}
-      {% assign activity_class = "ski_log" %}
-    {% elsif post.categories contains 'water_log' %}
-      {% assign activity_class = "water_log" %}
-    {% else %}
-      {% assign activity_class = "" %}
-    {% endif %}
-    <div class="adventure-item" data-activity="{{ activity_class }}">
-      {% include adventure-card.html post=post %}
+  {% for activity in filtered_activities %}
+    <div class="adventure-item" data-activity="{{ activity.filter }}">
+      {% include adventure-card.html activity=activity show_excerpt=true %}
     </div>
   {% endfor %}
 </div>
 {% else %}
 <div class="empty-state">
   <div class="empty-state__icon">&#x1F3D4;</div>
-  <p class="empty-state__message">No adventures in {{ page.title }} yet. More coming soon!</p>
+  <p class="empty-state__message">No featured stories in {{ page.title }} yet. More coming soon!</p>
+  <p><a href="{{ site.baseurl }}/adventures/">Browse all activities &rarr;</a></p>
 </div>
 {% endif %}
+
+<p><a href="{{ site.baseurl }}/region/">All regions &rarr;</a></p>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -89,8 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', function() {
       const filter = this.getAttribute('data-filter');
 
-      filterButtons.forEach(btn => btn.classList.remove('active'));
+      filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      });
       this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
 
       adventureItems.forEach(item => {
         if (filter === 'all' || item.getAttribute('data-activity') === filter) {

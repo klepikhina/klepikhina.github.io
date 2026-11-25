@@ -9,10 +9,9 @@ category: run_log
   <p class="page-description">Trail running, ultras, and fastpacking adventures</p>
 </div>
 
+{% assign activities = site.data.activities.activities | where: "activity", "run" %}
 <div class="card-grid">
-  {% for post in site.posts %}
-    {% if post.categories contains 'run_log' %}
-      {% include adventure-card.html post=post %}
-    {% endif %}
+  {% for activity in activities %}
+    {% include adventure-card.html activity=activity show_excerpt=true %}
   {% endfor %}
 </div>

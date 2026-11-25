@@ -9,30 +9,14 @@ title: All Activities
 </div>
 
 <!-- Activity Statistics Section -->
-{% assign climb_count = 0 %}
-{% assign bike_count = 0 %}
-{% assign hike_count = 0 %}
-{% assign run_count = 0 %}
-{% assign ski_count = 0 %}
-{% assign water_count = 0 %}
-
-{% for post in site.posts %}
-  {% if post.categories contains 'climb_log' %}
-    {% assign climb_count = climb_count | plus: 1 %}
-  {% elsif post.categories contains 'bike_log' %}
-    {% assign bike_count = bike_count | plus: 1 %}
-  {% elsif post.categories contains 'hike_log' %}
-    {% assign hike_count = hike_count | plus: 1 %}
-  {% elsif post.categories contains 'run_log' %}
-    {% assign run_count = run_count | plus: 1 %}
-  {% elsif post.categories contains 'ski_log' %}
-    {% assign ski_count = ski_count | plus: 1 %}
-  {% elsif post.categories contains 'water_log' %}
-    {% assign water_count = water_count | plus: 1 %}
-  {% endif %}
-{% endfor %}
-
-{% assign total_adventures = climb_count | plus: bike_count | plus: hike_count | plus: run_count | plus: ski_count | plus: water_count %}
+{% assign activities = site.data.activities.activities %}
+{% assign climb_count = activities | where: "activity", "climb" | size %}
+{% assign bike_count = activities | where: "activity", "bike" | size %}
+{% assign hike_count = activities | where: "activity", "hike" | size %}
+{% assign run_count = activities | where: "activity", "run" | size %}
+{% assign ski_count = activities | where: "activity", "ski" | size %}
+{% assign water_count = activities | where: "activity", "water" | size %}
+{% assign total_adventures = activities | size %}
 
 <div class="section-header">
   <h2>Activity Statistics</h2>
@@ -59,32 +43,14 @@ title: All Activities
 </div>
 
 <div class="card-grid" id="adventures-grid">
-    {% for post in site.posts %}
-      {% if post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories
-  contains 'run_log' or post.categories contains 'ski_log' or post.categories contains 'water_log' %}
-      {% if post.categories contains 'climb_log' %}
-        {% assign activity_class = "climb_log" %}
-      {% elsif post.categories contains 'bike_log' %}
-        {% assign activity_class = "bike_log" %}
-      {% elsif post.categories contains 'hike_log' %}
-        {% assign activity_class = "hike_log" %}
-      {% elsif post.categories contains 'run_log' %}
-        {% assign activity_class = "run_log" %}
-      {% elsif post.categories contains 'ski_log' %}
-        {% assign activity_class = "ski_log" %}
-      {% elsif post.categories contains 'water_log' %}
-        {% assign activity_class = "water_log" %}
-      {% else %}
-        {% assign activity_class = "" %}
-      {% endif %}
-      <div class="adventure-item" data-activity="{{ activity_class }}">
-        {% include adventure-card.html post=post %}
-      </div>
-      {% endif %}
-    {% endfor %}
-  </div>
+  {% for activity in activities %}
+    <div class="adventure-item" data-activity="{{ activity.filter }}">
+      {% include adventure-card.html activity=activity show_excerpt=true %}
+    </div>
+  {% endfor %}
+</div>
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://d3js.org/d3.v7.min.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Filter functionality

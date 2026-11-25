@@ -9,10 +9,9 @@ category: ski_log
   <p class="page-description">Backcountry skiing, ski touring, and powder days</p>
 </div>
 
+{% assign activities = site.data.activities.activities | where: "activity", "ski" %}
 <div class="card-grid">
-  {% for post in site.posts %}
-    {% if post.categories contains 'ski_log' %}
-      {% include adventure-card.html post=post %}
-    {% endif %}
+  {% for activity in activities %}
+    {% include adventure-card.html activity=activity show_excerpt=true %}
   {% endfor %}
 </div>

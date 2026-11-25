@@ -6,6 +6,9 @@ Three layers are produced:
   data/regions.geojson         Aggregate stats per state/province/country.
   data/activity_density.geojson Anonymised coarse-cell activity density.
   data/featured_routes.geojson Curated, blog-linked routes and crag markers.
+  data/activities.json         Canonical story records for every Jekyll page.
+  data/region_pages.json       Region page/nav definitions generated from the atlas.
+  region/*.html                Region pages, generated from data/region_pages.json.
 
 By default the atlas is global. Natural Earth admin-1 polygons supply US states
 and Canadian provinces; admin-0 polygons supply every other country. Every
@@ -2089,6 +2092,263 @@ def write_collection(
     log(f"wrote {path} ({len(payload):,} bytes)")
 
 
+def write_json(path: Path, document: Dict[str, Any], dry_run: bool) -> None:
+    """Write a JSON document, preserving generated_at when content is unchanged."""
+    payload_document = json_safe(document)
+    if isinstance(payload_document.get("metadata"), dict) and path.exists():
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            existing = None
+        if isinstance(existing, dict):
+            old_meta = dict(existing.get("metadata") or {})
+            new_meta = dict(payload_document.get("metadata") or {})
+            old_stamp = old_meta.pop("generated_at", None)
+            new_stamp = new_meta.pop("generated_at", None)
+            old_body = {key: value for key, value in existing.items() if key != "metadata"}
+            new_body = {key: value for key, value in payload_document.items() if key != "metadata"}
+            if old_body == new_body and old_meta == new_meta:
+                payload_document["metadata"]["generated_at"] = old_stamp or new_stamp
+                payload = json.dumps(payload_document, ensure_ascii=False, indent=1, allow_nan=False)
+                if dry_run:
+                    log(f"dry run: no data change for {path}")
+                else:
+                    log(f"unchanged {path}")
+                return
+
+    payload = json.dumps(payload_document, ensure_ascii=False, indent=1, allow_nan=False)
+    if dry_run:
+        log(f"dry run: would write {path} ({len(payload):,} bytes)")
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile("w", delete=False, dir=path.parent, encoding="utf-8") as handle:
+        handle.write(payload)
+        handle.write("\n")
+        temporary = Path(handle.name)
+    temporary.replace(path)
+    log(f"wrote {path} ({len(payload):,} bytes)")
+
+
+def write_text_if_changed(path: Path, text: str, dry_run: bool) -> None:
+    if path.exists():
+        try:
+            if path.read_text(encoding="utf-8") == text:
+                if dry_run:
+                    log(f"dry run: no page change for {path}")
+                else:
+                    log(f"unchanged {path}")
+                return
+        except OSError:
+            pass
+    if dry_run:
+        log(f"dry run: would write {path} ({len(text):,} bytes)")
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+    log(f"wrote {path} ({len(text):,} bytes)")
+
+
+def representative_coordinates(feature: Dict[str, Any]) -> List[float]:
+    """One public point for a curated route, used only as a card-level hint."""
+    points: List[Tuple[float, float]] = []
+
+    def walk(node: Any) -> None:
+        if (
+            isinstance(node, (list, tuple))
+            and len(node) >= 2
+            and isinstance(node[0], (int, float))
+            and isinstance(node[1], (int, float))
+        ):
+            points.append((float(node[0]), float(node[1])))
+            return
+        if isinstance(node, (list, tuple)):
+            for item in node:
+                walk(item)
+
+    walk((feature.get("geometry") or {}).get("coordinates"))
+    if not points:
+        return []
+    return [
+        round(sum(point[0] for point in points) / len(points), 5),
+        round(sum(point[1] for point in points) / len(points), 5),
+    ]
+
+
+def build_site_activities(featured: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    activities: List[Dict[str, Any]] = []
+    for feature in featured:
+        props = feature["properties"]
+        activity = str(props.get("activity") or "")
+        activities.append({
+            "slug": props.get("slug"),
+            "id": props.get("id"),
+            "title": props.get("title"),
+            "date": props.get("date"),
+            "activity": activity,
+            "category": props.get("category") or activity.title(),
+            "filter": activity + "_log" if activity else "",
+            "region_id": props.get("region_id"),
+            "region_name": props.get("region_name"),
+            "location": props.get("location"),
+            "image": props.get("image"),
+            "excerpt": props.get("summary") or "",
+            "summary": props.get("summary") or "",
+            "post_url": props.get("post_url"),
+            "coordinates": representative_coordinates(feature),
+            "distance_mi": props.get("distance_mi"),
+            "elevation_ft": props.get("elevation_ft"),
+            "grade_or_difficulty": props.get("grade_or_difficulty"),
+            "season_year": props.get("season_year"),
+        })
+    activities.sort(
+        key=lambda item: (str(item.get("date") or ""), str(item.get("title") or "")),
+        reverse=True,
+    )
+    return activities
+
+
+def group_matches_region(region: Dict[str, Any], group: Dict[str, Any]) -> bool:
+    group_ids = group.get("region_ids")
+    if group_ids and region["id"] not in group_ids:
+        return False
+    kinds = group.get("region_kinds")
+    if kinds and region["kind"] not in kinds:
+        return False
+    if region["id"] in group.get("exclude_region_ids", []):
+        return False
+    return True
+
+
+def build_region_pages(
+    region_features: List[Dict[str, Any]],
+    config: Dict[str, Any],
+    generated_at: str,
+) -> Dict[str, Any]:
+    individual: List[Dict[str, Any]] = []
+    for feature in region_features:
+        props = feature["properties"]
+        region_id = str(props["region_id"])
+        individual.append({
+            "id": region_id,
+            "name": str(props["region_name"]),
+            "kind": str(props["region_kind"]),
+            "description": f"Adventures in {props['region_name']}",
+            "url": f"/region/{region_id}/",
+            "nav_group": "International",
+            "region_ids": [region_id],
+            "primary_region_id": region_id,
+            "activity_count": int(props.get("activity_count") or 0),
+            "featured_story_count": int(props.get("featured_story_count") or 0),
+            "is_aggregate": False,
+        })
+
+    config_groups = config.get("region_groups", [])
+    nav_groups: List[Dict[str, Any]] = []
+    aggregates: List[Dict[str, Any]] = []
+    for group in config_groups:
+        members = [region for region in individual if group_matches_region(region, group)]
+        if not members:
+            continue
+        group_id = str(group["id"])
+        group_name = str(group["name"])
+        for region in members:
+            region["nav_group"] = group_name
+        region_ids = [region["id"] for region in members]
+        nav_groups.append({
+            "id": group_id,
+            "name": group_name,
+            "nav_name": str(group.get("nav_name") or group_name),
+            "url": f"/region/{group_id}/",
+            "regions": members,
+        })
+        aggregates.append({
+            "id": group_id,
+            "name": group_name,
+            "kind": "aggregate",
+            "description": str(group.get("description") or f"{group_name} adventures"),
+            "url": f"/region/{group_id}/",
+            "nav_group": group_name,
+            "region_ids": region_ids,
+            "primary_region_id": region_ids[0],
+            "activity_count": sum(region["activity_count"] for region in members),
+            "featured_story_count": sum(region["featured_story_count"] for region in members),
+            "is_aggregate": True,
+        })
+
+    # Use aggregate pages first so their URLs stay at the top of a region list.
+    pages = aggregates + individual
+    return {
+        "metadata": {
+            "generated_by": "scripts/build_atlas.py",
+            "generated_at": generated_at,
+            "source": "data/regions.geojson and data/featured_routes.geojson",
+        },
+        "regions": pages,
+        "nav_groups": nav_groups,
+    }
+
+
+def yaml_string(value: Any) -> str:
+    return json.dumps(str(value or ""), ensure_ascii=False)
+
+
+def region_page_html(page: Dict[str, Any]) -> str:
+    lines = [
+        "---",
+        "layout: region",
+        f"title: {yaml_string(page['name'])}",
+        f"description: {yaml_string(page['description'])}",
+        f"region_id: {yaml_string(page['primary_region_id'])}",
+        "region_ids:",
+    ]
+    lines.extend(f"  - {yaml_string(region_id)}" for region_id in page["region_ids"])
+    lines.extend([
+        f"activity_count: {int(page['activity_count'])}",
+        f"featured_story_count: {int(page['featured_story_count'])}",
+        f"permalink: {yaml_string(page['url'])}",
+        "---",
+        "",
+    ])
+    return "\n".join(lines)
+
+
+def region_index_html(region_data: Dict[str, Any]) -> str:
+    lines = [
+        "---",
+        "layout: default",
+        "title: All Regions",
+        "description: Browse every place in the adventure atlas",
+        "permalink: /region/",
+        "---",
+        "",
+        '<div class="page-header">',
+        "  <h1>All Regions</h1>",
+        '  <p class="page-description">Every place with logged activity, generated from the atlas.</p>',
+        "</div>",
+        "",
+    ]
+    for group in region_data["nav_groups"]:
+        lines.append('<div class="section-header">')
+        lines.append(f"  <h2><a href=\"{{{{ site.baseurl }}}}{group['url']}\">{group.get('nav_name') or group['name']}</a></h2>")
+        lines.append("</div>")
+        lines.append('<div class="region-link-grid">')
+        for region in group["regions"]:
+            lines.append(
+                f'  <a href="{{{{ site.baseurl }}}}{region["url"]}">'
+                f"{region['name']} <span>({region['featured_story_count']} stories)</span></a>"
+            )
+        lines.append("</div>")
+        lines.append("")
+    return "\n".join(lines)
+
+
+def write_site_pages(region_data: Dict[str, Any], out_dir: Path, dry_run: bool) -> None:
+    region_dir = REPO_ROOT / "region"
+    for page in region_data["regions"]:
+        write_text_if_changed(region_dir / f"{page['id']}.html", region_page_html(page), dry_run)
+    write_text_if_changed(region_dir / "index.html", region_index_html(region_data), dry_run)
+
+
 def validate(
     regions: "gpd.GeoDataFrame",
     featured: List[Dict[str, Any]],
@@ -2424,6 +2684,25 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     write_collection(args.out_dir / "activity_density.geojson", density["features"], density_metadata, args.dry_run)
     if not args.no_featured:
         write_collection(args.out_dir / "featured_routes.geojson", featured, route_metadata, args.dry_run)
+
+    site_activities = build_site_activities(featured)
+    write_json(
+        args.out_dir / "activities.json",
+        {
+            "metadata": {
+                "generated_by": "scripts/build_atlas.py",
+                "generated_at": generated_at,
+                "source": "scripts/curated_routes.json + Jekyll post front matter",
+                "activity_count": len(site_activities),
+            },
+            "activities": site_activities,
+        },
+        args.dry_run,
+    )
+    region_data = build_region_pages(region_features, config, generated_at)
+    write_json(args.out_dir / "region_pages.json", region_data, args.dry_run)
+    write_site_pages(region_data, args.out_dir, args.dry_run)
+
     save_state(state_path, state, cache_enabled, args.dry_run)
     return 0
 

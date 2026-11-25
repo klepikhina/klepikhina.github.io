@@ -1,0 +1,20 @@
+<article class="post">
+  <h1>{{ page.title }}</h1>
+
+  <div class="entry">
+    {{ content }}
+  </div>
+
+  {% assign post_slug = page.url | remove: '/' %}
+  {% if post_slug %}
+    <p class="section-subtitle">
+      <a href="{{ site.baseurl }}/?route={{ post_slug | url_encode }}">View this story on the atlas &rarr;</a>
+    </p>
+  {% endif %}
+
+  <div class="date">
+    Written on {{ page.date | date: "%B %e, %Y" }}
+  </div>
+
+  {% include disqus.html %}
+</article>

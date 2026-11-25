@@ -2,9 +2,13 @@
 <html lang="en">
   <head>
     <meta name="google-site-verification" content="mLwGWJS6x7wSj__z9tkA4sfUn7vAV3A4bR8j39scTHk" />
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
     {% include meta.html %}
     {% seo %}
+
+    {% if page.map_lib %}
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+    {% endif %}
 
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -64,55 +68,24 @@
                   </div>
                 </div>
 
-                <!-- By Region Submenu -->
+                <!-- By Region Submenu (generated from data/region_pages.json) -->
                 <div class="nav-dropdown__submenu">
                   <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">By Region ▸</span>
                   <div class="nav-dropdown__submenu-content">
-                    <!-- USA Sub-submenu -->
+                    <a href="{{ site.baseurl }}/region/" class="nav-dropdown__item"><strong>All Regions</strong></a>
+                    {% assign region_nav_groups = site.data.region_pages.nav_groups %}
+                    {% for group in region_nav_groups %}
                     <div class="nav-dropdown__submenu">
-                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">USA ▸</span>
+                      {% assign group_label = group.nav_name | default: group.name %}
+                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">{{ group_label }} ▸</span>
                       <div class="nav-dropdown__submenu-content">
-                        <a href="{{ site.baseurl }}/region/usa" class="nav-dropdown__item"><strong>All USA</strong></a>
-                        <a href="{{ site.baseurl }}/region/california" class="nav-dropdown__item">California</a>
-                        <a href="{{ site.baseurl }}/region/colorado" class="nav-dropdown__item">Colorado</a>
-                        <a href="{{ site.baseurl }}/region/idaho" class="nav-dropdown__item">Idaho</a>
-                        <a href="{{ site.baseurl }}/region/nevada" class="nav-dropdown__item">Nevada</a>
-                        <a href="{{ site.baseurl }}/region/new-mexico" class="nav-dropdown__item">New Mexico</a>
-                        <a href="{{ site.baseurl }}/region/oregon" class="nav-dropdown__item">Oregon</a>
-                        <a href="{{ site.baseurl }}/region/utah" class="nav-dropdown__item">Utah</a>
-                        <a href="{{ site.baseurl }}/region/washington" class="nav-dropdown__item">Washington</a>
-                        <a href="{{ site.baseurl }}/region/wyoming" class="nav-dropdown__item">Wyoming</a>
+                        <a href="{{ site.baseurl }}{{ group.url }}" class="nav-dropdown__item"><strong>All {{ group_label }}</strong></a>
+                        {% for region in group.regions %}
+                        <a href="{{ site.baseurl }}{{ region.url }}" class="nav-dropdown__item">{{ region.name }}</a>
+                        {% endfor %}
                       </div>
                     </div>
-                    <!-- Canada Sub-submenu -->
-                    <div class="nav-dropdown__submenu">
-                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">Canada ▸</span>
-                      <div class="nav-dropdown__submenu-content">
-                        <a href="{{ site.baseurl }}/region/canada" class="nav-dropdown__item"><strong>All Canada</strong></a>
-                        <a href="{{ site.baseurl }}/region/alberta" class="nav-dropdown__item">Alberta</a>
-                        <a href="{{ site.baseurl }}/region/british-columbia" class="nav-dropdown__item">British Columbia</a>
-                      </div>
-                    </div>
-                    <!-- Europe Sub-submenu -->
-                    <div class="nav-dropdown__submenu">
-                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">Europe ▸</span>
-                      <div class="nav-dropdown__submenu-content">
-                        <a href="{{ site.baseurl }}/region/europe" class="nav-dropdown__item"><strong>All Europe</strong></a>
-                        <a href="{{ site.baseurl }}/region/france" class="nav-dropdown__item">France</a>
-                        <a href="{{ site.baseurl }}/region/georgia" class="nav-dropdown__item">Georgia</a>
-                        <a href="{{ site.baseurl }}/region/iceland" class="nav-dropdown__item">Iceland</a>
-                        <a href="{{ site.baseurl }}/region/italy" class="nav-dropdown__item">Italy</a>
-                        <a href="{{ site.baseurl }}/region/switzerland" class="nav-dropdown__item">Switzerland</a>
-                      </div>
-                    </div>
-                    <!-- Asia Sub-submenu -->
-                    <div class="nav-dropdown__submenu">
-                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">Asia ▸</span>
-                      <div class="nav-dropdown__submenu-content">
-                        <a href="{{ site.baseurl }}/region/asia" class="nav-dropdown__item"><strong>All Asia</strong></a>
-                        <a href="{{ site.baseurl }}/region/japan" class="nav-dropdown__item">Japan</a>
-                      </div>
-                    </div>
+                    {% endfor %}
                   </div>
                 </div>
               </div>
@@ -153,6 +126,13 @@
       toggle.addEventListener('click', toggleMenu);
       toggle.addEventListener('keydown', function(event) {
         if (event.key === 'Enter' || event.key === ' ') toggleMenu(event);
+      });
+      // Desktop CSS opens menus on :focus-within; keep ARIA in sync.
+      toggle.addEventListener('focus', function() {
+        if (window.innerWidth > 640) toggle.setAttribute('aria-expanded', 'true');
+      });
+      toggle.addEventListener('blur', function() {
+        if (window.innerWidth > 640) toggle.setAttribute('aria-expanded', 'false');
       });
     }
 

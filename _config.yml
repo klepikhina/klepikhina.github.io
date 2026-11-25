@@ -8,6 +8,16 @@ name: Ksenia Lepikhina
 # Short bio or description (displayed in the header)
 description: solar powered
 
+# Used by jekyll-seo-tag for <title>, descriptions, and social cards.
+title: Ksenia Lepikhina
+author: Ksenia Lepikhina
+lang: en
+
+# Activity cards, counts, and region pages are generated from data/*.json.
+data_sources:
+  - _data
+  - data
+
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://raw.githubusercontent.com/klepikhina/klepikhina.github.io/master/images/me1.jpg
 

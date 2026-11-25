@@ -274,9 +274,9 @@ def git(*args: str, check: bool = True) -> subprocess.CompletedProcess:
 def publish_master() -> None:
     git("config", "user.name", "Atlas Sync")
     git("config", "user.email", "atlas-sync@users.noreply.github.com")
-    git("add", "--", "data")
+    git("add", "--", "data", "region")
     if git("diff", "--cached", "--quiet", check=False).returncode == 0:
-        log("no aggregate data changes to publish")
+        log("no aggregate data or region page changes to publish")
         return
     git("commit", "-m", "Weekly atlas data update [skip ci]")
     git("push", "origin", "HEAD:refs/heads/master")

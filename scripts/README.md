@@ -1,12 +1,21 @@
 # Adventure Atlas
 
-`build_atlas.py` produces the three data files behind the homepage map:
+`build_atlas.py` produces the atlas layers plus the shared data used by every
+Jekyll page:
 
 | File | Layer | Contents |
 | --- | --- | --- |
 | `data/activity_density.geojson` | Heatmap | Anonymised coarse-cell counts (no coordinates or tracks) |
 | `data/regions.geojson` | Choropleth | One state/province/country polygon with **aggregate** counts only |
 | `data/featured_routes.geojson` | Markers / lines | Hand-curated, blog-linked routes and crags |
+| `data/activities.json` | Site cards | One canonical record per curated story (slug, title, date, sport, region, image, summary) |
+| `data/region_pages.json` | Region nav | Generated region page definitions and nav groups |
+| `region/*.html` | Region pages | Static pages generated from `data/region_pages.json` |
+
+Jekyll reads these files through `data_sources` in `_config.yml`, so Home,
+Activities, the type pages, and region pages all use the same activity records.
+`js/books.json` is a separate hand-curated tree used only by the Books page and
+the three recent-book cards on Home.
 
 Everything the browser sees is generated from:
 
@@ -137,7 +146,7 @@ python3 scripts/build_atlas.py --download-watersheds
 
 ## Build with private activity data
 
-For ongoing updates, use **Automatic source sync** above. For a one-time manual
+For ongoing updates, use the **Weekly cloud sync** above. For a one-time manual
 import, export from Strava (**Settings → My Account → Download or Delete Your
 Account → Request your archive**) and download your Mountain Project ticks CSV.
 Put them in `private/`, which is gitignored and excluded from Jekyll:
@@ -300,20 +309,27 @@ ends and stripped of time data before it is simplified and written.
 
 ## Configuration
 
-`scripts/regions_config.json` maps a human region name to HydroBASINS
-`HYBAS_ID`s and to the `location` strings used in post front matter:
+`scripts/regions_config.json` controls the global atlas and the generated site
+pages. It uses Natural Earth admin-1 polygons for US states and Canadian
+provinces and admin-0 polygons for countries; HydroBASINS is retained only as a
+backup geometry source and for the coarse density grid.
+
+The `region_groups` list defines the aggregate pages (`usa`, `canada`, `europe`,
+`asia`, `international`) and the navigation groups. A group can select regions
+by `region_kinds`, explicit `region_ids`, and `exclude_region_ids`:
 
 ```json
 {
-  "region_name": "Squamish / Howe Sound",
-  "region_id": "squamish-howe-sound",
-  "basin_ids": [7080016270, 7080286380, 7080287690],
-  "locations": ["Squamish", "Britannia Beach"]
+  "id": "europe",
+  "name": "Europe",
+  "description": "European countries",
+  "region_ids": ["austria", "france", "iceland", "italy", "switzerland"]
 }
 ```
 
-To add a region, find its level-8 basin IDs (HydroBASINS viewer or QGIS),
-append an entry, and add the post `location` values that belong to it.
+Individual region pages are generated for every `region_id` in
+`data/regions.geojson`. Add a country or state to a group when you want it to
+appear under that aggregate page and in the corresponding nav submenu.
 
 ## Verification
 
@@ -329,7 +345,7 @@ warnings for empty geometry, zero-activity regions, or missing slugs.
 
 | Flag | Purpose |
 | --- | --- |
-| `--download-watersheds` | Fetch HydroBASINS NA L8 if the shapefile is not cached |
+| `--download-watersheds` | Fetch cached global admin/HydroBASINS geometry when missing |
 | `--watersheds PATH [PATH ...]` | Use local shapefiles instead of all cached continents |
 | `--regions-geojson PATH` | Reuse region polygons from an existing file |
 | `--strava-dir PATH` | Private Strava export directory |

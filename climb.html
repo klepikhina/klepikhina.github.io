@@ -9,10 +9,9 @@ category: climb_log
   <p class="page-description">Multi-pitch routes, cragging adventures, and alpine scrambles</p>
 </div>
 
+{% assign activities = site.data.activities.activities | where: "activity", "climb" %}
 <div class="card-grid">
-  {% for post in site.posts %}
-    {% if post.categories contains 'climb_log' %}
-      {% include adventure-card.html post=post %}
-    {% endif %}
+  {% for activity in activities %}
+    {% include adventure-card.html activity=activity show_excerpt=true %}
   {% endfor %}
 </div>

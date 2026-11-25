@@ -16,6 +16,46 @@
   },
   "group_by": ["region", "country", "location"],
   "country_fallback": true,
+  "region_groups": [
+    {
+      "id": "usa",
+      "name": "United States",
+      "nav_name": "USA",
+      "description": "All U.S. states and cities",
+      "region_kinds": ["state"]
+    },
+    {
+      "id": "canada",
+      "name": "Canada",
+      "description": "All Canadian provinces",
+      "region_kinds": ["province"]
+    },
+    {
+      "id": "europe",
+      "name": "Europe",
+      "description": "European countries",
+      "region_ids": [
+        "austria", "belgium", "france", "germany", "iceland", "italy",
+        "netherlands", "norway", "switzerland"
+      ]
+    },
+    {
+      "id": "asia",
+      "name": "Asia",
+      "description": "Asian countries",
+      "region_ids": ["georgia", "japan"]
+    },
+    {
+      "id": "international",
+      "name": "International",
+      "description": "Countries beyond North America, Europe, and Asia",
+      "region_kinds": ["country"],
+      "exclude_region_ids": [
+        "austria", "belgium", "france", "germany", "iceland", "italy",
+        "netherlands", "norway", "switzerland", "georgia", "japan"
+      ]
+    }
+  ],
   "sports_order": ["bike", "climb", "hike", "run", "ski", "water"],
   "ski_styles": ["touring", "alpine", "nordic"],
   "activity_labels": {

@@ -156,6 +156,43 @@
   overflow: hidden;
 }
 
+.adventure-card__map-link {
+  display: inline-block;
+  margin: 0 1.25rem 1rem;
+  color: $forest-medium;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}
+
+.region-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.5rem 1rem;
+  padding: 0 0 1.5rem;
+
+  a {
+    color: $forest-dark;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
+
+  span { color: $stone-medium; font-size: 0.85rem; }
+}
+
+.noscript-panel {
+  background: $stone-light;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+
+  h3 { margin-top: 0; }
+  ul { margin-bottom: 0; }
+}
+
 // ==========================================
 // Region Filter Pills
 // ==========================================

@@ -3,6 +3,8 @@ layout: default
 title: About (archived)
 permalink: /about/
 seo: false
+sitemap: false
+noindex: true
 ---
 
 <div class="page-header">

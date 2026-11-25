@@ -9,10 +9,9 @@ category: bike_log
   <p class="page-description">Mountain biking trails and bikepacking adventures</p>
 </div>
 
+{% assign activities = site.data.activities.activities | where: "activity", "bike" %}
 <div class="card-grid">
-  {% for post in site.posts %}
-    {% if post.categories contains 'bike_log' %}
-      {% include adventure-card.html post=post %}
-    {% endif %}
+  {% for activity in activities %}
+    {% include adventure-card.html activity=activity show_excerpt=true %}
   {% endfor %}
 </div>

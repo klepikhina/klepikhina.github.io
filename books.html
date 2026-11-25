@@ -20,6 +20,13 @@ permalink: /books/
   <div id="books-by-format" style="flex: 1; min-width: 250px;"></div>
 </div>
 
+<noscript>
+  <div class="noscript-panel">
+    <p>Charts and filters need JavaScript. The complete reading list is available in the
+    <a href="{{ site.baseurl }}/js/books.json">books data file</a>.</p>
+  </div>
+</noscript>
+
 <div class="section-header">
   <h2>Book Collection</h2>
 </div>
@@ -210,7 +217,7 @@ permalink: /books/
 <div id="bookshelf" class="bookshelf"></div>
 
 <!-- Tooltip container -->
-<div id="book-tooltip" class="book-tooltip"></div>
+<div id="book-tooltip" class="book-tooltip" role="tooltip" aria-hidden="true"></div>
 
 <script>
 // Bookshelf Visualization
@@ -342,15 +349,25 @@ permalink: /books/
       <div class="format">${book.dataset.format}</div>
     `;
     tooltip.classList.add('visible');
+    tooltip.setAttribute('aria-hidden', 'false');
+    positionTooltip(e);
   }
 
   function hideTooltip() {
     tooltip.classList.remove('visible');
+    tooltip.setAttribute('aria-hidden', 'true');
+  }
+
+  function positionTooltip(e) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = Number.isFinite(e.clientX) ? e.clientX : rect.left + rect.width / 2;
+    const y = Number.isFinite(e.clientY) ? e.clientY : rect.bottom;
+    tooltip.style.left = (x + 15) + 'px';
+    tooltip.style.top = (y + 15) + 'px';
   }
 
   function moveTooltip(e) {
-    tooltip.style.left = (e.clientX + 15) + 'px';
-    tooltip.style.top = (e.clientY + 15) + 'px';
+    positionTooltip(e);
   }
 
   // Global function for year toggle
@@ -362,10 +379,10 @@ permalink: /books/
 })();
 </script>
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://d3js.org/d3.v7.min.js" defer></script>
 <script>
 // Book Statistics Charts
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
   window.booksDataPromise.then(function(data) {
     if (!data) return;
     // Calculate stats from data
@@ -522,5 +539,5 @@ permalink: /books/
   }).catch(function(error) {
     console.error("Error loading books data for stats:", error);
   });
-})();
+});
 </script>
