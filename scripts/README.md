@@ -40,7 +40,7 @@ built so they never enter the repository or the published site.
 - Route geometry is written **only** for tracks you explicitly list in a blogged
   GPX manifest, i.e. tracks already published with a trip report. Those lines
   are trimmed 500 m at each end and written without timestamps.
-- When `total_vert_ft` or `total_distance_mi` only covers some trips, the
+- When `total_vert_ft` or `total_distance_mi` only covers some activities, the
   `vert_coverage` / `distance_coverage` fields say so, and the site labels the
   legend accordingly.
 
@@ -101,7 +101,7 @@ Notes:
   data. If a new crag is missing, add it there as `"crag name": [lon, lat]` (or
   re-run `fetch_crag_coords.py` after a refresh).
 - Ticks that cannot be matched to a state/province/country are ignored. Climbing
-  counts come from ticks; distance and vert still come only from trips where
+  counts come from ticks; distance and vert still come only from activities where
   those values were recorded (see `vert_coverage`).
 - A blog post for the same day and sport as a private record is dropped to avoid
   double counting. Add `--include-posts` to keep every blog post as well.
@@ -138,25 +138,32 @@ suppressed; public blog locations are always kept. No individual coordinates,
 timestamps, or tracks are written. Each cell carries only counts (plus summed
 vert / distance for the matching shading metrics). The browser draws this as a
 warm heatmap on top of the green admin regions, which keep the hover stats.
+The browser scales the heat from the data's quantiles (not one dense hometown),
+keeps one- and two-activity cells faintly visible, and switches to a darker
+local scale as you zoom in, so a state such as Kentucky gets its own contrast.
 
 Change `density_cell_deg` / `density_min_count` in `regions_config.json` to make
 the grid coarser or stricter.
 
 ## Stats shown in the browser
 
-The map's trip-type filter changes both the tooltip/drawer stats and the available
+The map's activity-type filter changes both the tooltip/drawer stats and the available
 shading metrics:
 
 | Filter | Stats shown | Shading options |
 | --- | --- | --- |
-| All | Trips, stories | Trips |
-| Bike / Hike / Run | Trips, vert, distance, area | Trips, vert, distance |
-| Climb / Water | Trips | Trips |
-| Ski | Trips, vert skied, % touring / alpine / Nordic | Trips, vert, touring, alpine, Nordic |
+| All | Activities, stories | Activities |
+| Bike / Hike / Run | Activities, vert, distance, area | Activities, vert, distance |
+| Climb / Water | Activities | Activities |
+| Ski | Activities, vert skied, % touring / alpine / Nordic | Activities, vert, touring, alpine, Nordic |
 
 Ski style comes from Strava's `Activity Type` (`Backcountry Ski` → touring,
 `Alpine Ski` / `Snowboard` → alpine, `Nordic Ski` → Nordic) and is read from
 `activities.csv`, so enabling it does not force a re-parse of GPX/FIT files.
+Water includes all Strava water sport types — `Stand Up Paddling`, `Swimming`,
+`Kayaking`, `Canoeing`, `Rowing`, `Surfing`, `Water Sport`, windsurfing,
+kitesurfing, sailing, rafting, diving, and similar names. Watersports are
+classified before snow sports so `Waterskiing` is not counted as skiing.
 
 ## Incremental rebuilds
 

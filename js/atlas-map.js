@@ -34,9 +34,9 @@
       property: function (filter) {
         return filter === 'all' ? 'activity_count' : filter + '_trips';
       },
-      short: 'Trips',
-      label: 'Trips logged',
-      unit: 'trips',
+      short: 'Activities',
+      label: 'Activities logged',
+      unit: 'activities',
       colors: ['#6F8C6B', '#527751', '#3A5E3D', '#28482E', '#173420']
     },
     vert: {
@@ -85,7 +85,7 @@
     }
   };
 
-  // Which shading metrics make sense for each trip type.
+  // Which shading metrics make sense for each activity type.
   var FILTER_METRICS = {
     all: ['activity'],
     bike: ['activity', 'vert', 'distance'],
@@ -122,6 +122,12 @@
     var number = Number(value);
     if (isNaN(number)) return String(value);
     return number.toLocaleString('en-US', { maximumFractionDigits: 1 });
+  }
+
+  // Stats read "1 Activity" / "5 Activities" instead of always using the plural.
+  function activityNoun(count, capitalize) {
+    var word = Number(count) === 1 ? 'activity' : 'activities';
+    return capitalize ? word.charAt(0).toUpperCase() + word.slice(1) : word;
   }
 
   function escapeHtml(value) {
@@ -189,7 +195,7 @@
     return ['coalesce', ['get', metricProperty(state.metric)], 0];
   }
 
-  // Use percentiles instead of min/max: one hometown with thousands of trips
+  // Use percentiles instead of min/max: one hometown with thousands of activities
   // otherwise flattens every other region into the palest shade.
   function metricExpression(metric) {
     var config = METRICS[metric];
@@ -229,13 +235,14 @@
   }
 
   // A region with no activity of the selected type drops back to the basemap,
-  // so the green footprint changes as clearly as the heatmap does.
+  // so the green footprint changes as clearly as the heatmap does. Regions with
+  // only one or two activities stay visible instead of nearly disappearing.
   function regionFillOpacity() {
     return [
       'case',
-      ['boolean', ['feature-state', 'hover'], false], 0.62,
-      ['>', metricValueExpression(), 0], 0.42,
-      0.04
+      ['boolean', ['feature-state', 'hover'], false], 0.68,
+      ['>', metricValueExpression(), 0], 0.52,
+      0.06
     ];
   }
 
@@ -251,8 +258,8 @@
 
   function densityLabel() {
     var property = densityProperty();
-    if (property === 'count') return 'Trip density';
-    if (property === 'ski_count') return 'Ski trip density';
+    if (property === 'count') return 'Activity density';
+    if (property === 'ski_count') return 'Ski activity density';
     if (property === 'vert_ft' || property === 'distance_mi') {
       return property === 'vert_ft' ? 'Vert density' : 'Distance density';
     }
@@ -266,31 +273,53 @@
       return style.charAt(0).toUpperCase() + style.slice(1) + ' skiing density';
     }
     var sport = property.replace(/_count$/, '');
-    return sport.charAt(0).toUpperCase() + sport.slice(1) + ' trip density';
+    return sport.charAt(0).toUpperCase() + sport.slice(1) + ' activity density';
   }
 
   // The heatmap is drawn from anonymised grid-cell counts, not private points.
+  // Stops come from the data's quantiles, so a one- or two-activity cell is
+  // still visible instead of being flattened by one very dense hometown.
   function densityWeightExpression() {
     var property = densityProperty();
     var values = (state.density && state.density.features || []).map(function (feature) {
       return Number(feature.properties[property]) || 0;
     });
-    var max = Math.max.apply(null, values);
-    if (!isFinite(max) || max <= 0) max = 1;
-    // Compress the long tail so one dense hometown does not wash out every
-    // other region, while keeping the stops strictly increasing even for a
-    // sparse filter (e.g. Nordic skiing) with only a handful of activities.
-    var top = Math.max(max, 10);
-    var expression = ['interpolate', ['linear'], ['coalesce', ['get', property], 0]];
-    var stops = [
-      [0, 0],
-      [top * 0.01, 0.15],
-      [top * 0.10, 0.4],
-      [top * 0.35, 0.7],
-      [top, 1]
+    var positive = values.filter(function (value) { return value > 0; })
+      .sort(function (a, b) { return a - b; });
+    if (!positive.length) {
+      return ['interpolate', ['linear'], ['coalesce', ['get', property], 0], 0, 0, 1, 1];
+    }
+
+    var pick = function (fraction) {
+      return positive[Math.round(fraction * (positive.length - 1))];
+    };
+    var low = Math.max(1, positive[0]);
+    var mid = Math.max(low + 1, pick(0.5));
+    var high = Math.max(mid + 1, pick(0.9));
+    var top = Math.max(high + 1, positive[positive.length - 1]);
+
+    function scale(stops) {
+      var expression = ['interpolate', ['linear'], ['coalesce', ['get', property], 0]];
+      stops.forEach(function (pair) { expression.push(pair[0], pair[1]); });
+      return expression;
+    }
+
+    // Zooming in swaps to the darker scale: within a region such as Kentucky,
+    // its own busy cells become the red end of the gradient even when their
+    // counts are tiny compared with the global maximum.
+    var wide = scale([
+      [0, 0], [low, 0.34], [mid, 0.6], [high, 0.85], [top, 1]
+    ]);
+    var close = scale([
+      [0, 0], [low, 0.55], [mid, 0.85], [high, 1], [top, 1]
+    ]);
+    return [
+      'interpolate', ['linear'], ['zoom'],
+      0, wide,
+      4, wide,
+      8, close,
+      12, close
     ];
-    stops.forEach(function (pair) { expression.push(pair[0], pair[1]); });
-    return expression;
   }
 
   function heatmapColorExpression() {
@@ -457,9 +486,9 @@
         maxzoom: 12,
         paint: {
           'heatmap-weight': densityWeightExpression(),
-          'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 2, 1.2, 6, 1.6, 11, 2.0],
+          'heatmap-intensity': ['interpolate', ['linear'], ['zoom'], 0, 1.1, 4, 1.5, 8, 2.0, 12, 2.3],
           'heatmap-color': heatmapColorExpression(),
-          'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 2, 26, 5, 40, 9, 70, 12, 100],
+          'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 24, 4, 38, 8, 64, 12, 92],
           'heatmap-opacity': 0.9
         }
       });
@@ -484,7 +513,7 @@
       id: 'region-labels',
       type: 'symbol',
       source: 'region-labels',
-      minzoom: 2,
+      minzoom: 1,
       layout: {
         'text-field': ['get', 'region_name'],
         'text-font': ['Noto Sans Bold'],
@@ -585,24 +614,25 @@
     var prefix = filter + '_';
     if (filter === 'all') {
       return [
-        { label: 'Trips', value: formatNumber(properties.activity_count) },
+        { label: activityNoun(properties.activity_count, true), value: formatNumber(properties.activity_count) },
         { label: 'Stories', value: formatNumber(properties.featured_story_count) }
       ];
     }
     if (filter === 'ski') {
       return [
-        { label: 'Trips', value: formatNumber(properties.ski_trips) },
+        { label: activityNoun(properties.ski_trips, true), value: formatNumber(properties.ski_trips) },
         { label: 'Vert skied', value: formatNumber(properties.ski_vert_ft) + ' ft' },
         { label: 'Touring', value: formatNumber(properties.ski_touring_pct) + '%' },
         { label: 'Alpine', value: formatNumber(properties.ski_alpine_pct) + '%' },
         { label: 'Nordic', value: formatNumber(properties.ski_nordic_pct) + '%' }
       ];
     }
+    var count = properties[prefix + 'trips'];
     if (filter === 'climb' || filter === 'water') {
-      return [{ label: sport + ' trips', value: formatNumber(properties[prefix + 'trips']) }];
+      return [{ label: sport + ' ' + activityNoun(count), value: formatNumber(count) }];
     }
     return [
-      { label: sport + ' trips', value: formatNumber(properties[prefix + 'trips']) },
+      { label: sport + ' ' + activityNoun(count), value: formatNumber(count) },
       { label: 'Vert', value: formatNumber(properties[prefix + 'vert_ft']) + ' ft' },
       { label: 'Distance', value: formatNumber(properties[prefix + 'distance_mi']) + ' mi' },
       { label: 'Area', value: formatNumber(properties.area_km2) + ' km\u00b2' }
@@ -676,7 +706,7 @@
       var actionButton = event.target.closest('[data-action]');
       if (!actionButton) return;
       if (actionButton.getAttribute('data-action') === 'terrain') toggleTerrain();
-      if (actionButton.getAttribute('data-action') === 'reset') fitToRegions(true);
+      if (actionButton.getAttribute('data-action') === 'reset') resetView(true);
     });
   }
 
@@ -709,7 +739,7 @@
   }
 
   // Keep the green admin shading and the heatmap on exactly the same filter /
-  // metric, so switching trip type or shading stat changes both together.
+  // metric, so switching activity type or shading stat changes both together.
   function refreshMetricPaint() {
     var map = state.map;
     if (map.getLayer('regions-fill')) {
@@ -751,13 +781,13 @@
     }
   }
 
-  function fitToRegions(animate) {
-    if (!state.regions) return;
-    var bounds = featureBounds(state.regions.features);
-    if (bounds.isEmpty()) return;
-    state.map.fitBounds(bounds, {
-      padding: { top: 70, bottom: 70, left: 60, right: 60 },
-      maxZoom: 7,
+  // Start (and reset) on the whole world rather than the geographic midpoint
+  // of the activity bounds, which used to fall on France.
+  var WORLD_BOUNDS = [[-180, -60], [180, 80]];
+
+  function resetView(animate) {
+    state.map.fitBounds(WORLD_BOUNDS, {
+      padding: { top: 12, bottom: 12, left: 12, right: 12 },
       duration: animate ? 900 : 0
     });
   }
@@ -815,7 +845,7 @@
         : '') +
       (properties.summary ? '<p class="atlas-drawer__summary">' + escapeHtml(properties.summary) + '</p>' : '') +
       (properties.post_url
-        ? '<a class="atlas-drawer__cta" href="' + escapeHtml(properties.post_url) + '">Read Trip Story <span aria-hidden="true">\u2192</span></a>'
+        ? '<a class="atlas-drawer__cta" href="' + escapeHtml(properties.post_url) + '">Read Activity Story <span aria-hidden="true">\u2192</span></a>'
         : '')
     );
   }
@@ -842,7 +872,7 @@
         return '<div class="atlas-drawer__stat"><dt>' + escapeHtml(stat.label) + '</dt><dd>' + escapeHtml(stat.value) + '</dd></div>';
       }).join('') + '</dl>' +
       (stories ? '<div class="atlas-drawer__section"><h4>Featured stories</h4><ul class="atlas-drawer__stories">' + stories + '</ul></div>' : '') +
-      '<p class="atlas-drawer__note">Logged vert covers ' + coverage + '% of trips; it sums only the trips with a recorded gain.</p>'
+      '<p class="atlas-drawer__note">Logged vert covers ' + coverage + '% of activities; it sums only the activities with a recorded gain.</p>'
     );
   }
 
@@ -993,9 +1023,9 @@
     state.map = new maplibregl.Map({
       container: container,
       style: 'https://tiles.openfreemap.org/styles/positron',
-      center: [-113.5, 45.5],
-      zoom: 3.6,
-      minZoom: 2.4,
+      center: [0, 20],
+      zoom: 1,
+      minZoom: 0,
       maxZoom: 15,
       pitchWithRotate: false,
       attributionControl: false
@@ -1027,7 +1057,7 @@
         buildControls();
         buildLegend();
         wireMapEvents();
-        fitToRegions(false);
+        resetView(false);
         status.remove();
         state.map.resize();
       })
@@ -1043,7 +1073,7 @@
       map: state.map,
       setFilter: applyFilter,
       setMetric: setMetric,
-      reset: function () { fitToRegions(true); }
+      reset: function () { resetView(true); }
     };
   }
 

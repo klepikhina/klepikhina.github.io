@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Build the Watershed Exploration Atlas.
+"""Build the Adventure Atlas.
 
-Two layers are produced:
+Three layers are produced:
 
-  data/regions.geojson         Aggregate exploration stats per watershed.
+  data/regions.geojson         Aggregate stats per state/province/country.
+  data/activity_density.geojson Anonymised coarse-cell activity density.
   data/featured_routes.geojson Curated, blog-linked routes and crag markers.
 
-By default the atlas is global. It reads HydroBASINS level-8 polygons for every
-continent, then derives one region per blog ``region`` label (Colorado,
-California, British Columbia, Iceland, Georgia, Japan, ...). Private activity
-outside those watersheds is assigned a Natural Earth country label and grouped
-into country regions, so the whole world is covered.
+By default the atlas is global. Natural Earth admin-1 polygons supply US states
+and Canadian provinces; admin-0 polygons supply every other country. Every
+geocoded activity or blog post is assigned to one of those public regions, so
+Colorado, British Columbia, Costa Rica, Iceland, Georgia, and Japan can all
+appear without drawing private track geometry.
 
 The script has two data sources:
 
@@ -19,10 +20,9 @@ The script has two data sources:
     date). This produces the committed sample files.
 
   * Private mode - pass --strava-dir and/or --ticks-csv. Raw GPX/FIT tracks are
-    read in memory, spatially joined to watershed polygons, and reduced to
-    counts and sums per region. Raw tracks are never written to disk and never
-    copied into the repo. The only geometry written for private data is the
-    anonymised watershed region polygon itself.
+    read in memory, spatially joined to admin polygons, and reduced to counts
+    and sums per region. Raw tracks are never written to disk and never copied
+    into the repo. Only aggregate numbers and public admin polygons are emitted.
 
 Curated blogged GPX (opt-in, public by definition) can be turned into real
 route lines with --blogged. Those tracks are trimmed by --trim-meters at each
@@ -259,7 +259,8 @@ def ssl_context() -> ssl.SSLContext:
 # Incremental cache (private, gitignored)
 # ---------------------------------------------------------------------------
 
-STATE_VERSION = 1
+# Bump when parsing or normalisation changes so cached summaries are rebuilt.
+STATE_VERSION = 2
 
 
 def empty_state() -> Dict[str, Any]:
@@ -618,6 +619,12 @@ def track_stats(points: Sequence[Tuple[float, float, Optional[float], Optional[d
 
 
 def normalize_sport(value: str) -> str:
+    """Map Strava activity names to the six atlas filters.
+
+    Water is checked before ski so "Waterskiing" is not mistaken for a snow
+    sport. The token list covers Strava's water activity types as well as the
+    generic "Water Sport" bucket, including paddling and swimming.
+    """
     text = (value or "").lower()
     if any(token in text for token in ("ride", "bike", "cycl", "ebike", "e-bike")):
         return "bike"
@@ -627,10 +634,13 @@ def normalize_sport(value: str) -> str:
         return "hike"
     if "run" in text:
         return "run"
+    if any(token in text for token in (
+        "water", "kayak", "paddl", "canoe", "swim", "row", "surf",
+        "wake", "raft", "div", "snorkel", "sail", "stand up", "sup"
+    )):
+        return "water"
     if any(token in text for token in ("ski", "snowboard")):
         return "ski"
-    if any(token in text for token in ("kayak", "paddle", "canoe", "swim", "row")):
-        return "water"
     return "other"
 
 
@@ -2147,7 +2157,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         "crs": "EPSG:4326",
         "privacy": (
             "Aggregate statistics only. No raw GPS tracks, timestamps, or activity files are "
-            "stored here. total_vert_ft and total_distance_mi sum only trips where that value "
+            "stored here. total_vert_ft and total_distance_mi sum only activities where that value "
             "was known; see vert_coverage and distance_coverage."
         ),
     }
