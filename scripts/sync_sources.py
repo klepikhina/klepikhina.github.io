@@ -860,9 +860,9 @@ def run_build(config: Dict[str, Any], sources: Sequence[str]) -> None:
     subprocess.run(command, check=True, cwd=str(REPO_ROOT))
 
 
-def git_output(*args: str) -> str:
+def git_output(*args: str, env: Optional[Dict[str, str]] = None) -> str:
     result = subprocess.run(
-        ["git", *args], cwd=str(REPO_ROOT), check=True, capture_output=True, text=True
+        ["git", *args], cwd=str(REPO_ROOT), check=True, capture_output=True, text=True, env=env
     )
     return result.stdout.strip()
 
@@ -880,7 +880,10 @@ def publish_data(config: Dict[str, Any]) -> None:
         return
     git_output("add", "--", "data")
     git_output("commit", "-m", "Update adventure atlas data from activity sources")
-    git_output("push", "origin", f"HEAD:refs/heads/{branch}")
+    push_env = os.environ.copy()
+    push_env["GIT_ASKPASS"] = str(SCRIPT_DIR / "git_askpass.py")
+    push_env["GIT_TERMINAL_PROMPT"] = "0"
+    git_output("push", "origin", f"HEAD:refs/heads/{branch}", env=push_env)
     log(f"pushed data changes to {branch}")
 
     token = get_secret("github_token")

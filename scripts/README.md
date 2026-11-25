@@ -110,8 +110,10 @@ python3 scripts/sync_sources.py status
   copy is dropped. Blog posts are still de-duplicated against the winner.
 - **Publishing:** data changes are committed on `dev`, pushed to `origin/dev`,
   and a PR `dev → master` is opened or updated with title “Update adventure
-  atlas data”. You merge when you are happy with it. Set `auto_publish: false`
-  in `private/sync_config.json` to keep changes local only.
+  atlas data”. The HTTPS push uses the stored GitHub token through a local
+  `GIT_ASKPASS` helper; the token is never written to the repo. You merge when
+  you are happy with it. Set `auto_publish: false` in `private/sync_config.json`
+  to keep changes local only.
 
 Non-secret settings live in `private/sync_config.json` (gitignored). Useful ones:
 
