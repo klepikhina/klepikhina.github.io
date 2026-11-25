@@ -221,7 +221,7 @@ shading metrics:
 | Filter | Stats shown | Shading options |
 | --- | --- | --- |
 | All | Activities, stories | Activities |
-| Bike / Hike / Run | Activities, vert, distance, area | Activities, vert, distance |
+| Bike / Hike / Run | Activities, vert, distance | Activities, vert, distance |
 | Climb / Water | Activities | Activities |
 | Ski | Activities, vert skied, % touring / alpine / Nordic | Activities, vert, touring, alpine, Nordic |
 

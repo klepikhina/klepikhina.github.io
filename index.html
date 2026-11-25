@@ -31,6 +31,7 @@ map_lib: true
 <div id="atlas-backdrop" class="atlas-drawer-backdrop" hidden></div>
 <aside id="atlas-drawer" class="atlas-drawer" role="dialog" aria-modal="true" aria-labelledby="atlas-drawer-title" aria-hidden="true">
   <button class="atlas-drawer__close" type="button" aria-label="Close details">&times;</button>
+  <h2 id="atlas-drawer-title" class="visually-hidden">Activity details</h2>
   <div class="atlas-drawer__body"></div>
 </aside>
 
@@ -65,41 +66,46 @@ map_lib: true
 
   <script>
   fetch('{{ site.baseurl }}/js/books.json')
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
     .then(data => {
-      // Flatten all books from all years, preserving order
-      const allBooks = data.children.flatMap(year =>
-        year.children.flatMap(format =>
-          (format.children || []).map(book => ({
-            ...book,
-            year: year.name,
-            format: format.name
-          }))
-        )
-      );
-
-      // Last 3 books added to the JSON (most recent)
-      const recentBooks = allBooks.slice(-3).reverse();
-
       const container = document.getElementById('current-books');
+      const latestYear = data.children.slice()
+        .sort((a, b) => Number(b.name) - Number(a.name))[0];
+      if (!latestYear) return;
+
+      const recentBooks = latestYear.children
+        .flatMap(format => (format.children || []).map(book => ({ ...book, format: format.name })))
+        .slice(-3)
+        .reverse();
+
       container.innerHTML = recentBooks.map(book => {
         // Parse "Title", Author format
         const match = book.name.match(/"([^"]+)",\s*(.+)/);
         const title = match ? match[1] : book.name;
         const author = match ? match[2] : '';
+        const url = book.value
+          ? `https://www.goodreads.com/book/show/${book.value}`
+          : `https://www.goodreads.com/search?q=${encodeURIComponent(`${title} ${author}`)}`;
 
         return `
-          <div class="book-card">
+          <a class="book-card" href="${url}" target="_blank" rel="noopener noreferrer">
             <div class="book-card__cover">
-              <img src="${book.image}" alt="${title}">
+              <img src="${book.image}" alt="Cover of ${title}" loading="lazy">
             </div>
             <div class="book-card__info">
               <h3 class="book-card__title">"${title}"</h3>
               <p class="book-card__author">${author}</p>
             </div>
-          </div>
+          </a>
         `;
       }).join('');
+    })
+    .catch(error => {
+      console.error('Could not load recent books:', error);
+      document.getElementById('current-books').innerHTML = '<p>Book list unavailable.</p>';
     });
   </script>
 

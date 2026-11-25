@@ -32,7 +32,7 @@ title: All Activities
   {% endif %}
 {% endfor %}
 
-{% assign total_adventures = climb_count | plus: bike_count | plus: hike_count | plus: run_count | plus: ski_count %}
+{% assign total_adventures = climb_count | plus: bike_count | plus: hike_count | plus: run_count | plus: ski_count | plus: water_count %}
 
 <div class="section-header">
   <h2>Activity Statistics</h2>
@@ -49,13 +49,13 @@ title: All Activities
 </div>
 
 <div class="filter-pills">
-  <button class="filter-pill active" data-filter="all">All ({{ total_adventures }})</button>
-  <button class="filter-pill filter-pill--bike" data-filter="bike_log">Bike ({{ bike_count }})</button>
-  <button class="filter-pill filter-pill--climb" data-filter="climb_log">Climb ({{ climb_count }})</button>
-  <button class="filter-pill filter-pill--hike" data-filter="hike_log">Hike ({{ hike_count }})</button>
-  <button class="filter-pill filter-pill--run" data-filter="run_log">Run ({{ run_count }})</button>
-  <button class="filter-pill filter-pill--ski" data-filter="ski_log">Ski ({{ ski_count }})</button>
-  <button class="filter-pill filter-pill--water" data-filter="water_log">Water ({{ water_count }})</button>
+  <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All ({{ total_adventures }})</button>
+  <button type="button" class="filter-pill filter-pill--bike" data-filter="bike_log" aria-pressed="false">Bike ({{ bike_count }})</button>
+  <button type="button" class="filter-pill filter-pill--climb" data-filter="climb_log" aria-pressed="false">Climb ({{ climb_count }})</button>
+  <button type="button" class="filter-pill filter-pill--hike" data-filter="hike_log" aria-pressed="false">Hike ({{ hike_count }})</button>
+  <button type="button" class="filter-pill filter-pill--run" data-filter="run_log" aria-pressed="false">Run ({{ run_count }})</button>
+  <button type="button" class="filter-pill filter-pill--ski" data-filter="ski_log" aria-pressed="false">Ski ({{ ski_count }})</button>
+  <button type="button" class="filter-pill filter-pill--water" data-filter="water_log" aria-pressed="false">Water ({{ water_count }})</button>
 </div>
 
 <div class="card-grid" id="adventures-grid">
@@ -94,8 +94,12 @@ document.addEventListener('DOMContentLoaded', function() {
   filterButtons.forEach(button => {
     button.addEventListener('click', function() {
       const filter = this.getAttribute('data-filter');
-      filterButtons.forEach(btn => btn.classList.remove('active'));
+      filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
+      });
       this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
       adventureItems.forEach(item => {
         if (filter === 'all' || item.getAttribute('data-activity') === filter) {
           item.style.display = 'block';
@@ -112,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { name: 'Bike', value: {{ bike_count }}, color: '#C25450' },
     { name: 'Hike', value: {{ hike_count }}, color: '#4A7C59' },
     { name: 'Run', value: {{ run_count }}, color: '#4A90A4' },
-    { name: 'Ski', value: {{ ski_count }}, color: '#B0C4DE' },
+    { name: 'Ski', value: {{ ski_count }}, color: '#8FA6C9' },
     { name: 'Water', value: {{ water_count }}, color: '#0C589C' }
   ];
 

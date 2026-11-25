@@ -6,7 +6,7 @@ permalink: /books/
 
 <div class="page-header">
   <h1>Books</h1>
-  <p class="page-description">What I've been reading - click a year to expand</p>
+  <p class="page-description">What I've been reading, by year and format</p>
 </div>
 
 <!-- Reading Statistics Section -->
@@ -26,9 +26,9 @@ permalink: /books/
 
 <!-- Format filter -->
 <div class="bookshelf-filters" style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
-  <button class="filter-pill active" data-filter="all">All</button>
-  <button class="filter-pill filter-pill--physical" data-filter="physical">Physical</button>
-  <button class="filter-pill filter-pill--audio" data-filter="audio">Audio</button>
+  <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
+  <button type="button" class="filter-pill filter-pill--physical" data-filter="physical" aria-pressed="false">Physical</button>
+  <button type="button" class="filter-pill filter-pill--audio" data-filter="audio" aria-pressed="false">Audio</button>
 </div>
 
 <style>
@@ -81,7 +81,14 @@ permalink: /books/
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: 100%;
   margin-bottom: 1rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -213,8 +220,12 @@ permalink: /books/
   let allBooks = [];
   let currentFilter = 'all';
 
-  fetch('{{ site.baseurl }}/js/books.json')
-    .then(response => response.json())
+  // Fetch once and share the promise with the statistics script below.
+  const booksDataPromise = fetch('{{ site.baseurl }}/js/books.json')
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
     .then(data => {
       // Process data into flat structure with year/format info
       const years = data.children.slice().reverse(); // Most recent first
@@ -244,11 +255,15 @@ permalink: /books/
 
       renderBookshelf();
       setupFilters();
+      return data;
     })
     .catch(error => {
       console.error('Error loading books:', error);
       bookshelfContainer.innerHTML = '<p>Could not load book data.</p>';
+      return null;
     });
+
+  window.booksDataPromise = booksDataPromise;
 
   function renderBookshelf() {
     bookshelfContainer.innerHTML = allBooks.map(yearData => {
@@ -260,12 +275,12 @@ permalink: /books/
 
       return `
         <div class="bookshelf-year" data-year="${yearData.year}">
-          <div class="bookshelf-year__header" onclick="toggleYear('${yearData.year}')">
-            <h3 class="bookshelf-year__title">${yearData.year}</h3>
+          <button type="button" class="bookshelf-year__header" aria-expanded="true" aria-controls="books-${yearData.year}" onclick="toggleYear('${yearData.year}')">
+            <span class="bookshelf-year__title">${yearData.year}</span>
             <span class="bookshelf-year__count">${filteredBooks.length} books</span>
-            <span class="bookshelf-year__toggle">▼</span>
-          </div>
-          <div class="bookshelf-grid">
+            <span class="bookshelf-year__toggle" aria-hidden="true">▼</span>
+          </button>
+          <div class="bookshelf-grid" id="books-${yearData.year}">
             ${filteredBooks.map(book => {
               const match = book.name.match(/"([^"]+)",\s*(.+)/);
               const title = match ? match[1] : book.name;
@@ -276,17 +291,17 @@ permalink: /books/
                 : `https://www.goodreads.com/search?q=${encodeURIComponent(title + ' ' + author)}`;
 
               return `
-                <div class="bookshelf-book"
-                     data-title="${title.replace(/"/g, '&quot;')}"
-                     data-author="${author.replace(/"/g, '&quot;')}"
-                     data-format="${book.format}"
-                     onclick="window.open('${goodreadsUrl}', '_blank')">
-                  <img src="${book.image}" alt="${title}" loading="lazy">
+                <a class="bookshelf-book"
+                   href="${goodreadsUrl}" target="_blank" rel="noopener noreferrer"
+                   data-title="${title.replace(/"/g, '&quot;')}"
+                   data-author="${author.replace(/"/g, '&quot;')}"
+                   data-format="${book.format}">
+                  <img src="${book.image}" alt="Cover of ${title}" loading="lazy">
                   <span class="bookshelf-book__format bookshelf-book__format--${book.format}"
                         title="${book.format}">
                     ${book.format === 'audio' ? '🎧' : '📖'}
                   </span>
-                </div>
+                </a>
               `;
             }).join('')}
           </div>
@@ -299,14 +314,20 @@ permalink: /books/
       book.addEventListener('mouseenter', showTooltip);
       book.addEventListener('mouseleave', hideTooltip);
       book.addEventListener('mousemove', moveTooltip);
+      book.addEventListener('focus', showTooltip);
+      book.addEventListener('blur', hideTooltip);
     });
   }
 
   function setupFilters() {
     document.querySelectorAll('.bookshelf-filters .filter-pill').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.bookshelf-filters .filter-pill').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.bookshelf-filters .filter-pill').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
         currentFilter = btn.dataset.filter;
         renderBookshelf();
       });
@@ -335,7 +356,8 @@ permalink: /books/
   // Global function for year toggle
   window.toggleYear = function(year) {
     const yearEl = document.querySelector(`.bookshelf-year[data-year="${year}"]`);
-    yearEl.classList.toggle('collapsed');
+    const collapsed = yearEl.classList.toggle('collapsed');
+    yearEl.querySelector('.bookshelf-year__header').setAttribute('aria-expanded', String(!collapsed));
   };
 })();
 </script>
@@ -344,7 +366,8 @@ permalink: /books/
 <script>
 // Book Statistics Charts
 (function() {
-  d3.json("{{ site.baseurl }}/js/books.json").then(function(data) {
+  window.booksDataPromise.then(function(data) {
+    if (!data) return;
     // Calculate stats from data
     const yearStats = [];
     const formatStats = { audio: 0, physical: 0 };

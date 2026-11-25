@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta name="google-site-verification" content="mLwGWJS6x7wSj__z9tkA4sfUn7vAV3A4bR8j39scTHk" />
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
     {% include meta.html %}
+    {% seo %}
 
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -34,14 +35,14 @@
 
             <!-- Activities Dropdown -->
             <div class="nav-dropdown">
-              <span class="nav-dropdown__toggle">Activities</span>
+              <span class="nav-dropdown__toggle" role="button" tabindex="0" aria-expanded="false">Activities</span>
               <div class="nav-dropdown__menu">
                 <a href="{{ site.baseurl }}/adventures/" class="nav-dropdown__item">All Activities</a>
                 <div class="nav-dropdown__divider"></div>
 
                 <!-- By Type Submenu -->
                 <div class="nav-dropdown__submenu">
-                  <span class="nav-dropdown__item nav-dropdown__item--has-submenu">By Type ▸</span>
+                  <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">By Type ▸</span>
                   <div class="nav-dropdown__submenu-content">
                     <a href="{{ site.baseurl }}/bike" class="nav-dropdown__item">
                       <span class="nav-badge nav-badge--bike"></span>Bike
@@ -66,11 +67,11 @@
 
                 <!-- By Region Submenu -->
                 <div class="nav-dropdown__submenu">
-                  <span class="nav-dropdown__item nav-dropdown__item--has-submenu">By Region ▸</span>
+                  <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">By Region ▸</span>
                   <div class="nav-dropdown__submenu-content">
                     <!-- USA Sub-submenu -->
                     <div class="nav-dropdown__submenu">
-                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu">USA ▸</span>
+                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">USA ▸</span>
                       <div class="nav-dropdown__submenu-content">
                         <a href="{{ site.baseurl }}/region/usa" class="nav-dropdown__item"><strong>All USA</strong></a>
                         <a href="{{ site.baseurl }}/region/california" class="nav-dropdown__item">California</a>
@@ -86,7 +87,7 @@
                     </div>
                     <!-- Canada Sub-submenu -->
                     <div class="nav-dropdown__submenu">
-                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu">Canada ▸</span>
+                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">Canada ▸</span>
                       <div class="nav-dropdown__submenu-content">
                         <a href="{{ site.baseurl }}/region/canada" class="nav-dropdown__item"><strong>All Canada</strong></a>
                         <a href="{{ site.baseurl }}/region/alberta" class="nav-dropdown__item">Alberta</a>
@@ -95,7 +96,7 @@
                     </div>
                     <!-- Europe Sub-submenu -->
                     <div class="nav-dropdown__submenu">
-                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu">Europe ▸</span>
+                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">Europe ▸</span>
                       <div class="nav-dropdown__submenu-content">
                         <a href="{{ site.baseurl }}/region/europe" class="nav-dropdown__item"><strong>All Europe</strong></a>
                         <a href="{{ site.baseurl }}/region/france" class="nav-dropdown__item">France</a>
@@ -107,10 +108,9 @@
                     </div>
                     <!-- Asia Sub-submenu -->
                     <div class="nav-dropdown__submenu">
-                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu">Asia ▸</span>
+                      <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">Asia ▸</span>
                       <div class="nav-dropdown__submenu-content">
                         <a href="{{ site.baseurl }}/region/asia" class="nav-dropdown__item"><strong>All Asia</strong></a>
-                        <a href="{{ site.baseurl }}/region/georgia" class="nav-dropdown__item">Georgia</a>
                         <a href="{{ site.baseurl }}/region/japan" class="nav-dropdown__item">Japan</a>
                       </div>
                     </div>
@@ -142,26 +142,26 @@
     {% include analytics.html %}
 
     <script>
-    // Mobile navigation handling
-    document.querySelectorAll('.nav-dropdown__toggle').forEach(toggle => {
-      toggle.addEventListener('click', function(e) {
-        if (window.innerWidth <= 640) {
-          e.preventDefault();
-          this.closest('.nav-dropdown').classList.toggle('active');
-        }
+    // Mobile navigation handling (keyboard accessible)
+    function bindNavToggle(toggle, containerSelector) {
+      function toggleMenu(event) {
+        if (window.innerWidth > 640) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const container = toggle.closest(containerSelector);
+        const open = container.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', String(open));
+      }
+      toggle.addEventListener('click', toggleMenu);
+      toggle.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') toggleMenu(event);
       });
-    });
+    }
 
-    document.querySelectorAll('.nav-dropdown__item--has-submenu').forEach(toggle => {
-      toggle.addEventListener('click', function(e) {
-        if (window.innerWidth <= 640) {
-          e.preventDefault();
-          e.stopPropagation();
-          this.closest('.nav-dropdown__submenu').classList.toggle('active');
-        }
-      });
-    });
+    document.querySelectorAll('.nav-dropdown__toggle')
+      .forEach(toggle => bindNavToggle(toggle, '.nav-dropdown'));
+    document.querySelectorAll('.nav-dropdown__item--has-submenu')
+      .forEach(toggle => bindNavToggle(toggle, '.nav-dropdown__submenu'));
     </script>
   </body>
-  {% seo %}
 </html>
