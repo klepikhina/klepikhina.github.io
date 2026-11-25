@@ -1,0 +1,29 @@
+{
+  "_comment": "Global admin mode shades the state/province (US and Canada) or country containing each activity or blog post. The heatmap sits on top; watershed basins are no longer drawn.",
+  "mode": "dynamic",
+  "region_basis": "admin",
+  "watershed": {
+    "dataset": "HydroBASINS global level 8 (v1c)",
+    "level": 8,
+    "source_url_template": "https://data.hydrosheds.org/file/HydroBASINS/standard/hybas_{code}_lev08_v1c.zip",
+    "shapefile_template": "hybas_{code}_lev08_v1c.shp",
+    "continents": ["af", "ar", "as", "au", "eu", "gr", "na", "sa", "si"],
+    "countries_geojson": "ne_110m_admin_0_countries.geojson",
+    "admin1_geojson": "ne_50m_admin_1_states_provinces.geojson",
+    "simplify_deg": 0.008,
+    "density_cell_deg": 0.5,
+    "density_min_count": 2
+  },
+  "group_by": ["region", "country", "location"],
+  "country_fallback": true,
+  "sports_order": ["bike", "climb", "hike", "run", "ski", "water"],
+  "ski_styles": ["touring", "alpine", "nordic"],
+  "activity_labels": {
+    "bike": "Bike",
+    "climb": "Climb",
+    "hike": "Hike",
+    "run": "Run",
+    "ski": "Ski",
+    "water": "Water"
+  }
+}

@@ -1,5 +1,6 @@
 ---
 layout: default
+map_lib: true
 ---
 
 <div class="hero-section">
@@ -7,23 +8,36 @@ layout: default
   <p class="hero-subtitle">Climbing, biking, hiking, running, skiing - and everything in between</p>
 </div>
 
-<!-- Adventure Map -->
+<!-- Watershed Atlas -->
 <div class="section-header">
   <h2>Where I've Been</h2>
-  <p class="section-subtitle">Click a marker to explore</p>
+  <p class="section-subtitle">An atlas of logged adventures and the stories behind them</p>
 </div>
 
-<div class="map-filters">
-  <button class="filter-pill map-filter active" data-filter="all" onclick="AdventureMap.filter('all')">All</button>
-  <button class="filter-pill filter-pill--bike map-filter" data-filter="bike" onclick="AdventureMap.filter('bike')">Bike</button>
-  <button class="filter-pill filter-pill--climb map-filter" data-filter="climb" onclick="AdventureMap.filter('climb')">Climb</button>
-  <button class="filter-pill filter-pill--hike map-filter" data-filter="hike" onclick="AdventureMap.filter('hike')">Hike</button>
-  <button class="filter-pill filter-pill--run map-filter" data-filter="run" onclick="AdventureMap.filter('run')">Run</button>
-  <button class="filter-pill filter-pill--ski map-filter" data-filter="ski" onclick="AdventureMap.filter('ski')">Ski</button>
-  <button class="filter-pill filter-pill--water map-filter" data-filter="water" onclick="AdventureMap.filter('water')">Water</button>
+<div class="map-filters" role="group" aria-label="Filter the adventure atlas by activity">
+  <button type="button" class="filter-pill map-filter active" data-filter="all" aria-pressed="true">All</button>
+  <button type="button" class="filter-pill filter-pill--bike map-filter" data-filter="bike" aria-pressed="false">Bike</button>
+  <button type="button" class="filter-pill filter-pill--climb map-filter" data-filter="climb" aria-pressed="false">Climb</button>
+  <button type="button" class="filter-pill filter-pill--hike map-filter" data-filter="hike" aria-pressed="false">Hike</button>
+  <button type="button" class="filter-pill filter-pill--run map-filter" data-filter="run" aria-pressed="false">Run</button>
+  <button type="button" class="filter-pill filter-pill--ski map-filter" data-filter="ski" aria-pressed="false">Ski</button>
+  <button type="button" class="filter-pill filter-pill--water map-filter" data-filter="water" aria-pressed="false">Water</button>
 </div>
 
-<div id="adventure-map" class="adventure-map"></div>
+<div class="atlas-shell">
+  <div id="adventure-map" class="adventure-map" role="region" aria-label="Interactive atlas of states, provinces, countries, trails, climbs, and trip stories" tabindex="0"></div>
+</div>
+
+<p class="map-note">
+  Green shaded states, provinces, and countries show where you've been active or written a story; the warm heatmap shows where the selected trip type is concentrated. Click a region to zoom in and see its stats. Markers are blog-linked routes.
+  Boundaries follow Natural Earth; aggregate data is built by <code>scripts/build_atlas.py</code>.
+</p>
+
+<div id="atlas-backdrop" class="atlas-drawer-backdrop" hidden></div>
+<aside id="atlas-drawer" class="atlas-drawer" role="dialog" aria-modal="true" aria-labelledby="atlas-drawer-title" aria-hidden="true">
+  <button class="atlas-drawer__close" type="button" aria-label="Close details">&times;</button>
+  <div class="atlas-drawer__body"></div>
+</aside>
 
 <!-- Recent Trips -->
 <div class="section-header">
@@ -94,52 +108,17 @@ layout: default
     });
   </script>
 
-<!-- D3.js and TopoJSON for the map -->
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="https://unpkg.com/topojson-client@3"></script>
-<script src="{{ site.baseurl }}/js/adventure-map.js"></script>
-
-{% include map-data.html %}
-
+<!-- MapLibre GL JS and the adventure atlas -->
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="{{ site.baseurl }}/js/atlas-map.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize the map with adventure data
-  if (typeof adventureData !== 'undefined' && adventureData.length > 0) {
-    AdventureMap.init('adventure-map', adventureData);
-  } else {
-    // Fallback: create dummy data from recent posts for demonstration
-    // This will be replaced once posts have coordinates
-    var fallbackData = [
-      {% assign fallback_count = 0 %}
-      {% for post in site.posts %}
-        {% if fallback_count < 20 %}
-          {% if post.categories contains 'climb_log' or post.categories contains 'bike_log' or post.categories contains 'hike_log' or post.categories
-  contains 'run_log' or post.categories contains 'ski_log' or post.categories contains 'water_log' %}
-            {% if post.categories contains 'climb_log' %}{% assign activity = "climb" %}
-            {% elsif post.categories contains 'bike_log' %}{% assign activity = "bike" %}
-            {% elsif post.categories contains 'hike_log' %}{% assign activity = "hike" %}
-            {% elsif post.categories contains 'run_log' %}{% assign activity = "run" %}
-            {% elsif post.categories contains 'ski_log' %}{% assign activity = "ski" %}
-            {% elsif post.categories contains 'water_log' %}{% assign activity = "water" %}
-            {% else %}{% assign activity = "" %}{% endif %}
-          {
-            title: {{ post.title | split: ' | ' | first | jsonify }},
-            url: "{{ site.baseurl }}{{ post.url }}",
-            location: {{ post.location | default: post.title | split: ',' | first | jsonify }},
-            region: {{ post.region | default: "" | jsonify }},
-            latitude: {{ post.latitude | default: 40 | plus: fallback_count | divided_by: 10.0 }},
-            longitude: {{ post.longitude | default: -110 | plus: fallback_count | times: 2 }},
-            activity: "{{ activity }}"
-          },
-          {% assign fallback_count = fallback_count | plus: 1 %}
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-   ];
-    // Only init if we have no real data yet
-    if (adventureData.length === 0) {
-      document.getElementById('adventure-map').innerHTML = '<p class="text-center" style="padding: 2rem; color: #666;">Adventure map will appear once posts have coordinates added.</p>';
-    }
+  if (window.AtlasMap) {
+    AtlasMap.init('adventure-map', {
+      regionsUrl: '{{ site.baseurl }}/data/regions.geojson',
+      routesUrl: '{{ site.baseurl }}/data/featured_routes.geojson',
+      densityUrl: '{{ site.baseurl }}/data/activity_density.geojson'
+    });
   }
 });
 </script>
