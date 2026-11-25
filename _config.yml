@@ -91,3 +91,6 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+  - scripts
+  - private
+  - __pycache__

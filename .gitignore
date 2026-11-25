@@ -8,3 +8,10 @@ Gemfile
 Gemfile.lock
 node_modules
 package.json
+
+# Atlas build pipeline
+scripts/__pycache__
+.venv
+
+# Private activity exports (never published)
+private/

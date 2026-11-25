@@ -1,0 +1,3266 @@
+{
+ "type": "FeatureCollection",
+ "metadata": {
+  "generated_by": "scripts/build_atlas.py",
+  "generated_at": "2026-11-25T03:44:01Z",
+  "curation": "Only explicitly curated, blog-linked routes from scripts/curated_routes.json. When GPX is supplied, lines are trimmed and timestamps are stripped.",
+  "crs": "EPSG:4326"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.2154,
+     46.3948
+    ]
+   },
+   "properties": {
+    "id": "franceitalyswitzerland",
+    "slug": "FranceItalySwitzerland",
+    "title": "France, Italy, Switzerland 2017",
+    "region_name": "Switzerland",
+    "region_id": "switzerland",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2017,
+    "date": "2017-05-22",
+    "summary": "Two week Euro loop: FR - IT - CH - FR",
+    "post_url": "/FranceItalySwitzerland/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2017/May/Europe/lauterbrunnen3.JPG",
+    "location": "France, Italy, Switzerland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.0128,
+     38.9908
+    ]
+   },
+   "properties": {
+    "id": "trail401",
+    "slug": "Trail401",
+    "title": "401 Trail + Snodgrass Trail, Crested Butte, CO | 19mi, 2200ft (ascent), 2900ft (descent)",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 19.0,
+    "elevation_ft": 2200,
+    "season_year": 2021,
+    "date": "2021-08-29",
+    "summary": "Ahhh the 401 trail in Crested Butte. Is there any more of a classic? Though Justin, my dad and I have ridden this trail more than a few times, it's tough to make a trip ou…",
+    "post_url": "/Trail401/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2021/August/Trail401/401_views.jpg",
+    "location": "Crested Butte",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -123.1136,
+     49.7739
+    ]
+   },
+   "properties": {
+    "id": "alicelake",
+    "slug": "AliceLake",
+    "title": "Alice Lake, Squamish, BC | 24.4km, 779m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 15.16,
+    "elevation_ft": 2556,
+    "season_year": 2022,
+    "date": "2022-04-09",
+    "summary": "Went to visit Kelsea on the coast... impulse bought a new bike. C'est la vie. ¯\\(ツ)/¯",
+    "post_url": "/AliceLake/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2022/April/AliceLake/innout_adam.jpg",
+    "location": "Squamish",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.8601,
+     49.1749
+    ]
+   },
+   "properties": {
+    "id": "sevensummits",
+    "slug": "SevenSummits",
+    "title": "Seven Summits, Rossland, BC | 36km, 1190m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 22.37,
+    "elevation_ft": 3904,
+    "season_year": 2022,
+    "date": "2022-08-06",
+    "summary": "After two beers at RBC the previous night, I was shockingly hungover for a bright and early pick up (7am) for a shuttle for Seven Summits. Never the less I persisted.",
+    "post_url": "/SevenSummits/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2022/August/SevenSummits/lauren_justin_doneclimbing.jpg",
+    "location": "Rossland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.8103,
+     39.5823
+    ]
+   },
+   "properties": {
+    "id": "downieville",
+    "slug": "Downieville",
+    "title": "Downieville Loop, Downieville, CA | 34.18mi, 5013ft",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 34.18,
+    "elevation_ft": 5013,
+    "season_year": 2023,
+    "date": "2023-10-29",
+    "summary": "Growing up racing mountain bikes, I have heard about Downieville and the Downieville classic almost my entire life. So as soon as we moved to Nevada and learned that Downi…",
+    "post_url": "/Downieville/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2023/October/Downieville/bigtree.jpg",
+    "location": "Downieville",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.6774,
+     49.0894
+    ]
+   },
+   "properties": {
+    "id": "rosslandtosummerland",
+    "slug": "RosslandToSummerland",
+    "title": "Rossland, BC to Summerland, BC | 291km, 4195m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 180.82,
+    "elevation_ft": 13763,
+    "season_year": 2023,
+    "date": "2023-06-11",
+    "summary": "What better way to spend an early Father's Day than a 3-day bike packing trip? My dad, Tim, Lauren, and I planned a trip to bike from Rossland to Summerland. Along the way…",
+    "post_url": "/RosslandToSummerland/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2023/June/Summerland/me_and_dad_day2.jpg",
+    "location": "Rossland --> Summerland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -115.05715,
+     49.5037
+    ]
+   },
+   "properties": {
+    "id": "trailtoale",
+    "slug": "TrailToAle",
+    "title": "Trail to Ale + Slunt, Fernie, BC | 44km, 1773m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 27.34,
+    "elevation_ft": 5817,
+    "season_year": 2023,
+    "date": "2023-06-30",
+    "summary": "Wow! We had a heck of a crew for Trail to Ale - 9 people! A leisurely full day of mountain biking. For Fernie Brewing Co's 20 year anniversary, they tacked on a 4th trail…",
+    "post_url": "/TrailToAle/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2023/June/TrailToAle/hypertension_2.jpg",
+    "location": "Fernie",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.4609,
+     43.7468
+    ]
+   },
+   "properties": {
+    "id": "oakridge",
+    "slug": "Oakridge",
+    "title": "Lawler Trail and Eula Ridge, Oakridge, OR | 30.05mi, 7283ft",
+    "region_name": "Oregon",
+    "region_id": "oregon",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 30.05,
+    "elevation_ft": 7283,
+    "season_year": 2024,
+    "date": "2024-06-17",
+    "summary": "Big day of pedaling, ahoy! Woke up at a perfect secret camp spot and kicked off the day with some fog and rain at Salt Creek Falls. Then head into town for a coffee at Man…",
+    "post_url": "/Oakridge/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2024/June/Oakridge/SaltCreekFalls.jpg",
+    "location": "Oakridge",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.9843,
+     38.9332
+    ]
+   },
+   "properties": {
+    "id": "armstrongpass",
+    "slug": "ArmstrongPass",
+    "title": "Armstrong Pass, South Lake Tahoe, CA | 23.6mi, 3944ft",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 23.6,
+    "elevation_ft": 3944,
+    "season_year": 2024,
+    "date": "2024-07-27",
+    "summary": "Big loop on a trail bike but hugely rewarding! We parked at the Fountain Place Road x Saxon Tie Road intersection and pedaled the Powerline Road to High Meadows Road to St…",
+    "post_url": "/ArmstrongPass/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2024/July/ArmstrongPass/StarLake.jpg",
+    "location": "South Lake Tahoe",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.0658,
+     38.6847
+    ]
+   },
+   "properties": {
+    "id": "thundermountain",
+    "slug": "ThunderMountain",
+    "title": "Thunder Mountain Loop, Kirkwood, CA | 11.7mi, 2480ft",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 11.7,
+    "elevation_ft": 2480,
+    "season_year": 2024,
+    "date": "2024-07-05",
+    "summary": "Starting at 2pm during a heat wave, even in the mountains, is not the best idea. We did it anyway! Overall, a gorgeous loop.",
+    "post_url": "/ThunderMountain/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2024/July/ThunderMountain/sentinels.jpg",
+    "location": "Kirkwood",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.9787,
+     38.8879
+    ]
+   },
+   "properties": {
+    "id": "lupine",
+    "slug": "Lupine",
+    "title": "Lupine, Crested Butte, CO | 15.58 mi, 1562 ft up",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 15.58,
+    "elevation_ft": 1562,
+    "season_year": 2025,
+    "date": "2025-10-03",
+    "summary": "Name a better time to be up in Crested Butte, I'll wait. Okay maybe early summer during flower season is nice too. The yellow and damp fall is something special though.",
+    "post_url": "/Lupine/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2025/October/Lupine/aspens_doubletrack.jpg",
+    "location": "Crested Butte",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.6804,
+     38.6986
+    ]
+   },
+   "properties": {
+    "id": "moab",
+    "slug": "Moab",
+    "title": "Slick Rock, Captain Ahab, and Bartlett Wash, Moab, UT",
+    "region_name": "Utah",
+    "region_id": "utah",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2025,
+    "date": "2025-11-29",
+    "summary": "Quick Thanksgiving getaway to the desert. We like to break up the drive from the front range of Colorado by camping in Fruita on the way.",
+    "post_url": "/Moab/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2025/November/Moab/slickrock4.JPG",
+    "location": "Moab",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.9878,
+     38.8697
+    ]
+   },
+   "properties": {
+    "id": "teocalli",
+    "slug": "Teocalli",
+    "title": "Teocalli, Crested Butte, CO | 11 mi, 2329 ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 11.0,
+    "elevation_ft": 2329,
+    "season_year": 2025,
+    "date": "2025-06-21",
+    "summary": "Family ride in CB! Nothing to complain about (but I find a way to complain about the climb anyways). The Teocalli climb is no joke! This time of year, there's a river flow…",
+    "post_url": "/Teocalli/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2025/June/Teocalli/swim.jpg",
+    "location": "Crested Butte",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.8721,
+     39.6283
+    ]
+   },
+   "properties": {
+    "id": "lenawee",
+    "slug": "Lenawee",
+    "title": "Lenawee, Arapahoe Basin, CO | 9.89 mi, 1783 ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 9.89,
+    "elevation_ft": 1783,
+    "season_year": 2025,
+    "date": "2025-07-26",
+    "summary": "After a day of sitting at a desk, we took a little spin up the dirt road to check out Pennsylvania Mine. The mine primarily ran between ~1879-1945 and produced gold, silve…",
+    "post_url": "/Lenawee/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2025/July/Lenawee/abasin.jpg",
+    "location": "Arapahoe Basin",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.8893,
+     39.7739
+    ]
+   },
+   "properties": {
+    "id": "jonespass",
+    "slug": "JonesPass",
+    "title": "Jones Pass, CO | 8.59 mi, 1378 ft up, 3537 ft down",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 8.59,
+    "elevation_ft": 1378,
+    "season_year": 2025,
+    "date": "2025-08-16",
+    "summary": "What a delight it is to reconnect with old friends! Gigi and I grew up mountain biking together, and here we are, mountain biking together 15 years later. Gigi helped us s…",
+    "post_url": "/JonesPass/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2025/August/JonesPass/all_desc.jpg",
+    "location": "Jones Pass",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.8032,
+     38.9587
+    ]
+   },
+   "properties": {
+    "id": "doubletop",
+    "slug": "DoubleTop",
+    "title": "Double Top, Crested Butte, CO | 28.5 mi, 5859 ft, e-bike",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 28.5,
+    "elevation_ft": 5859,
+    "season_year": 2026,
+    "date": "2026-08-21",
+    "summary": "New bike ride, new bike day! We assumed this lap would surely be fast, especially on the e-bikes. We've talked about pedaling this lap on the analog bikes but decided it w…",
+    "post_url": "/DoubleTop/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2026/August/DoubleTop/brushcreek4.jpg",
+    "location": "Crested Butte",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.8842,
+     38.9605
+    ]
+   },
+   "properties": {
+    "id": "teocalli2",
+    "slug": "Teocalli2",
+    "title": "Teocalli Mountain, Crested Butte, CO | bike/hike/bike",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Bike",
+    "activity": "bike",
+    "grade_or_difficulty": "Mountain bike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2026,
+    "date": "2026-08-23",
+    "summary": "We've ridden Teocalli ridge so many times, but have never hiked up to the summit of Teocalli Mountain. With summer days running out, we were running out of chances to do t…",
+    "post_url": "/Teocalli2/",
+    "image": "https://klepikhina.s3.amazonaws.com/Bike/2026/August/Teocalli/rainbow.jpg",
+    "location": "Crested Butte",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.2934,
+     39.9873
+    ]
+   },
+   "properties": {
+    "id": "thirdflatiron",
+    "slug": "ThirdFlatiron",
+    "title": "3rd Flatiron East Face (Standard), Boulder, CO | 5.4 - 8 pitches",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.4",
+    "grade": "5.4",
+    "pitches": 8,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-10-15",
+    "summary": "Kelsea's in town! We decided to do a quick climb up the third flatiron on the standard route. Such a beautiful and fun playground. We saw the usual casual soloers in trail…",
+    "post_url": "/ThirdFlatiron/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/October/ThirdFlatiron/sky.JPG",
+    "location": "Boulder",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.3871,
+     40.0014
+    ]
+   },
+   "properties": {
+    "id": "bittybuttress",
+    "slug": "BittyButtress",
+    "title": "Bitty Buttress, Boulder, CO | 5.8+ - 3 pitches",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.8",
+    "grade": "5.8",
+    "pitches": 3,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-11-14",
+    "summary": "Climbing season was going late in Boulder! I asked Joe if he'd be willing to take me up Bitty Buttress and he kindly agreed. I love a quick afternoon multi!",
+    "post_url": "/BittyButtress/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/November/BittyButtress/bb_belay_ledge.jpg",
+    "location": "Boulder",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.293,
+     39.9893
+    ]
+   },
+   "properties": {
+    "id": "secondflatiron",
+    "slug": "SecondFlatiron",
+    "title": "2nd Flatiron (Freeway), Boulder, CO | 5.0 - 6 pitch scramble",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.0",
+    "grade": "5.0",
+    "pitches": 6,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-12-02",
+    "summary": "I wanted to compile a few photos from multiple happy jaunts up Freeway. Is there anything more Boulder classic than a casual run up the Second?",
+    "post_url": "/SecondFlatiron/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/December/SecondFlatiron/ha_hannah_ksenia.jpg",
+    "location": "Boulder",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.5421,
+     49.3775
+    ]
+   },
+   "properties": {
+    "id": "gladecreekfalls",
+    "slug": "GladeCreekFalls",
+    "title": "Glade Creek Falls, Glade, BC | WI2-3 - 3 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "WI2-3",
+    "grade": "WI2-3",
+    "pitches": 3,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-12-31",
+    "summary": "Wow! My first time ice climbing! Didn't take nearly enough photos. Also my first time on BC ferries!",
+    "post_url": "/GladeCreekFalls/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/December/GladeCreekFalls/p2.jpg",
+    "location": "Glade",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.5241,
+     40.3035
+    ]
+   },
+   "properties": {
+    "id": "wizardsgate",
+    "slug": "WizardsGate",
+    "title": "Wizards Gate, Estes Park, CO | 5.11a/b - 4 pitches; 5.8 - 5 pitches",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.11A",
+    "grade": "5.11A",
+    "pitches": 4,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-07-18",
+    "summary": "Eric and Justin took me up my second multipitch! They definitely have me hooked. We did two runs up Wizards Gate:",
+    "post_url": "/WizardsGate/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/July/WizardsGate/rock.jpg",
+    "location": "Estes Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.2866,
+     39.9726
+    ]
+   },
+   "properties": {
+    "id": "angelsway",
+    "slug": "AngelsWay",
+    "title": "Stairway to Heaven, Boulder, CO | 5.2 - 8 pitch scramble",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.2",
+    "grade": "5.2",
+    "pitches": 8,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-07-19",
+    "summary": "Cliff and I reconnected for the first time since high school after realizing we're both in Boulder. I told him that I was excited that I had scrambled the Second and that…",
+    "post_url": "/AngelsWay/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/July/AngelsWay/meridge.jpg",
+    "location": "Boulder",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.5522,
+     40.4131
+    ]
+   },
+   "properties": {
+    "id": "mainliner",
+    "slug": "Mainliner",
+    "title": "Mainliner, Estes Park, CO | 5.9 - 5 pitches",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.9",
+    "grade": "5.9",
+    "pitches": 5,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-08-27",
+    "summary": "The approach to Mainliner was about 3.5 miles. It was mostly gradual with a steep section at the end to approach the climb. We tried approaching this climb earlier in the…",
+    "post_url": "/Mainliner/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/August/Mainliner/mainliner.jpg",
+    "location": "Estes Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.2351,
+     39.1151
+    ]
+   },
+   "properties": {
+    "id": "turkeyrocks",
+    "slug": "TurkeyRocks",
+    "title": "Turkey Rocks, South Platte, CO | Multiple Pitches",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-08-07",
+    "summary": "Turkey Rocks - \"one of the finest concentrations of crack climbing in Colorado\". What better place to learn how to crack climb? I had never been crack climbing and couldn'…",
+    "post_url": "/TurkeyRocks/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/August/TurkeyRocks/eric_justin.JPG",
+    "location": "South Platte",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.5179,
+     40.4037
+    ]
+   },
+   "properties": {
+    "id": "twinowls",
+    "slug": "TwinOwls",
+    "title": "East Ridge + The Bowels of the Owls, Estes Park, CO | 5.8 - 2 pitches; 5.0 - 3 pitch down climb",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.8",
+    "grade": "5.8",
+    "pitches": 2,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-09-19",
+    "summary": "Geared up to do a quick run of the East Ridge of the Twin Owls. Short but sweet!",
+    "post_url": "/TwinOwls/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/September/TwinOwls/p2_2.jpg",
+    "location": "Estes Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.6143,
+     40.2554
+    ]
+   },
+   "properties": {
+    "id": "casualroute",
+    "slug": "CasualRoute",
+    "title": "Casual Route, Longs Peak, CO | 5.10a - 10 pitches",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.10A",
+    "grade": "5.10A",
+    "pitches": 10,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-09-26",
+    "summary": "The approach to the casual route is about 6.2 miles and took us about 2.5 hours. We followed the trail up to Chasm Lake and circumnavigated the lake through a large boulde…",
+    "post_url": "/CasualRoute/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/September/LongsPeak/lp_northchimney.jpg",
+    "location": "Estes Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.9169,
+     34.2309
+    ]
+   },
+   "properties": {
+    "id": "enchantedtower",
+    "slug": "EnchantedTower",
+    "title": "Enchanted Tower, Socorro County, NM | Multiple Pitches",
+    "region_name": "New Mexico",
+    "region_id": "new-mexico",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-09-06",
+    "summary": "Though Justin and I tried to convince Eric to come up to Colorado again, he convinced us that it was our turn to drive down to New Mexico to visit him. After making the 6.…",
+    "post_url": "/EnchantedTower/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2021/September/EnchantedTower/et_starrynight.jpg",
+    "location": "Socorro County",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -123.1669,
+     49.9223
+    ]
+   },
+   "properties": {
+    "id": "starchek",
+    "slug": "StarChek",
+    "title": "Star Chek, Squamish, BC | 5.8+ - 3 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.8",
+    "grade": "5.8",
+    "pitches": 3,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-05-21",
+    "summary": "Star Chek! My first time leading part of a multi!",
+    "post_url": "/StarChek/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/May/StarChek/p1.jpg",
+    "location": "Squamish",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -123.1518,
+     49.6786
+    ]
+   },
+   "properties": {
+    "id": "thechief",
+    "slug": "TheChief",
+    "title": "The Chief, Squamish, BC | 5.9 - 16 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.9",
+    "grade": "5.9",
+    "pitches": 16,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-05-22",
+    "summary": "Justin's birthday! I had never been up the Chief in Squamish and Justin was kind enough to take me up the classic easy route. So beautiful, so fun! We didn't even have to…",
+    "post_url": "/TheChief/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/May/TheChief/grandwall.jpg",
+    "location": "Squamish",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.4467,
+     49.256
+    ]
+   },
+   "properties": {
+    "id": "millenialfalcon",
+    "slug": "MillenialFalcon",
+    "title": "Millenial Falcon, Grand Forks, BC | 5.9 - 5 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.9",
+    "grade": "5.9",
+    "pitches": 5,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-07-01",
+    "summary": "Grand Forks is a bit of an underexplored climbing gem. About 29km up North Fork Road, you can find the Slabs at Lynch Bluffs. Parking is on the east side of the road. When…",
+    "post_url": "/MillenialFalcon/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/selfies.jpg",
+    "location": "Grand Forks",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.5611,
+     49.4492
+    ]
+   },
+   "properties": {
+    "id": "skahacave",
+    "slug": "SkahaCave",
+    "title": "Skaha Cave, Skaha - Penticton, BC | Cave Scramble",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-07-02",
+    "summary": "For July long, we took a quick weekend trip down to Penticton. In addition to walking around to different breweries and farmers markets, floating the channel and climbing,…",
+    "post_url": "/SkahaCave/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/July/SkahaCave/photocopier_justin.jpg",
+    "location": "Penticton",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -115.1929,
+     49.4917
+    ]
+   },
+   "properties": {
+    "id": "spineback",
+    "slug": "Spineback",
+    "title": "Spineback Ridge, Fernie, BC | 5.9 - 3 pitch + scramble",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.9",
+    "grade": "5.9",
+    "pitches": 3,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-08-01",
+    "summary": "On August 1, Justin, some friends, and I set out to climb Spineback per Vic's suggestion. Like she said, it was very nice. What's not to like about an enjoyable, non crumb…",
+    "post_url": "/Spineback/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/August/FernieSpineback/SpinebackStartOfClimb.jpg",
+    "location": "Fernie",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -116.7688,
+     50.7431
+    ]
+   },
+   "properties": {
+    "id": "bugaboos",
+    "slug": "Bugaboos",
+    "title": "Northwest Ridge + Lion's Way*, Bugaboo Provincial Park, BC | 4th class - 600ft, 5.6 - 6 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.6",
+    "grade": "5.6",
+    "pitches": 6,
+    "distance_mi": null,
+    "elevation_ft": 600,
+    "season_year": 2022,
+    "date": "2022-08-12",
+    "summary": "Justin has been talking up the Bugaboos for as long as I've known him. We decided it's time for me to see what it's all about! It was Justin's fifth or sixth time up and m…",
+    "post_url": "/Bugaboos/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/August/Bugaboos/lionsway_bottom.jpg",
+    "location": "Bugaboo Provincial Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.8231,
+     49.3429
+    ]
+   },
+   "properties": {
+    "id": "amazons",
+    "slug": "Amazons",
+    "title": "Amazons, Castlegar, BC | 5.8 - 8 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.8",
+    "grade": "5.8",
+    "pitches": 8,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-08-27",
+    "summary": "Adding this post to have some sort of written documentation of the Amazons multipitch in the KeTaMux climbing area in Castlegar, BC. The first three pitches of this climb…",
+    "post_url": "/Amazons/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/August/CastlegarAmazons/descent_trail_2.jpg",
+    "location": "Castlegar",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.611,
+     49.3226
+    ]
+   },
+   "properties": {
+    "id": "megawatts",
+    "slug": "Megawatts",
+    "title": "Megawatts, Castlegar, BC | 5.8 - 8 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.8",
+    "grade": "5.8",
+    "pitches": 8,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-09-18",
+    "summary": "We started climbing Megawatts around 12:15 on Sunday afternoon and finished up around 3:45pm. We climbed as a party of 3 with Justin leading, Wesley in the middle, and me…",
+    "post_url": "/Megawatts/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/September/Megawatts/megawatts_start.jpg",
+    "location": "Castlegar",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -123.1567,
+     49.6695
+    ]
+   },
+   "properties": {
+    "id": "spiritofsquamish",
+    "slug": "SpiritOfSquamish",
+    "title": "Spirit of Squamish, Squamish, BC | 5.8 - 8 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.8",
+    "grade": "5.8",
+    "pitches": 8,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-09-07",
+    "summary": "Squamish is getting busy!! Justin and I took a week off of work to spend some time on the coast. We showed up to Spirit of Squamish at 1pm and waited for two parties to fi…",
+    "post_url": "/SpiritOfSquamish/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/September/SpiritOfSquamish/spiritofsquamish1.jpg",
+    "location": "Squamish",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.295,
+     39.9904
+    ]
+   },
+   "properties": {
+    "id": "firstflatiron",
+    "slug": "FirstFlatiron",
+    "title": "First Flatiron - North Arete, Boulder, CO | 5.4 - 5 pitches",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.4",
+    "grade": "5.4",
+    "pitches": 5,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-04-21",
+    "summary": "Boyyy after a heck of a time driving to Colorado down from BC and a chaotic week - we wanted to squeeze in a quick lap of the first flatiron.",
+    "post_url": "/FirstFlatiron/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2023/April/FirstFlatiron/top.jpg",
+    "location": "Boulder",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.459,
+     49.0538
+    ]
+   },
+   "properties": {
+    "id": "granbydam",
+    "slug": "GranbyDam",
+    "title": "Granby Dam, Grand Forks, BC | Crag",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-04-30",
+    "summary": "Sometimes I think I know what I'm doing sport climbing, but then I want to spell \"crag\" like \"craig\" and think maybe not.",
+    "post_url": "/GranbyDam/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2023/April/GranbyDam/base.jpg",
+    "location": "Grand Forks",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -116.6648,
+     48.6506
+    ]
+   },
+   "properties": {
+    "id": "beehivefive",
+    "slug": "BeehiveFive",
+    "title": "Beehive Five (Selkirk Traverse), Selkirk Crest, ID | Scramble, Traverse, Bushwack, 5.6 - 3 pitches",
+    "region_name": "Idaho",
+    "region_id": "idaho",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.6",
+    "grade": "5.6",
+    "pitches": 3,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-06-25",
+    "summary": "On a whim, we decided to seize the two-day weekend and make a quick trip down to Idaho's panhandle. On Saturday we checked out the Schweitzer bike park and the town of San…",
+    "post_url": "/BeehiveFive/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2023/June/BeehiveFive/top_1_ksenia.jpg",
+    "location": "Selkirk Traverse",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.6534,
+     49.7683
+    ]
+   },
+   "properties": {
+    "id": "nisleheim",
+    "slug": "Nisleheim",
+    "title": "Nisleheim - East Ridge, Valhallas, BC | 5.7 - 5 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.7",
+    "grade": "5.7",
+    "pitches": 5,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-07-15",
+    "summary": "Most people that come up to climb in the Valhallas aim to climb Gimli. Some day I'll come back for it! This weekend we went up to bag two peaks - Nisleheim and Wolfs Ears.",
+    "post_url": "/Nisleheim/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2023/July/Nisleheim/climb_start.jpg",
+    "location": "Valhallas",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.6298,
+     49.763
+    ]
+   },
+   "properties": {
+    "id": "helix",
+    "slug": "Helix",
+    "title": "Wolfs Ears - Helix, Valhallas, BC | 5.8 - 6 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.8",
+    "grade": "5.8",
+    "pitches": 6,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-07-16",
+    "summary": "After doing Nisleheim, we were a little tired but were eager for another climb. I mean, we're already up here, right? So after a quiet night of rest in the Valhallas campg…",
+    "post_url": "/Helix/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2023/July/WolfsEars/summit.jpg",
+    "location": "Valhallas",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -114.6961,
+     49.6356
+    ]
+   },
+   "properties": {
+    "id": "ragstoriches",
+    "slug": "RagsToRiches",
+    "title": "Rags to Riches, Crowsnest Pass, AB | 5.8 - 6 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.8",
+    "grade": "5.8",
+    "pitches": 6,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-07-02",
+    "summary": "A long weekend spent in the East Kootenays! Justin, James and I went out to Crowsnest pass to check out \"Rags to Riches\" near Emerald Lake. Let me tell you - those rocks a…",
+    "post_url": "/RagsToRiches/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2023/July/RagsToRiches/top_views.jpg",
+    "location": "Crowsnest Pass",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.5383,
+     37.8651
+    ]
+   },
+   "properties": {
+    "id": "daffdomeguidecracks",
+    "slug": "DAFFDomeGuideCracks",
+    "title": "DAFF Dome Guide Cracks, Yosemite National Park, CA | crag - 4 climbs",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-10-14",
+    "summary": "From left to right, the pictured cracks are: 5.8, 5.8, 5.7, 5.5.",
+    "post_url": "/DAFFDomeGuideCracks/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2024/October/DAFFDome/guidecracks.jpg",
+    "location": "Yosemite National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.5383,
+     37.8651
+    ]
+   },
+   "properties": {
+    "id": "johnmuirroutecathedralpeak",
+    "slug": "JohnMuirRouteCathedralPeak",
+    "title": "John Muir Route (The Mountaineer's Route) - Cathedral Peak, Yosemite National Park, CA | easy 5th scramble",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-10-15",
+    "summary": "Would love to come back some day and climb the main face of Cathedral! Today we decided to do the scamble on the south face. This route is primarily a hike until the last…",
+    "post_url": "/JohnMuirRouteCathedralPeak/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2024/October/CathedralPeak/cathedralpeak.jpg",
+    "location": "Yosemite National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.225,
+     38.025
+    ]
+   },
+   "properties": {
+    "id": "electriclundyland",
+    "slug": "ElectricLundyLand",
+    "title": "Electric Lundy Land",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-10-20",
+    "summary": "Met up with Alex and Abby to get in a final alpine day before the winter! We drove down to Lundy Canyon, just north of Mono Lake.",
+    "post_url": "/ElectricLundyLand/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2024/October/ElectricLundyLand/moon_redmtns.jpg",
+    "location": "Eastern Sierra",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.5,
+     40.05
+    ]
+   },
+   "properties": {
+    "id": "pyramidlake",
+    "slug": "PyramidLake",
+    "title": "Pig Rock + Contra Canyon",
+    "region_name": "Nevada",
+    "region_id": "nevada",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-11-10",
+    "summary": "Winter climbing crag near Reno! Everyone knows about Tahoe but do people know about Pyramid Lake? It is only slightly smaller in surface area and is the termination point…",
+    "post_url": "/PyramidLake/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2024/November/PyramidLakeArea/album.jpg",
+    "location": "Pyramid Lake",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.3241,
+     39.3181
+    ]
+   },
+   "properties": {
+    "id": "juniorhigh",
+    "slug": "JuniorHigh",
+    "title": "Junior High, School Rock, Donner Summit, CA | 5.6 - 3 pitches",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.6",
+    "grade": "5.6",
+    "pitches": 3,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-05-19",
+    "summary": "On a warm spring day, we took a trip up to cannibal-mountain.. I mean... Donner Summit! This is one of the most popular climbing areas in the Lake Tahoe area. We were luck…",
+    "post_url": "/JuniorHigh/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2024/May/SchoolRockJuniorHigh/climb.jpg",
+    "location": "Donner Summit",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.3241,
+     39.3181
+    ]
+   },
+   "properties": {
+    "id": "labyrinth",
+    "slug": "Labyrinth",
+    "title": "Labyrinth, Black Wall, Donner Summit, CA | 5.6 - 2 pitches",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.6",
+    "grade": "5.6",
+    "pitches": 2,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-07-04",
+    "summary": "You want a squeeze chimney? This is the best bang for your buck. Was it a 5.6? Maybe - people solo it. Did it feel like one? Boyyyy!",
+    "post_url": "/Labyrinth/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2024/July/Labyrinth/chimney.jpg",
+    "location": "Donner Summit",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.812,
+     36.1349
+    ]
+   },
+   "properties": {
+    "id": "seventeacups",
+    "slug": "SevenTeacups",
+    "title": "Seven Teacups, Springville, CA | canyoneering - 7 rappels",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-08-10",
+    "summary": "Southern California is apparently a huge canyoneering destination! Many of the canyons are dry and the Seven Teacups is a unique feature and one of the few wet canyons. Pr…",
+    "post_url": "/SevenTeacups/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2024/August/SevenTeacups/teacupend.jpg",
+    "location": "Springville",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.6879,
+     39.0377
+    ]
+   },
+   "properties": {
+    "id": "ottosroute",
+    "slug": "OttosRoute",
+    "title": "Otto's Route",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2025,
+    "date": "2025-04-12",
+    "summary": "First multi-pitch of 2025! Took a weekend trip out to Fruita with my family and seized the opportunity to climb Independence Monument in Colorado National Monument. I lear…",
+    "post_url": "/OttosRoute/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2025/April/OttosRoute/firstview.jpg",
+    "location": "Colorado National Monument",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.4417,
+     44.0489
+    ]
+   },
+   "properties": {
+    "id": "tensleep",
+    "slug": "TenSleep",
+    "title": "Ten Sleep Cragging",
+    "region_name": "Wyoming",
+    "region_id": "wyoming",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "Rock climb",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2025,
+    "date": "2025-06-06",
+    "summary": "Climbing trip, best friends, fireworks in Wyoming. Not a bad way to spend the Fourth! Started off weak with both Justin and I having food poisoning and only got better wit…",
+    "post_url": "/TenSleep/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2025/July/TenSleep/views2.jpg",
+    "location": "Ten Sleep",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.2908,
+     39.9819
+    ]
+   },
+   "properties": {
+    "id": "regency",
+    "slug": "Regency",
+    "title": "Regency, Royal Arch, Buckets, Boulder, CO | 4th-5.2 - 7 pitches",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.2",
+    "grade": "5.2",
+    "pitches": 7,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2025,
+    "date": "2025-08-19",
+    "summary": "New scramble unlocked! A nice evening outing catching up with friends and checking out new (to me) scrambles. Regency to Royal Arch to Buckets from NCAR.",
+    "post_url": "/Regency/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2025/August/Regency/regency3.jpg",
+    "location": "Boulder",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -123.153,
+     49.6809
+    ]
+   },
+   "properties": {
+    "id": "rambles",
+    "slug": "Rambles",
+    "title": "Rambles, Squamish, BC | 5.8 - 4 pitches",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Climb",
+    "activity": "climb",
+    "grade_or_difficulty": "5.8",
+    "grade": "5.8",
+    "pitches": 4,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2025,
+    "date": "2025-09-07",
+    "summary": "An event packed trip to Squamish! Filled with lovely times with Fernie friends, cragging, hot-tubbing, multi-pitching, lake swimming, mountain biking with family, paddle b…",
+    "post_url": "/Rambles/",
+    "image": "https://klepikhina.s3.amazonaws.com/Climb/2025/September/Rambles/me_p2.jpg",
+    "location": "Squamish",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.5297,
+     37.7446
+    ]
+   },
+   "properties": {
+    "id": "greatsanddunes",
+    "slug": "GreatSandDunes",
+    "title": "Great Sand Dunes National Park, CO",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2018,
+    "date": "2018-03-18",
+    "summary": "A bucketlist destination in Colorado. One thing we missed doing is dune skiing or sledding! For another time.",
+    "post_url": "/GreatSandDunes/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2018/GreatSandDunes/dunes_h6.jpg",
+    "location": "Great Sand Dunes National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.4445,
+     39.1178
+    ]
+   },
+   "properties": {
+    "id": "mountelbert",
+    "slug": "MountElbert",
+    "title": "Mount Elbert, CO | 8.9mi, 4409ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 8.9,
+    "elevation_ft": 4409,
+    "season_year": 2018,
+    "date": "2018-08-24",
+    "summary": "The highest summit in the Rocky Mountains and the second highest in the contiguous US! It sits right next to Mount Massive which is the second highest summit in Colorado.…",
+    "post_url": "/MountElbert/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2018/MountElbert/elbert4.jpg",
+    "location": "Buena Vista",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.6175,
+     40.0989
+    ]
+   },
+   "properties": {
+    "id": "mountaudubon",
+    "slug": "MountAudubon",
+    "title": "Mount Audubon, Roosevelt National Forest, CO | 9mi, 2979ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 9.0,
+    "elevation_ft": 2979,
+    "season_year": 2020,
+    "date": "2020-08-21",
+    "summary": "I was dying to go up to the alpine after being stuck at home due to COVID. Despite the smoke, we trekked our way up Mount Audubon, one of the most beautiful 13ers in Color…",
+    "post_url": "/MountAudubon/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2020/Audubon/lake1.jpg",
+    "location": "Roosevelt National Forest",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.5107,
+     46.8974
+    ]
+   },
+   "properties": {
+    "id": "chinookglissading",
+    "slug": "ChinookGlissading",
+    "title": "Chinook Peak Glissading, Okanogan-Wenatchee National Forest, WA | 6.3mi, 1595ft",
+    "region_name": "Washington",
+    "region_id": "washington",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 6.3,
+    "elevation_ft": 1595,
+    "season_year": 2021,
+    "date": "2021-06-19",
+    "summary": "When Hannah and Andy told me they were having an engagement party, I gave them a bit of a hard time for not inviting me. They told me they didn't think anyone would fly ov…",
+    "post_url": "/ChinookGlissading/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2021/ChinookPeak/lake_hike.jpg",
+    "location": "Chinook Peak",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.6469,
+     49.766
+    ]
+   },
+   "properties": {
+    "id": "gimli",
+    "slug": "Gimli",
+    "title": "Mount Gimli, Valhallas, BC | 10.93km, 1605m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 6.79,
+    "elevation_ft": 5266,
+    "season_year": 2022,
+    "date": "2022-10-01",
+    "summary": "We woke up late on Saturday morning and decided it was a totally fine idea to drive 2.5 hours out to do a quick scramble of Mount Gimli. Nothing like a quick afternoon scr…",
+    "post_url": "/Gimli/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2022/October/Gimli/joanne_subsummit2.jpg",
+    "location": "Valhallas",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -116.5705,
+     50.4134
+    ]
+   },
+   "properties": {
+    "id": "jumbopass",
+    "slug": "JumboPass",
+    "title": "Jumbo Pass, Purcells, BC | 12.5km, 1217m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 7.77,
+    "elevation_ft": 3993,
+    "season_year": 2022,
+    "date": "2022-10-08",
+    "summary": "We intended to do Jumbo Pass and Monica Meadows two weekends prior but were turned around due to an active wildfire. This weekend, the fire was \"being held\" and though we…",
+    "post_url": "/JumboPass/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2022/October/Jumbo/meadow_glaciers_smoke.jpg",
+    "location": "Purcells",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -116.7531,
+     49.8412
+    ]
+   },
+   "properties": {
+    "id": "loki",
+    "slug": "Loki",
+    "title": "Mount Loki, Purcells, BC | 12.22km, 1358m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 7.59,
+    "elevation_ft": 4455,
+    "season_year": 2022,
+    "date": "2022-09-25",
+    "summary": "Loki -- certainly a god of michief, a trickster. Justin and I did not intend to do this hike twice but we had to. The first time we went up, it was full on fall weather. C…",
+    "post_url": "/Loki/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2022/September/Loki/loki_cloudysummit.jpg",
+    "location": "Purcells",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -116.6661,
+     50.4156
+    ]
+   },
+   "properties": {
+    "id": "monicameadows",
+    "slug": "MonicaMeadows",
+    "title": "Monica Meadows, Purcells, BC | 9.8km, 694m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 6.09,
+    "elevation_ft": 2277,
+    "season_year": 2023,
+    "date": "2023-10-01",
+    "summary": "Nearing our time to say a temporary good bye.",
+    "post_url": "/MonicaMeadows/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2023/October/MonicaMeadows/monica.jpg",
+    "location": "Purcells",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.8949,
+     39.4928
+    ]
+   },
+   "properties": {
+    "id": "huntercreek",
+    "slug": "HunterCreek",
+    "title": "Hunter Creek, Humboldt-Toiyabe National Forest, NV | 5.7mi, 1181ft",
+    "region_name": "Nevada",
+    "region_id": "nevada",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 5.7,
+    "elevation_ft": 1181,
+    "season_year": 2023,
+    "date": "2023-10-13",
+    "summary": "One of the first places we checked out after our migration down south was Hunter Creek Falls.",
+    "post_url": "/HunterCreek/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2023/October/HunterCreek/up1.jpg",
+    "location": "Reno",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -124.0609,
+     41.402
+    ]
+   },
+   "properties": {
+    "id": "redwoods",
+    "slug": "Redwoods",
+    "title": "Redwood National and State Parks, CA",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-12-12",
+    "summary": "Imagine if we didn't cut down so much old growth? Imagine old growth pow skiing in the mountains. Imagine mountain bike flow trails through old growth.",
+    "post_url": "/Redwoods/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2023/December/Redwoods/logwalk1.jpg",
+    "location": "Redwood National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -115.4845,
+     49.6465
+    ]
+   },
+   "properties": {
+    "id": "fisher",
+    "slug": "Fisher",
+    "title": "Mount Fisher, Canadian Rockies, BC | 7.75km, 1380m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 4.82,
+    "elevation_ft": 4528,
+    "season_year": 2023,
+    "date": "2023-07-01",
+    "summary": "In typical Ksenia and Justin style - we started Mount Fisher at our standard alpine start time - 11am. The road was a little rough getting in but James had no problem slam…",
+    "post_url": "/Fisher/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2023/July/Fisher/cranbrook.jpg",
+    "location": "Canadian Rockies",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.0235,
+     49.4142
+    ]
+   },
+   "properties": {
+    "id": "renataarch",
+    "slug": "RenataArch",
+    "title": "Renata Arch, Central Kootenays, BC | 9.1km, 305m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 5.65,
+    "elevation_ft": 1001,
+    "season_year": 2023,
+    "date": "2023-07-22",
+    "summary": "For some reason when we first moved to the Kootenay's, Renata Arch was one of the first places I desperately wanted to check out. The arch is also known as the Brooklyn Br…",
+    "post_url": "/RenataArch/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2023/July/RenataArch/arch2.jpg",
+    "location": "Kootenays",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.6289,
+     49.7717
+    ]
+   },
+   "properties": {
+    "id": "gwillimlakes",
+    "slug": "GwillimLakes",
+    "title": "Gwillim Lakes, Valhallas, BC | 11.75km, 827m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 7.3,
+    "elevation_ft": 2713,
+    "season_year": 2023,
+    "date": "2023-07-23",
+    "summary": "Gwillim Lakes! A place we'll certainly be returning to. I love driving into the Valhallas and trying to identify which mountains we have seen before from a different angle.",
+    "post_url": "/GwillimLakes/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2023/July/GwillimLakes/traildown1.jpg",
+    "location": "Valhallas",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.3008,
+     49.9716
+    ]
+   },
+   "properties": {
+    "id": "idahopeak",
+    "slug": "IdahoPeak",
+    "title": "Idaho Peak, Selkirk Range, BC | 14.5km, 1050m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 9.01,
+    "elevation_ft": 3445,
+    "season_year": 2023,
+    "date": "2023-08-13",
+    "summary": "After weeks of seeing articles about the Perseids meteor shower, it was finally August 12th - the peak of the meteor shower. I was lucky enough to rope Ash and some friend…",
+    "post_url": "/IdahoPeak/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2023/August/IdahoPeak/sunset1.jpg",
+    "location": "Selkirk Range",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -118.5658,
+     36.4864
+    ]
+   },
+   "properties": {
+    "id": "sequoia",
+    "slug": "Sequoia",
+    "title": "Sequoia National Park, CA",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-04-13",
+    "summary": "With an injury in the family and a free weekend, we made a weekend trip down to Sequoia. We started on the north side of the park (Big Stump entrance) and checked out the…",
+    "post_url": "/Sequoia/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2024/April/Sequoia/mckinleytree.jpg",
+    "location": "Sequoia National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.0794,
+     36.5054
+    ]
+   },
+   "properties": {
+    "id": "deathvalley",
+    "slug": "DeathValley",
+    "title": "Death Valley National Park",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-11-17",
+    "summary": "Checking off the area bucket list items - Death Valley ✔️. Would highly recommend using freecampsites.net - definitely some hit or miss, but boy did we hit with this one (…",
+    "post_url": "/DeathValley/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2024/November/DeathValley/camp1_morning.jpg",
+    "location": "Death Valley National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -122.5624,
+     43.2917
+    ]
+   },
+   "properties": {
+    "id": "highwayofwaterfalls",
+    "slug": "HighwayOfWaterfalls",
+    "title": "Highway of Waterfalls, OR",
+    "region_name": "Oregon",
+    "region_id": "oregon",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-06-18",
+    "summary": "Per a friend's recommendation, we took a drive down the highway of waterfalls in Oregon (N. Umpqua Hwy). Sure enough, there are numerous waterfalls to check out! We had a…",
+    "post_url": "/HighwayOfWaterfalls/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2024/June/HighwayOfWaterfalls/WatsonFalls.jpg",
+    "location": "Highway of Waterfalls",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.5078,
+     41.7143
+    ]
+   },
+   "properties": {
+    "id": "lavabeds",
+    "slug": "LavaBeds",
+    "title": "Lava Beds National Monument, CA",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-06-19",
+    "summary": "Any one else not know this existed? What a cool random stop! Close to the border of Oregon, Lava Beds National Monument is a worthwhile detour. Bring a headlamp and a jack…",
+    "post_url": "/LavaBeds/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2024/June/LavaBeds/merrill_cave.jpg",
+    "location": "Lava Beds National Monument",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.5951,
+     37.7581
+    ]
+   },
+   "properties": {
+    "id": "yosemitefalls",
+    "slug": "YosemiteFalls",
+    "title": "Yosemite Falls, Yosemite National Park, CA | 7.4mi, 3225ft",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 7.4,
+    "elevation_ft": 3225,
+    "season_year": 2024,
+    "date": "2024-08-11",
+    "summary": "Reservation systems to hike! How silly, but it is what it is. We drove into Yosemite before 5am to skip the reservation. We were recommended an excellent, private and free…",
+    "post_url": "/YosemiteFalls/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2024/August/YosemiteFalls/HalfDome.jpg",
+    "location": "Yosemite",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -19.0208,
+     64.9631
+    ]
+   },
+   "properties": {
+    "id": "iceland",
+    "slug": "Iceland",
+    "title": "A Bit of Iceland",
+    "region_name": "Iceland",
+    "region_id": "iceland",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-09-01",
+    "summary": "Too much to say! Will have to come back to this post and fill in stories. Perhaps draw a map?",
+    "post_url": "/Iceland/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2024/September/Iceland/Hrisvadsfoss_selfie.jpg",
+    "location": "Iceland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.15,
+     38.9
+    ]
+   },
+   "properties": {
+    "id": "pyramidpeak",
+    "slug": "PyramidPeak",
+    "title": "Pyramid Peak, Desolation Wilderness, CA | 7.58mi, 4091ft",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 7.58,
+    "elevation_ft": 4091,
+    "season_year": 2024,
+    "date": "2024-09-14",
+    "summary": "With Kelsea in town we need to check out some new hikes! I've been wanting to check out Lake Aloha, and what better way to do it than to see it from above off of Pyramid P…",
+    "post_url": "/PyramidPeak/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2024/September/PyramidPeak/summit.jpg",
+    "location": "Desolation Wilderness",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.5056,
+     40.4977
+    ]
+   },
+   "properties": {
+    "id": "lassenpeak",
+    "slug": "LassenPeak",
+    "title": "Lassen Peak, Lassen National Park, CA | 5.1mi, 2021ft",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 5.1,
+    "elevation_ft": 2021,
+    "season_year": 2024,
+    "date": "2024-09-29",
+    "summary": "We spent the weekend in the beautiful Trinity Alps with amazing friends - riding ATVs, paddleboarding, drinking milkshakes and playing cornhole. On the way back, we stoppe…",
+    "post_url": "/LassenPeak/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2024/September/LassenPeak/summit.jpg",
+    "location": "Lassen National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.9473,
+     39.8645
+    ]
+   },
+   "properties": {
+    "id": "byerspeak",
+    "slug": "ByersPeak",
+    "title": "Byers Peak, Winter Park, CO | 5.1mi, 2021ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 5.1,
+    "elevation_ft": 2021,
+    "season_year": 2025,
+    "date": "2025-10-25",
+    "summary": "Several years ago, I was looking at Byers Peak and telling myself I need to get up there. So, we went!",
+    "post_url": "/ByersPeak/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2025/October/ByersPeak/views.jpg",
+    "location": "Winter Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.6164,
+     40.0989
+    ]
+   },
+   "properties": {
+    "id": "mountaudubon2",
+    "slug": "MountAudubon2",
+    "title": "Mount Audubon, Roosevelt National Forest, CO | 14.64mi, 5148ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 14.64,
+    "elevation_ft": 5148,
+    "season_year": 2025,
+    "date": "2025-11-02",
+    "summary": "My first repeat post, exciting! My last time up here was in 2020 during Covid. Last time, I was escaping the indoors to be outside in the smoke.",
+    "post_url": "/MountAudubon2/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2025/November/MtAudubon/alpinesunset.jpg",
+    "location": "Roosevelt National Forest",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     44.1075,
+     41.9843
+    ]
+   },
+   "properties": {
+    "id": "georgia",
+    "slug": "Georgia",
+    "title": "Tour of Georgia",
+    "region_name": "Georgia",
+    "region_id": "georgia",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2026,
+    "date": "2026-05-15",
+    "summary": "An eight hour layover in Munich meant we got to have the experience of leaving the airport for the first time mid travel. We went to check out the nearby town of Freising,…",
+    "post_url": "/Georgia/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2026/May/Georgia/StGeorgeChurch.jpg",
+    "location": "Gori",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.6615,
+     39.8478
+    ]
+   },
+   "properties": {
+    "id": "kingstonpeakjamespeak",
+    "slug": "KingstonPeakJamesPeak",
+    "title": "Kingston Peak Road + James Peak, Roosevelt National Forest, CO | 4.42mi, 1424ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 4.42,
+    "elevation_ft": 1424,
+    "season_year": 2026,
+    "date": "2026-07-26",
+    "summary": "Last fall, Justin and I got to do some exploring up Kingston Peak road with my old friend and manager but were blocked by snow.",
+    "post_url": "/KingstonPeakJamesPeak/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2026/July/KingstonPassJamesPeak/justinalexcat.jpg",
+    "location": "Roosevelt National Forest",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.6948,
+     40.3096
+    ]
+   },
+   "properties": {
+    "id": "flattop",
+    "slug": "Flattop",
+    "title": "Flattop Mountain P2P, Rocky Mountain National Park, CO | 25mi, 5148ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 25.0,
+    "elevation_ft": 5148,
+    "season_year": 2026,
+    "date": "2026-08-02",
+    "summary": "Justin's parents have been talking about hiking Flattop Mountain from Bear Lake to Grand Lake for several years. So many years, that we decided to do it 20 years to the mo…",
+    "post_url": "/Flattop/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2026/August/Flattop/moon.jpg",
+    "location": "Rocky Mountain National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.0106,
+     38.9562
+    ]
+   },
+   "properties": {
+    "id": "gothic",
+    "slug": "Gothic",
+    "title": "Gothic Mountain, Crested Butte, CO | 8mi, 2903ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Hike",
+    "activity": "hike",
+    "grade_or_difficulty": "Alpine hike",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 8.0,
+    "elevation_ft": 2903,
+    "season_year": 2026,
+    "date": "2026-08-22",
+    "summary": "Every time we visit Crested Butte, we ski or mountain bike, but we rarely have explored by foot. We were ready for something new, and set out to get a new view of Crested…",
+    "post_url": "/Gothic/",
+    "image": "https://klepikhina.s3.amazonaws.com/Hike/2026/August/Gothic/views2.jpg",
+    "location": "Crested Butte",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.6958,
+     39.9495
+    ]
+   },
+   "properties": {
+    "id": "highlonesome",
+    "slug": "HighLonesome",
+    "title": "High Lonesome, Roosevelt National Forest, CO | 14.4mi, 3162ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Run",
+    "activity": "run",
+    "grade_or_difficulty": "Trail run",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 14.4,
+    "elevation_ft": 3162,
+    "season_year": 2019,
+    "date": "2019-09-29",
+    "summary": "This was one off the bucket list! A very cool run that takes you from the Eldora side of the front range to the ridgeline where you can see Winter Park. A splendid fall co…",
+    "post_url": "/HighLonesome/",
+    "image": "https://klepikhina.s3.amazonaws.com/Run/2019/September/HighLonesome/top1.jpg",
+    "location": "Eldora",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.6407,
+     38.5518
+    ]
+   },
+   "properties": {
+    "id": "amasaback",
+    "slug": "AmasaBack",
+    "title": "Amasa Back, Moab, UT | 13.2mi, 1677ft",
+    "region_name": "Utah",
+    "region_id": "utah",
+    "category": "Run",
+    "activity": "run",
+    "grade_or_difficulty": "Trail run",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 13.2,
+    "elevation_ft": 1677,
+    "season_year": 2021,
+    "date": "2021-03-27",
+    "summary": "There is no place like home. \\clicks heels\\",
+    "post_url": "/AmasaBack/",
+    "image": "https://klepikhina.s3.amazonaws.com/Run/2021/March/AmasaBack/me.jpg",
+    "location": "Moab",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.3069,
+     39.9733
+    ]
+   },
+   "properties": {
+    "id": "boulderskyline",
+    "slug": "BoulderSkyline",
+    "title": "Boulder Skyline, Boulder, CO | 17.3mi, 5250ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Run",
+    "activity": "run",
+    "grade_or_difficulty": "Trail run",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 17.3,
+    "elevation_ft": 5250,
+    "season_year": 2021,
+    "date": "2021-05-22",
+    "summary": "Kick off the data with a bright and early Boulder Skyline job with David! The Boulder Skyline Traverse traces the silhoutte of the front range. Though I had done the run a…",
+    "post_url": "/BoulderSkyline/",
+    "image": "https://klepikhina.s3.amazonaws.com/Run/2021/May/BoulderSkyline/skyline_bearme.jpg",
+    "location": "Boulder",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.9921,
+     38.8491
+    ]
+   },
+   "properties": {
+    "id": "greenlake",
+    "slug": "GreenLake",
+    "title": "Green Lake and Baxter Gulch, Crested Butte, CO | 16mi, 2850ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Run",
+    "activity": "run",
+    "grade_or_difficulty": "Trail run",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 16.0,
+    "elevation_ft": 2850,
+    "season_year": 2021,
+    "date": "2021-06-05",
+    "summary": "Glowing morning run with my mom and Sammy. This was the trip to Crested Butte that would convince my parents to move here. Crested Butte has always felt like home away fro…",
+    "post_url": "/GreenLake/",
+    "image": "https://klepikhina.s3.amazonaws.com/Run/2021/June/GreenLake/greenlake_creekcrossing3_baxtergulch.jpg",
+    "location": "Crested Butte",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -116.1619,
+     51.0968
+    ]
+   },
+   "properties": {
+    "id": "rockwall",
+    "slug": "Rockwall",
+    "title": "Rockwall, Kootenay National Park, BC | 56km, 2650m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Run",
+    "activity": "run",
+    "grade_or_difficulty": "Trail run",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 34.8,
+    "elevation_ft": 8694,
+    "season_year": 2022,
+    "date": "2022-07-30",
+    "summary": "After two months of little to no training, Justin, Erin, and I decided we were ready to run Rockwall - a 56km (~35mi) trail with 2650m (~8700ft) of elevation gain. What co…",
+    "post_url": "/Rockwall/",
+    "image": "https://klepikhina.s3.amazonaws.com/Run/2022/August/Rockwall/rockwallpass.jpg",
+    "location": "Kootenay National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -124.2864,
+     48.4866
+    ]
+   },
+   "properties": {
+    "id": "juandefuca",
+    "slug": "JuanDeFuca",
+    "title": "Juan de Fuca, Vancouver Island, BC | 47km, 1960m",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Run",
+    "activity": "run",
+    "grade_or_difficulty": "Trail run",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 29.2,
+    "elevation_ft": 6430,
+    "season_year": 2022,
+    "date": "2022-09-05",
+    "summary": "One month after running Rockwall and with one 10km run in between, Justin and I figured we were ready enough to do the Juan de Fuca trail. The Juan de Fuca trail, while sh…",
+    "post_url": "/JuanDeFuca/",
+    "image": "https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/secret_waterfall.jpg",
+    "location": "Vancouver Island",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.9179,
+     52.8239
+    ]
+   },
+   "properties": {
+    "id": "skyline",
+    "slug": "Skyline",
+    "title": "Skyline, Jasper National Park, AB | 46km, 1526m",
+    "region_name": "Alberta",
+    "region_id": "alberta",
+    "category": "Run",
+    "activity": "run",
+    "grade_or_difficulty": "Trail run",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 28.58,
+    "elevation_ft": 5007,
+    "season_year": 2023,
+    "date": "2023-07-29",
+    "summary": "We drove into Jasper Friday evening after a morning of slow packing and dilly dallying. Jasper National Park was empty of cars and we rolled into Jasper for a quiet evenin…",
+    "post_url": "/Skyline/",
+    "image": "https://klepikhina.s3.amazonaws.com/Run/2023/July/Skyline/crossing_the_notch.jpg",
+    "location": "Jasper National Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.1037,
+     39.0599
+    ]
+   },
+   "properties": {
+    "id": "crystallmill",
+    "slug": "CrystallMill",
+    "title": "Crystal Mill, Crystal, CO | 6.5mi, 1509ft",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Run",
+    "activity": "run",
+    "grade_or_difficulty": "Trail run",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": 6.5,
+    "elevation_ft": 1509,
+    "season_year": 2025,
+    "date": "2025-10-04",
+    "summary": "Very cool to check out the historic Colorado Crystal Mill. The ghost town of Crystal was abandoned in 1917 but there are still a handful of residents that come for the sum…",
+    "post_url": "/CrystallMill/",
+    "image": "https://klepikhina.s3.amazonaws.com/Run/2025/October/CrystalMill/crystal_mill.jpg",
+    "location": "Crystal",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.5788,
+     39.9812
+    ]
+   },
+   "properties": {
+    "id": "caribou",
+    "slug": "Caribou",
+    "title": "Caribou, Eldora, CO",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2017,
+    "date": "2017-12-31",
+    "summary": "Sometimes it's funny to write these little posts in retrospect. When Tai, Zack and I did this little tour on New Years Eve, I had just purchased my touring set up and didn…",
+    "post_url": "/Caribou/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2017/December/Caribou/st_zack_tai_start.jpg",
+    "location": "Eldora",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.7863,
+     39.8024
+    ]
+   },
+   "properties": {
+    "id": "berthoudpass",
+    "slug": "BerthoudPass",
+    "title": "Berthoud Pass, Winter Park, CO",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2020,
+    "date": "2020-12-25",
+    "summary": "I love my family. I'm very lucky to get to go ski touring with my parents on Christmas. We did a casual walk up Berthoud and a short semi early season ski down.",
+    "post_url": "/BerthoudPass/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2020/December/Bethoud/back_up.jpg",
+    "location": "Winter Park",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.8881,
+     49.1652
+    ]
+   },
+   "properties": {
+    "id": "igloo",
+    "slug": "Igloo",
+    "title": "Igloo Cabin, Rossland, BC",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-12-12",
+    "summary": "Alpine start (2pm) to get up to Igloo Cabin on a lazy sunday!",
+    "post_url": "/Igloo/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2021/December/Igloo/igloo.jpg",
+    "location": "Rossland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.8794,
+     49.2199
+    ]
+   },
+   "properties": {
+    "id": "crowe",
+    "slug": "Crowe",
+    "title": "Mount Crowe, Rossland, BC",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-12-19",
+    "summary": "We got wonderful local tour guides (our buddy Tavis and his dad) to take us up Mount Crowe! Despite the snow looking amazing, conditions were mixed.",
+    "post_url": "/Crowe/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2021/December/Crowe/up2.jpg",
+    "location": "Rossland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.8967,
+     49.1939
+    ]
+   },
+   "properties": {
+    "id": "lepsoe",
+    "slug": "Lepsoe",
+    "title": "Lepsoe Cabin, Rossland, BC",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2021,
+    "date": "2021-12-05",
+    "summary": "First day skiing in BC was a win! Also my first day skiing with Justin. To prove to him that I am a good skier, I double edjected out of my pin bindings on a road!!",
+    "post_url": "/Lepsoe/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2021/December/Lepsoe/broken_pole.jpg",
+    "location": "Rossland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.8568,
+     49.1292
+    ]
+   },
+   "properties": {
+    "id": "kirkup",
+    "slug": "Kirkup",
+    "title": "Kirkup, Rossland, BC",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-03-09",
+    "summary": "We got up to a lot of night skiing this winter. Super lucky to be able to tour almost out the front door. Tonight, we went up Mount Kirkup.",
+    "post_url": "/Kirkup/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2022/March/Kirkup/skin_track.jpg",
+    "location": "Rossland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.8803,
+     49.0966
+    ]
+   },
+   "properties": {
+    "id": "recordrobbie",
+    "slug": "RecordRobbie",
+    "title": "Record Ridge and Mount Roberts, Rossland, BC",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-01-02",
+    "summary": "Gangs mostly back together! Owen and Gabriella are back; Erin is in town! Incredibly lucky to have a gorgeous and dense Kootenay Sea on our first slack country of the year…",
+    "post_url": "/RecordRobbie/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2023/January/RecordRobbie/girls.jpg",
+    "location": "Rossland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -117.8925,
+     49.1719
+    ]
+   },
+   "properties": {
+    "id": "elgood",
+    "slug": "Elgood",
+    "title": "Elgood, Rossland, BC",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-01-29",
+    "summary": "Justin and I had plans to get out skiing with some friends but plans change and plans changed for the sillier. Justin packed up his ski boards (apparently, these in partic…",
+    "post_url": "/Elgood/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2023/January/Elgood/winterglory.jpg",
+    "location": "Rossland",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.0317,
+     38.9356
+    ]
+   },
+   "properties": {
+    "id": "coneys",
+    "slug": "Coneys",
+    "title": "Coney's Ridge, Crested Butte, CO",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2023,
+    "date": "2023-12-29",
+    "summary": "It is always so nice to go back to Colorado. This year was a slow start to the ski season so conditions were a little crunchy for ski touring. Nonetheless, we checked out…",
+    "post_url": "/Coneys/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2023/December/Coneys/back.jpg",
+    "location": "Crested Butte",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -123.1558,
+     49.7016
+    ]
+   },
+   "properties": {
+    "id": "brohm",
+    "slug": "Brohm",
+    "title": "Brohm Ridge, Squamish, BC",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-02-13",
+    "summary": "First time sled skiing! Kelsea did amazing doubling me up to the sledding/ sled skiing zone. Only jumped off the sled one time. Lessons learned - counter steering is count…",
+    "post_url": "/Brohm/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2024/February/Brohm/garibaldi_atwell.jpg",
+    "location": "Squamish",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.3241,
+     39.3181
+    ]
+   },
+   "properties": {
+    "id": "castlepeak",
+    "slug": "CastlePeak",
+    "title": "Castle Peak, Donner Pass, CA",
+    "region_name": "California",
+    "region_id": "california",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-03-10",
+    "summary": "It's about time we checked out some touring in the area! One weekend after the storm and approaching spring skiing!",
+    "post_url": "/CastlePeak/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2024/March/CastlePeak/ridge1.jpg",
+    "location": "Donner Pass",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -119.9214,
+     39.3468
+    ]
+   },
+   "properties": {
+    "id": "inclinepeak",
+    "slug": "InclinePeak",
+    "title": "Incline Peak, Mt. Rose Highway, NV",
+    "region_name": "Nevada",
+    "region_id": "nevada",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2024,
+    "date": "2024-03-24",
+    "summary": "I finally got a chance to go for a little tour with a new friend in Reno! We picked the perfect sleepy, sneaky powder day. We started around 11am, there were plenty of par…",
+    "post_url": "/InclinePeak/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2024/March/InclinePeak/field.jpg",
+    "location": "Mt. Rose Highway",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     140.6483,
+     42.8482
+    ]
+   },
+   "properties": {
+    "id": "nisekojapan",
+    "slug": "NisekoJapan",
+    "title": "Niseko, Hokkaido, Japan",
+    "region_name": "Japan",
+    "region_id": "japan",
+    "category": "Ski",
+    "activity": "ski",
+    "grade_or_difficulty": "Backcountry ski",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2026,
+    "date": "2026-02-16",
+    "summary": "Dream vacation! Our group of 6 (et al.) had an adventure-packed few days in Tokyo before heading north to Hokkaido. We spent our time by wandering the fish market, splashi…",
+    "post_url": "/NisekoJapan/",
+    "image": "https://klepikhina.s3.amazonaws.com/Ski/2026/February/Japan/daypow.jpg",
+    "location": "Hokkaido",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -123.1958,
+     49.6269
+    ]
+   },
+   "properties": {
+    "id": "britanniacreek",
+    "slug": "BritanniaCreek",
+    "title": "Britannia Creek",
+    "region_name": "British Columbia",
+    "region_id": "british-columbia",
+    "category": "Water",
+    "activity": "water",
+    "grade_or_difficulty": "Canyoneering",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2022,
+    "date": "2022-09-06",
+    "summary": "First time canyoneering! Would do again (minus near drowning).",
+    "post_url": "/BritanniaCreek/",
+    "image": "https://klepikhina.s3.amazonaws.com/Water/2022/September/Britannia/near_drown.JPG",
+    "location": "Britannia Beach",
+    "source": "blog"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.8075,
+     39.1736
+    ]
+   },
+   "properties": {
+    "id": "rubyhorsethief",
+    "slug": "RubyHorsethief",
+    "title": "Ruby Horsethief",
+    "region_name": "Colorado",
+    "region_id": "colorado",
+    "category": "Water",
+    "activity": "water",
+    "grade_or_difficulty": "Canyoneering",
+    "grade": "",
+    "pitches": null,
+    "distance_mi": null,
+    "elevation_ft": null,
+    "season_year": 2026,
+    "date": "2026-05-26",
+    "summary": "Day 1: Loma Boat Launch -- Beaver Tail 1 (3.5mi)",
+    "post_url": "/RubyHorsethief/",
+    "image": "https://klepikhina.s3.amazonaws.com/Water/2026/May/RubyHorsethief/rubyht_kseniajustin.jpg",
+    "location": "Loma",
+    "source": "blog"
+   }
+  }
+ ]
+}

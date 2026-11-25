@@ -1,0 +1,320 @@
+{
+  "_comment": "Every geocoded blog post is shown as a marker. Edit this list to curate or add titles/difficulty overrides.",
+  "routes": [
+    {
+      "slug": "FranceItalySwitzerland"
+    },
+    {
+      "slug": "Trail401"
+    },
+    {
+      "slug": "AliceLake"
+    },
+    {
+      "slug": "SevenSummits"
+    },
+    {
+      "slug": "Downieville"
+    },
+    {
+      "slug": "RosslandToSummerland"
+    },
+    {
+      "slug": "TrailToAle"
+    },
+    {
+      "slug": "Oakridge"
+    },
+    {
+      "slug": "ArmstrongPass"
+    },
+    {
+      "slug": "ThunderMountain"
+    },
+    {
+      "slug": "Lupine"
+    },
+    {
+      "slug": "Moab"
+    },
+    {
+      "slug": "Teocalli"
+    },
+    {
+      "slug": "Lenawee"
+    },
+    {
+      "slug": "JonesPass"
+    },
+    {
+      "slug": "DoubleTop"
+    },
+    {
+      "slug": "Teocalli2"
+    },
+    {
+      "slug": "ThirdFlatiron"
+    },
+    {
+      "slug": "BittyButtress"
+    },
+    {
+      "slug": "SecondFlatiron"
+    },
+    {
+      "slug": "GladeCreekFalls"
+    },
+    {
+      "slug": "WizardsGate"
+    },
+    {
+      "slug": "AngelsWay"
+    },
+    {
+      "slug": "Mainliner"
+    },
+    {
+      "slug": "TurkeyRocks"
+    },
+    {
+      "slug": "TwinOwls"
+    },
+    {
+      "slug": "CasualRoute"
+    },
+    {
+      "slug": "EnchantedTower"
+    },
+    {
+      "slug": "StarChek"
+    },
+    {
+      "slug": "TheChief"
+    },
+    {
+      "slug": "MillenialFalcon"
+    },
+    {
+      "slug": "SkahaCave"
+    },
+    {
+      "slug": "Spineback"
+    },
+    {
+      "slug": "Bugaboos"
+    },
+    {
+      "slug": "Amazons"
+    },
+    {
+      "slug": "Megawatts"
+    },
+    {
+      "slug": "SpiritOfSquamish"
+    },
+    {
+      "slug": "FirstFlatiron"
+    },
+    {
+      "slug": "GranbyDam"
+    },
+    {
+      "slug": "BeehiveFive"
+    },
+    {
+      "slug": "Nisleheim"
+    },
+    {
+      "slug": "Helix"
+    },
+    {
+      "slug": "RagsToRiches"
+    },
+    {
+      "slug": "DAFFDomeGuideCracks"
+    },
+    {
+      "slug": "JohnMuirRouteCathedralPeak"
+    },
+    {
+      "slug": "ElectricLundyLand"
+    },
+    {
+      "slug": "PyramidLake"
+    },
+    {
+      "slug": "JuniorHigh"
+    },
+    {
+      "slug": "Labyrinth"
+    },
+    {
+      "slug": "SevenTeacups"
+    },
+    {
+      "slug": "OttosRoute"
+    },
+    {
+      "slug": "TenSleep"
+    },
+    {
+      "slug": "Regency"
+    },
+    {
+      "slug": "Rambles"
+    },
+    {
+      "slug": "GreatSandDunes"
+    },
+    {
+      "slug": "MountElbert"
+    },
+    {
+      "slug": "MountAudubon"
+    },
+    {
+      "slug": "ChinookGlissading"
+    },
+    {
+      "slug": "Gimli"
+    },
+    {
+      "slug": "JumboPass"
+    },
+    {
+      "slug": "Loki"
+    },
+    {
+      "slug": "MonicaMeadows"
+    },
+    {
+      "slug": "HunterCreek"
+    },
+    {
+      "slug": "Redwoods"
+    },
+    {
+      "slug": "Fisher"
+    },
+    {
+      "slug": "RenataArch"
+    },
+    {
+      "slug": "GwillimLakes"
+    },
+    {
+      "slug": "IdahoPeak"
+    },
+    {
+      "slug": "Sequoia"
+    },
+    {
+      "slug": "DeathValley"
+    },
+    {
+      "slug": "HighwayOfWaterfalls"
+    },
+    {
+      "slug": "LavaBeds"
+    },
+    {
+      "slug": "YosemiteFalls"
+    },
+    {
+      "slug": "Iceland"
+    },
+    {
+      "slug": "PyramidPeak"
+    },
+    {
+      "slug": "LassenPeak"
+    },
+    {
+      "slug": "ByersPeak"
+    },
+    {
+      "slug": "MountAudubon2"
+    },
+    {
+      "slug": "Georgia"
+    },
+    {
+      "slug": "KingstonPeakJamesPeak"
+    },
+    {
+      "slug": "Flattop"
+    },
+    {
+      "slug": "Gothic"
+    },
+    {
+      "slug": "HighLonesome"
+    },
+    {
+      "slug": "AmasaBack"
+    },
+    {
+      "slug": "BoulderSkyline"
+    },
+    {
+      "slug": "GreenLake"
+    },
+    {
+      "slug": "Rockwall"
+    },
+    {
+      "slug": "JuanDeFuca"
+    },
+    {
+      "slug": "Skyline"
+    },
+    {
+      "slug": "CrystallMill"
+    },
+    {
+      "slug": "Caribou"
+    },
+    {
+      "slug": "BerthoudPass"
+    },
+    {
+      "slug": "Igloo"
+    },
+    {
+      "slug": "Crowe"
+    },
+    {
+      "slug": "Lepsoe"
+    },
+    {
+      "slug": "Kirkup"
+    },
+    {
+      "slug": "RecordRobbie"
+    },
+    {
+      "slug": "Elgood"
+    },
+    {
+      "slug": "Coneys"
+    },
+    {
+      "slug": "Brohm"
+    },
+    {
+      "slug": "CastlePeak"
+    },
+    {
+      "slug": "InclinePeak"
+    },
+    {
+      "slug": "NisekoJapan"
+    },
+    {
+      "slug": "BritanniaCreek"
+    },
+    {
+      "slug": "RubyHorsethief"
+    }
+  ]
+}
