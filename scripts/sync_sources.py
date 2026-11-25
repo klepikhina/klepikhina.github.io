@@ -837,6 +837,7 @@ def run_build(config: Dict[str, Any], sources: Sequence[str]) -> None:
         sys.executable,
         str(SCRIPT_DIR / "build_atlas.py"),
         "--download-watersheds",
+        "--weather",
     ]
     strava_dir = resolve_path(config["strava_dir"])
     garmin_dir = resolve_path(config["garmin_dir"])

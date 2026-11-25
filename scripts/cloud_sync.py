@@ -258,6 +258,7 @@ def run_build(temp: Path, ticks: Optional[Path]) -> None:
         str(temp / ATLAS_STATE_NAME),
         "--use-cache-records",
         "--download-watersheds",
+        "--weather",
     ]
     if ticks and ticks.exists():
         command.extend(["--ticks-csv", str(ticks)])

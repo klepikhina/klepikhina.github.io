@@ -265,6 +265,20 @@ new or changed:
 To force a complete reparse, add `--no-cache`. To move the cache, use
 `--state-path PATH`.
 
+`build_atlas.py` also writes privacy-safe aggregates to `data/insights/`:
+
+- `daily.json` — per-day, per-sport distance/vert totals; region and cell ids are
+  stripped so a date can never be tied to a location
+- `climbing.json` — Mountain Project tick counts by grade, style, and region
+- `region_timeline.json` — first activity date per coarse public region
+- `books.json` — shelf counts by year and format, derived from the public bookshelf
+- `weather.json` — Open-Meteo weather aggregated by year+month at coarse cell centres
+
+Add `--weather` to fetch weather for newly logged months; existing cell/month rows
+are reused, so the weekly sync only fetches new activity months. No raw exports,
+route names, precise coordinates, or date-to-location joins are written to these
+files.
+
 ```bash
 # After adding more private data, just rerun the same command:
 python3 scripts/build_atlas.py \

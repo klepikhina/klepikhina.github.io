@@ -1026,7 +1026,12 @@
     var link = pendingDeepLink;
     pendingDeepLink = null;
     if (link.type === 'route') openRoute(link.id);
-    else openRegion(link.id);
+    else if (link.type === 'activity') {
+      applyFilter(link.id);
+      if (state.container && state.container.scrollIntoView) {
+        state.container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else openRegion(link.id);
   }
 
   function readDeepLink() {
@@ -1034,8 +1039,13 @@
       var params = new URLSearchParams(window.location.search);
       var route = params.get('route');
       var region = params.get('region');
+      var activity = (params.get('activity') || params.get('sport') || '').toLowerCase();
+      var allowed = ['all', 'bike', 'climb', 'hike', 'run', 'ski', 'water'];
       if (route) pendingDeepLink = { type: 'route', id: route };
       else if (region) pendingDeepLink = { type: 'region', id: region };
+      else if (activity && allowed.indexOf(activity) !== -1) {
+        pendingDeepLink = { type: 'activity', id: activity };
+      }
     } catch (error) {
       /* Deep links are optional; older browsers can still use the map. */
     }
