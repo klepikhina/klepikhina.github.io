@@ -124,9 +124,10 @@
       button.title = story.title + ' — ' + (story.location || story.region_name || '');
       button.setAttribute('aria-label', button.title);
       var image = document.createElement('img');
-      image.src = story.image;
+      image.src = story.pin_image || story.image;
       image.alt = '';
       image.loading = 'lazy';
+      image.decoding = 'async';
       button.appendChild(image);
       button.addEventListener('click', function () { openStory(story.id, true); });
       markerNodes[story.id] = button;
@@ -156,7 +157,7 @@
     var html =
       '<a class="story-popup__link" href="' + escapeHtml(baseurl() + story.post_url) + '">' +
         '<span class="story-popup__media">' +
-          '<img src="' + escapeHtml(story.image) + '" alt="">' +
+          '<img src="' + escapeHtml(story.card_image || story.image) + '" alt="" loading="lazy">' +
           '<span class="story-popup__sport" style="background:' + escapeHtml(sport.color) + '">' +
             escapeHtml(sport.label) + '</span>' +
         '</span>' +
@@ -217,6 +218,7 @@
     }
     renderRegions();
     renderMarkers();
+    if (markers.length && status && !status.hidden) status.hidden = true;
     filterCards();
     if (fit && currentView === 'map') fitStories(visible);
   }
@@ -246,21 +248,36 @@
   setView('map');
 
   if (!window.maplibregl) {
-    status.textContent = 'Map library unavailable; switch to Cards to browse.';
-    status.classList.add('map-status--error');
+    setView('cards');
     applyFilters(false);
     return;
   }
 
-  map = new maplibregl.Map({
-    container: mapBox,
-    style: 'https://tiles.openfreemap.org/styles/positron',
-    center: [-105, 42],
-    zoom: 3.2,
-    attributionControl: true
-  });
-  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-  map.addControl(new maplibregl.ScaleControl({ maxWidth: 90, unit: 'imperial' }), 'bottom-right');
+  try {
+    map = new maplibregl.Map({
+      container: mapBox,
+      style: 'https://tiles.openfreemap.org/styles/positron',
+      center: [-105, 42],
+      zoom: 3.2,
+      attributionControl: true
+    });
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+    map.addControl(new maplibregl.ScaleControl({ maxWidth: 90, unit: 'imperial' }), 'bottom-right');
+  } catch (error) {
+    // Some browsers block WebGL. The map cannot render there, so show the
+    // same stories as cards instead of leaving a stuck loading message.
+    status.hidden = true;
+    var mapRadio = document.getElementById('view-map');
+    var mapLabel = document.querySelector('.view-toggle label[for="view-map"]');
+    if (mapRadio) mapRadio.disabled = true;
+    if (mapLabel) {
+      mapLabel.classList.add('is-disabled');
+      mapLabel.title = 'The photo map needs WebGL, which is unavailable in this browser.';
+    }
+    setView('cards');
+    applyFilters(false);
+    return;
+  }
   map.on('load', function () {
     status.hidden = true;
     applyFilters(true);
