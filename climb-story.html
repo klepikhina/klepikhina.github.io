@@ -1,0 +1,70 @@
+---
+layout: default
+title: Climbing Story
+permalink: /climb-story/
+---
+
+<div class="page-header">
+  <h1>Climbing Story</h1>
+</div>
+
+{% assign climbing = site.data.insights.climbing %}
+{% if climbing.metadata %}
+{% assign latest_season = climbing.years | last %}
+<div class="climb-summary" aria-label="Climbing summary">
+  <div><strong>{{ climbing.metadata.total_ticks }}</strong><span>routes logged</span></div>
+  <div><strong>{{ climbing.years | size }}</strong><span>seasons</span></div>
+  <div><strong>{{ climbing.regions | size }}</strong><span>regions</span></div>
+  <div><strong>{{ latest_season.year }}</strong><span>latest season</span></div>
+</div>
+{% endif %}
+
+<section class="insight-card climb-card">
+  <div class="climb-toolbar">
+    <div class="climb-filters" role="group" aria-label="Filter the climbing story by year">
+      <button type="button" class="filter-pill filter-pill--climb active" data-year="all" aria-pressed="true">All years</button>
+      {% for row in climbing.years %}
+      <button type="button" class="filter-pill filter-pill--climb" data-year="{{ row.year }}" aria-pressed="false">{{ row.year }}</button>
+      {% endfor %}
+    </div>
+    <span class="climb-scope" id="climb-scope"></span>
+  </div>
+
+  <div class="climb-charts">
+    <section class="climb-section" aria-labelledby="climb-ladder-title">
+      <h2 id="climb-ladder-title">The grade ladder</h2>
+      <div id="climb-ladder" class="climb-ladder"></div>
+    </section>
+
+    <section class="climb-section" aria-labelledby="climb-seasons-title">
+      <h2 id="climb-seasons-title">Seasons</h2>
+      <div id="climb-seasons" class="climb-seasons"></div>
+    </section>
+
+    <section class="climb-section" aria-labelledby="climb-style-title">
+      <h2 id="climb-style-title">Climbing style</h2>
+      <div id="climb-style" class="climb-style"></div>
+    </section>
+
+    <section class="climb-section" aria-labelledby="climb-regions-title">
+      <h2 id="climb-regions-title">Regions</h2>
+      <div id="climb-regions" class="climb-regions"></div>
+    </section>
+  </div>
+
+  <div id="climb-tooltip" class="climb-tooltip" role="status" aria-live="polite" hidden></div>
+
+  <p class="climb-hint">
+    <a href="{{ site.baseurl }}/?activity=climb">Explore climbing in the atlas &rarr;</a>
+  </p>
+</section>
+
+<noscript>
+  <div class="noscript-panel">
+    <p>The charts need JavaScript. The underlying counts are available in the
+      <a href="{{ site.baseurl }}/data/insights/climbing.json">climbing insights data file</a>.</p>
+  </div>
+</noscript>
+
+<script id="climb-data" type="application/json">{{ climbing | jsonify }}</script>
+<script src="{{ site.baseurl }}/js/climb-story.js" defer></script>
