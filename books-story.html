@@ -1,0 +1,71 @@
+---
+layout: default
+title: Books & Genres
+permalink: /books-story/
+---
+
+<div class="page-header">
+  <h1>Books &amp; Genres</h1>
+</div>
+
+{% assign books = site.data.insights.book_meta %}
+{% if books.metadata %}
+<div class="books-summary" aria-label="Reading summary">
+  <div><strong>{{ books.metadata.total_books }}</strong><span>books</span></div>
+  <div><strong id="books-genres">—</strong><span>genres</span></div>
+  <div><strong id="books-pages">—</strong><span>pages</span></div>
+  <div><strong>{{ books.years | size }}</strong><span>seasons</span></div>
+</div>
+{% endif %}
+
+<section class="insight-card books-card">
+  <div class="books-toolbar">
+    <div class="books-filters" role="group" aria-label="Filter by year">
+      <button type="button" class="filter-pill filter-pill--run active" data-year="all" aria-pressed="true">All years</button>
+      {% for row in books.years %}
+      <button type="button" class="filter-pill filter-pill--run" data-year="{{ row.year }}" aria-pressed="false">{{ row.year }}</button>
+      {% endfor %}
+    </div>
+    <span class="books-scope" id="books-scope"></span>
+  </div>
+
+  <div class="books-charts">
+    <section class="books-section" aria-labelledby="books-orbit-title">
+      <h2 id="books-orbit-title">Genre orbit</h2>
+      <p class="books-note">Nearby genres share more themes. Each subject tag is mapped to broad themes — place, past, speculation, life story, crime, ideas, relationships — and similarity is cosine similarity of each genre’s theme mix. Hover a circle for its nearest neighbor.</p>
+      <div id="books-orbit" class="books-orbit"></div>
+      <div id="books-lanes" class="books-lanes" role="group" aria-label="Filter by genre"></div>
+    </section>
+
+    <section class="books-section" aria-labelledby="books-age-title">
+      <h2 id="books-age-title">Years since publication</h2>
+      <div id="books-age" class="books-age"></div>
+    </section>
+
+    <section class="books-section" aria-labelledby="books-pages-title">
+      <h2 id="books-pages-title">Pages per year</h2>
+      <div id="books-pages-chart" class="books-pages-chart"></div>
+    </section>
+
+    <section class="books-section" aria-labelledby="books-shelf-title">
+      <h2 id="books-shelf-title">Page shelf</h2>
+      <div id="books-shelf" class="books-shelf"></div>
+    </section>
+  </div>
+
+  <div id="books-tooltip" class="books-tooltip" role="status" aria-live="polite" hidden></div>
+
+  <p class="books-hint">
+    <a href="{{ site.baseurl }}/books">Browse the bookshelf &rarr;</a>
+  </p>
+</section>
+
+<noscript>
+  <div class="noscript-panel">
+    <p>The charts need JavaScript. The underlying counts are available in the
+      <a href="{{ site.baseurl }}/data/insights/book_meta.json">book metadata data file</a>.</p>
+  </div>
+</noscript>
+
+<script id="books-data" type="application/json">{{ books | jsonify }}</script>
+<script src="{{ site.baseurl }}/js/books-story.js" defer></script>

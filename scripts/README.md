@@ -272,6 +272,9 @@ To force a complete reparse, add `--no-cache`. To move the cache, use
 - `climbing.json` — Mountain Project tick counts by grade, style, and region
 - `region_timeline.json` — first activity date per coarse public region
 - `books.json` — shelf counts by year and format, derived from the public bookshelf
+- `book_meta.json` — public book metadata (page count, publication year, broad
+  genre) cached by Goodreads id from Open Library, with Goodreads filling any
+  gaps; new books are fetched incrementally as they are added to `js/books.json`
 - `weather.json` — Open-Meteo weather aggregated by year+month at coarse cell centres
 
 Add `--weather` to fetch weather for newly logged months; existing cell/month rows
