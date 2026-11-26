@@ -2264,7 +2264,8 @@ def build_region_pages(
     aggregates: List[Dict[str, Any]] = []
     for group in config_groups:
         members = [region for region in individual if group_matches_region(region, group)]
-        if not members:
+        story_members = [region for region in members if region["featured_story_count"] > 0]
+        if not story_members:
             continue
         group_id = str(group["id"])
         group_name = str(group["name"])
@@ -2276,7 +2277,7 @@ def build_region_pages(
             "name": group_name,
             "nav_name": str(group.get("nav_name") or group_name),
             "url": f"/region/{group_id}/",
-            "regions": members,
+            "regions": story_members,
         })
         aggregates.append({
             "id": group_id,
@@ -2292,8 +2293,10 @@ def build_region_pages(
             "is_aggregate": True,
         })
 
-    # Use aggregate pages first so their URLs stay at the top of a region list.
-    pages = aggregates + individual
+    # Only publish region pages for places with a real blog/story. Aggregate
+    # pages survive when at least one member has a story.
+    story_regions = [region for region in individual if region["featured_story_count"] > 0]
+    pages = aggregates + story_regions
     return {
         "metadata": {
             "generated_by": "scripts/build_atlas.py",
@@ -2340,7 +2343,7 @@ def region_index_html(region_data: Dict[str, Any]) -> str:
         "",
         '<div class="page-header">',
         "  <h1>All Regions</h1>",
-        '  <p class="page-description">Every place with logged activity, generated from the atlas.</p>',
+        '  <p class="page-description">Every region with a featured story, generated from the atlas.</p>',
         "</div>",
         "",
     ]
@@ -2361,6 +2364,17 @@ def region_index_html(region_data: Dict[str, Any]) -> str:
 
 def write_site_pages(region_data: Dict[str, Any], out_dir: Path, dry_run: bool) -> None:
     region_dir = REPO_ROOT / "region"
+    expected = {f"{page['id']}.html" for page in region_data["regions"]} | {"index.html"}
+
+    # Regions that lose their last story must not leave a stale empty page.
+    for path in sorted(region_dir.glob("*.html")):
+        if path.name in expected or not path.read_text().startswith("---\nlayout: region"):
+            continue
+        if dry_run:
+            log(f"would remove stale region page: {path.relative_to(REPO_ROOT)}")
+        else:
+            path.unlink()
+
     for page in region_data["regions"]:
         write_text_if_changed(region_dir / f"{page['id']}.html", region_page_html(page), dry_run)
     write_text_if_changed(region_dir / "index.html", region_index_html(region_data), dry_run)

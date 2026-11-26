@@ -9,8 +9,8 @@ Jekyll page:
 | `data/regions.geojson` | Choropleth | One state/province/country polygon with **aggregate** counts only |
 | `data/featured_routes.geojson` | Markers / lines | Hand-curated, blog-linked routes and crags |
 | `data/activities.json` | Site cards | One canonical record per curated story (slug, title, date, sport, region, image, summary) |
-| `data/region_pages.json` | Region nav | Generated region page definitions and nav groups |
-| `region/*.html` | Region pages | Static pages generated from `data/region_pages.json` |
+| `data/region_pages.json` | Region nav | Generated region page definitions and nav groups; only regions with a featured story are listed |
+| `region/*.html` | Region pages | Static pages generated from `data/region_pages.json`; empty region pages are removed |
 
 Jekyll reads these files through `data_sources` in `_config.yml`, so Home,
 Activities, the type pages, and region pages all use the same activity records.
