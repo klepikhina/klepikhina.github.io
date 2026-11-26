@@ -1,7 +1,8 @@
 {% comment %}
 Adventure Card Component
+Activity cards stay compact: image, title, location pin, and one click target.
 Usage: {% include adventure-card.html activity=activity %}
-       {% include adventure-card.html post=post %}
+       {% include adventure-card.html post=post show_excerpt=true %}
 {% endcomment %}
 
 {% if include.activity %}
@@ -57,11 +58,13 @@ Usage: {% include adventure-card.html activity=activity %}
         </span>
       {% endif %}
 
-      {% if item_activity %}
-        <span class="adventure-card__badge adventure-card__badge--{{ item_activity }}">
-          {{ item_activity | capitalize }}
-        </span>
-      {% endif %}
+      {% unless include.activity %}
+        {% if item_activity %}
+          <span class="adventure-card__badge adventure-card__badge--{{ item_activity }}">
+            {{ item_activity | capitalize }}
+          </span>
+        {% endif %}
+      {% endunless %}
     </div>
 
     <div class="adventure-card__content">
@@ -74,15 +77,19 @@ Usage: {% include adventure-card.html activity=activity %}
         <p class="adventure-card__location">{{ item_region }}</p>
       {% endif %}
 
-      {% if include.show_excerpt %}
-        <p class="adventure-card__excerpt">{{ item_excerpt | strip_html | truncate: 100 }}</p>
-      {% endif %}
+      {% unless include.activity %}
+        {% if include.show_excerpt %}
+          <p class="adventure-card__excerpt">{{ item_excerpt | strip_html | truncate: 100 }}</p>
+        {% endif %}
 
-      <p class="adventure-card__date">{{ item.date | date: "%B %e, %Y" }}</p>
+        <p class="adventure-card__date">{{ item.date | date: "%B %e, %Y" }}</p>
+      {% endunless %}
     </div>
   </a>
 
-  {% if item_slug %}
-    <a class="adventure-card__map-link" href="{{ site.baseurl }}/?route={{ item_slug | url_encode }}">View on atlas <span aria-hidden="true">&rarr;</span></a>
-  {% endif %}
+  {% unless include.activity %}
+    {% if item_slug %}
+      <a class="adventure-card__map-link" href="{{ site.baseurl }}/?route={{ item_slug | url_encode }}">View on atlas <span aria-hidden="true">&rarr;</span></a>
+    {% endif %}
+  {% endunless %}
 </article>

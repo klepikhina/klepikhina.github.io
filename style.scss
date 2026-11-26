@@ -305,9 +305,8 @@ nav {
     left: auto;
     min-width: 180px;
     max-width: min(260px, calc(100vw - 24px));
-    max-height: min(70vh, 620px);
-    overflow-x: hidden;
-    overflow-y: auto;
+    max-height: none;
+    overflow: visible;
     overscroll-behavior: contain;
     background: $cream;
     border: 1px solid rgba(61, 61, 61, 0.1);
@@ -371,9 +370,8 @@ nav {
       left: auto;
       top: 0;
       min-width: 160px;
-      max-height: min(70vh, 560px);
-      overflow-x: hidden;
-      overflow-y: auto;
+      max-height: none;
+      overflow: visible;
       overscroll-behavior: contain;
       background: $cream;
       border: 1px solid rgba(61, 61, 61, 0.1);
@@ -402,6 +400,14 @@ nav {
         left: auto;
         top: 0;
       }
+    }
+  }
+
+  // On narrow desktops, third-level groups open inward instead of off-screen.
+  @media screen and (min-width: 641px) and (max-width: 900px) {
+    .nav-dropdown__submenu .nav-dropdown__submenu .nav-dropdown__submenu-content {
+      right: auto;
+      left: 100%;
     }
   }
 }
@@ -452,6 +458,8 @@ nav {
       min-width: 0;
       max-width: none;
       max-height: min(70vh, 520px);
+      overflow-x: hidden;
+      overflow-y: auto;
       padding: 6px 0;
       background: $cream;
       border-radius: 10px;

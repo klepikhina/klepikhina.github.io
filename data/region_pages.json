@@ -98,22 +98,6 @@
    "is_aggregate": true
   },
   {
-   "id": "international",
-   "name": "International",
-   "kind": "aggregate",
-   "description": "Countries beyond North America, Europe, and Asia",
-   "url": "/region/international/",
-   "nav_group": "International",
-   "region_ids": [
-    "colombia",
-    "costa-rica"
-   ],
-   "primary_region_id": "colombia",
-   "activity_count": 6,
-   "featured_story_count": 0,
-   "is_aggregate": true
-  },
-  {
    "id": "alberta",
    "name": "Alberta",
    "kind": "province",
@@ -141,51 +125,6 @@
    "primary_region_id": "british-columbia",
    "activity_count": 420,
    "featured_story_count": 37,
-   "is_aggregate": false
-  },
-  {
-   "id": "ontario",
-   "name": "Ontario",
-   "kind": "province",
-   "description": "Adventures in Ontario",
-   "url": "/region/ontario/",
-   "nav_group": "Canada",
-   "region_ids": [
-    "ontario"
-   ],
-   "primary_region_id": "ontario",
-   "activity_count": 3,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "qu-bec",
-   "name": "Québec",
-   "kind": "province",
-   "description": "Adventures in Québec",
-   "url": "/region/qu-bec/",
-   "nav_group": "Canada",
-   "region_ids": [
-    "qu-bec"
-   ],
-   "primary_region_id": "qu-bec",
-   "activity_count": 3,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "arizona",
-   "name": "Arizona",
-   "kind": "state",
-   "description": "Adventures in Arizona",
-   "url": "/region/arizona/",
-   "nav_group": "United States",
-   "region_ids": [
-    "arizona"
-   ],
-   "primary_region_id": "arizona",
-   "activity_count": 2,
-   "featured_story_count": 0,
    "is_aggregate": false
   },
   {
@@ -219,21 +158,6 @@
    "is_aggregate": false
   },
   {
-   "id": "iowa",
-   "name": "Iowa",
-   "kind": "state",
-   "description": "Adventures in Iowa",
-   "url": "/region/iowa/",
-   "nav_group": "United States",
-   "region_ids": [
-    "iowa"
-   ],
-   "primary_region_id": "iowa",
-   "activity_count": 3,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
    "id": "idaho",
    "name": "Idaho",
    "kind": "state",
@@ -246,81 +170,6 @@
    "primary_region_id": "idaho",
    "activity_count": 10,
    "featured_story_count": 1,
-   "is_aggregate": false
-  },
-  {
-   "id": "kentucky",
-   "name": "Kentucky",
-   "kind": "state",
-   "description": "Adventures in Kentucky",
-   "url": "/region/kentucky/",
-   "nav_group": "United States",
-   "region_ids": [
-    "kentucky"
-   ],
-   "primary_region_id": "kentucky",
-   "activity_count": 1,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "michigan",
-   "name": "Michigan",
-   "kind": "state",
-   "description": "Adventures in Michigan",
-   "url": "/region/michigan/",
-   "nav_group": "United States",
-   "region_ids": [
-    "michigan"
-   ],
-   "primary_region_id": "michigan",
-   "activity_count": 3,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "missouri",
-   "name": "Missouri",
-   "kind": "state",
-   "description": "Adventures in Missouri",
-   "url": "/region/missouri/",
-   "nav_group": "United States",
-   "region_ids": [
-    "missouri"
-   ],
-   "primary_region_id": "missouri",
-   "activity_count": 2,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "montana",
-   "name": "Montana",
-   "kind": "state",
-   "description": "Adventures in Montana",
-   "url": "/region/montana/",
-   "nav_group": "United States",
-   "region_ids": [
-    "montana"
-   ],
-   "primary_region_id": "montana",
-   "activity_count": 8,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "north-carolina",
-   "name": "North Carolina",
-   "kind": "state",
-   "description": "Adventures in North Carolina",
-   "url": "/region/north-carolina/",
-   "nav_group": "United States",
-   "region_ids": [
-    "north-carolina"
-   ],
-   "primary_region_id": "north-carolina",
-   "activity_count": 4,
-   "featured_story_count": 0,
    "is_aggregate": false
   },
   {
@@ -354,21 +203,6 @@
    "is_aggregate": false
   },
   {
-   "id": "ohio",
-   "name": "Ohio",
-   "kind": "state",
-   "description": "Adventures in Ohio",
-   "url": "/region/ohio/",
-   "nav_group": "United States",
-   "region_ids": [
-    "ohio"
-   ],
-   "primary_region_id": "ohio",
-   "activity_count": 1,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
    "id": "oregon",
    "name": "Oregon",
    "kind": "state",
@@ -381,36 +215,6 @@
    "primary_region_id": "oregon",
    "activity_count": 4,
    "featured_story_count": 2,
-   "is_aggregate": false
-  },
-  {
-   "id": "pennsylvania",
-   "name": "Pennsylvania",
-   "kind": "state",
-   "description": "Adventures in Pennsylvania",
-   "url": "/region/pennsylvania/",
-   "nav_group": "United States",
-   "region_ids": [
-    "pennsylvania"
-   ],
-   "primary_region_id": "pennsylvania",
-   "activity_count": 3,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "texas",
-   "name": "Texas",
-   "kind": "state",
-   "description": "Adventures in Texas",
-   "url": "/region/texas/",
-   "nav_group": "United States",
-   "region_ids": [
-    "texas"
-   ],
-   "primary_region_id": "texas",
-   "activity_count": 10,
-   "featured_story_count": 0,
    "is_aggregate": false
   },
   {
@@ -429,21 +233,6 @@
    "is_aggregate": false
   },
   {
-   "id": "vermont",
-   "name": "Vermont",
-   "kind": "state",
-   "description": "Adventures in Vermont",
-   "url": "/region/vermont/",
-   "nav_group": "United States",
-   "region_ids": [
-    "vermont"
-   ],
-   "primary_region_id": "vermont",
-   "activity_count": 2,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
    "id": "washington",
    "name": "Washington",
    "kind": "state",
@@ -456,21 +245,6 @@
    "primary_region_id": "washington",
    "activity_count": 37,
    "featured_story_count": 1,
-   "is_aggregate": false
-  },
-  {
-   "id": "wisconsin",
-   "name": "Wisconsin",
-   "kind": "state",
-   "description": "Adventures in Wisconsin",
-   "url": "/region/wisconsin/",
-   "nav_group": "United States",
-   "region_ids": [
-    "wisconsin"
-   ],
-   "primary_region_id": "wisconsin",
-   "activity_count": 1,
-   "featured_story_count": 0,
    "is_aggregate": false
   },
   {
@@ -489,96 +263,6 @@
    "is_aggregate": false
   },
   {
-   "id": "norway",
-   "name": "Norway",
-   "kind": "country",
-   "description": "Adventures in Norway",
-   "url": "/region/norway/",
-   "nav_group": "Europe",
-   "region_ids": [
-    "norway"
-   ],
-   "primary_region_id": "norway",
-   "activity_count": 6,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "colombia",
-   "name": "Colombia",
-   "kind": "country",
-   "description": "Adventures in Colombia",
-   "url": "/region/colombia/",
-   "nav_group": "International",
-   "region_ids": [
-    "colombia"
-   ],
-   "primary_region_id": "colombia",
-   "activity_count": 3,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "costa-rica",
-   "name": "Costa Rica",
-   "kind": "country",
-   "description": "Adventures in Costa Rica",
-   "url": "/region/costa-rica/",
-   "nav_group": "International",
-   "region_ids": [
-    "costa-rica"
-   ],
-   "primary_region_id": "costa-rica",
-   "activity_count": 3,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "france",
-   "name": "France",
-   "kind": "country",
-   "description": "Adventures in France",
-   "url": "/region/france/",
-   "nav_group": "Europe",
-   "region_ids": [
-    "france"
-   ],
-   "primary_region_id": "france",
-   "activity_count": 7,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "austria",
-   "name": "Austria",
-   "kind": "country",
-   "description": "Adventures in Austria",
-   "url": "/region/austria/",
-   "nav_group": "Europe",
-   "region_ids": [
-    "austria"
-   ],
-   "primary_region_id": "austria",
-   "activity_count": 7,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "germany",
-   "name": "Germany",
-   "kind": "country",
-   "description": "Adventures in Germany",
-   "url": "/region/germany/",
-   "nav_group": "Europe",
-   "region_ids": [
-    "germany"
-   ],
-   "primary_region_id": "germany",
-   "activity_count": 7,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
    "id": "switzerland",
    "name": "Switzerland",
    "kind": "country",
@@ -591,51 +275,6 @@
    "primary_region_id": "switzerland",
    "activity_count": 22,
    "featured_story_count": 1,
-   "is_aggregate": false
-  },
-  {
-   "id": "belgium",
-   "name": "Belgium",
-   "kind": "country",
-   "description": "Adventures in Belgium",
-   "url": "/region/belgium/",
-   "nav_group": "Europe",
-   "region_ids": [
-    "belgium"
-   ],
-   "primary_region_id": "belgium",
-   "activity_count": 6,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "netherlands",
-   "name": "Netherlands",
-   "kind": "country",
-   "description": "Adventures in Netherlands",
-   "url": "/region/netherlands/",
-   "nav_group": "Europe",
-   "region_ids": [
-    "netherlands"
-   ],
-   "primary_region_id": "netherlands",
-   "activity_count": 5,
-   "featured_story_count": 0,
-   "is_aggregate": false
-  },
-  {
-   "id": "italy",
-   "name": "Italy",
-   "kind": "country",
-   "description": "Adventures in Italy",
-   "url": "/region/italy/",
-   "nav_group": "Europe",
-   "region_ids": [
-    "italy"
-   ],
-   "primary_region_id": "italy",
-   "activity_count": 1,
-   "featured_story_count": 0,
    "is_aggregate": false
   },
   {
@@ -692,21 +331,6 @@
    "url": "/region/usa/",
    "regions": [
     {
-     "id": "arizona",
-     "name": "Arizona",
-     "kind": "state",
-     "description": "Adventures in Arizona",
-     "url": "/region/arizona/",
-     "nav_group": "United States",
-     "region_ids": [
-      "arizona"
-     ],
-     "primary_region_id": "arizona",
-     "activity_count": 2,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
      "id": "california",
      "name": "California",
      "kind": "state",
@@ -737,21 +361,6 @@
      "is_aggregate": false
     },
     {
-     "id": "iowa",
-     "name": "Iowa",
-     "kind": "state",
-     "description": "Adventures in Iowa",
-     "url": "/region/iowa/",
-     "nav_group": "United States",
-     "region_ids": [
-      "iowa"
-     ],
-     "primary_region_id": "iowa",
-     "activity_count": 3,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
      "id": "idaho",
      "name": "Idaho",
      "kind": "state",
@@ -764,81 +373,6 @@
      "primary_region_id": "idaho",
      "activity_count": 10,
      "featured_story_count": 1,
-     "is_aggregate": false
-    },
-    {
-     "id": "kentucky",
-     "name": "Kentucky",
-     "kind": "state",
-     "description": "Adventures in Kentucky",
-     "url": "/region/kentucky/",
-     "nav_group": "United States",
-     "region_ids": [
-      "kentucky"
-     ],
-     "primary_region_id": "kentucky",
-     "activity_count": 1,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "michigan",
-     "name": "Michigan",
-     "kind": "state",
-     "description": "Adventures in Michigan",
-     "url": "/region/michigan/",
-     "nav_group": "United States",
-     "region_ids": [
-      "michigan"
-     ],
-     "primary_region_id": "michigan",
-     "activity_count": 3,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "missouri",
-     "name": "Missouri",
-     "kind": "state",
-     "description": "Adventures in Missouri",
-     "url": "/region/missouri/",
-     "nav_group": "United States",
-     "region_ids": [
-      "missouri"
-     ],
-     "primary_region_id": "missouri",
-     "activity_count": 2,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "montana",
-     "name": "Montana",
-     "kind": "state",
-     "description": "Adventures in Montana",
-     "url": "/region/montana/",
-     "nav_group": "United States",
-     "region_ids": [
-      "montana"
-     ],
-     "primary_region_id": "montana",
-     "activity_count": 8,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "north-carolina",
-     "name": "North Carolina",
-     "kind": "state",
-     "description": "Adventures in North Carolina",
-     "url": "/region/north-carolina/",
-     "nav_group": "United States",
-     "region_ids": [
-      "north-carolina"
-     ],
-     "primary_region_id": "north-carolina",
-     "activity_count": 4,
-     "featured_story_count": 0,
      "is_aggregate": false
     },
     {
@@ -872,21 +406,6 @@
      "is_aggregate": false
     },
     {
-     "id": "ohio",
-     "name": "Ohio",
-     "kind": "state",
-     "description": "Adventures in Ohio",
-     "url": "/region/ohio/",
-     "nav_group": "United States",
-     "region_ids": [
-      "ohio"
-     ],
-     "primary_region_id": "ohio",
-     "activity_count": 1,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
      "id": "oregon",
      "name": "Oregon",
      "kind": "state",
@@ -899,36 +418,6 @@
      "primary_region_id": "oregon",
      "activity_count": 4,
      "featured_story_count": 2,
-     "is_aggregate": false
-    },
-    {
-     "id": "pennsylvania",
-     "name": "Pennsylvania",
-     "kind": "state",
-     "description": "Adventures in Pennsylvania",
-     "url": "/region/pennsylvania/",
-     "nav_group": "United States",
-     "region_ids": [
-      "pennsylvania"
-     ],
-     "primary_region_id": "pennsylvania",
-     "activity_count": 3,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "texas",
-     "name": "Texas",
-     "kind": "state",
-     "description": "Adventures in Texas",
-     "url": "/region/texas/",
-     "nav_group": "United States",
-     "region_ids": [
-      "texas"
-     ],
-     "primary_region_id": "texas",
-     "activity_count": 10,
-     "featured_story_count": 0,
      "is_aggregate": false
     },
     {
@@ -947,21 +436,6 @@
      "is_aggregate": false
     },
     {
-     "id": "vermont",
-     "name": "Vermont",
-     "kind": "state",
-     "description": "Adventures in Vermont",
-     "url": "/region/vermont/",
-     "nav_group": "United States",
-     "region_ids": [
-      "vermont"
-     ],
-     "primary_region_id": "vermont",
-     "activity_count": 2,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
      "id": "washington",
      "name": "Washington",
      "kind": "state",
@@ -974,21 +448,6 @@
      "primary_region_id": "washington",
      "activity_count": 37,
      "featured_story_count": 1,
-     "is_aggregate": false
-    },
-    {
-     "id": "wisconsin",
-     "name": "Wisconsin",
-     "kind": "state",
-     "description": "Adventures in Wisconsin",
-     "url": "/region/wisconsin/",
-     "nav_group": "United States",
-     "region_ids": [
-      "wisconsin"
-     ],
-     "primary_region_id": "wisconsin",
-     "activity_count": 1,
-     "featured_story_count": 0,
      "is_aggregate": false
     },
     {
@@ -1043,36 +502,6 @@
      "activity_count": 420,
      "featured_story_count": 37,
      "is_aggregate": false
-    },
-    {
-     "id": "ontario",
-     "name": "Ontario",
-     "kind": "province",
-     "description": "Adventures in Ontario",
-     "url": "/region/ontario/",
-     "nav_group": "Canada",
-     "region_ids": [
-      "ontario"
-     ],
-     "primary_region_id": "ontario",
-     "activity_count": 3,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "qu-bec",
-     "name": "Québec",
-     "kind": "province",
-     "description": "Adventures in Québec",
-     "url": "/region/qu-bec/",
-     "nav_group": "Canada",
-     "region_ids": [
-      "qu-bec"
-     ],
-     "primary_region_id": "qu-bec",
-     "activity_count": 3,
-     "featured_story_count": 0,
-     "is_aggregate": false
     }
    ]
   },
@@ -1082,66 +511,6 @@
    "nav_name": "Europe",
    "url": "/region/europe/",
    "regions": [
-    {
-     "id": "norway",
-     "name": "Norway",
-     "kind": "country",
-     "description": "Adventures in Norway",
-     "url": "/region/norway/",
-     "nav_group": "Europe",
-     "region_ids": [
-      "norway"
-     ],
-     "primary_region_id": "norway",
-     "activity_count": 6,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "france",
-     "name": "France",
-     "kind": "country",
-     "description": "Adventures in France",
-     "url": "/region/france/",
-     "nav_group": "Europe",
-     "region_ids": [
-      "france"
-     ],
-     "primary_region_id": "france",
-     "activity_count": 7,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "austria",
-     "name": "Austria",
-     "kind": "country",
-     "description": "Adventures in Austria",
-     "url": "/region/austria/",
-     "nav_group": "Europe",
-     "region_ids": [
-      "austria"
-     ],
-     "primary_region_id": "austria",
-     "activity_count": 7,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "germany",
-     "name": "Germany",
-     "kind": "country",
-     "description": "Adventures in Germany",
-     "url": "/region/germany/",
-     "nav_group": "Europe",
-     "region_ids": [
-      "germany"
-     ],
-     "primary_region_id": "germany",
-     "activity_count": 7,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
     {
      "id": "switzerland",
      "name": "Switzerland",
@@ -1155,51 +524,6 @@
      "primary_region_id": "switzerland",
      "activity_count": 22,
      "featured_story_count": 1,
-     "is_aggregate": false
-    },
-    {
-     "id": "belgium",
-     "name": "Belgium",
-     "kind": "country",
-     "description": "Adventures in Belgium",
-     "url": "/region/belgium/",
-     "nav_group": "Europe",
-     "region_ids": [
-      "belgium"
-     ],
-     "primary_region_id": "belgium",
-     "activity_count": 6,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "netherlands",
-     "name": "Netherlands",
-     "kind": "country",
-     "description": "Adventures in Netherlands",
-     "url": "/region/netherlands/",
-     "nav_group": "Europe",
-     "region_ids": [
-      "netherlands"
-     ],
-     "primary_region_id": "netherlands",
-     "activity_count": 5,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "italy",
-     "name": "Italy",
-     "kind": "country",
-     "description": "Adventures in Italy",
-     "url": "/region/italy/",
-     "nav_group": "Europe",
-     "region_ids": [
-      "italy"
-     ],
-     "primary_region_id": "italy",
-     "activity_count": 1,
-     "featured_story_count": 0,
      "is_aggregate": false
     },
     {
@@ -1253,44 +577,6 @@
      "primary_region_id": "japan",
      "activity_count": 6,
      "featured_story_count": 1,
-     "is_aggregate": false
-    }
-   ]
-  },
-  {
-   "id": "international",
-   "name": "International",
-   "nav_name": "International",
-   "url": "/region/international/",
-   "regions": [
-    {
-     "id": "colombia",
-     "name": "Colombia",
-     "kind": "country",
-     "description": "Adventures in Colombia",
-     "url": "/region/colombia/",
-     "nav_group": "International",
-     "region_ids": [
-      "colombia"
-     ],
-     "primary_region_id": "colombia",
-     "activity_count": 3,
-     "featured_story_count": 0,
-     "is_aggregate": false
-    },
-    {
-     "id": "costa-rica",
-     "name": "Costa Rica",
-     "kind": "country",
-     "description": "Adventures in Costa Rica",
-     "url": "/region/costa-rica/",
-     "nav_group": "International",
-     "region_ids": [
-      "costa-rica"
-     ],
-     "primary_region_id": "costa-rica",
-     "activity_count": 3,
-     "featured_story_count": 0,
      "is_aggregate": false
     }
    ]

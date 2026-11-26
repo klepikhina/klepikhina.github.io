@@ -47,22 +47,22 @@
                 <div class="nav-dropdown__submenu">
                   <span class="nav-dropdown__item nav-dropdown__item--has-submenu" role="button" tabindex="0" aria-expanded="false">By Type ▸</span>
                   <div class="nav-dropdown__submenu-content">
-                    <a href="{{ site.baseurl }}/bike" class="nav-dropdown__item">
+                    <a href="{{ site.baseurl }}/bike/" class="nav-dropdown__item">
                       <span class="nav-badge nav-badge--bike"></span>Bike
                     </a>
-                    <a href="{{ site.baseurl }}/climb" class="nav-dropdown__item">
+                    <a href="{{ site.baseurl }}/climb/" class="nav-dropdown__item">
                       <span class="nav-badge nav-badge--climb"></span>Climb
                     </a>
-                    <a href="{{ site.baseurl }}/hike" class="nav-dropdown__item">
+                    <a href="{{ site.baseurl }}/hike/" class="nav-dropdown__item">
                       <span class="nav-badge nav-badge--hike"></span>Hike
                     </a>
-                    <a href="{{ site.baseurl }}/run" class="nav-dropdown__item">
+                    <a href="{{ site.baseurl }}/run/" class="nav-dropdown__item">
                       <span class="nav-badge nav-badge--run"></span>Run
                     </a>
-                    <a href="{{ site.baseurl }}/ski" class="nav-dropdown__item">
+                    <a href="{{ site.baseurl }}/ski/" class="nav-dropdown__item">
                       <span class="nav-badge nav-badge--ski"></span>Ski
                     </a>
-                    <a href="{{ site.baseurl }}/water" class="nav-dropdown__item">
+                    <a href="{{ site.baseurl }}/water/" class="nav-dropdown__item">
                       <span class="nav-badge nav-badge--water"></span>Water
                     </a>
                   </div>
@@ -95,13 +95,13 @@
             <div class="nav-dropdown">
               <span class="nav-dropdown__toggle" role="button" tabindex="0" aria-expanded="false">Data</span>
               <div class="nav-dropdown__menu">
-                <a href="{{ site.baseurl }}/motion" class="nav-dropdown__item">Year in Motion</a>
-                <a href="{{ site.baseurl }}/climb-story" class="nav-dropdown__item">Climbing Story</a>
-                <a href="{{ site.baseurl }}/books-story" class="nav-dropdown__item">Books &amp; Genres</a>
+                <a href="{{ site.baseurl }}/motion/" class="nav-dropdown__item">Year in Motion</a>
+                <a href="{{ site.baseurl }}/climb-story/" class="nav-dropdown__item">Climbing Story</a>
+                <a href="{{ site.baseurl }}/books-story/" class="nav-dropdown__item">Books &amp; Genres</a>
               </div>
             </div>
 
-            <a href="{{ site.baseurl }}/books">Books</a>
+            <a href="{{ site.baseurl }}/books/">Books</a>
             <!-- <a href="{{ site.baseurl }}/writing">Writing</a> -->
           </nav>
         </header>
@@ -137,8 +137,10 @@
         event.stopPropagation();
 
         const open = !container.classList.contains('active');
-        document.querySelectorAll(containerSelector + '.active').forEach(function(other) {
-          if (other === container) return;
+        const scope = container.parentElement || document;
+        scope.querySelectorAll(containerSelector + '.active').forEach(function(other) {
+          // Keep ancestors and descendants open; only close siblings at this level.
+          if (other === container || other.contains(container) || container.contains(other)) return;
           other.classList.remove('active');
           const otherToggle = other.querySelector(':scope > .nav-dropdown__toggle, :scope > .nav-dropdown__item--has-submenu');
           if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
