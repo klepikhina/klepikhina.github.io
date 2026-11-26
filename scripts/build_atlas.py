@@ -2645,6 +2645,291 @@ def build_books_insights(books_path: Path, generated_at: str) -> Dict[str, Any]:
     }
 
 
+# Broad, readable lanes for the public bookshelf. Open Library subjects are
+# messy, so every book gets one primary lane based on the first keyword hit.
+BOOK_LANES: List[Tuple[str, Tuple[str, ...]]] = [
+    ("Horror", ("horror", "vampire", "zombie", "ghost story")),
+    ("Romance", ("romance", "love story", "courtship")),
+    ("Science fiction", ("science fiction", "sci-fi", "dystop", "spaceship", "alien", "robot", "future")),
+    ("Fantasy", ("fantasy", "magic", "magician", "supernatural", "dragon", "fairy", "myth", "folklore", "legend")),
+    ("Mystery & thriller", ("mystery", "thriller", "suspense", "detective", "crime", "murder", "espionage", "spy", "cozy")),
+    ("Memoir & biography", ("biography", "memoir", "autobiography", "life story", "personal narrative")),
+    ("History", ("history", "historical", "world war", "ancient", "medieval", "century")),
+    ("Young reader", ("juvenile", "young adult", "children", "teen", "picture books")),
+    ("Poetry", ("poetry", "poems", "poet")),
+    ("Nature & travel", ("nature", "travel", "outdoor", "wilderness", "forest", "mountain", "environment", "wildfire", "plants", "indigenous", "geography")),
+    ("Humor", ("humor", "comedy", "satire")),
+    ("Nonfiction", ("nonfiction", "psychology", "politics", "law", "sociology", "education", "science", "business", "self-help", "race", "courage", "medicine", "medical", "ethics", "church", "hymns", "women", "sexual", "health", "essays")),
+    ("Literary fiction", ("fiction", "novel", "short stories", "contemporary", "classic", "literary", "american literature", "english literature", "booksellers")),
+]
+NOISE_SUBJECTS = {
+    "fiction", "novels", "novel", "adult", "english", "literature", "books",
+    "audiobooks", "book club", "kindle", "e-books", "general", "united states",
+}
+
+
+def normalize_book_key(title: str, author: str, goodreads_id: str) -> str:
+    if goodreads_id:
+        return f"gr-{goodreads_id}"
+    base = re.sub(r"[^a-z0-9]+", "-", f"{title} {author}".lower()).strip("-")
+    return base or "unknown"
+
+
+def book_lane(subjects: Iterable[str]) -> str:
+    text = " | ".join(str(subject).lower() for subject in subjects)
+    for lane, keywords in BOOK_LANES:
+        if any(keyword in text for keyword in keywords):
+            return lane
+    return "Other"
+
+
+def fetch_openlibrary_book(title: str, author: str) -> Optional[Dict[str, Any]]:
+    """Look up public metadata for one already-published book."""
+    fields = (
+        "key,title,author_name,subject,number_of_pages_median,"
+        "first_publish_year"
+    )
+    for query in (f"{title} {author}".strip(), title):
+        if not query:
+            continue
+        params = urllib.parse.urlencode(
+            {"q": query, "fields": fields, "limit": 3}
+        )
+        request = urllib.request.Request(
+            f"https://openlibrary.org/search.json?{params}",
+            headers={"User-Agent": "klepikhina-atlas/1.0 (+https://klepikhina.github.io)"},
+        )
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(request, timeout=30, context=ssl_context()) as response:
+                    document = json.loads(response.read().decode("utf-8"))
+                break
+            except Exception as exc:  # network failures must not break the atlas
+                if attempt == 2:
+                    warn(f"book lookup failed for {title!r}: {exc}")
+                    document = None
+                else:
+                    time.sleep(1 + attempt)
+        if not document:
+            continue
+        candidates = document.get("docs") or []
+        if not candidates:
+            continue
+        wanted_tokens = set(re.findall(r"[a-z0-9]+", title.lower()))
+        author_tokens = set(re.findall(r"[a-z0-9]+", author.lower()))
+        chosen = candidates[0]
+        best_score = -1.0
+        for candidate in candidates:
+            title_tokens = set(re.findall(r"[a-z0-9]+", str(candidate.get("title") or "").lower()))
+            candidate_authors = candidate.get("author_name") or []
+            author_match = max(
+                [len(author_tokens & set(re.findall(r"[a-z0-9]+", str(name).lower()))) for name in candidate_authors]
+                or [0]
+            )
+            title_score = len(wanted_tokens & title_tokens) / max(1, len(wanted_tokens))
+            score = title_score + 0.25 * (1 if author_match >= 2 else 0)
+            if score > best_score:
+                best_score = score
+                chosen = candidate
+        return chosen
+    return None
+
+
+def clean_book_text(value: str) -> str:
+    """Undo hand-entered escapes and trailing reread notes from the bookshelf."""
+    text = str(value or "").replace("\\'", "'").replace('\\"', '"')
+    return text.split("|", 1)[0].strip().strip(' "')
+
+
+def fetch_goodreads_book(goodreads_id: str) -> Optional[Dict[str, Any]]:
+    """Fetch public page count, publication year, and top genres from Goodreads."""
+    if not goodreads_id:
+        return None
+    request = urllib.request.Request(
+        f"https://www.goodreads.com/book/show/{goodreads_id}",
+        headers={
+            "User-Agent": (
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+            ),
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+        },
+    )
+    html = None
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(request, timeout=30, context=ssl_context()) as response:
+                html = response.read().decode("utf-8", errors="replace")
+            break
+        except Exception as exc:  # network failures must not break the atlas
+            if attempt == 2:
+                warn(f"Goodreads lookup failed for {goodreads_id}: {exc}")
+                return None
+            time.sleep(2 + attempt)
+
+    result: Dict[str, Any] = {}
+    structured = re.search(r'<script type="application/ld\+json">(.*?)</script>', html or "", re.S)
+    if structured:
+        try:
+            payload = json.loads(structured.group(1))
+            pages = payload.get("numberOfPages")
+            if pages:
+                result["pages"] = int(pages)
+        except (ValueError, TypeError):
+            pass
+    if not result.get("pages"):
+        pages_match = re.search(r'data-testid="pagesFormat"[^>]*>(\d+)\s+pages', html or "", re.I)
+        if pages_match:
+            result["pages"] = int(pages_match.group(1))
+    publication = re.search(r'data-testid="publicationInfo"[^>]*>([^<]+)', html or "", re.I)
+    if publication:
+        year_match = re.search(r"\b(1[5-9]\d{2}|20\d{2})\b", publication.group(1))
+        if year_match:
+            result["published"] = int(year_match.group(1))
+    genre_block = re.search(r'data-testid="genresList".*?</ul>', html or "", re.S)
+    if genre_block:
+        genres = [
+            genre.strip()
+            for genre in re.findall(r'<span class="Button__labelItem">([^<]+)</span>', genre_block.group(0))
+            if genre.strip().lower() not in NOISE_SUBJECTS
+        ][:8]
+        if genres:
+            result["subjects"] = genres
+            result["lane"] = book_lane(genres)
+    return result or None
+
+
+def build_book_meta_insights(
+    books_path: Path,
+    previous: Optional[Dict[str, Any]],
+    generated_at: str,
+    fetch: bool = True,
+) -> Dict[str, Any]:
+    """Cache public book metadata (pages, publication year, subjects) by Goodreads id."""
+    if not books_path.exists():
+        return {}
+    try:
+        document = json.loads(books_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        warn(f"could not read {books_path} ({exc}); skipping book metadata")
+        return {}
+
+    cached: Dict[str, Dict[str, Any]] = {}
+    for row in (previous or {}).get("books", []):
+        key = row.get("key")
+        if key:
+            cached[str(key)] = row
+
+    shelves: List[Dict[str, Any]] = []
+    for year_node in document.get("children", []):
+        year = str(year_node.get("name") or "")
+        for format_node in year_node.get("children", []):
+            fmt = str(format_node.get("name") or "other").strip().lower() or "other"
+            for book in format_node.get("children") or []:
+                name = str(book.get("name") or "").strip().strip('"')
+                if '",' in name:
+                    title, author = name.split('",', 1)
+                    author = author.strip(' "')
+                else:
+                    title, author = name, ""
+                title = clean_book_text(title)
+                author = clean_book_text(author)
+                goodreads_id = str(book.get("value") or "").strip()
+                key = normalize_book_key(title, author, goodreads_id)
+                entry = dict(cached.get(key) or {})
+                needs_lookup = not entry or not entry.get("pages") or not entry.get("subjects")
+                if fetch and needs_lookup:
+                    found = fetch_openlibrary_book(title, author)
+                    if found:
+                        pages = found.get("number_of_pages_median")
+                        if not entry.get("pages") and pages:
+                            entry["pages"] = int(pages)
+                        if not entry.get("published") and found.get("first_publish_year"):
+                            entry["published"] = found.get("first_publish_year")
+                        if not entry.get("subjects"):
+                            subjects = [
+                                str(subject)
+                                for subject in (found.get("subject") or [])
+                                if str(subject).strip().lower() not in NOISE_SUBJECTS
+                            ][:8]
+                            if subjects:
+                                entry["subjects"] = subjects
+                    if goodreads_id and (not entry.get("pages") or not entry.get("subjects")):
+                        goodreads = fetch_goodreads_book(goodreads_id)
+                        if goodreads:
+                            if not entry.get("pages") and goodreads.get("pages"):
+                                entry["pages"] = goodreads["pages"]
+                            if not entry.get("published") and goodreads.get("published"):
+                                entry["published"] = goodreads["published"]
+                            if not entry.get("subjects") and goodreads.get("subjects"):
+                                entry["subjects"] = goodreads["subjects"]
+                    if entry:
+                        entry["key"] = key
+                        entry["fetched_at"] = generated_at
+                        cached[key] = entry
+                        time.sleep(0.9)
+                shelves.append(
+                    {
+                        "key": key,
+                        "title": title,
+                        "author": author,
+                        "year": year,
+                        "format": fmt,
+                        "goodreads_id": goodreads_id,
+                    }
+                )
+
+    if not shelves:
+        return {}
+
+    enriched = []
+    lanes: Counter = Counter()
+    by_year: Dict[str, Dict[str, Any]] = {}
+    for row in shelves:
+        entry = cached.get(row["key"]) or {}
+        subjects = entry.get("subjects") or []
+        if not entry:
+            lane = "Unindexed"
+        elif subjects:
+            lane = book_lane(subjects)
+        else:
+            lane = entry.get("lane") or "Other"
+        enriched.append({
+            **row,
+            "pages": entry.get("pages"),
+            "published": entry.get("published"),
+            "subjects": subjects,
+            "lane": lane,
+        })
+        lanes[lane] += 1
+        year_row = by_year.setdefault(row["year"], {"year": row["year"], "books": 0, "pages": 0, "lanes": Counter()})
+        year_row["books"] += 1
+        year_row["pages"] += int(entry.get("pages") or 0)
+        year_row["lanes"][lane] += 1
+
+    return {
+        "metadata": {
+            "generated_by": "scripts/build_atlas.py",
+            "generated_at": generated_at,
+            "source": "Open Library and Goodreads public metadata, cached by Goodreads id",
+            "total_books": len(enriched),
+            "books_with_pages": sum(1 for row in enriched if row["pages"]),
+            "books_with_subjects": sum(1 for row in enriched if row["subjects"]),
+            "privacy": (
+                "All titles and Goodreads ids are already public on the "
+                "bookshelf page. No private reading notes or local files are used."
+            ),
+        },
+        "books": enriched,
+        "lanes": dict(sorted(lanes.items(), key=lambda pair: (-pair[1], pair[0]))),
+        "years": [
+            {**by_year[year], "lanes": dict(sorted(by_year[year]["lanes"].items()))}
+            for year in sorted(by_year)
+        ],
+    }
+
+
 def build_region_timeline(records: List[Dict[str, Any]], generated_at: str) -> Dict[str, Any]:
     """First public region visited, useful for 'exploration frontier' graphics."""
     regions: Dict[str, Dict[str, Any]] = {}
@@ -3174,6 +3459,21 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     books_insights = build_books_insights(args.books_json, generated_at)
     if books_insights:
         write_json(insights_dir / "books.json", books_insights, args.dry_run, compact=True)
+    book_meta_path = insights_dir / "book_meta.json"
+    previous_book_meta = None
+    if book_meta_path.exists():
+        try:
+            previous_book_meta = json.loads(book_meta_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as exc:
+            warn(f"could not read book metadata cache {book_meta_path} ({exc}); refetching")
+    book_meta_insights = build_book_meta_insights(
+        args.books_json,
+        previous_book_meta,
+        generated_at,
+        fetch=not args.dry_run,
+    )
+    if book_meta_insights:
+        write_json(book_meta_path, book_meta_insights, args.dry_run, compact=True)
     if args.weather:
         weather_path = insights_dir / "weather.json"
         previous_weather = None
