@@ -1623,6 +1623,237 @@ body.atlas-drawer-open {
 }
 
 // ==========================================
+// Climbing Story
+// ==========================================
+.climb-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+
+  > div {
+    background: $cream;
+    border: 1px solid $stone-light;
+    border-radius: 12px;
+    padding: 0.85rem 0.5rem;
+    text-align: center;
+    min-width: 0;
+  }
+
+  strong {
+    display: block;
+    color: $earth-brown;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  span {
+    display: block;
+    color: $stone-medium;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+
+    strong { font-size: 1.25rem; }
+    span { font-size: 0.7rem; }
+  }
+}
+
+.climb-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.climb-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+
+  .filter-pill {
+    padding: 0.35rem 0.75rem;
+    border: 1.5px solid $stone-light;
+    border-radius: 20px;
+    background: $cream;
+    color: $stone-medium;
+    cursor: pointer;
+    font-size: 0.85rem;
+
+    &:hover { border-color: $earth-warm; color: $earth-brown; }
+    &.active { background: $color-climb; border-color: $color-climb; color: $stone-dark; }
+  }
+}
+
+.climb-scope {
+  color: $stone-medium;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.climb-charts {
+  display: grid;
+  gap: 2rem;
+}
+
+.climb-section {
+  h2 { font-size: 1.25rem; margin: 0 0 0.3rem; }
+}
+
+.climb-ladder__row,
+.climb-regions__row,
+.climb-seasons__row {
+  display: grid;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 34px;
+}
+
+.climb-ladder__row,
+.climb-regions__row {
+  grid-template-columns: 110px minmax(0, 1fr) 44px;
+
+  @include mobile {
+    grid-template-columns: 78px minmax(0, 1fr) 34px;
+    gap: 0.5rem;
+  }
+}
+
+.climb-seasons__row {
+  grid-template-columns: 56px minmax(0, 1fr) 44px;
+
+  @include mobile { gap: 0.5rem; }
+}
+
+.climb-ladder__label,
+.climb-regions__label {
+  overflow: hidden;
+  color: $stone-dark;
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.climb-ladder__track,
+.climb-regions__track,
+.climb-seasons__track {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: 22px;
+}
+
+.climb-ladder__track { justify-content: center; }
+
+.climb-ladder__count,
+.climb-regions__count,
+.climb-seasons__count {
+  color: $stone-medium;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.climb-bar {
+  min-width: 2px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+
+  &:hover,
+  &:focus {
+    filter: brightness(1.08);
+    outline: 2px solid $forest-dark;
+    outline-offset: 1px;
+  }
+}
+
+.climb-bar--segment {
+  height: 100%;
+  border-radius: 0;
+
+  &:first-child { border-radius: 4px 0 0 4px; }
+  &:last-child { border-radius: 0 4px 4px 0; }
+}
+
+.climb-seasons__year {
+  padding: 0.2rem 0;
+  border: 0;
+  background: none;
+  color: $stone-medium;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-align: left;
+
+  &.active { color: $earth-brown; font-weight: bold; }
+  &:hover { color: $forest-dark; }
+}
+
+.climb-style__track {
+  display: flex;
+  height: 26px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.climb-style__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin-top: 0.75rem;
+  color: $stone-medium;
+  font-size: 0.82rem;
+
+  span { display: inline-flex; align-items: center; gap: 0.35rem; }
+}
+
+.climb-style__dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.climb-tooltip {
+  position: fixed;
+  z-index: 1000;
+  max-width: 240px;
+  padding: 0.6rem 0.75rem;
+  background: #fff;
+  border: 1px solid $stone-light;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  color: $stone-dark;
+  font-size: 0.85rem;
+  pointer-events: auto;
+
+  &[hidden] { display: none; }
+  strong, span { display: block; }
+  span { color: $stone-medium; margin-top: 0.15rem; }
+}
+
+.climb-hint {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.6rem;
+  margin-top: 1.5rem;
+  color: $stone-medium;
+  font-size: 0.85rem;
+
+  a { color: $forest-dark; }
+}
+
+// ==========================================
 // Utilities
 // ==========================================
 .text-center { text-align: center; }
