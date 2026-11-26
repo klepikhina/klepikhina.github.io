@@ -1,14 +1,13 @@
 ---
 layout: default
 title: All Activities
+map_lib: true
 ---
 
-<div class="page-header">
+<div class="page-header page-header--tight">
   <h1>All Activities</h1>
-  <p class="page-description">Every activity, climb, ride, and run in one place</p>
 </div>
 
-<!-- Activity Statistics Section -->
 {% assign activities = site.data.activities.activities %}
 {% assign climb_count = activities | where: "activity", "climb" | size %}
 {% assign bike_count = activities | where: "activity", "bike" | size %}
@@ -18,204 +17,82 @@ title: All Activities
 {% assign water_count = activities | where: "activity", "water" | size %}
 {% assign total_adventures = activities | size %}
 
-<div class="section-header">
-  <h2>Activity Statistics</h2>
-  <p class="section-subtitle">{{ total_adventures }} logged activities and counting</p>
+<div class="view-toggle" role="radiogroup" aria-label="Choose a viewer">
+  <input type="radio" id="view-map" name="adventures-view" value="map" checked>
+  <label for="view-map">Photo map</label>
+  <input type="radio" id="view-cards" name="adventures-view" value="cards">
+  <label for="view-cards">Cards</label>
+  <span class="view-toggle__thumb" aria-hidden="true"></span>
 </div>
 
-<div class="stats-container">
-  <div id="adventure-donut" class="adventure-stats__donut"></div>
-  <div id="adventure-bars" class="adventure-stats__bars"></div>
+<div class="story-filters" role="group" aria-label="Filter stories by activity">
+  <button type="button" class="filter-pill active" data-sport="all" aria-pressed="true">All <small>{{ total_adventures }}</small></button>
+  <button type="button" class="filter-pill filter-pill--bike" data-sport="bike" aria-pressed="false">Bike <small>{{ bike_count }}</small></button>
+  <button type="button" class="filter-pill filter-pill--climb" data-sport="climb" aria-pressed="false">Climb <small>{{ climb_count }}</small></button>
+  <button type="button" class="filter-pill filter-pill--hike" data-sport="hike" aria-pressed="false">Hike <small>{{ hike_count }}</small></button>
+  <button type="button" class="filter-pill filter-pill--run" data-sport="run" aria-pressed="false">Run <small>{{ run_count }}</small></button>
+  <button type="button" class="filter-pill filter-pill--ski" data-sport="ski" aria-pressed="false">Ski <small>{{ ski_count }}</small></button>
+  <button type="button" class="filter-pill filter-pill--water" data-sport="water" aria-pressed="false">Water <small>{{ water_count }}</small></button>
 </div>
 
-<div class="section-header">
-  <h2>All Activities</h2>
+<div class="story-regions-wrap">
+  <div id="story-regions" class="story-regions" role="group" aria-label="Filter stories by region"></div>
 </div>
 
-<div class="filter-pills">
-  <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All ({{ total_adventures }})</button>
-  <button type="button" class="filter-pill filter-pill--bike" data-filter="bike_log" aria-pressed="false">Bike ({{ bike_count }})</button>
-  <button type="button" class="filter-pill filter-pill--climb" data-filter="climb_log" aria-pressed="false">Climb ({{ climb_count }})</button>
-  <button type="button" class="filter-pill filter-pill--hike" data-filter="hike_log" aria-pressed="false">Hike ({{ hike_count }})</button>
-  <button type="button" class="filter-pill filter-pill--run" data-filter="run_log" aria-pressed="false">Run ({{ run_count }})</button>
-  <button type="button" class="filter-pill filter-pill--ski" data-filter="ski_log" aria-pressed="false">Ski ({{ ski_count }})</button>
-  <button type="button" class="filter-pill filter-pill--water" data-filter="water_log" aria-pressed="false">Water ({{ water_count }})</button>
+<div id="adventures-map-panel" class="story-map-panel">
+  <div id="story-map" class="adventure-map story-map-canvas" role="region" aria-label="Map of photo pins from published stories" tabindex="0">
+    <div id="story-map-status" class="map-status">Loading stories&hellip;</div>
+  </div>
 </div>
 
-<div class="card-grid" id="adventures-grid">
-  {% for activity in activities %}
-    <div class="adventure-item" data-activity="{{ activity.filter }}">
+<section id="adventures-cards-panel" aria-label="All activity cards" style="display: none;">
+  <div class="card-grid" id="adventures-grid">
+    {% for activity in activities %}
+    <div class="adventure-item" data-id="{{ activity.id }}" data-sport="{{ activity.activity }}" data-region="{{ activity.region_id }}">
       {% include adventure-card.html activity=activity show_excerpt=true %}
     </div>
+    {% endfor %}
+  </div>
+</section>
+
+<noscript>
+  <style>
+    .view-toggle, .story-filters, .story-regions-wrap, #adventures-map-panel { display: none !important; }
+    #adventures-cards-panel { display: block !important; }
+  </style>
+  <div class="noscript-panel">
+    <p>The photo map and filters need JavaScript. All stories are listed below.</p>
+  </div>
+</noscript>
+
+<script id="story-data" type="application/json">
+[
+  {% assign story_total = 0 %}
+  {% for activity in activities %}
+    {% if activity.coordinates %}{% assign story_total = story_total | plus: 1 %}{% endif %}
   {% endfor %}
-</div>
-
-<script src="https://d3js.org/d3.v7.min.js" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Filter functionality
-  const filterButtons = document.querySelectorAll('.filter-pill');
-  const adventureItems = document.querySelectorAll('.adventure-item');
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const filter = this.getAttribute('data-filter');
-      filterButtons.forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-pressed', 'false');
-      });
-      this.classList.add('active');
-      this.setAttribute('aria-pressed', 'true');
-      adventureItems.forEach(item => {
-        if (filter === 'all' || item.getAttribute('data-activity') === filter) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // Adventure Statistics Charts
-  const adventureData = [
-    { name: 'Climb', value: {{ climb_count }}, color: '#D4A574' },
-    { name: 'Bike', value: {{ bike_count }}, color: '#C25450' },
-    { name: 'Hike', value: {{ hike_count }}, color: '#4A7C59' },
-    { name: 'Run', value: {{ run_count }}, color: '#4A90A4' },
-    { name: 'Ski', value: {{ ski_count }}, color: '#8FA6C9' },
-    { name: 'Water', value: {{ water_count }}, color: '#0C589C' }
-  ];
-
-  const total = adventureData.reduce((sum, d) => sum + d.value, 0);
-
-  // Donut Chart
-  const donutContainer = document.getElementById('adventure-donut');
-  const donutWidth = 280;
-  const donutHeight = 220;
-  const radius = Math.min(donutWidth, donutHeight) / 2 - 30;
-
-  const donutSvg = d3.select('#adventure-donut')
-    .append('svg')
-    .attr('width', donutWidth)
-    .attr('height', donutHeight)
-    .append('g')
-    .attr('transform', `translate(${donutWidth/2},${donutHeight/2 + 10})`);
-
-  const pie = d3.pie().value(d => d.value).sort(null);
-  const arc = d3.arc().innerRadius(radius * 0.55).outerRadius(radius);
-
-  const arcs = donutSvg.selectAll('.arc')
-    .data(pie(adventureData))
-    .enter()
-    .append('g')
-    .attr('class', 'arc');
-
-  arcs.append('path')
-    .attr('d', arc)
-    .attr('fill', d => d.data.color)
-    .attr('stroke', 'white')
-    .attr('stroke-width', 2)
-    .style('cursor', 'pointer')
-    .on('mouseover', function(event, d) {
-      d3.select(this).transition().duration(200)
-        .attr('transform', function(d) {
-          const [x, y] = arc.centroid(d);
-          return `translate(${x * 0.05},${y * 0.05})`;
-        });
-    })
-    .on('mouseout', function() {
-      d3.select(this).transition().duration(200)
-        .attr('transform', 'translate(0,0)');
-    });
-
-  // Center text
-  donutSvg.append('text')
-    .attr('text-anchor', 'middle')
-    .attr('dy', '-0.1em')
-    .attr('font-size', '28px')
-    .attr('font-weight', '600')
-    .attr('fill', '#2D5A3D')
-    .text(total);
-
-  donutSvg.append('text')
-    .attr('text-anchor', 'middle')
-    .attr('dy', '1.2em')
-    .attr('font-size', '12px')
-    .attr('fill', '#666')
-    .text('activities');
-
-  // Title
-  d3.select('#adventure-donut svg')
-    .append('text')
-    .attr('x', donutWidth / 2)
-    .attr('y', 16)
-    .attr('text-anchor', 'middle')
-    .attr('font-size', '14px')
-    .attr('font-weight', '600')
-    .attr('fill', '#2D5A3D')
-    .text('Activities by Type');
-
-  // Bar Chart
-  const barContainer = document.getElementById('adventure-bars');
-  const barWidth = Math.min(400, barContainer.clientWidth);
-  const barHeight = 220;
-  const margin = { top: 30, right: 20, bottom: 40, left: 50 };
-
-  const barSvg = d3.select('#adventure-bars')
-    .append('svg')
-    .attr('width', barWidth)
-    .attr('height', barHeight);
-
-  const xScale = d3.scaleBand()
-    .domain(adventureData.map(d => d.name))
-    .range([margin.left, barWidth - margin.right])
-    .padding(0.3);
-
-  const yScale = d3.scaleLinear()
-    .domain([0, d3.max(adventureData, d => d.value) + 3])
-    .range([barHeight - margin.bottom, margin.top]);
-
-  // Bars
-  barSvg.selectAll('rect')
-    .data(adventureData)
-    .enter()
-    .append('rect')
-    .attr('x', d => xScale(d.name))
-    .attr('y', d => yScale(d.value))
-    .attr('width', xScale.bandwidth())
-    .attr('height', d => barHeight - margin.bottom - yScale(d.value))
-    .attr('fill', d => d.color)
-    .attr('rx', 4);
-
-  // Labels on bars
-  barSvg.selectAll('.bar-label')
-    .data(adventureData)
-    .enter()
-    .append('text')
-    .attr('class', 'bar-label')
-    .attr('x', d => xScale(d.name) + xScale.bandwidth() / 2)
-    .attr('y', d => yScale(d.value) - 5)
-    .attr('text-anchor', 'middle')
-    .attr('font-size', '13px')
-    .attr('font-weight', '600')
-    .attr('fill', '#3D3D3D')
-    .text(d => d.value);
-
-  // X axis
-  barSvg.append('g')
-    .attr('transform', `translate(0,${barHeight - margin.bottom})`)
-    .call(d3.axisBottom(xScale))
-    .selectAll('text')
-    .attr('font-size', '12px');
-
-  // Title
-  barSvg.append('text')
-    .attr('x', barWidth / 2)
-    .attr('y', 16)
-    .attr('text-anchor', 'middle')
-    .attr('font-size', '14px')
-    .attr('font-weight', '600')
-    .attr('fill', '#2D5A3D')
-    .text('Activity Breakdown');
-});
+  {% assign story_index = 0 %}
+  {% for activity in activities %}
+  {% if activity.coordinates %}
+  {% assign story_index = story_index | plus: 1 %}
+  {
+    "id": {{ activity.id | jsonify }},
+    "title": {{ activity.title | jsonify }},
+    "activity": {{ activity.activity | jsonify }},
+    "category": {{ activity.category | jsonify }},
+    "region_id": {{ activity.region_id | jsonify }},
+    "region_name": {{ activity.region_name | jsonify }},
+    "location": {{ activity.location | jsonify }},
+    "image": {{ activity.image | jsonify }},
+    "post_url": {{ activity.post_url | jsonify }},
+    "coordinates": {{ activity.coordinates | jsonify }}
+  }{% if story_index < story_total %},{% endif %}
+  {% endif %}
+  {% endfor %}
+]
 </script>
+<script>
+  window.STORY_BASEURL = {{ site.baseurl | jsonify }};
+</script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
+<script src="{{ site.baseurl }}/js/story-map.js" defer></script>

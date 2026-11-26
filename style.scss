@@ -2230,6 +2230,285 @@ body.atlas-drawer-open {
 }
 
 // ==========================================
+// Story Map
+// ==========================================
+.page-header--tight {
+  margin-bottom: 0.9rem;
+}
+
+.view-toggle {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 0 2rem;
+  padding: 3px;
+  background: rgba(74, 124, 89, 0.12);
+  border: 1px solid rgba(74, 124, 89, 0.28);
+  border-radius: 999px;
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  label {
+    position: relative;
+    z-index: 1;
+    padding: 0.42rem 1.15rem;
+    color: $stone-medium;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: center;
+    transition: color 0.2s ease;
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    width: calc(50% - 3px);
+    background: $forest-dark;
+    border-radius: 999px;
+    box-shadow: 0 2px 7px rgba(45, 90, 61, 0.28);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #view-cards:checked ~ &__thumb {
+    transform: translateX(100%);
+  }
+
+  #view-map:checked ~ label[for="view-map"],
+  #view-cards:checked ~ label[for="view-cards"] {
+    color: #fff;
+  }
+
+  input:focus-visible + label {
+    outline: 2px solid $forest-medium;
+    outline-offset: 2px;
+    border-radius: 999px;
+  }
+}
+
+.story-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+
+  .filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    border: 1.5px solid $stone-light;
+    border-radius: 20px;
+    background: $cream;
+    color: $stone-medium;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    small {
+      font-size: 0.7rem;
+      opacity: 0.75;
+    }
+
+    &:hover { border-color: $forest-medium; color: $forest-dark; }
+    &.active { background: $forest-medium; border-color: $forest-medium; color: #fff; }
+    &.filter-pill--bike.active { background: $color-bike; border-color: $color-bike; }
+    &.filter-pill--climb.active { background: $color-climb; border-color: $color-climb; color: $stone-dark; }
+    &.filter-pill--hike.active { background: $color-hike; border-color: $color-hike; }
+    &.filter-pill--run.active { background: $color-run; border-color: $color-run; }
+    &.filter-pill--ski.active { background: $color-ski; border-color: $color-ski; color: $stone-dark; }
+    &.filter-pill--water.active { background: $color-water; border-color: $color-water; }
+  }
+}
+
+.story-regions-wrap {
+  margin: 0 0 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.story-regions {
+  display: flex;
+  gap: 0.4rem;
+  min-width: max-content;
+}
+
+.story-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.65rem;
+  background: $cream;
+  border: 1px solid $stone-light;
+  border-radius: 999px;
+  color: $stone-dark;
+  cursor: pointer;
+  font-size: 0.78rem;
+  white-space: nowrap;
+
+  small {
+    color: $stone-medium;
+    font-size: 0.7rem;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $forest-medium;
+    outline: none;
+  }
+
+  &.is-active {
+    background: $forest-dark;
+    border-color: $forest-dark;
+    color: #fff;
+
+    small { color: rgba(255, 255, 255, 0.78); }
+  }
+}
+
+.story-map-panel {
+  position: relative;
+  min-width: 0;
+}
+
+.story-map-canvas {
+  height: 600px;
+
+  @include tablet {
+    height: 520px;
+  }
+
+  @include mobile {
+    height: 430px;
+  }
+}
+
+.story-pin {
+  display: block;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 3px solid var(--pin-color, #4A7C59);
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover,
+  &:focus,
+  &.is-active {
+    z-index: 2;
+    outline: none;
+    transform: scale(1.2);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.34);
+  }
+
+  &.is-active {
+    border-color: $stone-dark;
+  }
+}
+
+.story-popup-wrap {
+  .maplibregl-popup-content {
+    padding: 0;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(61, 61, 61, 0.12);
+    border-radius: 10px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.22);
+  }
+
+  .maplibregl-popup-tip {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
+}
+
+.story-popup__link {
+  display: block;
+  width: 224px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.story-popup__media {
+  position: relative;
+  display: block;
+  height: 116px;
+  background: $stone-light;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.story-popup__sport {
+  position: absolute;
+  bottom: 0.45rem;
+  left: 0.45rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  color: $stone-dark;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.story-popup__body {
+  display: block;
+  padding: 0.55rem 0.7rem 0.65rem;
+
+  strong,
+  small,
+  em {
+    display: block;
+  }
+
+  strong {
+    color: $stone-dark;
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  small {
+    margin-top: 0.15rem;
+    color: $stone-medium;
+    font-size: 0.7rem;
+  }
+
+  em {
+    margin-top: 0.35rem;
+    color: $forest-dark;
+    font-size: 0.72rem;
+    font-style: normal;
+    font-weight: 600;
+  }
+}
+
+.story-popup__link:hover strong,
+.story-popup__link:focus strong {
+  text-decoration: underline;
+}
+
+// ==========================================
 // Utilities
 // ==========================================
 .text-center { text-align: center; }
