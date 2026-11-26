@@ -6,6 +6,7 @@ fiona==1.10.1
 pyproj==3.7.2
 gpxpy==1.6.2
 fitparse==1.2.0
+Pillow==11.0.0
 
 # Optional, only for automatic Mountain Project CSV export:
 # playwright

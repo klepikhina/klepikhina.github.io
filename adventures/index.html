@@ -84,6 +84,10 @@ map_lib: true
     "region_name": {{ activity.region_name | jsonify }},
     "location": {{ activity.location | jsonify }},
     "image": {{ activity.image | jsonify }},
+    {% assign thumb_ids = site.data.story-thumbs.ids | default: '' %}
+    {% assign thumb_base = site.baseurl | append: '/images/story-thumbs/' | append: activity.id %}
+    "pin_image": {% if thumb_ids contains activity.id %}{{ thumb_base | append: '-pin.jpg' | jsonify }}{% else %}null{% endif %},
+    "card_image": {% if thumb_ids contains activity.id %}{{ thumb_base | append: '-card.jpg' | jsonify }}{% else %}null{% endif %},
     "post_url": {{ activity.post_url | jsonify }},
     "coordinates": {{ activity.coordinates | jsonify }}
   }{% if story_index < story_total %},{% endif %}
@@ -95,4 +99,4 @@ map_lib: true
   window.STORY_BASEURL = {{ site.baseurl | jsonify }};
 </script>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
-<script src="{{ site.baseurl }}/js/story-map.js" defer></script>
+<script src="{{ site.baseurl }}/js/story-map.js?v=2" defer></script>

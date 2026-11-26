@@ -264,6 +264,12 @@ def run_build(temp: Path, ticks: Optional[Path]) -> None:
         command.extend(["--ticks-csv", str(ticks)])
     log("rebuilding atlas from cached summaries")
     subprocess.run(command, check=True, cwd=str(REPO_ROOT))
+    log("rebuilding story photo thumbnails")
+    subprocess.run(
+        [sys.executable, str(SCRIPT_DIR / "build_thumbs.py")],
+        check=True,
+        cwd=str(REPO_ROOT),
+    )
 
 
 def git(*args: str, check: bool = True) -> subprocess.CompletedProcess:
@@ -275,7 +281,7 @@ def git(*args: str, check: bool = True) -> subprocess.CompletedProcess:
 def publish_master() -> None:
     git("config", "user.name", "Atlas Sync")
     git("config", "user.email", "atlas-sync@users.noreply.github.com")
-    git("add", "--", "data", "region")
+    git("add", "--", "data", "region", "images/story-thumbs")
     if git("diff", "--cached", "--quiet", check=False).returncode == 0:
         log("no aggregate data or region page changes to publish")
         return

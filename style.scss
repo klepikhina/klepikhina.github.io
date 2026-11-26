@@ -2263,6 +2263,11 @@ body.atlas-drawer-open {
     font-weight: 600;
     text-align: center;
     transition: color 0.2s ease;
+
+    &.is-disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
   }
 
   &__thumb {

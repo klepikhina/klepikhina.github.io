@@ -13,6 +13,11 @@ Usage: {% include adventure-card.html activity=activity %}
   {% assign item_filter = item.filter %}
   {% assign item_activity = item.activity %}
   {% assign item_slug = item.slug %}
+  {% assign thumb_ids = site.data.story-thumbs.ids | default: '' %}
+  {% if thumb_ids contains item.id %}
+    {% assign thumb_base = site.baseurl | append: '/images/story-thumbs/' | append: item.id %}
+    {% assign item_image = thumb_base | append: '-card.jpg' %}
+  {% endif %}
 {% else %}
   {% assign item = include.post %}
   {% assign item_url = item.url %}
