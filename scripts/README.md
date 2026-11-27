@@ -10,6 +10,8 @@ Jekyll page:
 | `data/featured_routes.geojson` | Markers / lines | Hand-curated, blog-linked routes and crags |
 | `data/activities.json` | Site cards | One canonical record per curated story (slug, title, date, sport, region, image, summary) |
 | `data/region_pages.json` | Region nav | Generated region page definitions and nav groups; only regions with a featured story are listed |
+| `data/story-thumbs.json` | Story images | Manifest of activity ids with a complete pair of local thumbnails |
+| `images/story-thumbs/*.jpg` | Story images | Small local pin (96×96) and card (480×360) photos used by `/adventures/` and activity cards |
 | `region/*.html` | Region pages | Static pages generated from `data/region_pages.json`; empty region pages are removed |
 
 Jekyll reads these files through `data_sources` in `_config.yml`, so Home,
@@ -77,8 +79,10 @@ Mac does not need to be on. Each run:
 1. polls Garmin (and Strava when configured) for new activities,
 2. reads the Mountain Project ticks CSV from an encrypted secret,
 3. rebuilds the atlas from a compact parsed cache in a private repo,
-4. commits only aggregate `data/*.geojson` directly to `master`, and
-5. lets GitHub Pages rebuild the site.
+4. rebuilds any missing story thumbnails from the public blog photos,
+5. commits only aggregate `data/*.geojson`, the thumbnail manifest, and
+   `images/story-thumbs/` directly to `master`, and
+6. lets GitHub Pages rebuild the site.
 
 Routine activity updates **do not create a PR**.
 
@@ -134,6 +138,31 @@ One-time setup:
 
 The older `sync_sources.py` commands still work for one-off local imports, but
 the launchd scheduler and PR flow are no longer the recommended path.
+
+## Story thumbnails
+
+The blog photos live on S3 at full resolution (often 5000px wide and several MB).
+The photo map used them as 38px pins, so `/adventures/` once downloaded over
+100 MB just to draw the map. `build_thumbs.py` fetches each public story photo
+once and writes two local JPEGs:
+
+- `<id>-pin.jpg` — 96×96 cover for the map pin
+- `<id>-card.jpg` — 480×360 cover for cards and pin popups
+
+It writes `data/story-thumbs.json` listing ids with a complete pair, which Jekyll
+uses to prefer thumbnails and fall back to the original image if a new story is
+not ready yet. Existing files are left untouched, so runs only download missing
+photos. Full-size originals are never copied into the repository; story pages
+still link to the original S3 image.
+
+```bash
+python3 scripts/build_thumbs.py            # all stories
+python3 scripts/build_thumbs.py --limit 2  # quick smoke test
+python3 scripts/build_thumbs.py --workers 8
+```
+
+The weekly cloud sync runs this automatically after `build_atlas.py`, so newly
+curated stories get thumbnails without a manual step.
 
 ## Build from the blog only
 
@@ -378,3 +407,6 @@ warnings for empty geometry, zero-activity regions, or missing slugs.
 | `--state-path PATH` | Incremental cache path (default `private/atlas_state.json`) |
 | `--no-cache` | Ignore and do not update the cache; reparse everything |
 | `--dry-run` | Validate and report only; does not write data or cache |
+
+`build_thumbs.py` has its own `--limit N` and `--workers N` flags; see
+[Story thumbnails](#story-thumbnails).
