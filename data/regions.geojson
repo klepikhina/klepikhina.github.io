@@ -2,7 +2,7 @@
  "type": "FeatureCollection",
  "metadata": {
   "generated_by": "scripts/build_atlas.py",
-  "generated_at": "2026-11-25T05:31:34Z",
+  "generated_at": "2026-11-27T06:02:47Z",
   "watershed_source": "HydroBASINS global level 8 (v1c)",
   "region_basis": "Natural Earth admin-1 states/provinces (US/Canada) and admin-0 countries",
   "crs": "EPSG:4326",
@@ -926,48 +926,39 @@
     "region_id": "alberta",
     "region_name": "Alberta",
     "region_kind": "province",
-    "activity_count": 4,
-    "total_vert_ft": 54,
-    "total_distance_mi": 30.1,
+    "activity_count": 2,
+    "total_vert_ft": 5201,
+    "total_distance_mi": 29.5,
     "sports": [
-     "climb",
      "hike",
      "run"
     ],
     "featured_story_count": 1,
-    "vert_coverage": 0.5,
-    "distance_coverage": 0.5,
+    "vert_coverage": 1.0,
+    "distance_coverage": 1.0,
     "departments": {
-     "climb": 2,
      "hike": 1,
      "run": 1
     },
     "stats": {
-     "climb": {
-      "trips": 2,
-      "vert_ft": 0,
-      "distance_mi": 0,
-      "vert_coverage": 0.0,
-      "distance_coverage": 0.0
-     },
      "hike": {
       "trips": 1,
-      "vert_ft": 45,
+      "vert_ft": 194,
       "distance_mi": 0.8,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "run": {
       "trips": 1,
-      "vert_ft": 9,
-      "distance_mi": 29.3,
+      "vert_ft": 5007,
+      "distance_mi": 28.8,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
     },
     "top_stories": [
      {
-      "title": "Skyline, Jasper National Park, AB | 46km, 1526m",
+      "title": "Skyline, Jasper National Park, AB | 28.58mi, 5007ft",
       "post_url": "/Skyline/",
       "activity": "run"
      }
@@ -980,15 +971,15 @@
     "bike_trips": 0,
     "bike_vert_ft": 0,
     "bike_distance_mi": 0.0,
-    "climb_trips": 2,
+    "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
     "hike_trips": 1,
-    "hike_vert_ft": 45,
+    "hike_vert_ft": 194,
     "hike_distance_mi": 0.8,
     "run_trips": 1,
-    "run_vert_ft": 9,
-    "run_distance_mi": 29.3,
+    "run_vert_ft": 5007,
+    "run_distance_mi": 28.8,
     "ski_trips": 0,
     "ski_vert_ft": 0,
     "ski_distance_mi": 0.0,
@@ -5889,9 +5880,9 @@
     "region_id": "british-columbia",
     "region_name": "British Columbia",
     "region_kind": "province",
-    "activity_count": 420,
-    "total_vert_ft": 141808,
-    "total_distance_mi": 2165.0,
+    "activity_count": 338,
+    "total_vert_ft": 427968,
+    "total_distance_mi": 2074.4,
     "sports": [
      "bike",
      "climb",
@@ -5901,11 +5892,11 @@
      "water"
     ],
     "featured_story_count": 37,
-    "vert_coverage": 0.76,
-    "distance_coverage": 0.76,
+    "vert_coverage": 0.94,
+    "distance_coverage": 0.94,
     "departments": {
      "bike": 137,
-     "climb": 97,
+     "climb": 15,
      "hike": 75,
      "run": 61,
      "ski": 46,
@@ -5914,36 +5905,36 @@
     "stats": {
      "bike": {
       "trips": 137,
-      "vert_ft": 68868,
-      "distance_mi": 1325.3,
+      "vert_ft": 192131,
+      "distance_mi": 1256.3,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "climb": {
-      "trips": 97,
-      "vert_ft": 0,
+      "trips": 15,
+      "vert_ft": 600,
       "distance_mi": 0,
-      "vert_coverage": 0.0,
+      "vert_coverage": 0.07,
       "distance_coverage": 0.0
      },
      "hike": {
       "trips": 75,
-      "vert_ft": 18627,
-      "distance_mi": 220.4,
+      "vert_ft": 83871,
+      "distance_mi": 214.2,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "run": {
       "trips": 61,
-      "vert_ft": 11573,
-      "distance_mi": 356.8,
+      "vert_ft": 74714,
+      "distance_mi": 354.8,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "ski": {
       "trips": 46,
-      "vert_ft": 42740,
-      "distance_mi": 253.5,
+      "vert_ft": 76594,
+      "distance_mi": 240.2,
       "vert_coverage": 0.91,
       "distance_coverage": 0.91,
       "styles": {
@@ -5959,7 +5950,7 @@
      },
      "water": {
       "trips": 4,
-      "vert_ft": 0,
+      "vert_ft": 58,
       "distance_mi": 9.0,
       "vert_coverage": 0.75,
       "distance_coverage": 0.75
@@ -5967,17 +5958,17 @@
     },
     "top_stories": [
      {
-      "title": "Alice Lake, Squamish, BC | 24.4km, 779m",
+      "title": "Alice Lake, Squamish, BC | 15.16mi, 2556ft",
       "post_url": "/AliceLake/",
       "activity": "bike"
      },
      {
-      "title": "Seven Summits, Rossland, BC | 36km, 1190m",
+      "title": "Seven Summits, Rossland, BC | 22.37mi, 3904ft",
       "post_url": "/SevenSummits/",
       "activity": "bike"
      },
      {
-      "title": "Rossland, BC to Summerland, BC | 291km, 4195m",
+      "title": "Rossland, BC to Summerland, BC | 180.82mi, 13763ft",
       "post_url": "/RosslandToSummerland/",
       "activity": "bike"
      }
@@ -5988,20 +5979,20 @@
      54.5095
     ],
     "bike_trips": 137,
-    "bike_vert_ft": 68868,
-    "bike_distance_mi": 1325.3,
-    "climb_trips": 97,
-    "climb_vert_ft": 0,
+    "bike_vert_ft": 192131,
+    "bike_distance_mi": 1256.3,
+    "climb_trips": 15,
+    "climb_vert_ft": 600,
     "climb_distance_mi": 0.0,
     "hike_trips": 75,
-    "hike_vert_ft": 18627,
-    "hike_distance_mi": 220.4,
+    "hike_vert_ft": 83871,
+    "hike_distance_mi": 214.2,
     "run_trips": 61,
-    "run_vert_ft": 11573,
-    "run_distance_mi": 356.8,
+    "run_vert_ft": 74714,
+    "run_distance_mi": 354.8,
     "ski_trips": 46,
-    "ski_vert_ft": 42740,
-    "ski_distance_mi": 253.5,
+    "ski_vert_ft": 76594,
+    "ski_distance_mi": 240.2,
     "ski_touring_pct": 52,
     "ski_touring_count": 24,
     "ski_alpine_pct": 15,
@@ -6009,7 +6000,7 @@
     "ski_nordic_pct": 33,
     "ski_nordic_count": 15,
     "water_trips": 4,
-    "water_vert_ft": 0,
+    "water_vert_ft": 58,
     "water_distance_mi": 9.0,
     "other_trips": null,
     "other_vert_ft": null,
@@ -7640,7 +7631,7 @@
     "region_name": "Ontario",
     "region_kind": "province",
     "activity_count": 3,
-    "total_vert_ft": 326,
+    "total_vert_ft": 3740,
     "total_distance_mi": 35.4,
     "sports": [
      "bike"
@@ -7654,7 +7645,7 @@
     "stats": {
      "bike": {
       "trips": 3,
-      "vert_ft": 326,
+      "vert_ft": 3740,
       "distance_mi": 35.4,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -7667,7 +7658,7 @@
      49.2748
     ],
     "bike_trips": 3,
-    "bike_vert_ft": 326,
+    "bike_vert_ft": 3740,
     "bike_distance_mi": 35.4,
     "climb_trips": 0,
     "climb_vert_ft": 0,
@@ -12747,7 +12738,7 @@
     "region_name": "Québec",
     "region_kind": "province",
     "activity_count": 3,
-    "total_vert_ft": 195,
+    "total_vert_ft": 4783,
     "total_distance_mi": 37.6,
     "sports": [
      "bike"
@@ -12761,7 +12752,7 @@
     "stats": {
      "bike": {
       "trips": 3,
-      "vert_ft": 195,
+      "vert_ft": 4783,
       "distance_mi": 37.6,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -12774,7 +12765,7 @@
      53.9067
     ],
     "bike_trips": 3,
-    "bike_vert_ft": 195,
+    "bike_vert_ft": 4783,
     "bike_distance_mi": 37.6,
     "climb_trips": 0,
     "climb_vert_ft": 0,
@@ -13248,7 +13239,7 @@
     "region_name": "Arizona",
     "region_kind": "state",
     "activity_count": 2,
-    "total_vert_ft": 261,
+    "total_vert_ft": 4262,
     "total_distance_mi": 39.5,
     "sports": [
      "bike"
@@ -13262,7 +13253,7 @@
     "stats": {
      "bike": {
       "trips": 2,
-      "vert_ft": 261,
+      "vert_ft": 4262,
       "distance_mi": 39.5,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -13275,7 +13266,7 @@
      34.1534
     ],
     "bike_trips": 2,
-    "bike_vert_ft": 261,
+    "bike_vert_ft": 4262,
     "bike_distance_mi": 39.5,
     "climb_trips": 0,
     "climb_vert_ft": 0,
@@ -14570,9 +14561,9 @@
     "region_id": "california",
     "region_name": "California",
     "region_kind": "state",
-    "activity_count": 110,
-    "total_vert_ft": 43560,
-    "total_distance_mi": 1108.9,
+    "activity_count": 103,
+    "total_vert_ft": 190332,
+    "total_distance_mi": 1056.7,
     "sports": [
      "bike",
      "climb",
@@ -14582,11 +14573,11 @@
      "water"
     ],
     "featured_story_count": 17,
-    "vert_coverage": 0.85,
-    "distance_coverage": 0.85,
+    "vert_coverage": 0.91,
+    "distance_coverage": 0.91,
     "departments": {
      "bike": 63,
-     "climb": 13,
+     "climb": 6,
      "hike": 23,
      "run": 2,
      "ski": 7,
@@ -14595,13 +14586,13 @@
     "stats": {
      "bike": {
       "trips": 63,
-      "vert_ft": 6452,
-      "distance_mi": 878.5,
+      "vert_ft": 114603,
+      "distance_mi": 868.3,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "climb": {
-      "trips": 13,
+      "trips": 6,
       "vert_ft": 0,
       "distance_mi": 0,
       "vert_coverage": 0.0,
@@ -14609,22 +14600,22 @@
      },
      "hike": {
       "trips": 23,
-      "vert_ft": 5767,
-      "distance_mi": 124.0,
+      "vert_ft": 25163,
+      "distance_mi": 83.9,
       "vert_coverage": 0.87,
       "distance_coverage": 0.87
      },
      "run": {
       "trips": 2,
-      "vert_ft": 71,
-      "distance_mi": 12.2,
+      "vert_ft": 1837,
+      "distance_mi": 12.0,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "ski": {
       "trips": 7,
-      "vert_ft": 31270,
-      "distance_mi": 89.5,
+      "vert_ft": 48719,
+      "distance_mi": 88.0,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0,
       "styles": {
@@ -14640,7 +14631,7 @@
      },
      "water": {
       "trips": 2,
-      "vert_ft": 0,
+      "vert_ft": 10,
       "distance_mi": 4.6,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -14669,20 +14660,20 @@
      37.2432
     ],
     "bike_trips": 63,
-    "bike_vert_ft": 6452,
-    "bike_distance_mi": 878.5,
-    "climb_trips": 13,
+    "bike_vert_ft": 114603,
+    "bike_distance_mi": 868.3,
+    "climb_trips": 6,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
     "hike_trips": 23,
-    "hike_vert_ft": 5767,
-    "hike_distance_mi": 124.0,
+    "hike_vert_ft": 25163,
+    "hike_distance_mi": 83.9,
     "run_trips": 2,
-    "run_vert_ft": 71,
-    "run_distance_mi": 12.2,
+    "run_vert_ft": 1837,
+    "run_distance_mi": 12.0,
     "ski_trips": 7,
-    "ski_vert_ft": 31270,
-    "ski_distance_mi": 89.5,
+    "ski_vert_ft": 48719,
+    "ski_distance_mi": 88.0,
     "ski_touring_pct": 14,
     "ski_touring_count": 1,
     "ski_alpine_pct": 86,
@@ -14690,7 +14681,7 @@
     "ski_nordic_pct": 0,
     "ski_nordic_count": 0,
     "water_trips": 2,
-    "water_vert_ft": 0,
+    "water_vert_ft": 10,
     "water_distance_mi": 4.6,
     "other_trips": null,
     "other_vert_ft": null,
@@ -15050,9 +15041,9 @@
     "region_id": "colorado",
     "region_name": "Colorado",
     "region_kind": "state",
-    "activity_count": 2628,
-    "total_vert_ft": 1127933,
-    "total_distance_mi": 33787.0,
+    "activity_count": 2574,
+    "total_vert_ft": 3599876,
+    "total_distance_mi": 33206.9,
     "sports": [
      "bike",
      "climb",
@@ -15063,11 +15054,11 @@
      "other"
     ],
     "featured_story_count": 35,
-    "vert_coverage": 0.97,
-    "distance_coverage": 0.97,
+    "vert_coverage": 0.99,
+    "distance_coverage": 0.99,
     "departments": {
      "bike": 1732,
-     "climb": 71,
+     "climb": 17,
      "hike": 198,
      "run": 486,
      "ski": 85,
@@ -15077,36 +15068,36 @@
     "stats": {
      "bike": {
       "trips": 1732,
-      "vert_ft": 310570,
-      "distance_mi": 29028.1,
+      "vert_ft": 2615793,
+      "distance_mi": 28456.1,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "climb": {
-      "trips": 71,
-      "vert_ft": 747,
-      "distance_mi": 10.6,
-      "vert_coverage": 0.08,
-      "distance_coverage": 0.08
+      "trips": 17,
+      "vert_ft": 1415,
+      "distance_mi": 6.5,
+      "vert_coverage": 0.35,
+      "distance_coverage": 0.35
      },
      "hike": {
       "trips": 198,
-      "vert_ft": 81265,
-      "distance_mi": 753.1,
+      "vert_ft": 207507,
+      "distance_mi": 736.5,
       "vert_coverage": 0.99,
       "distance_coverage": 0.99
      },
      "run": {
       "trips": 486,
-      "vert_ft": 444753,
-      "distance_mi": 2862.6,
+      "vert_ft": 347018,
+      "distance_mi": 2898.0,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "ski": {
       "trips": 85,
-      "vert_ft": 250656,
-      "distance_mi": 965.2,
+      "vert_ft": 398100,
+      "distance_mi": 942.5,
       "vert_coverage": 0.99,
       "distance_coverage": 0.99,
       "styles": {
@@ -15122,15 +15113,15 @@
      },
      "water": {
       "trips": 12,
-      "vert_ft": 1874,
-      "distance_mi": 46.8,
+      "vert_ft": 1656,
+      "distance_mi": 46.3,
       "vert_coverage": 0.92,
       "distance_coverage": 0.92
      },
      "other": {
       "trips": 44,
-      "vert_ft": 38068,
-      "distance_mi": 120.6,
+      "vert_ft": 28387,
+      "distance_mi": 121.0,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -15158,20 +15149,20 @@
      39.0322
     ],
     "bike_trips": 1732,
-    "bike_vert_ft": 310570,
-    "bike_distance_mi": 29028.1,
-    "climb_trips": 71,
-    "climb_vert_ft": 747,
-    "climb_distance_mi": 10.6,
+    "bike_vert_ft": 2615793,
+    "bike_distance_mi": 28456.1,
+    "climb_trips": 17,
+    "climb_vert_ft": 1415,
+    "climb_distance_mi": 6.5,
     "hike_trips": 198,
-    "hike_vert_ft": 81265,
-    "hike_distance_mi": 753.1,
+    "hike_vert_ft": 207507,
+    "hike_distance_mi": 736.5,
     "run_trips": 486,
-    "run_vert_ft": 444753,
-    "run_distance_mi": 2862.6,
+    "run_vert_ft": 347018,
+    "run_distance_mi": 2898.0,
     "ski_trips": 85,
-    "ski_vert_ft": 250656,
-    "ski_distance_mi": 965.2,
+    "ski_vert_ft": 398100,
+    "ski_distance_mi": 942.5,
     "ski_touring_pct": 9,
     "ski_touring_count": 8,
     "ski_alpine_pct": 54,
@@ -15179,11 +15170,11 @@
     "ski_nordic_pct": 36,
     "ski_nordic_count": 31,
     "water_trips": 12,
-    "water_vert_ft": 1874,
-    "water_distance_mi": 46.8,
+    "water_vert_ft": 1656,
+    "water_distance_mi": 46.3,
     "other_trips": 44.0,
-    "other_vert_ft": 38068.0,
-    "other_distance_mi": 120.6
+    "other_vert_ft": 28387.0,
+    "other_distance_mi": 121.0
    }
   },
   {
@@ -15756,8 +15747,8 @@
     "region_name": "Iowa",
     "region_kind": "state",
     "activity_count": 3,
-    "total_vert_ft": 281,
-    "total_distance_mi": 47.8,
+    "total_vert_ft": 3494,
+    "total_distance_mi": 47.9,
     "sports": [
      "bike"
     ],
@@ -15770,8 +15761,8 @@
     "stats": {
      "bike": {
       "trips": 3,
-      "vert_ft": 281,
-      "distance_mi": 47.8,
+      "vert_ft": 3494,
+      "distance_mi": 47.9,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -15783,8 +15774,8 @@
      41.9429
     ],
     "bike_trips": 3,
-    "bike_vert_ft": 281,
-    "bike_distance_mi": 47.8,
+    "bike_vert_ft": 3494,
+    "bike_distance_mi": 47.9,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -16769,8 +16760,8 @@
     "region_name": "Idaho",
     "region_kind": "state",
     "activity_count": 10,
-    "total_vert_ft": 11834,
-    "total_distance_mi": 120.7,
+    "total_vert_ft": 25172,
+    "total_distance_mi": 118.2,
     "sports": [
      "bike",
      "climb",
@@ -16787,8 +16778,8 @@
     "stats": {
      "bike": {
       "trips": 8,
-      "vert_ft": 10789,
-      "distance_mi": 109.3,
+      "vert_ft": 20887,
+      "distance_mi": 107.7,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
@@ -16801,8 +16792,8 @@
      },
      "hike": {
       "trips": 1,
-      "vert_ft": 1045,
-      "distance_mi": 11.4,
+      "vert_ft": 4285,
+      "distance_mi": 10.5,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -16820,14 +16811,14 @@
      45.4924
     ],
     "bike_trips": 8,
-    "bike_vert_ft": 10789,
-    "bike_distance_mi": 109.3,
+    "bike_vert_ft": 20887,
+    "bike_distance_mi": 107.7,
     "climb_trips": 1,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
     "hike_trips": 1,
-    "hike_vert_ft": 1045,
-    "hike_distance_mi": 11.4,
+    "hike_vert_ft": 4285,
+    "hike_distance_mi": 10.5,
     "run_trips": 0,
     "run_vert_ft": 0,
     "run_distance_mi": 0.0,
@@ -17688,7 +17679,7 @@
     "region_name": "Kentucky",
     "region_kind": "state",
     "activity_count": 1,
-    "total_vert_ft": 180,
+    "total_vert_ft": 1798,
     "total_distance_mi": 14.8,
     "sports": [
      "bike"
@@ -17702,7 +17693,7 @@
     "stats": {
      "bike": {
       "trips": 1,
-      "vert_ft": 180,
+      "vert_ft": 1798,
       "distance_mi": 14.8,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -17715,7 +17706,7 @@
      37.8115
     ],
     "bike_trips": 1,
-    "bike_vert_ft": 180,
+    "bike_vert_ft": 1798,
     "bike_distance_mi": 14.8,
     "climb_trips": 0,
     "climb_vert_ft": 0,
@@ -18497,8 +18488,8 @@
     "region_name": "Michigan",
     "region_kind": "state",
     "activity_count": 3,
-    "total_vert_ft": 239,
-    "total_distance_mi": 87.3,
+    "total_vert_ft": 5120,
+    "total_distance_mi": 85.3,
     "sports": [
      "bike"
     ],
@@ -18511,8 +18502,8 @@
     "stats": {
      "bike": {
       "trips": 3,
-      "vert_ft": 239,
-      "distance_mi": 87.3,
+      "vert_ft": 5120,
+      "distance_mi": 85.3,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -18524,8 +18515,8 @@
      44.9785
     ],
     "bike_trips": 3,
-    "bike_vert_ft": 239,
-    "bike_distance_mi": 87.3,
+    "bike_vert_ft": 5120,
+    "bike_distance_mi": 85.3,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -19278,8 +19269,8 @@
     "region_name": "Missouri",
     "region_kind": "state",
     "activity_count": 2,
-    "total_vert_ft": 75,
-    "total_distance_mi": 42.1,
+    "total_vert_ft": 4547,
+    "total_distance_mi": 42.2,
     "sports": [
      "bike"
     ],
@@ -19292,8 +19283,8 @@
     "stats": {
      "bike": {
       "trips": 2,
-      "vert_ft": 75,
-      "distance_mi": 42.1,
+      "vert_ft": 4547,
+      "distance_mi": 42.2,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -19305,8 +19296,8 @@
      38.3069
     ],
     "bike_trips": 2,
-    "bike_vert_ft": 75,
-    "bike_distance_mi": 42.1,
+    "bike_vert_ft": 4547,
+    "bike_distance_mi": 42.2,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -20275,8 +20266,8 @@
     "region_name": "Montana",
     "region_kind": "state",
     "activity_count": 8,
-    "total_vert_ft": 412,
-    "total_distance_mi": 101.4,
+    "total_vert_ft": 19408,
+    "total_distance_mi": 100.9,
     "sports": [
      "bike"
     ],
@@ -20289,8 +20280,8 @@
     "stats": {
      "bike": {
       "trips": 8,
-      "vert_ft": 412,
-      "distance_mi": 101.4,
+      "vert_ft": 19408,
+      "distance_mi": 100.9,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -20302,8 +20293,8 @@
      46.6917
     ],
     "bike_trips": 8,
-    "bike_vert_ft": 412,
-    "bike_distance_mi": 101.4,
+    "bike_vert_ft": 19408,
+    "bike_distance_mi": 100.9,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -21394,8 +21385,8 @@
     "region_name": "North Carolina",
     "region_kind": "state",
     "activity_count": 4,
-    "total_vert_ft": 357,
-    "total_distance_mi": 54.3,
+    "total_vert_ft": 3323,
+    "total_distance_mi": 54.4,
     "sports": [
      "bike"
     ],
@@ -21408,8 +21399,8 @@
     "stats": {
      "bike": {
       "trips": 4,
-      "vert_ft": 357,
-      "distance_mi": 54.3,
+      "vert_ft": 3323,
+      "distance_mi": 54.4,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -21421,8 +21412,8 @@
      35.2324
     ],
     "bike_trips": 4,
-    "bike_vert_ft": 357,
-    "bike_distance_mi": 54.3,
+    "bike_vert_ft": 3323,
+    "bike_distance_mi": 54.4,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -21822,32 +21813,32 @@
     "region_id": "new-mexico",
     "region_name": "New Mexico",
     "region_kind": "state",
-    "activity_count": 18,
-    "total_vert_ft": 5988,
-    "total_distance_mi": 142.1,
+    "activity_count": 12,
+    "total_vert_ft": 24634,
+    "total_distance_mi": 142.5,
     "sports": [
      "bike",
      "climb",
      "run"
     ],
     "featured_story_count": 1,
-    "vert_coverage": 0.61,
-    "distance_coverage": 0.61,
+    "vert_coverage": 0.92,
+    "distance_coverage": 0.92,
     "departments": {
      "bike": 9,
-     "climb": 7,
+     "climb": 1,
      "run": 2
     },
     "stats": {
      "bike": {
       "trips": 9,
-      "vert_ft": 4471,
-      "distance_mi": 130.4,
+      "vert_ft": 23099,
+      "distance_mi": 130.1,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "climb": {
-      "trips": 7,
+      "trips": 1,
       "vert_ft": 0,
       "distance_mi": 0,
       "vert_coverage": 0.0,
@@ -21855,8 +21846,8 @@
      },
      "run": {
       "trips": 2,
-      "vert_ft": 1517,
-      "distance_mi": 11.7,
+      "vert_ft": 1535,
+      "distance_mi": 12.4,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -21874,17 +21865,17 @@
      34.0677
     ],
     "bike_trips": 9,
-    "bike_vert_ft": 4471,
-    "bike_distance_mi": 130.4,
-    "climb_trips": 7,
+    "bike_vert_ft": 23099,
+    "bike_distance_mi": 130.1,
+    "climb_trips": 1,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
     "hike_trips": 0,
     "hike_vert_ft": 0,
     "hike_distance_mi": 0.0,
     "run_trips": 2,
-    "run_vert_ft": 1517,
-    "run_distance_mi": 11.7,
+    "run_vert_ft": 1535,
+    "run_distance_mi": 12.4,
     "ski_trips": 0,
     "ski_vert_ft": 0,
     "ski_distance_mi": 0.0,
@@ -22371,9 +22362,9 @@
     "region_id": "nevada",
     "region_name": "Nevada",
     "region_kind": "state",
-    "activity_count": 143,
-    "total_vert_ft": 12390,
-    "total_distance_mi": 840.0,
+    "activity_count": 135,
+    "total_vert_ft": 121195,
+    "total_distance_mi": 832.6,
     "sports": [
      "bike",
      "climb",
@@ -22384,11 +22375,11 @@
      "other"
     ],
     "featured_story_count": 3,
-    "vert_coverage": 0.94,
-    "distance_coverage": 0.94,
+    "vert_coverage": 0.99,
+    "distance_coverage": 0.99,
     "departments": {
      "bike": 57,
-     "climb": 9,
+     "climb": 1,
      "hike": 16,
      "run": 54,
      "ski": 5,
@@ -22398,13 +22389,13 @@
     "stats": {
      "bike": {
       "trips": 57,
-      "vert_ft": 10016,
-      "distance_mi": 483.8,
+      "vert_ft": 68104,
+      "distance_mi": 479.0,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "climb": {
-      "trips": 9,
+      "trips": 1,
       "vert_ft": 0,
       "distance_mi": 0,
       "vert_coverage": 0.0,
@@ -22412,21 +22403,21 @@
      },
      "hike": {
       "trips": 16,
-      "vert_ft": 1680,
-      "distance_mi": 60.8,
+      "vert_ft": 13453,
+      "distance_mi": 60.5,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "run": {
       "trips": 54,
-      "vert_ft": 355,
-      "distance_mi": 264.3,
+      "vert_ft": 34540,
+      "distance_mi": 262.0,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "ski": {
       "trips": 5,
-      "vert_ft": 287,
+      "vert_ft": 4631,
       "distance_mi": 26.2,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0,
@@ -22443,14 +22434,14 @@
      },
      "water": {
       "trips": 1,
-      "vert_ft": 0,
+      "vert_ft": 11,
       "distance_mi": 1.5,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "other": {
       "trips": 1,
-      "vert_ft": 52,
+      "vert_ft": 456,
       "distance_mi": 3.4,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -22479,19 +22470,19 @@
      38.4597
     ],
     "bike_trips": 57,
-    "bike_vert_ft": 10016,
-    "bike_distance_mi": 483.8,
-    "climb_trips": 9,
+    "bike_vert_ft": 68104,
+    "bike_distance_mi": 479.0,
+    "climb_trips": 1,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
     "hike_trips": 16,
-    "hike_vert_ft": 1680,
-    "hike_distance_mi": 60.8,
+    "hike_vert_ft": 13453,
+    "hike_distance_mi": 60.5,
     "run_trips": 54,
-    "run_vert_ft": 355,
-    "run_distance_mi": 264.3,
+    "run_vert_ft": 34540,
+    "run_distance_mi": 262.0,
     "ski_trips": 5,
-    "ski_vert_ft": 287,
+    "ski_vert_ft": 4631,
     "ski_distance_mi": 26.2,
     "ski_touring_pct": 40,
     "ski_touring_count": 2,
@@ -22500,10 +22491,10 @@
     "ski_nordic_pct": 60,
     "ski_nordic_count": 3,
     "water_trips": 1,
-    "water_vert_ft": 0,
+    "water_vert_ft": 11,
     "water_distance_mi": 1.5,
     "other_trips": 1.0,
-    "other_vert_ft": 52.0,
+    "other_vert_ft": 456.0,
     "other_distance_mi": 3.4
    }
   },
@@ -22981,7 +22972,7 @@
     "region_name": "Ohio",
     "region_kind": "state",
     "activity_count": 1,
-    "total_vert_ft": 35,
+    "total_vert_ft": 1362,
     "total_distance_mi": 20.6,
     "sports": [
      "bike"
@@ -22995,7 +22986,7 @@
     "stats": {
      "bike": {
       "trips": 1,
-      "vert_ft": 35,
+      "vert_ft": 1362,
       "distance_mi": 20.6,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -23008,7 +22999,7 @@
      40.3819
     ],
     "bike_trips": 1,
-    "bike_vert_ft": 35,
+    "bike_vert_ft": 1362,
     "bike_distance_mi": 20.6,
     "climb_trips": 0,
     "climb_vert_ft": 0,
@@ -23570,8 +23561,8 @@
     "region_name": "Oregon",
     "region_kind": "state",
     "activity_count": 4,
-    "total_vert_ft": 1578,
-    "total_distance_mi": 48.1,
+    "total_vert_ft": 9445,
+    "total_distance_mi": 47.7,
     "sports": [
      "bike",
      "hike"
@@ -23586,8 +23577,8 @@
     "stats": {
      "bike": {
       "trips": 3,
-      "vert_ft": 1578,
-      "distance_mi": 48.1,
+      "vert_ft": 9445,
+      "distance_mi": 47.7,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
@@ -23617,8 +23608,8 @@
      44.0991
     ],
     "bike_trips": 3,
-    "bike_vert_ft": 1578,
-    "bike_distance_mi": 48.1,
+    "bike_vert_ft": 9445,
+    "bike_distance_mi": 47.7,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -24195,8 +24186,8 @@
     "region_name": "Pennsylvania",
     "region_kind": "state",
     "activity_count": 3,
-    "total_vert_ft": 26,
-    "total_distance_mi": 26.9,
+    "total_vert_ft": 3350,
+    "total_distance_mi": 26.8,
     "sports": [
      "bike"
     ],
@@ -24209,8 +24200,8 @@
     "stats": {
      "bike": {
       "trips": 3,
-      "vert_ft": 26,
-      "distance_mi": 26.9,
+      "vert_ft": 3350,
+      "distance_mi": 26.8,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -24222,8 +24213,8 @@
      41.1112
     ],
     "bike_trips": 3,
-    "bike_vert_ft": 26,
-    "bike_distance_mi": 26.9,
+    "bike_vert_ft": 3350,
+    "bike_distance_mi": 26.8,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -26122,8 +26113,8 @@
     "region_name": "Texas",
     "region_kind": "state",
     "activity_count": 10,
-    "total_vert_ft": 577,
-    "total_distance_mi": 113.3,
+    "total_vert_ft": 8060,
+    "total_distance_mi": 111.6,
     "sports": [
      "bike"
     ],
@@ -26136,8 +26127,8 @@
     "stats": {
      "bike": {
       "trips": 10,
-      "vert_ft": 577,
-      "distance_mi": 113.3,
+      "vert_ft": 8060,
+      "distance_mi": 111.6,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -26149,8 +26140,8 @@
      31.1951
     ],
     "bike_trips": 10,
-    "bike_vert_ft": 577,
-    "bike_distance_mi": 113.3,
+    "bike_vert_ft": 8060,
+    "bike_distance_mi": 111.6,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -26579,8 +26570,8 @@
     "region_name": "Utah",
     "region_kind": "state",
     "activity_count": 55,
-    "total_vert_ft": 29334,
-    "total_distance_mi": 1327.2,
+    "total_vert_ft": 125437,
+    "total_distance_mi": 1067.9,
     "sports": [
      "bike",
      "hike",
@@ -26597,22 +26588,22 @@
     "stats": {
      "bike": {
       "trips": 46,
-      "vert_ft": 10776,
-      "distance_mi": 1275.7,
+      "vert_ft": 114975,
+      "distance_mi": 1016.2,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "hike": {
       "trips": 1,
-      "vert_ft": 17,
+      "vert_ft": 62,
       "distance_mi": 0.3,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "run": {
       "trips": 8,
-      "vert_ft": 18541,
-      "distance_mi": 51.3,
+      "vert_ft": 10400,
+      "distance_mi": 51.4,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -26635,17 +26626,17 @@
      39.5017
     ],
     "bike_trips": 46,
-    "bike_vert_ft": 10776,
-    "bike_distance_mi": 1275.7,
+    "bike_vert_ft": 114975,
+    "bike_distance_mi": 1016.2,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
     "hike_trips": 1,
-    "hike_vert_ft": 17,
+    "hike_vert_ft": 62,
     "hike_distance_mi": 0.3,
     "run_trips": 8,
-    "run_vert_ft": 18541,
-    "run_distance_mi": 51.3,
+    "run_vert_ft": 10400,
+    "run_distance_mi": 51.4,
     "ski_trips": 0,
     "ski_vert_ft": 0,
     "ski_distance_mi": 0.0,
@@ -26993,8 +26984,8 @@
     "region_name": "Vermont",
     "region_kind": "state",
     "activity_count": 2,
-    "total_vert_ft": 81,
-    "total_distance_mi": 44.3,
+    "total_vert_ft": 3379,
+    "total_distance_mi": 44.4,
     "sports": [
      "bike"
     ],
@@ -27007,8 +26998,8 @@
     "stats": {
      "bike": {
       "trips": 2,
-      "vert_ft": 81,
-      "distance_mi": 44.3,
+      "vert_ft": 3379,
+      "distance_mi": 44.4,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -27020,8 +27011,8 @@
      43.84
     ],
     "bike_trips": 2,
-    "bike_vert_ft": 81,
-    "bike_distance_mi": 44.3,
+    "bike_vert_ft": 3379,
+    "bike_distance_mi": 44.4,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -28459,9 +28450,9 @@
     "region_id": "washington",
     "region_name": "Washington",
     "region_kind": "state",
-    "activity_count": 37,
-    "total_vert_ft": 4116,
-    "total_distance_mi": 59.4,
+    "activity_count": 15,
+    "total_vert_ft": 7567,
+    "total_distance_mi": 58.7,
     "sports": [
      "bike",
      "climb",
@@ -28469,40 +28460,40 @@
      "run"
     ],
     "featured_story_count": 1,
-    "vert_coverage": 0.41,
-    "distance_coverage": 0.41,
+    "vert_coverage": 1.0,
+    "distance_coverage": 1.0,
     "departments": {
      "bike": 3,
-     "climb": 25,
+     "climb": 3,
      "hike": 7,
      "run": 2
     },
     "stats": {
      "bike": {
       "trips": 3,
-      "vert_ft": 551,
-      "distance_mi": 29.1,
+      "vert_ft": 2129,
+      "distance_mi": 28.7,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "climb": {
-      "trips": 25,
-      "vert_ft": 74,
-      "distance_mi": 0.6,
-      "vert_coverage": 0.12,
-      "distance_coverage": 0.12
+      "trips": 3,
+      "vert_ft": 101,
+      "distance_mi": 0.5,
+      "vert_coverage": 1.0,
+      "distance_coverage": 1.0
      },
      "hike": {
       "trips": 7,
-      "vert_ft": 3440,
-      "distance_mi": 23.5,
+      "vert_ft": 4805,
+      "distance_mi": 23.3,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "run": {
       "trips": 2,
-      "vert_ft": 51,
-      "distance_mi": 6.3,
+      "vert_ft": 532,
+      "distance_mi": 6.2,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -28520,17 +28511,17 @@
      47.2914
     ],
     "bike_trips": 3,
-    "bike_vert_ft": 551,
-    "bike_distance_mi": 29.1,
-    "climb_trips": 25,
-    "climb_vert_ft": 74,
-    "climb_distance_mi": 0.6,
+    "bike_vert_ft": 2129,
+    "bike_distance_mi": 28.7,
+    "climb_trips": 3,
+    "climb_vert_ft": 101,
+    "climb_distance_mi": 0.5,
     "hike_trips": 7,
-    "hike_vert_ft": 3440,
-    "hike_distance_mi": 23.5,
+    "hike_vert_ft": 4805,
+    "hike_distance_mi": 23.3,
     "run_trips": 2,
-    "run_vert_ft": 51,
-    "run_distance_mi": 6.3,
+    "run_vert_ft": 532,
+    "run_distance_mi": 6.2,
     "ski_trips": 0,
     "ski_vert_ft": 0,
     "ski_distance_mi": 0.0,
@@ -29214,7 +29205,7 @@
     "region_name": "Wisconsin",
     "region_kind": "state",
     "activity_count": 1,
-    "total_vert_ft": 12,
+    "total_vert_ft": 764,
     "total_distance_mi": 14.4,
     "sports": [
      "bike"
@@ -29228,7 +29219,7 @@
     "stats": {
      "bike": {
       "trips": 1,
-      "vert_ft": 12,
+      "vert_ft": 764,
       "distance_mi": 14.4,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -29241,7 +29232,7 @@
      44.8902
     ],
     "bike_trips": 1,
-    "bike_vert_ft": 12,
+    "bike_vert_ft": 764,
     "bike_distance_mi": 14.4,
     "climb_trips": 0,
     "climb_vert_ft": 0,
@@ -29686,30 +29677,30 @@
     "region_id": "wyoming",
     "region_name": "Wyoming",
     "region_kind": "state",
-    "activity_count": 12,
-    "total_vert_ft": 1320,
-    "total_distance_mi": 150.1,
+    "activity_count": 8,
+    "total_vert_ft": 20265,
+    "total_distance_mi": 149.4,
     "sports": [
      "bike",
      "climb"
     ],
     "featured_story_count": 1,
-    "vert_coverage": 0.58,
-    "distance_coverage": 0.58,
+    "vert_coverage": 0.88,
+    "distance_coverage": 0.88,
     "departments": {
      "bike": 7,
-     "climb": 5
+     "climb": 1
     },
     "stats": {
      "bike": {
       "trips": 7,
-      "vert_ft": 1320,
-      "distance_mi": 150.1,
+      "vert_ft": 20265,
+      "distance_mi": 149.4,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "climb": {
-      "trips": 5,
+      "trips": 1,
       "vert_ft": 0,
       "distance_mi": 0,
       "vert_coverage": 0.0,
@@ -29729,9 +29720,9 @@
      42.9695
     ],
     "bike_trips": 7,
-    "bike_vert_ft": 1320,
-    "bike_distance_mi": 150.1,
-    "climb_trips": 5,
+    "bike_vert_ft": 20265,
+    "bike_distance_mi": 149.4,
+    "climb_trips": 1,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
     "hike_trips": 0,
@@ -30137,8 +30128,8 @@
     "region_name": "Norway",
     "region_kind": "country",
     "activity_count": 6,
-    "total_vert_ft": 475,
-    "total_distance_mi": 78.1,
+    "total_vert_ft": 12057,
+    "total_distance_mi": 78.2,
     "sports": [
      "bike"
     ],
@@ -30151,8 +30142,8 @@
     "stats": {
      "bike": {
       "trips": 6,
-      "vert_ft": 475,
-      "distance_mi": 78.1,
+      "vert_ft": 12057,
+      "distance_mi": 78.2,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -30164,8 +30155,8 @@
      79.9581
     ],
     "bike_trips": 6,
-    "bike_vert_ft": 475,
-    "bike_distance_mi": 78.1,
+    "bike_vert_ft": 12057,
+    "bike_distance_mi": 78.2,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -30606,7 +30597,7 @@
     "region_name": "Colombia",
     "region_kind": "country",
     "activity_count": 3,
-    "total_vert_ft": 1115,
+    "total_vert_ft": 5491,
     "total_distance_mi": 48.1,
     "sports": [
      "bike"
@@ -30620,7 +30611,7 @@
     "stats": {
      "bike": {
       "trips": 3,
-      "vert_ft": 1115,
+      "vert_ft": 5491,
       "distance_mi": 48.1,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -30633,7 +30624,7 @@
      3.9686
     ],
     "bike_trips": 3,
-    "bike_vert_ft": 1115,
+    "bike_vert_ft": 5491,
     "bike_distance_mi": 48.1,
     "climb_trips": 0,
     "climb_vert_ft": 0,
@@ -30819,8 +30810,8 @@
     "region_name": "Costa Rica",
     "region_kind": "country",
     "activity_count": 3,
-    "total_vert_ft": 151,
-    "total_distance_mi": 24.4,
+    "total_vert_ft": 3412,
+    "total_distance_mi": 23.6,
     "sports": [
      "bike"
     ],
@@ -30833,8 +30824,8 @@
     "stats": {
      "bike": {
       "trips": 3,
-      "vert_ft": 151,
-      "distance_mi": 24.4,
+      "vert_ft": 3412,
+      "distance_mi": 23.6,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -30846,8 +30837,8 @@
      9.7058
     ],
     "bike_trips": 3,
-    "bike_vert_ft": 151,
-    "bike_distance_mi": 24.4,
+    "bike_vert_ft": 3412,
+    "bike_distance_mi": 23.6,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -31194,8 +31185,8 @@
     "region_name": "France",
     "region_kind": "country",
     "activity_count": 7,
-    "total_vert_ft": 5556,
-    "total_distance_mi": 91.5,
+    "total_vert_ft": 16729,
+    "total_distance_mi": 91.6,
     "sports": [
      "bike"
     ],
@@ -31208,8 +31199,8 @@
     "stats": {
      "bike": {
       "trips": 7,
-      "vert_ft": 5556,
-      "distance_mi": 91.5,
+      "vert_ft": 16729,
+      "distance_mi": 91.6,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -31221,8 +31212,8 @@
      46.8951
     ],
     "bike_trips": 7,
-    "bike_vert_ft": 5556,
-    "bike_distance_mi": 91.5,
+    "bike_vert_ft": 16729,
+    "bike_distance_mi": 91.6,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -31411,8 +31402,8 @@
     "region_name": "Austria",
     "region_kind": "country",
     "activity_count": 7,
-    "total_vert_ft": 2356,
-    "total_distance_mi": 101.6,
+    "total_vert_ft": 10910,
+    "total_distance_mi": 90.0,
     "sports": [
      "bike"
     ],
@@ -31425,8 +31416,8 @@
     "stats": {
      "bike": {
       "trips": 7,
-      "vert_ft": 2356,
-      "distance_mi": 101.6,
+      "vert_ft": 10910,
+      "distance_mi": 90.0,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -31438,8 +31429,8 @@
      47.9192
     ],
     "bike_trips": 7,
-    "bike_vert_ft": 2356,
-    "bike_distance_mi": 101.6,
+    "bike_vert_ft": 10910,
+    "bike_distance_mi": 90.0,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -31712,8 +31703,8 @@
     "region_name": "Germany",
     "region_kind": "country",
     "activity_count": 7,
-    "total_vert_ft": 1834,
-    "total_distance_mi": 111.7,
+    "total_vert_ft": 17496,
+    "total_distance_mi": 110.0,
     "sports": [
      "bike"
     ],
@@ -31726,8 +31717,8 @@
     "stats": {
      "bike": {
       "trips": 7,
-      "vert_ft": 1834,
-      "distance_mi": 111.7,
+      "vert_ft": 17496,
+      "distance_mi": 110.0,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -31739,8 +31730,8 @@
      51.4312
     ],
     "bike_trips": 7,
-    "bike_vert_ft": 1834,
-    "bike_distance_mi": 111.7,
+    "bike_vert_ft": 17496,
+    "bike_distance_mi": 110.0,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -31877,8 +31868,8 @@
     "region_name": "Switzerland",
     "region_kind": "country",
     "activity_count": 22,
-    "total_vert_ft": 2790,
-    "total_distance_mi": 466.5,
+    "total_vert_ft": 51804,
+    "total_distance_mi": 465.9,
     "sports": [
      "bike"
     ],
@@ -31891,8 +31882,8 @@
     "stats": {
      "bike": {
       "trips": 22,
-      "vert_ft": 2790,
-      "distance_mi": 466.5,
+      "vert_ft": 51804,
+      "distance_mi": 465.9,
       "vert_coverage": 0.95,
       "distance_coverage": 0.95
      }
@@ -31910,8 +31901,8 @@
      46.8097
     ],
     "bike_trips": 22,
-    "bike_vert_ft": 2790,
-    "bike_distance_mi": 466.5,
+    "bike_vert_ft": 51804,
+    "bike_distance_mi": 465.9,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -32020,8 +32011,8 @@
     "region_name": "Belgium",
     "region_kind": "country",
     "activity_count": 6,
-    "total_vert_ft": 331,
-    "total_distance_mi": 128.5,
+    "total_vert_ft": 3521,
+    "total_distance_mi": 128.6,
     "sports": [
      "bike"
     ],
@@ -32034,8 +32025,8 @@
     "stats": {
      "bike": {
       "trips": 6,
-      "vert_ft": 331,
-      "distance_mi": 128.5,
+      "vert_ft": 3521,
+      "distance_mi": 128.6,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -32047,8 +32038,8 @@
      50.5797
     ],
     "bike_trips": 6,
-    "bike_vert_ft": 331,
-    "bike_distance_mi": 128.5,
+    "bike_vert_ft": 3521,
+    "bike_distance_mi": 128.6,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -32149,8 +32140,8 @@
     "region_name": "Netherlands",
     "region_kind": "country",
     "activity_count": 5,
-    "total_vert_ft": 464,
-    "total_distance_mi": 91.1,
+    "total_vert_ft": 6427,
+    "total_distance_mi": 90.9,
     "sports": [
      "bike"
     ],
@@ -32163,8 +32154,8 @@
     "stats": {
      "bike": {
       "trips": 5,
-      "vert_ft": 464,
-      "distance_mi": 91.1,
+      "vert_ft": 6427,
+      "distance_mi": 90.9,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      }
@@ -32176,8 +32167,8 @@
      52.0402
     ],
     "bike_trips": 5,
-    "bike_vert_ft": 464,
-    "bike_distance_mi": 91.1,
+    "bike_vert_ft": 6427,
+    "bike_distance_mi": 90.9,
     "climb_trips": 0,
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
@@ -32576,7 +32567,7 @@
     "region_name": "Italy",
     "region_kind": "country",
     "activity_count": 1,
-    "total_vert_ft": 449,
+    "total_vert_ft": 3586,
     "total_distance_mi": 20.5,
     "sports": [
      "bike"
@@ -32590,7 +32581,7 @@
     "stats": {
      "bike": {
       "trips": 1,
-      "vert_ft": 449,
+      "vert_ft": 3586,
       "distance_mi": 20.5,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -32603,7 +32594,7 @@
      42.5582
     ],
     "bike_trips": 1,
-    "bike_vert_ft": 449,
+    "bike_vert_ft": 3586,
     "bike_distance_mi": 20.5,
     "climb_trips": 0,
     "climb_vert_ft": 0,
@@ -32725,8 +32716,8 @@
     "region_name": "Iceland",
     "region_kind": "country",
     "activity_count": 5,
-    "total_vert_ft": 616,
-    "total_distance_mi": 16.8,
+    "total_vert_ft": 2657,
+    "total_distance_mi": 14.3,
     "sports": [
      "hike"
     ],
@@ -32739,8 +32730,8 @@
     "stats": {
      "hike": {
       "trips": 5,
-      "vert_ft": 616,
-      "distance_mi": 16.8,
+      "vert_ft": 2657,
+      "distance_mi": 14.3,
       "vert_coverage": 0.8,
       "distance_coverage": 0.8
      }
@@ -32764,8 +32755,8 @@
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
     "hike_trips": 5,
-    "hike_vert_ft": 616,
-    "hike_distance_mi": 16.8,
+    "hike_vert_ft": 2657,
+    "hike_distance_mi": 14.3,
     "run_trips": 0,
     "run_vert_ft": 0,
     "run_distance_mi": 0.0,
@@ -32896,8 +32887,8 @@
     "region_name": "Georgia",
     "region_kind": "country",
     "activity_count": 23,
-    "total_vert_ft": 1408,
-    "total_distance_mi": 49.2,
+    "total_vert_ft": 8629,
+    "total_distance_mi": 49.1,
     "sports": [
      "hike",
      "run",
@@ -32914,21 +32905,21 @@
     "stats": {
      "hike": {
       "trips": 20,
-      "vert_ft": 1408,
+      "vert_ft": 7275,
       "distance_mi": 39.8,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "run": {
       "trips": 2,
-      "vert_ft": 0,
-      "distance_mi": 8.8,
+      "vert_ft": 1338,
+      "distance_mi": 8.7,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
      },
      "water": {
       "trips": 1,
-      "vert_ft": 0,
+      "vert_ft": 16,
       "distance_mi": 0.7,
       "vert_coverage": 1.0,
       "distance_coverage": 1.0
@@ -32953,11 +32944,11 @@
     "climb_vert_ft": 0,
     "climb_distance_mi": 0.0,
     "hike_trips": 20,
-    "hike_vert_ft": 1408,
+    "hike_vert_ft": 7275,
     "hike_distance_mi": 39.8,
     "run_trips": 2,
-    "run_vert_ft": 0,
-    "run_distance_mi": 8.8,
+    "run_vert_ft": 1338,
+    "run_distance_mi": 8.7,
     "ski_trips": 0,
     "ski_vert_ft": 0,
     "ski_distance_mi": 0.0,
@@ -32968,7 +32959,7 @@
     "ski_nordic_pct": 0,
     "ski_nordic_count": 0,
     "water_trips": 1,
-    "water_vert_ft": 0,
+    "water_vert_ft": 16,
     "water_distance_mi": 0.7,
     "other_trips": null,
     "other_vert_ft": null,
@@ -33259,8 +33250,8 @@
     "region_name": "Japan",
     "region_kind": "country",
     "activity_count": 6,
-    "total_vert_ft": 17033,
-    "total_distance_mi": 78.0,
+    "total_vert_ft": 39583,
+    "total_distance_mi": 75.6,
     "sports": [
      "ski"
     ],
@@ -33273,8 +33264,8 @@
     "stats": {
      "ski": {
       "trips": 6,
-      "vert_ft": 17033,
-      "distance_mi": 78.0,
+      "vert_ft": 39583,
+      "distance_mi": 75.6,
       "vert_coverage": 0.83,
       "distance_coverage": 0.83,
       "styles": {
@@ -33314,8 +33305,8 @@
     "run_vert_ft": 0,
     "run_distance_mi": 0.0,
     "ski_trips": 6,
-    "ski_vert_ft": 17033,
-    "ski_distance_mi": 78.0,
+    "ski_vert_ft": 39583,
+    "ski_distance_mi": 75.6,
     "ski_touring_pct": 0,
     "ski_touring_count": 0,
     "ski_alpine_pct": 100,

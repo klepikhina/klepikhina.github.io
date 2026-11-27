@@ -1,6 +1,6 @@
 ---
 layout: hike_log
-title: Jumbo Pass, Purcells, BC | 12.5km, 1217m
+title: Jumbo Pass, Purcells, BC | 7.77mi, 3993ft
 location: Purcells
 region: British Columbia
 country: Canada

@@ -1,6 +1,6 @@
 ---
 layout: hike_log
-title: Renata Arch, Central Kootenays, BC | 9.1km, 305m
+title: Renata Arch, Central Kootenays, BC | 5.65mi, 1001ft
 location: Kootenays
 region: British Columbia
 country: Canada

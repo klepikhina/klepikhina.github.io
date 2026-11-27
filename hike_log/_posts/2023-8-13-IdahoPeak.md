@@ -1,6 +1,6 @@
 ---
 layout: hike_log
-title: Idaho Peak, Selkirk Range, BC | 14.5km, 1050m
+title: Idaho Peak, Selkirk Range, BC | 9.01mi, 3445ft
 location: Selkirk Range
 region: British Columbia
 country: Canada

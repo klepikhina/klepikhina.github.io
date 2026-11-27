@@ -1,6 +1,6 @@
 ---
 layout: hike_log
-title: Monica Meadows, Purcells, BC | 9.8km, 694m
+title: Monica Meadows, Purcells, BC | 6.09mi, 2277ft
 location: Purcells
 region: British Columbia
 country: Canada

@@ -1,6 +1,6 @@
 ---
 layout: run_log
-title: Juan de Fuca, Vancouver Island, BC | 47km, 1960m
+title: Juan de Fuca, Vancouver Island, BC | 29.20mi, 6430ft
 location: Vancouver Island
 region: British Columbia
 country: Canada
@@ -10,7 +10,7 @@ featured_image: https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuc
 activity: run
 ---
 
-One month after running Rockwall and with one 10km run in between, Justin and I figured we were ready enough to do the Juan de Fuca trail. The Juan de Fuca trail, while shorter than Rockwall, was substantially more technical and slippery.
+One month after running Rockwall and with one 6.2mi run in between, Justin and I figured we were ready enough to do the Juan de Fuca trail. The Juan de Fuca trail, while shorter than Rockwall, was substantially more technical and slippery.
 
 We drove out and took the ferry to Vancouver Island on Saturday. The chances of seeing Northern Lights were high and we had high hopes but were met with cloud coverage the whole ferry ride over. Fun things we learned about Victoria that evening:
 - Plan your campsites ahead of time - all campsites were sold out on a long weekend

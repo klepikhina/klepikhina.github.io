@@ -1,6 +1,6 @@
 ---
 layout: hike_log
-title: Gwillim Lakes, Valhallas, BC | 11.75km, 827m
+title: Gwillim Lakes, Valhallas, BC | 7.30mi, 2713ft
 location: Valhallas
 region: British Columbia
 country: Canada

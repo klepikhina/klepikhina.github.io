@@ -99,8 +99,8 @@ CSV_FIELDS = [
     "Activity Type",
     "Activity Description",
     "Elapsed Time",
-    "Distance",
-    "Elevation Gain",
+    "Distance (m)",
+    "Elevation Gain (m)",
     "Filename",
 ]
 
@@ -415,11 +415,18 @@ def append_activity_csv(path: Path, rows: Iterable[Dict[str, Any]]) -> int:
         return 0
     path.parent.mkdir(parents=True, exist_ok=True)
     fieldnames = list(CSV_FIELDS)
+    legacy_names = {"Distance (m)": "Distance", "Elevation Gain (m)": "Elevation Gain"}
+    row_names: Dict[str, str] = {}
     if path.exists() and path.stat().st_size:
         with path.open("r", encoding="utf-8-sig", errors="replace", newline="") as handle:
             existing = next(csv.reader(handle), [])
             if existing:
                 fieldnames = list(existing)
+                row_names = {
+                    canonical: legacy
+                    for canonical, legacy in legacy_names.items()
+                    if canonical not in fieldnames and legacy in fieldnames
+                }
     for field in CSV_FIELDS:
         if field not in fieldnames:
             fieldnames.append(field)
@@ -429,7 +436,9 @@ def append_activity_csv(path: Path, rows: Iterable[Dict[str, Any]]) -> int:
         if write_header:
             writer.writeheader()
         for row in rows:
-            writer.writerow(row)
+            writer.writerow(
+                {row_names.get(key, key): value for key, value in row.items()}
+            )
     return len(rows)
 
 
@@ -551,25 +560,24 @@ def sync_strava(config: Dict[str, Any], state: Dict[str, Any]) -> int:
         if not activity_id or activity_id in seen:
             skipped += 1
             continue
-        streams = request_json(
-            f"{STRAVA_API}/activities/{activity_id}/streams",
-            headers=headers,
-            params={"keys": "time,latlng,altitude", "key_by_type": "true"},
-        )
-        latlng = (streams.get("latlng") or {}).get("data") if isinstance(streams, dict) else None
-        if not latlng:
+        # The summary already carries a coarse start point. Use it only for
+        # region assignment; distance/gain come from the CSV metrics below.
+        # This avoids streaming every historical activity on each weekly run.
+        latlng = activity.get("start_latlng") or activity.get("end_latlng")
+        if (
+            not isinstance(latlng, (list, tuple))
+            or len(latlng) < 2
+            or latlng[0] is None
+            or latlng[1] is None
+        ):
             skipped += 1
             seen.add(activity_id)
             continue
-        times = ((streams.get("time") or {}).get("data") or [None] * len(latlng))
-        altitudes = ((streams.get("altitude") or {}).get("data") or [None] * len(latlng))
-        points: List[Tuple[List[float], Optional[float], Optional[str]]] = []
-        for index, position in enumerate(latlng):
-            offset = times[index] if index < len(times) else None
-            timestamp = ""
-            if offset is not None and start:
-                timestamp = (start + dt.timedelta(seconds=float(offset))).isoformat().replace("+00:00", "Z")
-            points.append((position, altitudes[index] if index < len(altitudes) else None, timestamp))
+        position = [float(latlng[0]), float(latlng[1])]
+        points: List[Tuple[List[float], Optional[float], Optional[str]]] = [
+            (position, None, ""),
+            (position, None, ""),
+        ]
         filename = f"strava-{activity_id}.gpx"
         try:
             write_gpx(activity_dir / filename, str(activity.get("name") or filename), points)
@@ -585,8 +593,8 @@ def sync_strava(config: Dict[str, Any], state: Dict[str, Any]) -> int:
                 "Activity Type": strava_activity_type(activity),
                 "Activity Description": "",
                 "Elapsed Time": activity.get("elapsed_time") or "",
-                "Distance": activity.get("distance") or "",
-                "Elevation Gain": activity.get("total_elevation_gain") or "",
+                "Distance (m)": activity.get("distance") or "",
+                "Elevation Gain (m)": activity.get("total_elevation_gain") or "",
                 "Filename": f"activities/{filename}",
             }
         )
@@ -747,8 +755,8 @@ def sync_garmin(config: Dict[str, Any], state: Dict[str, Any]) -> int:
                 "Activity Type": garmin_activity_type(activity),
                 "Activity Description": "",
                 "Elapsed Time": activity.get("elapsedDuration") or "",
-                "Distance": activity.get("distance") or "",
-                "Elevation Gain": activity.get("elevationGain") or "",
+                "Distance (m)": activity.get("distance") or "",
+                "Elevation Gain (m)": activity.get("elevationGain") or "",
                 "Filename": filename,
             }
         )
