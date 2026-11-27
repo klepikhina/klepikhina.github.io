@@ -636,6 +636,10 @@ footer {
   &--error {
     color: #9c3b36;
   }
+
+  &[hidden] {
+    display: none;
+  }
 }
 
 .map-note {
