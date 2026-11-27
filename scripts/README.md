@@ -41,6 +41,9 @@ built so they never enter the repository or the published site.
 
 - Raw GPX/FIT files are streamed, reduced to distance/gain, and discarded. No
   track geometry, timestamps, or file names are written.
+- Strava and Garmin source CSV values are read in metric (metres) and converted
+  once to published imperial fields: `distance_mi` and `elevation_ft` / `vert_ft`.
+  The display unit you Pick in Strava never affects the dashboard.
 - Mountain Project ticks are reduced to a count per state/province/country. Route
   names, notes, personal ratings, style, and URLs stay in the private CSV. Only
   public crag coordinates (from `scripts/crag_coords.json`) are committed.
@@ -76,9 +79,9 @@ are cached there too, for naming regions outside the blog.
 be started manually with **Run workflow**. It runs in GitHub Actions, so your
 Mac does not need to be on. Each run:
 
-1. polls Garmin (and Strava when configured) for new activities,
+1. pages through all Garmin (and Strava) activity summaries,
 2. reads the Mountain Project ticks CSV from an encrypted secret,
-3. rebuilds the atlas from a compact parsed cache in a private repo,
+3. rebuilds the atlas from fresh exports in the runner's temporary directory,
 4. rebuilds any missing story thumbnails from the public blog photos,
 5. commits only aggregate `data/*.geojson`, the thumbnail manifest, and
    `images/story-thumbs/` directly to `master`, and
@@ -88,33 +91,22 @@ Routine activity updates **do not create a PR**.
 
 One-time setup:
 
-1. Create an empty **private** GitHub repo for the sync state, for example
-   `klepikhina/atlas-private`. If you use a different name, add a repository
-   variable `ATLAS_PRIVATE_REPO` with that value.
-2. Add these Actions secrets to this repository:
+1. Add these Actions secrets to this repository:
 
    | Secret | Purpose |
    | --- | --- |
    | `GARMIN_API_KEY` | Garmin Connect Personal API key (required) |
-   | `ATLAS_PRIVATE_REPO_TOKEN` | Token with write access to the private state repo |
    | `MOUNTAIN_PROJECT_TICKS_B64` | Base64 of `private/mountain-project-ticks.csv` |
    | `STRAVA_CLIENT_ID` | Optional Strava app client ID |
    | `STRAVA_CLIENT_SECRET` | Optional Strava app client secret |
    | `STRAVA_REFRESH_TOKEN` | Optional Strava refresh token |
 
-   The built-in `GITHUB_TOKEN` pushes the aggregate data to `master`.
+   The built-in `GITHUB_TOKEN` pushes the aggregate data to `master`. There is
+   no separate private state repo, extra repo token, or local seeding step:
+   each run pages through the full source activity summaries and rebuilds the
+   atlas from fresh exports in the runner's temporary directory.
 
-3. Seed the private state repo from your Mac once:
-
-   ```bash
-   ATLAS_PRIVATE_REPO_TOKEN=... python3 scripts/cloud_sync.py seed-private
-   ```
-
-   This uploads only `atlas_state.json` (parsed summaries) and `sync_state.json`
-   (activity IDs and token expiry). No raw GPX/FIT files or ticks CSVs are
-   uploaded.
-
-4. Create the Mountain Project secret after each new CSV export:
+2. Create the Mountain Project secret after each new CSV export:
 
    ```bash
    gzip -c private/mountain-project-ticks.csv | base64 | tr -d '\n' | pbcopy
@@ -125,8 +117,8 @@ One-time setup:
    Paste that value into the `MOUNTAIN_PROJECT_TICKS_B64` Actions secret.
 
 - **Garmin:** free Personal API key from Garmin Connect → Settings → Personal
-  API Token. The cloud job requests a fresh 24-hour token each week and imports
-  activities from the last 14 days.
+  API Token. The cloud job requests a fresh 24-hour token each week and pages
+  through the full activity history.
 - **Strava:** optional; new API apps may require a paid subscription. A 403
   during token setup usually means that.
 - **Garmin wins:** if an outing appears in both Strava and Garmin (same local

@@ -42,8 +42,6 @@ jobs:
       - name: Sync sources, rebuild, and publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ATLAS_PRIVATE_REPO: ${{ vars.ATLAS_PRIVATE_REPO || 'klepikhina/atlas-private' }}
-          ATLAS_PRIVATE_REPO_TOKEN: ${{ secrets.ATLAS_PRIVATE_REPO_TOKEN }}
           KLEPIKINA_GARMIN_API_KEY: ${{ secrets.GARMIN_API_KEY }}
           KLEPIKINA_STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
           KLEPIKINA_STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}

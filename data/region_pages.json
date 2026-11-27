@@ -1,7 +1,7 @@
 {
  "metadata": {
   "generated_by": "scripts/build_atlas.py",
-  "generated_at": "2026-11-25T05:31:34Z",
+  "generated_at": "2026-11-27T06:02:47Z",
   "source": "data/regions.geojson and data/featured_routes.geojson"
  },
  "regions": [
@@ -36,7 +36,7 @@
     "wyoming"
    ],
    "primary_region_id": "arizona",
-   "activity_count": 3057,
+   "activity_count": 2956,
    "featured_story_count": 63,
    "is_aggregate": true
   },
@@ -54,7 +54,7 @@
     "qu-bec"
    ],
    "primary_region_id": "alberta",
-   "activity_count": 430,
+   "activity_count": 346,
    "featured_story_count": 38,
    "is_aggregate": true
   },
@@ -108,7 +108,7 @@
     "alberta"
    ],
    "primary_region_id": "alberta",
-   "activity_count": 4,
+   "activity_count": 2,
    "featured_story_count": 1,
    "is_aggregate": false
   },
@@ -123,7 +123,7 @@
     "british-columbia"
    ],
    "primary_region_id": "british-columbia",
-   "activity_count": 420,
+   "activity_count": 338,
    "featured_story_count": 37,
    "is_aggregate": false
   },
@@ -138,7 +138,7 @@
     "california"
    ],
    "primary_region_id": "california",
-   "activity_count": 110,
+   "activity_count": 103,
    "featured_story_count": 17,
    "is_aggregate": false
   },
@@ -153,7 +153,7 @@
     "colorado"
    ],
    "primary_region_id": "colorado",
-   "activity_count": 2628,
+   "activity_count": 2574,
    "featured_story_count": 35,
    "is_aggregate": false
   },
@@ -183,7 +183,7 @@
     "new-mexico"
    ],
    "primary_region_id": "new-mexico",
-   "activity_count": 18,
+   "activity_count": 12,
    "featured_story_count": 1,
    "is_aggregate": false
   },
@@ -198,7 +198,7 @@
     "nevada"
    ],
    "primary_region_id": "nevada",
-   "activity_count": 143,
+   "activity_count": 135,
    "featured_story_count": 3,
    "is_aggregate": false
   },
@@ -243,7 +243,7 @@
     "washington"
    ],
    "primary_region_id": "washington",
-   "activity_count": 37,
+   "activity_count": 15,
    "featured_story_count": 1,
    "is_aggregate": false
   },
@@ -258,7 +258,7 @@
     "wyoming"
    ],
    "primary_region_id": "wyoming",
-   "activity_count": 12,
+   "activity_count": 8,
    "featured_story_count": 1,
    "is_aggregate": false
   },
@@ -341,7 +341,7 @@
       "california"
      ],
      "primary_region_id": "california",
-     "activity_count": 110,
+     "activity_count": 103,
      "featured_story_count": 17,
      "is_aggregate": false
     },
@@ -356,7 +356,7 @@
       "colorado"
      ],
      "primary_region_id": "colorado",
-     "activity_count": 2628,
+     "activity_count": 2574,
      "featured_story_count": 35,
      "is_aggregate": false
     },
@@ -386,7 +386,7 @@
       "new-mexico"
      ],
      "primary_region_id": "new-mexico",
-     "activity_count": 18,
+     "activity_count": 12,
      "featured_story_count": 1,
      "is_aggregate": false
     },
@@ -401,7 +401,7 @@
       "nevada"
      ],
      "primary_region_id": "nevada",
-     "activity_count": 143,
+     "activity_count": 135,
      "featured_story_count": 3,
      "is_aggregate": false
     },
@@ -446,7 +446,7 @@
       "washington"
      ],
      "primary_region_id": "washington",
-     "activity_count": 37,
+     "activity_count": 15,
      "featured_story_count": 1,
      "is_aggregate": false
     },
@@ -461,7 +461,7 @@
       "wyoming"
      ],
      "primary_region_id": "wyoming",
-     "activity_count": 12,
+     "activity_count": 8,
      "featured_story_count": 1,
      "is_aggregate": false
     }
@@ -484,7 +484,7 @@
       "alberta"
      ],
      "primary_region_id": "alberta",
-     "activity_count": 4,
+     "activity_count": 2,
      "featured_story_count": 1,
      "is_aggregate": false
     },
@@ -499,7 +499,7 @@
       "british-columbia"
      ],
      "primary_region_id": "british-columbia",
-     "activity_count": 420,
+     "activity_count": 338,
      "featured_story_count": 37,
      "is_aggregate": false
     }

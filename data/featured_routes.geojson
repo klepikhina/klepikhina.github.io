@@ -2,7 +2,7 @@
  "type": "FeatureCollection",
  "metadata": {
   "generated_by": "scripts/build_atlas.py",
-  "generated_at": "2026-11-25T05:31:34Z",
+  "generated_at": "2026-11-27T06:10:29Z",
   "curation": "Only explicitly curated, blog-linked routes from scripts/curated_routes.json. When GPX is supplied, lines are trimmed and timestamps are stripped.",
   "crs": "EPSG:4326"
  },
@@ -81,7 +81,7 @@
    "properties": {
     "id": "alicelake",
     "slug": "AliceLake",
-    "title": "Alice Lake, Squamish, BC | 24.4km, 779m",
+    "title": "Alice Lake, Squamish, BC | 15.16mi, 2556ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Bike",
@@ -112,7 +112,7 @@
    "properties": {
     "id": "sevensummits",
     "slug": "SevenSummits",
-    "title": "Seven Summits, Rossland, BC | 36km, 1190m",
+    "title": "Seven Summits, Rossland, BC | 22.37mi, 3904ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Bike",
@@ -174,7 +174,7 @@
    "properties": {
     "id": "rosslandtosummerland",
     "slug": "RosslandToSummerland",
-    "title": "Rossland, BC to Summerland, BC | 291km, 4195m",
+    "title": "Rossland, BC to Summerland, BC | 180.82mi, 13763ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Bike",
@@ -205,7 +205,7 @@
    "properties": {
     "id": "trailtoale",
     "slug": "TrailToAle",
-    "title": "Trail to Ale + Slunt, Fernie, BC | 44km, 1773m",
+    "title": "Trail to Ale + Slunt, Fernie, BC | 27.34mi, 5817ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Bike",
@@ -961,7 +961,7 @@
     "elevation_ft": null,
     "season_year": 2022,
     "date": "2022-07-01",
-    "summary": "Grand Forks is a bit of an underexplored climbing gem. About 29km up North Fork Road, you can find the Slabs at Lynch Bluffs. Parking is on the east side of the road. When…",
+    "summary": "Grand Forks is a bit of an underexplored climbing gem. About 18mi up North Fork Road, you can find the Slabs at Lynch Bluffs. Parking is on the east side of the road. When…",
     "post_url": "/MillenialFalcon/",
     "image": "https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFalcon/selfies.jpg",
     "location": "Grand Forks",
@@ -1817,7 +1817,7 @@
    "properties": {
     "id": "gimli",
     "slug": "Gimli",
-    "title": "Mount Gimli, Valhallas, BC | 10.93km, 1605m",
+    "title": "Mount Gimli, Valhallas, BC | 6.79mi, 5266ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Hike",
@@ -1848,7 +1848,7 @@
    "properties": {
     "id": "jumbopass",
     "slug": "JumboPass",
-    "title": "Jumbo Pass, Purcells, BC | 12.5km, 1217m",
+    "title": "Jumbo Pass, Purcells, BC | 7.77mi, 3993ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Hike",
@@ -1879,7 +1879,7 @@
    "properties": {
     "id": "loki",
     "slug": "Loki",
-    "title": "Mount Loki, Purcells, BC | 12.22km, 1358m",
+    "title": "Mount Loki, Purcells, BC | 7.59mi, 4455ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Hike",
@@ -1910,7 +1910,7 @@
    "properties": {
     "id": "monicameadows",
     "slug": "MonicaMeadows",
-    "title": "Monica Meadows, Purcells, BC | 9.8km, 694m",
+    "title": "Monica Meadows, Purcells, BC | 6.09mi, 2277ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Hike",
@@ -2003,7 +2003,7 @@
    "properties": {
     "id": "fisher",
     "slug": "Fisher",
-    "title": "Mount Fisher, Canadian Rockies, BC | 7.75km, 1380m",
+    "title": "Mount Fisher, Canadian Rockies, BC | 4.82mi, 4528ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Hike",
@@ -2034,7 +2034,7 @@
    "properties": {
     "id": "renataarch",
     "slug": "RenataArch",
-    "title": "Renata Arch, Central Kootenays, BC | 9.1km, 305m",
+    "title": "Renata Arch, Central Kootenays, BC | 5.65mi, 1001ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Hike",
@@ -2065,7 +2065,7 @@
    "properties": {
     "id": "gwillimlakes",
     "slug": "GwillimLakes",
-    "title": "Gwillim Lakes, Valhallas, BC | 11.75km, 827m",
+    "title": "Gwillim Lakes, Valhallas, BC | 7.30mi, 2713ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Hike",
@@ -2096,7 +2096,7 @@
    "properties": {
     "id": "idahopeak",
     "slug": "IdahoPeak",
-    "title": "Idaho Peak, Selkirk Range, BC | 14.5km, 1050m",
+    "title": "Idaho Peak, Selkirk Range, BC | 9.01mi, 3445ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Hike",
@@ -2685,7 +2685,7 @@
    "properties": {
     "id": "rockwall",
     "slug": "Rockwall",
-    "title": "Rockwall, Kootenay National Park, BC | 56km, 2650m",
+    "title": "Rockwall, Kootenay National Park, BC | 34.80mi, 8694ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Run",
@@ -2697,7 +2697,7 @@
     "elevation_ft": 8694,
     "season_year": 2022,
     "date": "2022-07-30",
-    "summary": "After two months of little to no training, Justin, Erin, and I decided we were ready to run Rockwall - a 56km (~35mi) trail with 2650m (~8700ft) of elevation gain. What co…",
+    "summary": "After two months of little to no training, Justin, Erin, and I decided we were ready to run Rockwall - a 35mi trail with 8,700ft of elevation gain. What could possibly go…",
     "post_url": "/Rockwall/",
     "image": "https://klepikhina.s3.amazonaws.com/Run/2022/August/Rockwall/rockwallpass.jpg",
     "location": "Kootenay National Park",
@@ -2716,7 +2716,7 @@
    "properties": {
     "id": "juandefuca",
     "slug": "JuanDeFuca",
-    "title": "Juan de Fuca, Vancouver Island, BC | 47km, 1960m",
+    "title": "Juan de Fuca, Vancouver Island, BC | 29.20mi, 6430ft",
     "region_name": "British Columbia",
     "region_id": "british-columbia",
     "category": "Run",
@@ -2728,7 +2728,7 @@
     "elevation_ft": 6430,
     "season_year": 2022,
     "date": "2022-09-05",
-    "summary": "One month after running Rockwall and with one 10km run in between, Justin and I figured we were ready enough to do the Juan de Fuca trail. The Juan de Fuca trail, while sh…",
+    "summary": "One month after running Rockwall and with one 6.2mi run in between, Justin and I figured we were ready enough to do the Juan de Fuca trail. The Juan de Fuca trail, while s…",
     "post_url": "/JuanDeFuca/",
     "image": "https://klepikhina.s3.amazonaws.com/Run/2022/September/JuanDeFuca/secret_waterfall.jpg",
     "location": "Vancouver Island",
@@ -2747,7 +2747,7 @@
    "properties": {
     "id": "skyline",
     "slug": "Skyline",
-    "title": "Skyline, Jasper National Park, AB | 46km, 1526m",
+    "title": "Skyline, Jasper National Park, AB | 28.58mi, 5007ft",
     "region_name": "Alberta",
     "region_id": "alberta",
     "category": "Run",

@@ -1,6 +1,6 @@
 ---
 layout: bike_log
-title: Rossland, BC to Summerland, BC | 291km, 4195m
+title: Rossland, BC to Summerland, BC | 180.82mi, 13763ft
 location: Rossland --> Summerland
 region: British Columbia
 country: Canada

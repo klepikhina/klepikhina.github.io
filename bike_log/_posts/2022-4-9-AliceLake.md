@@ -1,6 +1,6 @@
 ---
 layout: bike_log
-title: Alice Lake, Squamish, BC | 24.4km, 779m
+title: Alice Lake, Squamish, BC | 15.16mi, 2556ft
 location: Squamish
 region: British Columbia
 country: Canada

@@ -1,6 +1,6 @@
 ---
 layout: bike_log
-title: Trail to Ale + Slunt, Fernie, BC | 44km, 1773m
+title: Trail to Ale + Slunt, Fernie, BC | 27.34mi, 5817ft
 location: Fernie
 region: British Columbia
 country: Canada

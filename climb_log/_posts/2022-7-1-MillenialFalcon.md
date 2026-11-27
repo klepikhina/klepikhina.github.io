@@ -10,7 +10,7 @@ featured_image: https://klepikhina.s3.amazonaws.com/Climb/2022/July/MillenialFal
 activity: climb
 ---
 
-Grand Forks is a bit of an underexplored climbing gem. About 29km up North Fork Road, you can find the Slabs at Lynch Bluffs. Parking is on the east side of the road. When we first approached Millenial Falcon, we accidentally took the right fork and almost started up the wrong climb. Remember to take the left fork on the trail! The drawing on the <a href="http://wonowmedia.com/wp-content/uploads/2020/10/Grand-Forks-Climbing-Guide-2020.pdf" target="_blank">"Not a Guide"</a> is actually quite helpful. 
+Grand Forks is a bit of an underexplored climbing gem. About 18mi up North Fork Road, you can find the Slabs at Lynch Bluffs. Parking is on the east side of the road. When we first approached Millenial Falcon, we accidentally took the right fork and almost started up the wrong climb. Remember to take the left fork on the trail! The drawing on the <a href="http://wonowmedia.com/wp-content/uploads/2020/10/Grand-Forks-Climbing-Guide-2020.pdf" target="_blank">"Not a Guide"</a> is actually quite helpful.
 
 This was Erin's first multipitch! And my first time doing a multipitch in a party of 3 with one rope. Erin was tied into the middle and I belayed and followed Justin and Erin.
 <p align="center">

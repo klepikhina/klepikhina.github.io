@@ -1,6 +1,6 @@
 ---
 layout: bike_log
-title: Seven Summits, Rossland, BC | 36km, 1190m
+title: Seven Summits, Rossland, BC | 22.37mi, 3904ft
 location: Rossland
 region: British Columbia
 country: Canada

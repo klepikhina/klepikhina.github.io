@@ -101,9 +101,20 @@ DEFAULT_CACHE = Path(
 EARTH_RADIUS_M = 6_371_008.8
 DEFAULT_CRS = "EPSG:4326"
 EQUAL_AREA_CRS = "EPSG:6933"
+METERS_PER_MILE = 1609.344
+FEET_PER_METER = 3.28084
+MILES_PER_KILOMETER = 0.621371
+# Bump when cached summaries need to be rebuilt with new unit handling.
+CACHE_UNITS_VERSION = 2
 
 DIST_RE = re.compile(r"([\d,]+(?:\.\d+)?)\s*(mi|mile|miles|km|kilometer|kilometre|kms)\b", re.I)
 ELEV_RE = re.compile(r"([\d,]+(?:\.\d+)?)\s*(ft|feet|foot|m|meter|metre|meters|metres)\b", re.I)
+# Guardrail: published GPS-derived labels must not reintroduce metric units.
+METRIC_LABEL_RE = re.compile(
+    r"(?<![\w.])[\d,]+(?:\.\d+)?\s*"
+    r"(?:kms|km|kilometers?|kilometres?|meters?|metres?|m)(?![\w])",
+    re.I,
+)
 GRADE_RE = re.compile(r"\b(5\.\d+[abcd]?|WI\s?\d+(?:-\d+)?[+-]?|V\d+(?:-\d+)?)\b", re.I)
 PITCH_RE = re.compile(r"(\d+)\s*(?:pitches|pitch)\b", re.I)
 DATE_RE = re.compile(r"^(\d{4})-(\d{1,2})-(\d{1,2})-")
@@ -331,15 +342,28 @@ def stable_private_record(record: Dict[str, Any]) -> Dict[str, Any]:
     result["configured_region"] = None
     for key in ("distance_mi", "elevation_ft"):
         result[key] = finite_or_none(result.get(key))
+    result["units_version"] = CACHE_UNITS_VERSION
     return result
 
 
 def cached_private_records(cache: Dict[str, Any]) -> List[Dict[str, Any]]:
     """Reuse parsed summaries when raw exports are not available (cloud mode)."""
     records: List[Dict[str, Any]] = []
+    stale = 0
     for entry in cache.values():
-        if isinstance(entry, dict) and isinstance(entry.get("record"), dict):
-            records.append(stable_private_record(entry["record"]))
+        if not isinstance(entry, dict) or not isinstance(entry.get("record"), dict):
+            continue
+        record = entry["record"]
+        if record.get("units_version") != CACHE_UNITS_VERSION:
+            stale += 1
+            continue
+        records.append(stable_private_record(record))
+    if stale:
+        sys.exit(
+            f"{stale} cached activity summaries use an old unit schema. "
+            "Re-run the build from the source exports (without --use-cache-records) "
+            "before publishing; refusing to build stale unit data."
+        )
     return records
 
 
@@ -426,7 +450,7 @@ def parse_title_metrics(title: str, activity: str) -> Dict[str, Any]:
         value = to_float(distance.group(1))
         unit = distance.group(2).lower()
         if value is not None:
-            miles = value * 0.621371 if unit.startswith("km") or unit.startswith("kilomet") else value
+            miles = value * MILES_PER_KILOMETER if unit.startswith("km") or unit.startswith("kilomet") else value
             metrics["distance_mi"] = round(miles, 2)
 
     elevation = ELEV_RE.search(title or "")
@@ -434,7 +458,7 @@ def parse_title_metrics(title: str, activity: str) -> Dict[str, Any]:
         value = to_float(elevation.group(1))
         unit = elevation.group(2).lower()
         if value is not None:
-            feet = value * 3.28084 if unit in {"m", "meter", "metre", "meters", "metres"} else value
+            feet = value * FEET_PER_METER if unit in {"m", "meter", "metre", "meters", "metres"} else value
             metrics["elevation_ft"] = round(feet)
 
     if activity == "climb":
@@ -636,9 +660,9 @@ def track_stats(points: Sequence[Tuple[float, float, Optional[float], Optional[d
             previous = elevation
     return {
         "distance_m": distance,
-        "distance_mi": distance / 1609.344,
+        "distance_mi": distance / METERS_PER_MILE,
         "gain_m": gain,
-        "gain_ft": gain * 3.28084,
+        "gain_ft": gain * FEET_PER_METER,
     }
 
 
@@ -680,34 +704,129 @@ def classify_ski_style(text: str) -> str:
     return "alpine"
 
 
-def read_strava_metadata(strava_dir: Path) -> Dict[str, Dict[str, str]]:
-    """Map a file name / activity id to metadata from activities.csv."""
-    path = strava_dir / "activities.csv"
-    if not path.exists():
-        return {}
-    metadata: Dict[str, Dict[str, str]] = {}
+def read_activity_csv_metadata(
+    path: Path, default_distance_unit: str = "auto"
+) -> Dict[str, Dict[str, Any]]:
+    """Read source CSV metrics once, in metres, from Strava/Garmin exports.
+
+    Strava exports can contain two ``Distance`` columns: a display column and a
+    canonical metric column. The last one is canonical (metres); Garmin exports
+    have a single metric column. Keeping these values in metres at ingest lets
+    us convert to miles/feet in exactly one place.
+    """
+
+    def indices(headers: Sequence[str], names: set[str]) -> List[int]:
+        return [index for index, header in enumerate(headers) if header in names]
+
+    def value(row: Sequence[str], index: Optional[int]) -> str:
+        if index is None or index >= len(row):
+            return ""
+        return (row[index] or "").strip()
+
+    metadata: Dict[str, Dict[str, Any]] = {}
     with path.open("r", encoding="utf-8-sig", errors="replace", newline="") as handle:
-        for row in csv.DictReader(handle):
-            lower = {
-                str(key).strip().lower(): (value or "").strip() if isinstance(value, str) else ""
-                for key, value in row.items()
-                if key
-            }
-            filename = lower.get("filename") or lower.get("file name") or ""
-            activity_id = lower.get("activity id") or lower.get("id") or ""
-            activity_type = lower.get("activity type") or lower.get("type") or ""
+        reader = csv.reader(handle)
+        try:
+            headers = [str(header).strip().lower() for header in next(reader)]
+        except StopIteration:
+            return {}
+
+        filename_indices = indices(headers, {"filename", "file name"})
+        id_indices = indices(headers, {"activity id", "id"})
+        date_indices = indices(headers, {"activity date", "date"})
+        name_indices = indices(headers, {"activity name", "name"})
+        type_indices = indices(headers, {"activity type", "type"})
+        distance_indices = indices(headers, {"distance", "distance (m)", "distance_m"})
+        elevation_indices = indices(
+            headers, {"elevation gain", "elevation gain (m)", "elevation_gain"}
+        )
+
+        filename_index = filename_indices[0] if filename_indices else None
+        id_index = id_indices[0] if id_indices else None
+        date_index = date_indices[0] if date_indices else None
+        name_index = name_indices[0] if name_indices else None
+        type_index = type_indices[0] if type_indices else None
+        distance_index = distance_indices[-1] if distance_indices else None
+        elevation_index = elevation_indices[-1] if elevation_indices else None
+
+        for row in reader:
+            filename = value(row, filename_index)
+            activity_id = value(row, id_index)
+            activity_name = value(row, name_index)
+            activity_type = value(row, type_index)
+
+            distance_m: Optional[float] = None
+            if distance_index is not None:
+                distance_m = to_float(value(row, distance_index))
+                if distance_m is not None:
+                    header = headers[distance_index]
+                    if "km" in header or "kilomet" in header:
+                        distance_m *= 1000
+                    elif "mi" in header:
+                        distance_m *= METERS_PER_MILE
+                    elif default_distance_unit == "km":
+                        distance_m *= 1000
+                    elif default_distance_unit == "mi":
+                        distance_m *= METERS_PER_MILE
+                    elif (
+                        default_distance_unit == "auto"
+                        and len(distance_indices) == 1
+                        and 0 < distance_m < 100
+                    ):
+                        # A lone Strava display column is usually kilometres.
+                        distance_m *= 1000
+
+            elevation_m: Optional[float] = None
+            if elevation_index is not None:
+                elevation_m = to_float(value(row, elevation_index))
+                if elevation_m is not None and "ft" in headers[elevation_index]:
+                    elevation_m /= FEET_PER_METER
+
             record = {
-                "name": lower.get("activity name") or lower.get("name") or "",
-                "date": normalize_date(lower.get("activity date") or lower.get("date") or ""),
+                "name": activity_name,
+                "date": normalize_date(value(row, date_index)),
                 "sport": normalize_sport(activity_type),
                 "activity_type": activity_type,
-                "ski_style": classify_ski_style(activity_type + " " + (lower.get("activity name") or "")),
+                "ski_style": classify_ski_style(activity_type + " " + activity_name),
+                "distance_m": distance_m,
+                "elevation_m": elevation_m,
             }
             if filename:
                 metadata[Path(filename).name] = record
             if activity_id:
                 metadata[activity_id] = record
     return metadata
+
+
+def read_strava_metadata(strava_dir: Path) -> Dict[str, Dict[str, Any]]:
+    """Map a file name / activity id to metadata from Strava's activities.csv."""
+    path = strava_dir / "activities.csv"
+    if not path.exists():
+        return {}
+    return read_activity_csv_metadata(path, default_distance_unit="auto")
+
+
+def read_garmin_metadata(garmin_dir: Path) -> Dict[str, Dict[str, Any]]:
+    """Read Garmin's activities.csv, whose metrics are always metres."""
+    path = garmin_dir / "activities.csv"
+    if not path.exists():
+        return {}
+    return read_activity_csv_metadata(path, default_distance_unit="m")
+
+
+def source_imperial_metrics(meta: Dict[str, Any]) -> Tuple[Optional[float], Optional[float]]:
+    """Convert canonical source metrics (metres) to published imperial fields."""
+    distance_m = meta.get("distance_m")
+    elevation_m = meta.get("elevation_m")
+    distance_mi = round(distance_m / METERS_PER_MILE, 2) if isinstance(distance_m, (int, float)) else None
+    elevation_ft = round(elevation_m * FEET_PER_METER) if isinstance(elevation_m, (int, float)) else None
+    return distance_mi, elevation_ft
+
+
+def metadata_signature(meta: Dict[str, Any]) -> str:
+    """Invalidate cached summaries when the source CSV metrics change."""
+    distance_mi, elevation_ft = source_imperial_metrics(meta)
+    return f"{distance_mi}:{elevation_ft}"
 
 
 def discover_track_files(strava_dir: Path) -> List[Path]:
@@ -734,8 +853,9 @@ def load_strava_activities(
 ) -> List[Dict[str, Any]]:
     """Read Strava tracks, reusing cached summaries for unchanged files.
 
-    A file is considered unchanged when its size and mtime match the cached
-    signature. New, modified, or removed files are the only ones re-parsed.
+    A file is considered unchanged when its size/mtime and source CSV metrics
+    match the cached signature. New, modified, or removed files are the only
+    ones re-parsed.
     """
     if not strava_dir.exists():
         warn(f"Strava directory not found: {strava_dir}")
@@ -751,7 +871,10 @@ def load_strava_activities(
     for path in files:
         key = str(path.resolve())
         active_keys.add(key)
-        signature = file_signature(path)
+        meta = metadata.get(path.name) or metadata.get(path.stem.split(".")[0]) or {}
+        signature = "|".join(
+            [file_signature(path), str(CACHE_UNITS_VERSION), metadata_signature(meta)]
+        )
         cached = cache.get(key) if cache is not None else None
         if (
             isinstance(cached, dict)
@@ -772,7 +895,7 @@ def load_strava_activities(
                 cache.pop(key, None)
             continue
         stats = track_stats(points)
-        meta = metadata.get(path.name) or metadata.get(path.stem.split(".")[0]) or {}
+        source_distance_mi, source_elevation_ft = source_imperial_metrics(meta)
         date_text = meta.get("date") or ""
         if not date_text:
             timestamps = [point[3] for point in points if point[3] is not None]
@@ -795,8 +918,8 @@ def load_strava_activities(
             "summary": "",
             "image": "",
             "post_url": "",
-            "distance_mi": round(stats["distance_mi"], 2),
-            "elevation_ft": round(stats["gain_ft"]),
+            "distance_mi": source_distance_mi if source_distance_mi is not None else round(stats["distance_mi"], 2),
+            "elevation_ft": source_elevation_ft if source_elevation_ft is not None else round(stats["gain_ft"]),
             "grade": "",
             "pitches": None,
             "source": "strava",
@@ -842,11 +965,6 @@ def attach_ski_styles(
     return attached
 
 
-def read_garmin_metadata(garmin_dir: Path) -> Dict[str, Dict[str, str]]:
-    """Read Garmin activities.csv using the same column names as Strava."""
-    return read_strava_metadata(garmin_dir)
-
-
 def load_garmin_activities(
     garmin_dir: Path,
     cache: Optional[Dict[str, Any]] = None,
@@ -872,7 +990,10 @@ def load_garmin_activities(
     for path in files:
         key = str(path.resolve())
         active_keys.add(key)
-        signature = file_signature(path)
+        meta = metadata.get(path.name) or metadata.get(path.stem.split(".")[0]) or {}
+        signature = "|".join(
+            [file_signature(path), str(CACHE_UNITS_VERSION), metadata_signature(meta)]
+        )
         cached = cache.get(key) if cache is not None else None
         if (
             isinstance(cached, dict)
@@ -893,7 +1014,7 @@ def load_garmin_activities(
                 cache.pop(key, None)
             continue
         stats = track_stats(points)
-        meta = metadata.get(path.name) or metadata.get(path.stem.split(".")[0]) or {}
+        source_distance_mi, source_elevation_ft = source_imperial_metrics(meta)
         date_text = meta.get("date") or ""
         if not date_text:
             timestamps = [point[3] for point in points if point[3] is not None]
@@ -916,8 +1037,8 @@ def load_garmin_activities(
             "summary": "",
             "image": "",
             "post_url": "",
-            "distance_mi": round(stats["distance_mi"], 2),
-            "elevation_ft": round(stats["gain_ft"]),
+            "distance_mi": source_distance_mi if source_distance_mi is not None else round(stats["distance_mi"], 2),
+            "elevation_ft": source_elevation_ft if source_elevation_ft is not None else round(stats["gain_ft"]),
             "grade": "",
             "pitches": None,
             "source": "garmin",
@@ -2400,6 +2521,45 @@ def validate(
         log(f"validation: {len(regions)} regions, {len(featured)} featured routes, all checks passed")
 
 
+def validate_imperial_labels(
+    posts: List[Dict[str, Any]],
+    featured: List[Dict[str, Any]],
+    region_features: List[Dict[str, Any]],
+) -> None:
+    """Fail the build if a published GPS-derived label reverts to metric units."""
+    problems: List[str] = []
+
+    def check(label: str, text: Any) -> None:
+        match = METRIC_LABEL_RE.search(str(text or ""))
+        if match:
+            problems.append(f"{label}: {text!r} contains metric unit {match.group(0)!r}")
+
+    for post in posts:
+        slug = post.get("slug")
+        check(f"post {slug} title", post.get("title"))
+        check(f"post {slug} summary", post.get("summary"))
+        check(f"post {slug} excerpt", post.get("excerpt"))
+    for feature in featured:
+        props = feature["properties"]
+        title = str(props.get("title") or "")
+        main, separator, detail = title.partition(" | ")
+        check(f"featured {props.get('slug')} title", main)
+        if separator:
+            check(f"featured {props.get('slug')} detail", detail)
+        check(f"featured {props.get('slug')} summary", props.get("summary"))
+    for feature in region_features:
+        for story in feature["properties"].get("top_stories", []):
+            check(f"region {feature['properties'].get('region_id')} story", story.get("title"))
+
+    if problems:
+        sys.exit(
+            "published GPS-derived labels must use imperial units:\n  "
+            + "\n  ".join(problems[:20])
+            + (f"\n  ... and {len(problems) - 20} more" if len(problems) > 20 else "")
+        )
+    log(f"validation: {len(posts)} post titles and {len(featured)} route labels are imperial")
+
+
 def print_report(regions: "gpd.GeoDataFrame", featured: List[Dict[str, Any]]) -> None:
     log("")
     log(f"{'region':40} {'acts':>5} {'vert_ft':>9} {'stories':>8} {'sports'}")
@@ -3387,6 +3547,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             }
         )
 
+    validate_imperial_labels(posts, featured, region_features)
     generated_at = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     region_metadata = {
         "generated_by": "scripts/build_atlas.py",
